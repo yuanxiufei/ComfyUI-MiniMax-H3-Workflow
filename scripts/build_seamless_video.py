@@ -225,6 +225,43 @@ def _speaker_num(role_map, voice, spk):
     return "S11"
 
 
+def dialogue_segment(sb, role_map):
+    """为分镜生成 H3 官方对白段。
+
+    格式与 build_shots 完全一致: `"{说话人} speaks {稳定音色} (S编号): <d>[Chinese] 台词 </d>"`,
+    旁白为 `"Narrator speaks ..."`。这段文字驱动 H3 的说话人声音/口型/语速,缺它则模型只能
+    瞎编台词、声音与画面错乱。供 i2v(首帧成片) / fl2va(首尾帧成片) 复用,保证对白准确注入、
+    人声跨镜统一。空镜或该镜无对白返回空串(调用方据此不加"台词"段)。
+    """
+    dlg = split_dialogue(sb.get("dialogue", ""))
+    if not dlg:
+        return ""
+    sb_speaker = sb.get("speaker_id")
+    segs = []
+    for spk, text in dlg:
+        if not spk:  # dialogue 未带角色前缀时,回退到该镜 speaker_id 的默认角色
+            spk = role_map.get(sb_speaker, {}).get("name", "")
+        voice = role_map.get(spk)  # spk 为中文名
+        if not voice:
+            voice = _find_role_by_name(spk, role_map) or role_map.get(sb_speaker) \
+                or role_map.get("S11", {})
+        if not voice:
+            # 角色库无该说话人时,至少保留台词文本,避免整段对白凭空消失
+            segs.append(f"<d>[Chinese] {text} </d>")
+            continue
+        s_num = _speaker_num(role_map, voice, spk)
+        is_narration = (s_num == "S11") or ("旁白" in spk)
+        v_en = voice.get("voice_en", VOICE_EN.get(s_num, VOICE_EN["S11"]))
+        name = voice.get("name", spk)
+        if is_narration:
+            text = re.sub(r"^\s*旁白\s*[：:]\s*", "", text)
+            say = f"Narrator speaks {v_en} ({s_num}): <d>[Chinese] {text} </d>"
+        else:
+            say = f"{name} speaks {v_en} ({s_num}): <d>[Chinese] {text} </d>"
+        segs.append(say)
+    return " ".join(segs)
+
+
 def add_voice_anchor(wf, file_name):
     """注入 LoadAudio(voice anchor) 节点,连到 sampler 的 voice_ref 输入。
 

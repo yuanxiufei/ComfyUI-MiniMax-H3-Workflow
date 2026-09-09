@@ -5,6 +5,8 @@
   - 竖屏 9:16，H3 生成 736x1280，剪映导出 1080x1920
   - 素材目录规范：output/00_角色素材、01_场景素材、02_分镜
   - 演进路线：T2V -> I2V -> FL2VA -> Ref2VA -> Multishot -> Turbo
+  - 视频模板默认只产出最终主力 09_video_FL2VA（I2V/FL2VA）；
+    探路 T2V(07) 需加 --with-t2v、暂缓 Ref2VA(10) 需加 --with-ref2va，才一并生成。
 生图模型与 D:\\AIGC中国风3D漫剧 实际主力一致（Qwen-2512；ZImage 仅早期试做已弃用，不再生成）。
 只向本工作区 workflows/ 写新 JSON，不修改 D:\\AIGC中国风3D漫剧\\workflows 下原有工作流。
 """
@@ -1000,22 +1002,29 @@ def main():
 
     if not shot_filter:
         # ---- 视频工作流（H3 Director 模板 + 8步 turbo LoRA，横屏 1280x736）----
-        # 第一阶段 T2V 探路
-        wf = load_example("minimax_h3_director_t2v.json")
-        wf = insert_lora(wf, "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors", 1.0)
-        wf = modify_director(wf, 8, VID_W, VID_H, PFX_VIDEO)
-        write(os.path.join(OUT, f"07_video_T2V_{VID_W}x{VID_H}.json"), wf)
-
-        # 第二阶段 I2V / FL2VA（同一 fl2v 模板：接首帧即 I2V，接首尾帧即 FL2VA）
+        # 默认只产出最终主力 09_FL2VA（同一 fl2v 模板：接首帧即 I2V，接首尾帧即 FL2VA）。
+        # 探路 T2V(07) / 暂缓 Ref2VA(10) 默认不生成（避免 workflows/ 堆积探路/暂缓模板），
+        # 仅在显式加 --with-t2v / --with-ref2va 时才产出，与《H3 固定方案》阶段演进一致。
         wf = load_example("minimax_h3_director_fl2v.json")
         wf = insert_lora(wf, "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors", 1.0)
         wf = modify_director(wf, 8, VID_W, VID_H, PFX_VIDEO)
         write(os.path.join(OUT, f"09_video_FL2VA_{VID_W}x{VID_H}.json"), wf)
+        print("  [视频模板] 09_video_FL2VA = 主力（I2V/FL2VA）")
 
-        # 第四阶段 Ref2VA（角色/场景参考，8 步无 4-step turbo，与外部项目 r2v 一致）
-        wf = load_example("minimax_h3_director_r2v.json")
-        wf = modify_director(wf, 8, VID_W, VID_H, PFX_VIDEO)
-        write(os.path.join(OUT, f"10_video_Ref2VA_{VID_W}x{VID_H}.json"), wf)
+        if "--with-t2v" in sys.argv:
+            # 第一阶段 T2V 探路（默认不生成；仅探路时加 --with-t2v）
+            wf = load_example("minimax_h3_director_t2v.json")
+            wf = insert_lora(wf, "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors", 1.0)
+            wf = modify_director(wf, 8, VID_W, VID_H, PFX_VIDEO)
+            write(os.path.join(OUT, f"07_video_T2V_{VID_W}x{VID_H}.json"), wf)
+            print("  [视频模板] 07_video_T2V = 探路（--with-t2v）")
+
+        if "--with-ref2va" in sys.argv:
+            # 第四阶段 Ref2VA（角色/场景参考，8 步无 4-step turbo，与外部项目 r2v 一致；默认不生成）
+            wf = load_example("minimax_h3_director_r2v.json")
+            wf = modify_director(wf, 8, VID_W, VID_H, PFX_VIDEO)
+            write(os.path.join(OUT, f"10_video_Ref2VA_{VID_W}x{VID_H}.json"), wf)
+            print("  [视频模板] 10_video_Ref2VA = 暂缓（--with-ref2va）")
 
     print("Wrote new landscape workflows to", OUT)
 
