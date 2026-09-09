@@ -24,6 +24,13 @@ ROLE_DB = os.path.abspath(os.path.join(HERE, "..", "剧本", "03_角色场景", 
 SCENE_DB = os.path.abspath(os.path.join(HERE, "..", "剧本", "03_角色场景", "场景.json"))
 STORYBOARD_DB = os.path.abspath(os.path.join(HERE, "..", "剧本", "02_分镜", "第1集_分镜.json"))
 
+# 复用角色 QC 引擎的三视图硬约束自检（qc_characters 不反向依赖本模块，无循环）
+sys.path.insert(0, HERE)
+try:
+    import qc_characters as qc
+except ImportError:  # 兜底：QC 引擎缺失时仅跳过生成后自检，不阻断构建
+    qc = None
+
 # --- 生图模型（与 D:\AIGC中国风3D漫剧 一致） ---
 Q = ("qwen_image_2512_bf16.safetensors",
      "qwen_2.5_vl_7b_fp8_scaled.safetensors", "qwen_image",
@@ -890,22 +897,39 @@ def build_char_assets(IMG_W, IMG_H, SNAME, SFX, STRENGTH):
     画出来的身高体态、头身比、面部成熟度符合该角色年龄；age 缺失时退回统一成人比例。
     """
     roles = load_roles()
+    QA_ISSUES = []
     for role in roles:
         physique = AGE_PHYSIQUE.get(_age_bucket(role.get("age"), role.get("gender", "男")))
         look = role_look(role)
         pfx = f"00_角色素材/{role['name']}/{role['id']}_"
         rid = "" if role["id"] == "c01" else f"_{role['id']}"
         unet, clip, ctype, vae, lora = Q
+        p_prompt = char_3view_fusion(look, role.get("props", []), physique, role.get("era", "ancient"))
         write(os.path.join(OUT, f"01_char3view_{IMG_W}x{IMG_H}_Qwen2512{rid}_{SFX}.json"),
               make_img(unet, clip, ctype, vae, lora, STRENGTH,
-                       char_3view_fusion(look, role.get("props", []), physique, role.get("era", "ancient")),
-                       NEG_GRID_FUSION, IMG_W, IMG_H, 30, 4.0, 42, pfx + "三视图_" + SNAME,
+                       p_prompt, NEG_GRID_FUSION, IMG_W, IMG_H, 30, 4.0, 42, pfx + "三视图_" + SNAME,
                        "Qwen-2512 DiT", f"角色 LoRA ({STRENGTH})"))
+        # --- 三视图硬约束生成后自检（严格写入角色生成流程） ---
+        if qc is not None:
+            qc.validate_3view_prompt(p_prompt, role, QA_ISSUES)
         if physique:
             print(f"  [{role['id']}]{role['name']} age={role.get('age')} -> "
                   f"({_age_bucket(role.get('age'), role.get('gender', '男'))}) 注入年龄身形段")
         else:
             print(f"  [{role['id']}]{role['name']} age={role.get('age')} -> 未识别，保持统一成人比例")
+
+    # --- 三视图硬约束自检门禁：任一角色缺硬约束段(P0)即阻断，避免产出无效/异常三视图 ---
+    if qc is not None:
+        qa_p0 = [x for x in QA_ISSUES if x["level"] == "P0"]
+        if qa_p0:
+            for x in qa_p0:
+                print(f"  [三视图硬约束未通过] {x['item']} {x['code']}: {x['msg']}", file=sys.stderr)
+            if "--skip-3view-qa" not in sys.argv:
+                print("三视图硬约束自检未通过，已阻断生成。请先修复角色/工作流后重跑，"
+                      "或加 --skip-3view-qa 强制写出（仅限人工确认）。", file=sys.stderr)
+                sys.exit(1)
+        else:
+            print("三视图硬约束自检通过（%d 个角色）" % len(roles))
 
 
 def build_scene_assets(IMG_W, IMG_H):
