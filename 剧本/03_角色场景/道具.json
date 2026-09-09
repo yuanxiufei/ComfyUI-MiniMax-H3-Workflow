@@ -1,29 +1,23 @@
 {
   "project": "剑噬天下",
+  "generated_by": "character-scene-extractor",
+  "note": "第1集《剑修凌云》道具库。道具的 image_prompt 用于三视图道具板 / 特写镜头，与角色随身道具保持一致。",
   "props": [
     {
       "id": "p001",
       "name": "佩剑",
       "type": "武器",
-      "asset_level": "B",
-      "description": "小雪的古剑，剑鞘华美，被凌云以气劲封住，拔不出鞘。",
-      "prompt": "an ancient sheathed long sword, ornate decorated scabbard, elegant Chinese sword, shown alone as isolated standalone object, no person holding it"
+      "scene_ids": ["sc001"],
+      "description": "凌云的青锋利剑，古朴剑鞘，剑身寒光凛冽，锋利无匹",
+      "image_prompt": "一柄古朴的青锋利剑，剑鞘深青色，剑柄缠着深色布条，剑身出鞘寒光凛冽，锋刃如霜，小篆剑纹，古意盎然"
     },
     {
       "id": "p002",
       "name": "银色手枪",
       "type": "武器",
-      "asset_level": "B",
-      "description": "小雪贴身小提包里的精巧银色小手枪。",
-      "prompt": "a compact delicate silver handgun, precise metallic body, shown alone as isolated standalone object, no person holding it"
-    },
-    {
-      "id": "p003",
-      "name": "三尺青锋",
-      "type": "武器",
-      "asset_level": "A",
-      "description": "凌云的法剑，古朴暗沉，出鞘如电光，可一剑劈开子弹。",
-      "prompt": "a three-foot ancient Chinese sword (qingfeng), archaic dark scabbard, sharp glinting blade, shown alone as isolated standalone object, no person holding it"
+      "scene_ids": ["sc001"],
+      "description": "小雪随身的小巧银色手枪，精致华贵，枪身银光闪烁",
+      "image_prompt": "一把小巧精致的银色左轮手枪，枪身抛光如镜，泛着银白光泽，握把镶着精致纹饰，造型华贵而危险"
     }
   ]
 }

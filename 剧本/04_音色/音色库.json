@@ -2,49 +2,49 @@
   "note": "MiniMax H3 TTS 音色库（占位；接入云端 TTS 时把 voice_id 替换为真实 ID）",
   "voices": [
     {
-      "voice_id": "voice_narrator_01",
-      "name": "旁白",
+      "voice_id": "voice_主角_男_01",
+      "name": "凌云",
       "gender": "男",
       "role_tags": [
-        "旁白"
+        "主角"
       ],
-      "voice_desc": "沉稳旁白男声"
+      "voice_desc": "一个清冷沉稳、干净有力的青年男声，平静冷淡，自带高手气场"
     },
     {
-      "voice_id": "voice_女_03",
+      "voice_id": "voice_配角_女_02",
       "name": "小雪",
       "gender": "女",
       "role_tags": [
         "配角"
       ],
-      "voice_desc": ""
+      "voice_desc": "一个明亮清脆、灵动好胜的少女音，语速轻快，娇蛮活泼"
     },
     {
-      "voice_id": "voice_女_04",
+      "voice_id": "voice_配角_女_03",
       "name": "云姐",
       "gender": "女",
       "role_tags": [
         "配角"
       ],
-      "voice_desc": ""
+      "voice_desc": "一个柔美成熟、温婉端庄的成熟女声，语气体贴，略带劝慰"
     },
     {
-      "voice_id": "voice_女_05",
+      "voice_id": "voice_龙套_女_04",
       "name": "陈姨",
       "gender": "女",
       "role_tags": [
-        "配角"
+        "龙套"
       ],
-      "voice_desc": ""
+      "voice_desc": "一个中年稳重、低声恭顺的妇女音，语速平缓"
     },
     {
-      "voice_id": "voice_男_05",
+      "voice_id": "voice_龙套_男_05",
       "name": "保镖",
       "gender": "男",
       "role_tags": [
-        "配角"
+        "龙套"
       ],
-      "voice_desc": ""
+      "voice_desc": "一个低沉雄浑、忠勇急促的青年男声，嗓音偏粗"
     }
   ]
 }
