@@ -1,0 +1,50 @@
+{
+  "note": "MiniMax H3 TTS 音色库（占位；接入云端 TTS 时把 voice_id 替换为真实 ID）",
+  "voices": [
+    {
+      "voice_id": "voice_narrator_01",
+      "name": "旁白",
+      "gender": "男",
+      "role_tags": [
+        "旁白"
+      ],
+      "voice_desc": "沉稳旁白男声"
+    },
+    {
+      "voice_id": "voice_女_03",
+      "name": "小雪",
+      "gender": "女",
+      "role_tags": [
+        "配角"
+      ],
+      "voice_desc": ""
+    },
+    {
+      "voice_id": "voice_女_04",
+      "name": "云姐",
+      "gender": "女",
+      "role_tags": [
+        "配角"
+      ],
+      "voice_desc": ""
+    },
+    {
+      "voice_id": "voice_女_05",
+      "name": "陈姨",
+      "gender": "女",
+      "role_tags": [
+        "配角"
+      ],
+      "voice_desc": ""
+    },
+    {
+      "voice_id": "voice_男_05",
+      "name": "保镖",
+      "gender": "男",
+      "role_tags": [
+        "配角"
+      ],
+      "voice_desc": ""
+    }
+  ]
+}

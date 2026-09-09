@@ -1,0 +1,29 @@
+{
+  "project": "剑噬天下",
+  "props": [
+    {
+      "id": "p001",
+      "name": "佩剑",
+      "type": "武器",
+      "asset_level": "B",
+      "description": "小雪的古剑，剑鞘华美，被凌云以气劲封住，拔不出鞘。",
+      "prompt": "an ancient sheathed long sword, ornate decorated scabbard, elegant Chinese sword, shown alone as isolated standalone object, no person holding it"
+    },
+    {
+      "id": "p002",
+      "name": "银色手枪",
+      "type": "武器",
+      "asset_level": "B",
+      "description": "小雪贴身小提包里的精巧银色小手枪。",
+      "prompt": "a compact delicate silver handgun, precise metallic body, shown alone as isolated standalone object, no person holding it"
+    },
+    {
+      "id": "p003",
+      "name": "三尺青锋",
+      "type": "武器",
+      "asset_level": "A",
+      "description": "凌云的法剑，古朴暗沉，出鞘如电光，可一剑劈开子弹。",
+      "prompt": "a three-foot ancient Chinese sword (qingfeng), archaic dark scabbard, sharp glinting blade, shown alone as isolated standalone object, no person holding it"
+    }
+  ]
+}

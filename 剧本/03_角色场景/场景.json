@@ -1,0 +1,15 @@
+{
+  "project": "剑噬天下",
+  "generated_by": "character-scene-extractor + grid-image-generator",
+  "scenes": [
+    {
+      "name": "东家城堡花园广场",
+      "asset_level": "A",
+      "scene_type": "exterior",
+      "时间": "白天",
+      "氛围": "奢华气派、古典幽静、喷泉环绕、庭院深深",
+      "prompt": "exterior of a magnificent castle-like grand garden plaza, surrounded by numerous spraying fountains, a luxurious setting with an old classical European atmosphere, bright daytime sunlight, grand garden with trees and flowers, spacious courtyard, elegant royal architecture, cinematic depth, 4K, high detail, no people",
+      "id": "sc001"
+    }
+  ]
+}

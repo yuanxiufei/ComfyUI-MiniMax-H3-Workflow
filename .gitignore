@@ -4,3 +4,18 @@
 # 系统文件
 .DS_Store
 Thumbs.db
+
+# Python 缓存
+__pycache__/
+*.pyc
+
+# 模型权重（大文件，不入库）
+safetensors/
+models/
+
+# 临时输出
+tmp_img/
+
+# 可再生成的产物（由 pipeline / build 重建，不入库，防止大量 json 堆积仓库）
+output/
+workflows/singles/

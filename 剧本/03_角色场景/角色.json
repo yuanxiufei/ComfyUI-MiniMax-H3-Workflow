@@ -1,0 +1,111 @@
+{
+  "project": "剑噬天下",
+  "generated_by": "character-scene-extractor + voice-assigner + grid-image-generator",
+  "characters": [
+    {
+      "id": "c01",
+      "name": "凌云",
+      "speaker_id": "S1",
+      "gender": "男",
+      "asset_level": "A",
+      "age": "16岁",
+      "role_type": "主角",
+      "性格特点": "淡漠、深不可测、杀伐果断、处变不惊、对自己实力的绝对自信",
+      "角色描述": "神秘的剑修少年，代师三十年前赴约前来拜会东家大长老；盘坐不动如山，对世俗礼法无动于衷，却能一剑劈开子弹，凌驾于古武与枪械之上。",
+      "随身道具": [
+        "三尺青锋"
+      ],
+      "appearance": "十五六岁的剑修少年，身形清瘦而挺拔，五官清正、眉目英朗，一双黑眸深邃平静如寒潭；黑发以素色布带束起，一袭素白古装长衫，内着素白长裤，足蹬布靴，从头到脚衣着严整；衣袂无风自静，气质清冷疏离。身侧斜放一柄三尺青锋，剑鞘古朴暗沉，透着凛冽剑意。",
+      "image_prompt": "stylized 3D Chinese anime character, perfect fusion of realistic rendering and CG animation, premium 3D animated film quality, 3D次时代CG风格渲染, high-precision sculpted model, dramatic volumetric lighting, soft-focus shallow depth of field, atmospheric smoke and mist simulation, China-style aesthetic background, Octane renderer look, Unreal Engine 5, very realistic textured human skin, fine visible skin pores, natural skin grain and subtle realistic skin details, natural skin tones, realistic non-plastic non-waxy skin material with soft natural highlights, subsurface scattering, expressive detailed anime eyes with realistic iris depth, subtle natural facial micro-expressions, 电影感氛围, 电影级布光, 浅景深, 4K高清纹理, 高精度3D模型, PBR材质, Chinese Guoman 3D style, East Asian anime face, handsome and clean-cut facial features, a well-proportioned attractive face, a slender 16-year-old sword-cultivator youth with a clean-cut handsome face and a calm aloof early-maturing look, calm deep dark eyes, black hair tied up with a plain cloth band, a faint drifting sword qi and wispy spiritual mist around him, wearing an elegant plain white ancient long robe with matching plain white full-length trousers and cloth boots beneath, fully and modestly dressed from head to toe, quiet and aloof bearing, a three-foot ancient sword (qingfeng) resting at his side, sitting cross-legged in meditation, cinematic portrait, high quality, consistent art style, no text, no watermark",
+      "pose_props": [],
+      "voice": {
+        "voice_id": "voice_narrator_01",
+        "voice_desc": "",
+        "role_tag": ""
+      }
+    },
+    {
+      "id": "c02",
+      "name": "小雪",
+      "speaker_id": "S2",
+      "gender": "女",
+      "asset_level": "A",
+      "age": "16岁",
+      "role_type": "主角",
+      "性格特点": "娇纵好胜、好奇顽皮、不谙世事、被众星拱月养大、吃软不吃硬",
+      "角色描述": "古武世家东家的掌上明珠，大小姐脾气，走到何处都被年轻公子追捧；初遇凌云被无视顿起好胜之心，拔剑不成掏枪相向，却被对方一剑劈开子弹的恐怖实力彻底震撼。",
+      "随身道具": [
+        "佩剑",
+        "银色手枪"
+      ],
+      "appearance": "十五六岁的少女，钟灵毓秀，五官精致耐看，一双灵动的大眼睛明亮有神，睫毛纤长；乌黑长发，清爽时尚的发型，气质青春靓丽、古灵精怪，穿着一身得体的精致裙装，身量娇小玲珑。",
+      "image_prompt": "stylized 3D Chinese anime character, perfect fusion of realistic rendering and CG animation, premium 3D animated film quality, 3D次时代CG风格渲染, high-precision sculpted model, dramatic volumetric lighting, soft-focus shallow depth of field, atmospheric smoke and mist simulation, China-style aesthetic background, Octane renderer look, Unreal Engine 5, very realistic textured human skin, fine visible skin pores, natural skin grain and subtle realistic skin details, natural skin tones, realistic non-plastic non-waxy skin material with soft natural highlights, subsurface scattering, expressive detailed anime eyes with realistic iris depth, subtle natural facial micro-expressions, 电影感氛围, 电影级布光, 浅景深, 4K高清纹理, 高精度3D模型, PBR材质, Chinese Guoman 3D style, East Asian anime face, pretty and lovely facial features, a well-proportioned attractive face, a lovely 16-year-old girl with refined pretty facial features, bright expressive large eyes, black hair in a fresh stylish updo, youthful lively and spirited aura, wearing an elegant exquisite dress, small and delicate figure, holding a sheathed sword and carrying a delicate silver pistol, cinematic portrait, high quality, consistent art style, no text, no watermark",
+      "pose_props": [],
+      "voice": {
+        "voice_id": "voice_女_03",
+        "voice_desc": "",
+        "role_tag": ""
+      }
+    },
+    {
+      "id": "c03",
+      "name": "云姐",
+      "speaker_id": "S3",
+      "gender": "女",
+      "asset_level": "B",
+      "age": "29岁",
+      "role_type": "配角",
+      "性格特点": "温婉稳重、顾全大局、护犊情深、善于周旋",
+      "角色描述": "东家城堡中的成熟美貌女子，负责接待打理家族事务；对凌云敬畏有加，百般维护家族与小雪周全，生怕小雪得罪这位深不可测的贵客。",
+      "随身道具": [],
+      "appearance": "二十八九岁的成熟美貌女子，五官端庄秀美，眉眼含情，笑容温婉亲切；长发优雅盘起，佩戴素雅珠饰，穿着一身得体大气的古装长裙，身姿优雅从容，气质成熟妩媚。",
+      "image_prompt": "stylized 3D Chinese anime character, perfect fusion of realistic rendering and CG animation, premium 3D animated film quality, 3D次时代CG风格渲染, high-precision sculpted model, dramatic volumetric lighting, soft-focus shallow depth of field, atmospheric smoke and mist simulation, China-style aesthetic background, Octane renderer look, Unreal Engine 5, very realistic textured human skin, fine visible skin pores, natural skin grain and subtle realistic skin details, natural skin tones, realistic non-plastic non-waxy skin material with soft natural highlights, subsurface scattering, expressive detailed anime eyes with realistic iris depth, subtle natural facial micro-expressions, 电影感氛围, 电影级布光, 浅景深, 4K高清纹理, 高精度3D模型, PBR材质, Chinese Guoman 3D style, East Asian anime face, pretty and lovely facial features, a well-proportioned attractive face, an elegant mature beauty in her late twenties, refined pretty features, gentle warm smile, black hair gracefully updo with elegant hair ornament, wearing an elegant ancient dress, poised and composed mature aura, cinematic portrait, high quality, consistent art style, no text, no watermark",
+      "pose_props": [],
+      "voice": {
+        "voice_id": "voice_女_04",
+        "voice_desc": "",
+        "role_tag": ""
+      }
+    },
+    {
+      "id": "c04",
+      "name": "陈姨",
+      "speaker_id": "S4",
+      "gender": "女",
+      "asset_level": "C",
+      "age": "40岁",
+      "role_type": "龙套",
+      "性格特点": "忠厚干练、少言、顺从",
+      "角色描述": "小雪家的司机，中年女子，被唤来为小雪拿剑，恭顺听命。",
+      "随身道具": [],
+      "appearance": "四十岁上下的中年女子，面容质朴干练，五官端正，神情沉稳；头发简单束起，穿着利落的司机制服，身形中等，透着仆从的恭谨。",
+      "image_prompt": "stylized 3D Chinese anime character, perfect fusion of realistic rendering and CG animation, premium 3D animated film quality, 3D次时代CG风格渲染, high-precision sculpted model, dramatic volumetric lighting, soft-focus shallow depth of field, atmospheric smoke and mist simulation, China-style aesthetic background, Octane renderer look, Unreal Engine 5, very realistic textured human skin, fine visible skin pores, natural skin grain and subtle realistic skin details, natural skin tones, realistic non-plastic non-waxy skin material with soft natural highlights, subsurface scattering, expressive detailed anime eyes with realistic iris depth, subtle natural facial micro-expressions, 电影感氛围, 电影级布光, 浅景深, 4K高清纹理, 高精度3D模型, PBR材质, Chinese Guoman 3D style, East Asian anime face, pretty and lovely facial features, a well-proportioned attractive face, a plain neat middle-aged woman around forty with steady ordinary features, hair simply tied back, wearing a neat driver uniform, humble and competent bearing, cinematic portrait, high quality, consistent art style, no text, no watermark",
+      "pose_props": [],
+      "voice": {
+        "voice_id": "voice_女_05",
+        "voice_desc": "",
+        "role_tag": ""
+      }
+    },
+    {
+      "id": "c05",
+      "name": "保镖",
+      "speaker_id": "S5",
+      "gender": "男",
+      "asset_level": "C",
+      "age": "31岁",
+      "role_type": "龙套",
+      "性格特点": "忠诚警觉、身手矫健、一夫当关",
+      "角色描述": "小雪身边的贴身保镖，在危急时刻察觉杀气横身护主，却被凌云的无形剑气瞬间洞穿胸口。",
+      "随身道具": [],
+      "appearance": "三十出头的精壮男子，体格健硕，国字脸浓眉，五官刚毅耐看，目光犀利警觉；黑色劲装短打，身姿魁梧，透着一股干练忠勇之气。",
+      "image_prompt": "stylized 3D Chinese anime character, perfect fusion of realistic rendering and CG animation, premium 3D animated film quality, 3D次时代CG风格渲染, high-precision sculpted model, dramatic volumetric lighting, soft-focus shallow depth of field, atmospheric smoke and mist simulation, China-style aesthetic background, Octane renderer look, Unreal Engine 5, very realistic textured human skin, fine visible skin pores, natural skin grain and subtle realistic skin details, natural skin tones, realistic non-plastic non-waxy skin material with soft natural highlights, subsurface scattering, expressive detailed anime eyes with realistic iris depth, subtle natural facial micro-expressions, 电影感氛围, 电影级布光, 浅景深, 4K高清纹理, 高精度3D模型, PBR材质, Chinese Guoman 3D style, East Asian anime face, handsome and clean-cut facial features, a well-proportioned attractive face, a burly man in his early thirties with a square face and thick brows, strong vigorous build, sharp alert eyes, wearing a black short combat outfit, loyal and brave bodyguard bearing, cinematic portrait, high quality, consistent art style, no text, no watermark",
+      "pose_props": [],
+      "voice": {
+        "voice_id": "voice_男_05",
+        "voice_desc": "",
+        "role_tag": ""
+      }
+    }
+  ]
+}

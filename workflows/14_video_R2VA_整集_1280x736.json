@@ -1,0 +1,3790 @@
+{
+  "id": "91a8ff3e-182c-49b7-a292-448bcd32cc85",
+  "revision": 0,
+  "last_node_id": 87,
+  "last_link_id": 53,
+  "nodes": [
+    {
+      "id": 2,
+      "type": "CLIPLoader",
+      "pos": [
+        473.3126815332407,
+        -437.88888366050656
+      ],
+      "size": [
+        360,
+        106
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "CLIP名称",
+          "name": "clip_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "clip_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "类型",
+          "name": "type",
+          "type": "COMBO",
+          "widget": {
+            "name": "type"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "设备",
+          "name": "device",
+          "shape": 7,
+          "type": "COMBO",
+          "widget": {
+            "name": "device"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "CLIP",
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            2
+          ]
+        }
+      ],
+      "title": "CLIP (minimax / Qwen3-VL)",
+      "properties": {
+        "Node name for S&R": "CLIPLoader",
+        "models": [
+          {
+            "name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+            "directory": "text_encoders"
+          }
+        ]
+      },
+      "widgets_values": [
+        "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "minimax",
+        "default"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "VAELoader",
+      "pos": [
+        473.3126815332407,
+        -277.8888836605067
+      ],
+      "size": [
+        360,
+        58
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "vae名称",
+          "name": "vae_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "vae_name"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "VAE",
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            3
+          ]
+        }
+      ],
+      "title": "Video VAE",
+      "properties": {
+        "Node name for S&R": "VAELoader",
+        "models": [
+          {
+            "name": "minimax_h3_video_vae_fp16.safetensors",
+            "directory": "vae"
+          }
+        ]
+      },
+      "widgets_values": [
+        "minimax_h3_video_vae_fp16.safetensors"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "VAELoader",
+      "pos": [
+        473.3126815332407,
+        -157.8888836605067
+      ],
+      "size": [
+        360,
+        58
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "vae名称",
+          "name": "vae_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "vae_name"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "VAE",
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            4
+          ]
+        }
+      ],
+      "title": "Audio VAE",
+      "properties": {
+        "Node name for S&R": "VAELoader",
+        "models": [
+          {
+            "name": "minimax_h3_audio_vae_fp32.safetensors",
+            "directory": "vae"
+          }
+        ]
+      },
+      "widgets_values": [
+        "minimax_h3_audio_vae_fp32.safetensors"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "CreateVideo",
+      "pos": [
+        1200,
+        200
+      ],
+      "size": [
+        280,
+        120
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "图像",
+          "name": "images",
+          "type": "IMAGE",
+          "link": 5
+        },
+        {
+          "localized_name": "音频",
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 6
+        },
+        {
+          "localized_name": "帧率",
+          "name": "fps",
+          "type": "FLOAT",
+          "widget": {
+            "name": "fps"
+          },
+          "link": 7
+        },
+        {
+          "localized_name": "bit_depth",
+          "name": "bit_depth",
+          "shape": 7,
+          "type": "INT",
+          "widget": {
+            "name": "bit_depth"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "视频",
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            9
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CreateVideo"
+      },
+      "widgets_values": [
+        24,
+        8
+      ]
+    },
+    {
+      "id": 8,
+      "type": "PreviewAny",
+      "pos": [
+        1200,
+        400
+      ],
+      "size": [
+        640,
+        200
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "源",
+          "name": "source",
+          "type": "*",
+          "link": 8
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "字符串",
+          "name": "STRING",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "title": "Director 运行报告",
+      "properties": {
+        "Node name for S&R": "PreviewAny"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 9,
+      "type": "PreviewAny",
+      "pos": [
+        1200,
+        640
+      ],
+      "size": [
+        210,
+        122
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "源",
+          "name": "source",
+          "type": "*",
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "字符串",
+          "name": "STRING",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "title": "fps",
+      "properties": {
+        "Node name for S&R": "PreviewAny"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 10,
+      "type": "PreviewAny",
+      "pos": [
+        1440,
+        640
+      ],
+      "size": [
+        210,
+        122
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "源",
+          "name": "source",
+          "type": "*",
+          "link": 11
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "字符串",
+          "name": "STRING",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "title": "frame_count",
+      "properties": {
+        "Node name for S&R": "PreviewAny"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 1,
+      "type": "UNETLoader",
+      "pos": [
+        473.3126815332407,
+        -577.8888836605066
+      ],
+      "size": [
+        360,
+        82
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "UNet名称",
+          "name": "unet_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "unet_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "数据类型",
+          "name": "weight_dtype",
+          "type": "COMBO",
+          "widget": {
+            "name": "weight_dtype"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "模型",
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            12
+          ]
+        }
+      ],
+      "title": "MiniMax H3 UNET (r2v ref2va)",
+      "properties": {
+        "Node name for S&R": "UNETLoader",
+        "models": [
+          {
+            "name": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+            "directory": "diffusion_models"
+          }
+        ]
+      },
+      "widgets_values": [
+        "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+        "default"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "MiniMaxH3Director",
+      "pos": [
+        40,
+        40
+      ],
+      "size": [
+        1028.3548409598216,
+        1464
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 12
+        },
+        {
+          "localized_name": "video_vae",
+          "name": "video_vae",
+          "type": "VAE",
+          "link": 3
+        },
+        {
+          "localized_name": "audio_vae",
+          "name": "audio_vae",
+          "type": "VAE",
+          "link": 4
+        },
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "link": 2
+        },
+        {
+          "localized_name": "i2v_groups",
+          "name": "i2v_groups",
+          "shape": 7,
+          "type": "MMX_DIR_GROUP",
+          "link": null
+        },
+        {
+          "localized_name": "r2v_groups",
+          "name": "r2v_groups",
+          "shape": 7,
+          "type": "MMX_DIR_GROUP",
+          "link": 53
+        },
+        {
+          "localized_name": "task_type",
+          "name": "task_type",
+          "type": "COMBO",
+          "widget": {
+            "name": "task_type"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "global_prompt",
+          "name": "global_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "global_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "bd_grp_sample",
+          "name": "bd_grp_sample",
+          "type": "BDGROUP",
+          "widget": {
+            "name": "bd_grp_sample"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "cfg",
+          "name": "cfg",
+          "type": "FLOAT",
+          "widget": {
+            "name": "cfg"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "frame_rate",
+          "name": "frame_rate",
+          "type": "FLOAT",
+          "widget": {
+            "name": "frame_rate"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "width",
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "ref_max_size",
+          "name": "ref_max_size",
+          "type": "INT",
+          "widget": {
+            "name": "ref_max_size"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "total_frames",
+          "name": "total_frames",
+          "type": "INT",
+          "widget": {
+            "name": "total_frames"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "timeline_data",
+          "name": "timeline_data",
+          "type": "STRING",
+          "widget": {
+            "name": "timeline_data"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "bd_grp_advanced",
+          "name": "bd_grp_advanced",
+          "shape": 7,
+          "type": "BDGROUP",
+          "widget": {
+            "name": "bd_grp_advanced"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "steps",
+          "name": "steps",
+          "shape": 7,
+          "type": "INT",
+          "widget": {
+            "name": "steps"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "sampler",
+          "name": "sampler",
+          "shape": 7,
+          "type": "COMBO",
+          "widget": {
+            "name": "sampler"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "scheduler",
+          "name": "scheduler",
+          "shape": 7,
+          "type": "COMBO",
+          "widget": {
+            "name": "scheduler"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "shift_video",
+          "name": "shift_video",
+          "shape": 7,
+          "type": "FLOAT",
+          "widget": {
+            "name": "shift_video"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "shift_audio",
+          "name": "shift_audio",
+          "shape": 7,
+          "type": "FLOAT",
+          "widget": {
+            "name": "shift_audio"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "bd_grp_perf",
+          "name": "bd_grp_perf",
+          "shape": 7,
+          "type": "BDGROUP",
+          "widget": {
+            "name": "bd_grp_perf"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "clear_vram_between_segments",
+          "name": "clear_vram_between_segments",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "clear_vram_between_segments"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "export_source_images",
+          "name": "export_source_images",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "export_source_images"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "images",
+          "name": "images",
+          "shape": 6,
+          "type": "IMAGE",
+          "links": [
+            5
+          ]
+        },
+        {
+          "localized_name": "audio",
+          "name": "audio",
+          "shape": 6,
+          "type": "AUDIO",
+          "links": [
+            6
+          ]
+        },
+        {
+          "localized_name": "fps",
+          "name": "fps",
+          "type": "FLOAT",
+          "links": [
+            7,
+            10
+          ]
+        },
+        {
+          "localized_name": "frame_count",
+          "name": "frame_count",
+          "type": "INT",
+          "links": [
+            11
+          ]
+        },
+        {
+          "localized_name": "source_images",
+          "name": "source_images",
+          "shape": 6,
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "localized_name": "report",
+          "name": "report",
+          "type": "STRING",
+          "links": [
+            8
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3Director"
+      },
+      "widgets_values": [
+        "r2v — 参考主体生视频(Reference to Video)",
+        "",
+        "采样设置",
+        1,
+        666,
+        "fixed",
+        24,
+        1280,
+        736,
+        1280,
+        4608,
+        "{\"version\":5,\"editMode\":\"segment\",\"timelineMode\":\"prompt_batch\",\"totalFrames\":4608,\"frameRate\":24,\"width\":1280,\"height\":736,\"refMaxSize\":1280,\"output\":{\"mode\":\"fixed\",\"aspectRatio\":\"16:9 (宽屏)\",\"megapixels\":0.4,\"multiple\":32,\"longEdge\":1280,\"width\":1280,\"height\":736,\"maxExportFrames\":0,\"exportMode\":\"all\",\"audioMode\":\"generate\",\"continuityEnabled\":true,\"continuityOverlapFrames\":22},\"videoClips\":[],\"video\":{\"fileName\":\"\",\"videoFile\":\"\",\"subfolder\":\"\",\"type\":\"input\",\"frames\":[],\"frameMap\":[],\"sourceFrameCount\":124,\"deletedSourceRanges\":[]},\"global\":{\"taskType\":\"r2v — 参考主体生视频(Reference to Video)\",\"prompt\":\"\",\"refs\":[],\"referenceVideo\":{\"videoFile\":\"\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"},\"continuousReference\":false,\"genImage\":{\"imageFile\":\"\"},\"refAudios\":[]},\"segments\":[{\"id\":\"shot0\",\"start\":0,\"length\":288,\"frameCount\":288,\"durationSec\":12.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是角色《云姐》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 3> 是角色《保镖》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 4> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，全景，一辆超豪华轿车驶入喷泉环绕的广场，缓缓停下。\\n3-6秒：车门打开，云姐笑迎上前。\\n6-12秒：云姐与车上少女热情拥抱。\\n\\n背景音乐:\\n轻松优雅的庄园开场弦乐\\n\\n音效:\\n车轮碾过路面、喷泉潺潺水声\",\"negativePrompt\":\"bad video\",\"taskType\":\"\",\"refs\":[],\"refAudios\":[],\"refVideos\":[],\"genImage\":{\"imageFile\":\"\",\"fileName\":\"\"},\"continuityFromPrev\":true},{\"id\":\"shot1\",\"start\":288,\"length\":144,\"frameCount\":144,\"durationSec\":6.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《云姐》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，中景，云姐笑靥如花迎上前。\\n3-6秒：云姐与少女热情拥抱。\\n本镜承接上一镜结尾（车停，云姐迎上前。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：云姐）\\n云姐：（笑靥如花，迎上前）小雪，一路辛苦啦。\\n\\n背景音乐:\\n温馨轻快的迎客主题\\n\\n音效:\\n衣料摩擦、轻柔脚步声\",\"negativePrompt\":\"bad video\",\"taskType\":\"\",\"refs\":[],\"refAudios\":[],\"refVideos\":[],\"genImage\":{\"imageFile\":\"\",\"fileName\":\"\"},\"continuityFromPrev\":true},{\"id\":\"shot2\",\"start\":432,\"length\":120,\"frameCount\":120,\"durationSec\":5.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是角色《云姐》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，近景，小雪热情拥抱撒娇。\\n3-5秒：小雪撒娇说想死云姐了。\\n本镜承接上一镜结尾（两人亲切问候。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：小雪）\\n小雪：（热情拥抱，撒娇）云姐，我可想死你了！\\n\\n背景音乐:\\n轻快活泼\\n\\n音效:\\n少女清脆笑声\",\"negativePrompt\":\"bad video\",\"taskType\":\"\",\"refs\":[],\"refAudios\":[],\"refVideos\":[],\"genImage\":{\"imageFile\":\"\",\"fileName\":\"\"},\"continuityFromPrev\":true},{\"id\":\"shot3\",\"start\":552,\"length\":144,\"frameCount\":144,\"durationSec\":6.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，近景，小雪好奇地望向喷泉旁的少年。\\n3-6秒：小雪眨着灵动的眼睛发问。\\n本镜承接上一镜结尾（姐妹亲密。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：小雪）\\n小雪：（眨着灵动的眼睛，好奇）云姐，他是谁呀？怎么坐在你家门外呢？\\n\\n背景音乐:\\n轻快好奇\\n\\n音效:\\n喷泉声\",\"negativePrompt\":\"bad video\",\"taskType\":\"\",\"refs\":[],\"refAudios\":[],\"refVideos\":[],\"genImage\":{\"imageFile\":\"\",\"fileName\":\"\"},\"continuityFromPrev\":true},{\"id\":\"shot4\",\"start\":696,\"length\":192,\"frameCount\":192,\"durationSec\":8.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《云姐》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，中景，云姐神色古怪解释少年的奇怪。\\n3-6秒：云姐说少年三日前就到了东家门外。\\n本镜承接上一镜结尾（发现古怪少年。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：云姐）\\n云姐：（神色古怪）这个人的确奇怪得很。他三天前就到了我们东家门外。\\n\\n背景音乐:\\n悬疑轻衬\\n\\n音效:\\n喷泉潺潺\",\"negativePrompt\":\"bad video\",\"taskType\":\"\",\"refs\":[],\"refAudios\":[],\"refVideos\":[],\"genImage\":{\"imageFile\":\"\",\"fileName\":\"\"},\"continuityFromPrev\":true},{\"id\":\"shot5\",\"start\":888,\"length\":144,\"frameCount\":144,\"durationSec\":6.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，近景，小雪眼珠一转跃跃欲试。\\n3-6秒：小雪说试他一试。\\n本镜承接上一镜结尾（道出凌云来意不明。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：小雪）\\n小雪：（跃跃欲试）让本小姐试他一试就知道了。\\n\\n背景音乐:\\n轻快俏皮\\n\\n音效:\\n衣料轻响\",\"negativePrompt\":\"bad video\",\"taskType\":\"\",\"refs\":[],\"refAudios\":[],\"refVideos\":[],\"genImage\":{\"imageFile\":\"\",\"fileName\":\"\"},\"continuityFromPrev\":true},{\"id\":\"shot6\",\"start\":1032,\"length\":144,\"frameCount\":144,\"durationSec\":6.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是角色《陈姨》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，中景，小雪转头唤陈姨。\\n3-6秒：小雪说陈姨帮我拿剑来。\\n本镜承接上一镜结尾（小雪决定试探。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：小雪）\\n小雪：（对司机中年女子）陈姨，帮我拿剑来。\\n\\n背景音乐:\\n轻快\\n\\n音效:\\n喊声\",\"negativePrompt\":\"bad video\",\"taskType\":\"\",\"refs\":[],\"refAudios\":[],\"refVideos\":[],\"genImage\":{\"imageFile\":\"\",\"fileName\":\"\"},\"continuityFromPrev\":true},{\"id\":\"shot7\",\"start\":1176,\"length\":168,\"frameCount\":168,\"durationSec\":7.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《云姐》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，中景，云姐连忙阻止小雪。\\n3-7秒：云姐说大长老吩咐别打扰他。\\n本镜承接上一镜结尾（陈姨准备递剑。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：云姐）\\n云姐：（连忙阻止）小雪，别！大长老吩咐过，让我们不要打扰他。\\n\\n背景音乐:\\n担忧轻衬\\n\\n音效:\\n急促脚步声\",\"negativePrompt\":\"bad video\",\"taskType\":\"\",\"refs\":[],\"refAudios\":[],\"refVideos\":[],\"genImage\":{\"imageFile\":\"\",\"fileName\":\"\"},\"continuityFromPrev\":true},{\"id\":\"shot8\",\"start\":1344,\"length\":144,\"frameCount\":144,\"durationSec\":6.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，近景，小雪满不在乎。\\n3-6秒：小雪说东爷爷最疼她了。\\n本镜承接上一镜结尾（小雪不听劝。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：小雪）\\n小雪：（满不在乎）不怕，东爷爷最疼我了，他肯定不会在意的。\\n\\n背景音乐:\\n轻松\\n\\n音效:\\n衣料轻响、少女轻笑\",\"negativePrompt\":\"bad video\",\"taskType\":\"\",\"refs\":[],\"refAudios\":[],\"refVideos\":[],\"genImage\":{\"imageFile\":\"\",\"fileName\":\"\"},\"continuityFromPrev\":true},{\"id\":\"shot9\",\"start\":1488,\"length\":192,\"frameCount\":192,\"durationSec\":8.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《云姐》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，中景，云姐苦口婆心。\\n3-8秒：云姐质问小雪不是对手。\\n本镜承接上一镜结尾（执意试探。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：云姐）\\n云姐：（苦口婆心）凭借你那点微末实力，能是人家的对手吗？\\n\\n背景音乐:\\n忧虑\\n\\n音效:\\n轻声叹息、衣料摩擦\",\"negativePrompt\":\"bad video\",\"taskType\":\"\",\"refs\":[],\"refAudios\":[],\"refVideos\":[],\"genImage\":{\"imageFile\":\"\",\"fileName\":\"\"},\"continuityFromPrev\":true},{\"id\":\"shot10\",\"start\":1680,\"length\":144,\"frameCount\":144,\"durationSec\":6.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，近景，小雪撇嘴冷笑。\\n3-6秒：小雪说古武者未必胜过枪械。\\n本镜承接上一镜结尾（警示小雪实力不济。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：小雪）\\n小雪：（撇嘴）现在的古武者再厉害，能厉害得过枪械么？\\n\\n背景音乐:\\n轻挑\\n\\n音效:\\n少女轻哼冷笑\",\"negativePrompt\":\"bad video\",\"taskType\":\"\",\"refs\":[],\"refAudios\":[],\"refVideos\":[],\"genImage\":{\"imageFile\":\"\",\"fileName\":\"\"},\"continuityFromPrev\":true},{\"id\":\"shot11\",\"start\":1824,\"length\":120,\"frameCount\":120,\"durationSec\":5.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是角色《凌云》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，近景，小雪居高临下命令凌云。\\n3-5秒：小雪说喂你起来。\\n本镜承接上一镜结尾（认定枪械压倒古武。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：小雪）\\n小雪：（居高临下，命令）喂，你，起来。\\n\\n背景音乐:\\n对峙干搁\\n\\n音效:\\n空旷庭院、喷泉声\",\"negativePrompt\":\"bad video\",\"taskType\":\"\",\"refs\":[{\"index\":0,\"imageFile\":\"00_角色素材/凌云/c01_三视图_写实CG融合_00001_.png\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"}],\"refAudios\":[],\"refVideos\":[],\"genImage\":{\"imageFile\":\"\",\"fileName\":\"\"},\"continuityFromPrev\":true},{\"id\":\"shot12\",\"start\":1944,\"length\":168,\"frameCount\":168,\"durationSec\":7.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《云姐》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是角色《凌云》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，中景，云姐欠身向凌云道歉。\\n3-7秒：云姐替小雪赔罪。\\n本镜承接上一镜结尾（凌云不动如山。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：云姐）\\n云姐：（对凌云欠身道歉）对不起凌先生，小雪尚小还不懂事。\\n\\n背景音乐:\\n礼貌铺垫\\n\\n音效:\\n衣料轻拂\",\"negativePrompt\":\"bad video\",\"taskType\":\"\",\"refs\":[{\"index\":0,\"imageFile\":\"00_角色素材/凌云/c01_三视图_写实CG融合_00001_.png\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"}],\"refAudios\":[],\"refVideos\":[],\"genImage\":{\"imageFile\":\"\",\"fileName\":\"\"},\"continuityFromPrev\":true},{\"id\":\"shot13\",\"start\":2112,\"length\":168,\"frameCount\":168,\"durationSec\":7.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是角色《凌云》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n本镜及后续所有镜头中，古剑的剑鞘（古朴暗沉，剑身锈死难以拔出） 必须与参考图完全一致（形状、破损程度、位置均不得改变或漂移）。\\n\\n详细描述:\\n东家城堡花园广场，中景，小雪执剑怒喝。\\n3-7秒：小雪使劲拔剑却拔不动。\\n本镜承接上一镜结尾（凌云无动于衷。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：小雪）\\n小雪：（恼火，执剑）好你个小子，竟敢不将本小姐放在眼里！\\n\\n背景音乐:\\n紧张上扬\\n\\n音效:\\n剑鞘摩擦声\",\"negativePrompt\":\"bad video\",\"taskType\":\"\",\"refs\":[{\"index\":0,\"imageFile\":\"00_角色素材/凌云/c01_三视图_写实CG融合_00001_.png\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"}],\"refAudios\":[],\"refVideos\":[],\"genImage\":{\"imageFile\":\"\",\"fileName\":\"\"},\"continuityFromPrev\":true},{\"id\":\"shot14\",\"start\":2280,\"length\":168,\"frameCount\":168,\"durationSec\":7.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《凌云》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，近景，凌云淡声开口。\\n3-7秒：凌云说你连拔剑资格都没有。\\n本镜承接上一镜结尾（拔剑失败，脸涨通红。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：凌云）\\n凌云：（清淡）你连在我面前拔剑的资格都没有。\\n\\n背景音乐:\\n清冷沉静\\n\\n音效:\\n庭院寂静、呼吸声\",\"negativePrompt\":\"bad video\",\"taskType\":\"\",\"refs\":[{\"index\":0,\"imageFile\":\"00_角色素材/凌云/c01_三视图_写实CG融合_00001_.png\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"}],\"refAudios\":[],\"refVideos\":[],\"genImage\":{\"imageFile\":\"\",\"fileName\":\"\"},\"continuityFromPrev\":true},{\"id\":\"shot15\",\"start\":2448,\"length\":192,\"frameCount\":192,\"durationSec\":8.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是角色《凌云》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，近景，小雪丢剑掏出手枪。\\n3-8秒：小雪举枪直指凌云额头。\\n本镜承接上一镜结尾（小雪恼羞成怒。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：小雪）\\n小雪：（怒声，举枪）我就让你尝尝我的厉害！\\n\\n背景音乐:\\n紧张拉满\\n\\n音效:\\n拔枪‘咔哒’声\",\"negativePrompt\":\"bad video\",\"taskType\":\"\",\"refs\":[{\"index\":0,\"imageFile\":\"00_角色素材/凌云/c01_三视图_写实CG融合_00001_.png\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"}],\"refAudios\":[],\"refVideos\":[],\"genImage\":{\"imageFile\":\"\",\"fileName\":\"\"},\"continuityFromPrev\":true},{\"id\":\"shot16\",\"start\":2640,\"length\":144,\"frameCount\":144,\"durationSec\":6.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《云姐》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，中景，云姐大惊失色扑过去。\\n3-6秒：云姐喝止小雪。\\n本镜承接上一镜结尾（枪口对准凌云。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：云姐）\\n云姐：（大惊，扑过去）小雪，你干什么！你疯了！\\n\\n背景音乐:\\n失措急促\\n\\n音效:\\n急促脚步声\",\"negativePrompt\":\"bad video\",\"taskType\":\"\",\"refs\":[],\"refAudios\":[],\"refVideos\":[],\"genImage\":{\"imageFile\":\"\",\"fileName\":\"\"},\"continuityFromPrev\":true},{\"id\":\"shot17\",\"start\":2784,\"length\":144,\"frameCount\":144,\"durationSec\":6.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《保镖》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 3> 是角色《云姐》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 4> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，全景，保镖们围拢护住主仆。\\n3-6秒：保镖们紧盯着凌云。\\n本镜承接上一镜结尾（小雪不以为意。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n背景音乐:\\n压抑对峙\\n\\n音效:\\n人群脚步、低语\",\"negativePrompt\":\"bad video\",\"taskType\":\"\",\"refs\":[],\"refAudios\":[],\"refVideos\":[],\"genImage\":{\"imageFile\":\"\",\"fileName\":\"\"},\"continuityFromPrev\":true},{\"id\":\"shot18\",\"start\":2928,\"length\":192,\"frameCount\":192,\"durationSec\":8.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《凌云》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，特写，凌云睁眼平静。\\n3-8秒：凌云说三息之后若不收枪。\\n本镜承接上一镜结尾（双方对峙紧绷。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：凌云）\\n凌云：（淡漠，近乎无视生死）三息之后，如果你不收回你的手枪。\\n\\n背景音乐:\\n凝重悬念\\n\\n音效:\\n静默\",\"negativePrompt\":\"bad video\",\"taskType\":\"\",\"refs\":[{\"index\":0,\"imageFile\":\"00_角色素材/凌云/c01_三视图_写实CG融合_00001_.png\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"}],\"refAudios\":[],\"refVideos\":[],\"genImage\":{\"imageFile\":\"\",\"fileName\":\"\"},\"continuityFromPrev\":true},{\"id\":\"shot19\",\"start\":3120,\"length\":168,\"frameCount\":168,\"durationSec\":7.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是角色《凌云》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，近景，小雪有恃无恐。\\n3-7秒：小雪喝令凌云道歉。\\n本镜承接上一镜结尾（抛出死亡通牒。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：小雪）\\n小雪：（有恃无恐）马上给我道歉！否则武者主宰的时代已经过去！\\n\\n背景音乐:\\n对峙紧绷\\n\\n音效:\\n紧张对峙的寂静\",\"negativePrompt\":\"bad video\",\"taskType\":\"\",\"refs\":[{\"index\":0,\"imageFile\":\"00_角色素材/凌云/c01_三视图_写实CG融合_00001_.png\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"}],\"refAudios\":[],\"refVideos\":[],\"genImage\":{\"imageFile\":\"\",\"fileName\":\"\"},\"continuityFromPrev\":true},{\"id\":\"shot20\",\"start\":3288,\"length\":120,\"frameCount\":120,\"durationSec\":5.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《凌云》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，特写，凌云平静数出——一息。\\n3-5秒：凌云声音冷峻。\\n本镜承接上一镜结尾（坚持要凌云道歉。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：凌云）\\n凌云：（平静地数出）一息。\\n\\n背景音乐:\\n秒针滴答\\n\\n音效:\\n倒计时心跳\",\"negativePrompt\":\"bad video\",\"taskType\":\"\",\"refs\":[{\"index\":0,\"imageFile\":\"00_角色素材/凌云/c01_三视图_写实CG融合_00001_.png\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"}],\"refAudios\":[],\"refVideos\":[],\"genImage\":{\"imageFile\":\"\",\"fileName\":\"\"},\"continuityFromPrev\":true},{\"id\":\"shot21\",\"start\":3408,\"length\":144,\"frameCount\":144,\"durationSec\":6.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，近景，小雪气急败坏抢数。\\n3-6秒：小雪说二息三。\\n本镜承接上一镜结尾（死局步步逼近。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：小雪）\\n小雪：（气急败坏）我来给你数，二息、三……\\n\\n背景音乐:\\n紧张加剧\\n\\n音效:\\n少女急促呼吸\",\"negativePrompt\":\"bad video\",\"taskType\":\"\",\"refs\":[],\"refAudios\":[],\"refVideos\":[],\"genImage\":{\"imageFile\":\"\",\"fileName\":\"\"},\"continuityFromPrev\":true},{\"id\":\"shot22\",\"start\":3552,\"length\":120,\"frameCount\":120,\"durationSec\":5.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《保镖》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，中景，保镖爆喝冲身护主。\\n3-5秒：一道无形剑气袭至。\\n本镜承接上一镜结尾（话音未落杀气骤至。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：保镖）\\n保镖：（爆喝）小姐小心！\\n\\n背景音乐:\\n惊变爆发\\n\\n音效:\\n爆喝、疾风\",\"negativePrompt\":\"bad video\",\"taskType\":\"\",\"refs\":[],\"refAudios\":[],\"refVideos\":[],\"genImage\":{\"imageFile\":\"\",\"fileName\":\"\"},\"continuityFromPrev\":true},{\"id\":\"shot23\",\"start\":3672,\"length\":192,\"frameCount\":192,\"durationSec\":8.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《保镖》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，中景，无形剑气洞穿保镖胸口。\\n3-6秒：血花在保镖身上绽放。\\n6-8秒：保镖颓然倒下。\\n本镜承接上一镜结尾（保镖中剑洞穿。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n背景音乐:\\n惊骇凌厉\\n\\n音效:\\n剑气破空、闷响\",\"negativePrompt\":\"bad video\",\"taskType\":\"\",\"refs\":[],\"refAudios\":[],\"refVideos\":[],\"genImage\":{\"imageFile\":\"\",\"fileName\":\"\"},\"continuityFromPrev\":true},{\"id\":\"shot24\",\"start\":3864,\"length\":144,\"frameCount\":144,\"durationSec\":6.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是角色《凌云》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，近景，小雪惊叫扣动扳机。\\n3-6秒：子弹喷射而出。\\n本镜承接上一镜结尾（保镖惨叫倒下。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：小雪）\\n小雪：（惊叫）啊！\\n\\n背景音乐:\\n激烈惊惧\\n\\n音效:\\n枪响‘碰’、惊叫\",\"negativePrompt\":\"bad video\",\"taskType\":\"\",\"refs\":[{\"index\":0,\"imageFile\":\"00_角色素材/凌云/c01_三视图_写实CG融合_00001_.png\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"}],\"refAudios\":[],\"refVideos\":[],\"genImage\":{\"imageFile\":\"\",\"fileName\":\"\"},\"continuityFromPrev\":true},{\"id\":\"shot25\",\"start\":4008,\"length\":144,\"frameCount\":144,\"durationSec\":6.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《凌云》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，中景，子弹高速射向凌云。\\n3-6秒：众人屏息，认定凌云必死。\\n本镜承接上一镜结尾（子弹杀向凌云。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n背景音乐:\\n生死一瞬\\n\\n音效:\\n子弹破空呼啸\",\"negativePrompt\":\"bad video\",\"taskType\":\"\",\"refs\":[{\"index\":0,\"imageFile\":\"00_角色素材/凌云/c01_三视图_写实CG融合_00001_.png\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"}],\"refAudios\":[],\"refVideos\":[],\"genImage\":{\"imageFile\":\"\",\"fileName\":\"\"},\"continuityFromPrev\":true},{\"id\":\"shot26\",\"start\":4152,\"length\":288,\"frameCount\":288,\"durationSec\":12.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《凌云》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，特写，凌云眼中乍射精光。\\n3-6秒：三尺青锋以不可思议速度出鞘。\\n6-9秒：剑光精准劈中飞行子弹。\\n9-12秒：子弹被一剑劈飞。\\n本镜承接上一镜结尾（在场众人认定凌云必死。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n背景音乐:\\n神技震撼高潮\\n\\n音效:\\n剑鸣破空、金属撞击\",\"negativePrompt\":\"bad video\",\"taskType\":\"\",\"refs\":[{\"index\":0,\"imageFile\":\"00_角色素材/凌云/c01_三视图_写实CG融合_00001_.png\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"}],\"refAudios\":[],\"refVideos\":[],\"genImage\":{\"imageFile\":\"\",\"fileName\":\"\"},\"continuityFromPrev\":true},{\"id\":\"shot27\",\"start\":4440,\"length\":168,\"frameCount\":168,\"durationSec\":7.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是角色《凌云》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，近景，小雪惊愕望着被劈开的弹。\\n3-7秒：小雪信念崩塌。\\n本镜承接上一镜结尾（子弹被一剑劈开，理念崩塌。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：小雪）\\n小雪：（惊惶，内心）那一剑，彻底击溃了我的理念！\\n\\n背景音乐:\\n震撼余韵\\n\\n音效:\\n剑鸣余音\",\"negativePrompt\":\"bad video\",\"taskType\":\"\",\"refs\":[{\"index\":0,\"imageFile\":\"00_角色素材/凌云/c01_三视图_写实CG融合_00001_.png\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"}],\"refAudios\":[],\"refVideos\":[],\"genImage\":{\"imageFile\":\"\",\"fileName\":\"\"},\"continuityFromPrev\":true}],\"shots\":[{\"id\":\"shot0\",\"durationSec\":12.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是角色《云姐》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 3> 是角色《保镖》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 4> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，全景，一辆超豪华轿车驶入喷泉环绕的广场，缓缓停下。\\n3-6秒：车门打开，云姐笑迎上前。\\n6-12秒：云姐与车上少女热情拥抱。\\n\\n背景音乐:\\n轻松优雅的庄园开场弦乐\\n\\n音效:\\n车轮碾过路面、喷泉潺潺水声\",\"negativePrompt\":\"bad video\",\"startImage\":null,\"endImage\":null},{\"id\":\"shot1\",\"durationSec\":6.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《云姐》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，中景，云姐笑靥如花迎上前。\\n3-6秒：云姐与少女热情拥抱。\\n本镜承接上一镜结尾（车停，云姐迎上前。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：云姐）\\n云姐：（笑靥如花，迎上前）小雪，一路辛苦啦。\\n\\n背景音乐:\\n温馨轻快的迎客主题\\n\\n音效:\\n衣料摩擦、轻柔脚步声\",\"negativePrompt\":\"bad video\",\"startImage\":null,\"endImage\":null},{\"id\":\"shot2\",\"durationSec\":5.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是角色《云姐》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，近景，小雪热情拥抱撒娇。\\n3-5秒：小雪撒娇说想死云姐了。\\n本镜承接上一镜结尾（两人亲切问候。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：小雪）\\n小雪：（热情拥抱，撒娇）云姐，我可想死你了！\\n\\n背景音乐:\\n轻快活泼\\n\\n音效:\\n少女清脆笑声\",\"negativePrompt\":\"bad video\",\"startImage\":null,\"endImage\":null},{\"id\":\"shot3\",\"durationSec\":6.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，近景，小雪好奇地望向喷泉旁的少年。\\n3-6秒：小雪眨着灵动的眼睛发问。\\n本镜承接上一镜结尾（姐妹亲密。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：小雪）\\n小雪：（眨着灵动的眼睛，好奇）云姐，他是谁呀？怎么坐在你家门外呢？\\n\\n背景音乐:\\n轻快好奇\\n\\n音效:\\n喷泉声\",\"negativePrompt\":\"bad video\",\"startImage\":null,\"endImage\":null},{\"id\":\"shot4\",\"durationSec\":8.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《云姐》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，中景，云姐神色古怪解释少年的奇怪。\\n3-6秒：云姐说少年三日前就到了东家门外。\\n本镜承接上一镜结尾（发现古怪少年。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：云姐）\\n云姐：（神色古怪）这个人的确奇怪得很。他三天前就到了我们东家门外。\\n\\n背景音乐:\\n悬疑轻衬\\n\\n音效:\\n喷泉潺潺\",\"negativePrompt\":\"bad video\",\"startImage\":null,\"endImage\":null},{\"id\":\"shot5\",\"durationSec\":6.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，近景，小雪眼珠一转跃跃欲试。\\n3-6秒：小雪说试他一试。\\n本镜承接上一镜结尾（道出凌云来意不明。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：小雪）\\n小雪：（跃跃欲试）让本小姐试他一试就知道了。\\n\\n背景音乐:\\n轻快俏皮\\n\\n音效:\\n衣料轻响\",\"negativePrompt\":\"bad video\",\"startImage\":null,\"endImage\":null},{\"id\":\"shot6\",\"durationSec\":6.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是角色《陈姨》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，中景，小雪转头唤陈姨。\\n3-6秒：小雪说陈姨帮我拿剑来。\\n本镜承接上一镜结尾（小雪决定试探。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：小雪）\\n小雪：（对司机中年女子）陈姨，帮我拿剑来。\\n\\n背景音乐:\\n轻快\\n\\n音效:\\n喊声\",\"negativePrompt\":\"bad video\",\"startImage\":null,\"endImage\":null},{\"id\":\"shot7\",\"durationSec\":7.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《云姐》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，中景，云姐连忙阻止小雪。\\n3-7秒：云姐说大长老吩咐别打扰他。\\n本镜承接上一镜结尾（陈姨准备递剑。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：云姐）\\n云姐：（连忙阻止）小雪，别！大长老吩咐过，让我们不要打扰他。\\n\\n背景音乐:\\n担忧轻衬\\n\\n音效:\\n急促脚步声\",\"negativePrompt\":\"bad video\",\"startImage\":null,\"endImage\":null},{\"id\":\"shot8\",\"durationSec\":6.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，近景，小雪满不在乎。\\n3-6秒：小雪说东爷爷最疼她了。\\n本镜承接上一镜结尾（小雪不听劝。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：小雪）\\n小雪：（满不在乎）不怕，东爷爷最疼我了，他肯定不会在意的。\\n\\n背景音乐:\\n轻松\\n\\n音效:\\n衣料轻响、少女轻笑\",\"negativePrompt\":\"bad video\",\"startImage\":null,\"endImage\":null},{\"id\":\"shot9\",\"durationSec\":8.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《云姐》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，中景，云姐苦口婆心。\\n3-8秒：云姐质问小雪不是对手。\\n本镜承接上一镜结尾（执意试探。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：云姐）\\n云姐：（苦口婆心）凭借你那点微末实力，能是人家的对手吗？\\n\\n背景音乐:\\n忧虑\\n\\n音效:\\n轻声叹息、衣料摩擦\",\"negativePrompt\":\"bad video\",\"startImage\":null,\"endImage\":null},{\"id\":\"shot10\",\"durationSec\":6.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，近景，小雪撇嘴冷笑。\\n3-6秒：小雪说古武者未必胜过枪械。\\n本镜承接上一镜结尾（警示小雪实力不济。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：小雪）\\n小雪：（撇嘴）现在的古武者再厉害，能厉害得过枪械么？\\n\\n背景音乐:\\n轻挑\\n\\n音效:\\n少女轻哼冷笑\",\"negativePrompt\":\"bad video\",\"startImage\":null,\"endImage\":null},{\"id\":\"shot11\",\"durationSec\":5.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是角色《凌云》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，近景，小雪居高临下命令凌云。\\n3-5秒：小雪说喂你起来。\\n本镜承接上一镜结尾（认定枪械压倒古武。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：小雪）\\n小雪：（居高临下，命令）喂，你，起来。\\n\\n背景音乐:\\n对峙干搁\\n\\n音效:\\n空旷庭院、喷泉声\",\"negativePrompt\":\"bad video\",\"startImage\":null,\"endImage\":null},{\"id\":\"shot12\",\"durationSec\":7.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《云姐》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是角色《凌云》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，中景，云姐欠身向凌云道歉。\\n3-7秒：云姐替小雪赔罪。\\n本镜承接上一镜结尾（凌云不动如山。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：云姐）\\n云姐：（对凌云欠身道歉）对不起凌先生，小雪尚小还不懂事。\\n\\n背景音乐:\\n礼貌铺垫\\n\\n音效:\\n衣料轻拂\",\"negativePrompt\":\"bad video\",\"startImage\":null,\"endImage\":null},{\"id\":\"shot13\",\"durationSec\":7.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是角色《凌云》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n本镜及后续所有镜头中，古剑的剑鞘（古朴暗沉，剑身锈死难以拔出） 必须与参考图完全一致（形状、破损程度、位置均不得改变或漂移）。\\n\\n详细描述:\\n东家城堡花园广场，中景，小雪执剑怒喝。\\n3-7秒：小雪使劲拔剑却拔不动。\\n本镜承接上一镜结尾（凌云无动于衷。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：小雪）\\n小雪：（恼火，执剑）好你个小子，竟敢不将本小姐放在眼里！\\n\\n背景音乐:\\n紧张上扬\\n\\n音效:\\n剑鞘摩擦声\",\"negativePrompt\":\"bad video\",\"startImage\":null,\"endImage\":null},{\"id\":\"shot14\",\"durationSec\":7.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《凌云》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，近景，凌云淡声开口。\\n3-7秒：凌云说你连拔剑资格都没有。\\n本镜承接上一镜结尾（拔剑失败，脸涨通红。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：凌云）\\n凌云：（清淡）你连在我面前拔剑的资格都没有。\\n\\n背景音乐:\\n清冷沉静\\n\\n音效:\\n庭院寂静、呼吸声\",\"negativePrompt\":\"bad video\",\"startImage\":null,\"endImage\":null},{\"id\":\"shot15\",\"durationSec\":8.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是角色《凌云》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，近景，小雪丢剑掏出手枪。\\n3-8秒：小雪举枪直指凌云额头。\\n本镜承接上一镜结尾（小雪恼羞成怒。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：小雪）\\n小雪：（怒声，举枪）我就让你尝尝我的厉害！\\n\\n背景音乐:\\n紧张拉满\\n\\n音效:\\n拔枪‘咔哒’声\",\"negativePrompt\":\"bad video\",\"startImage\":null,\"endImage\":null},{\"id\":\"shot16\",\"durationSec\":6.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《云姐》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，中景，云姐大惊失色扑过去。\\n3-6秒：云姐喝止小雪。\\n本镜承接上一镜结尾（枪口对准凌云。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：云姐）\\n云姐：（大惊，扑过去）小雪，你干什么！你疯了！\\n\\n背景音乐:\\n失措急促\\n\\n音效:\\n急促脚步声\",\"negativePrompt\":\"bad video\",\"startImage\":null,\"endImage\":null},{\"id\":\"shot17\",\"durationSec\":6.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《保镖》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 3> 是角色《云姐》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 4> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，全景，保镖们围拢护住主仆。\\n3-6秒：保镖们紧盯着凌云。\\n本镜承接上一镜结尾（小雪不以为意。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n背景音乐:\\n压抑对峙\\n\\n音效:\\n人群脚步、低语\",\"negativePrompt\":\"bad video\",\"startImage\":null,\"endImage\":null},{\"id\":\"shot18\",\"durationSec\":8.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《凌云》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，特写，凌云睁眼平静。\\n3-8秒：凌云说三息之后若不收枪。\\n本镜承接上一镜结尾（双方对峙紧绷。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：凌云）\\n凌云：（淡漠，近乎无视生死）三息之后，如果你不收回你的手枪。\\n\\n背景音乐:\\n凝重悬念\\n\\n音效:\\n静默\",\"negativePrompt\":\"bad video\",\"startImage\":null,\"endImage\":null},{\"id\":\"shot19\",\"durationSec\":7.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是角色《凌云》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，近景，小雪有恃无恐。\\n3-7秒：小雪喝令凌云道歉。\\n本镜承接上一镜结尾（抛出死亡通牒。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：小雪）\\n小雪：（有恃无恐）马上给我道歉！否则武者主宰的时代已经过去！\\n\\n背景音乐:\\n对峙紧绷\\n\\n音效:\\n紧张对峙的寂静\",\"negativePrompt\":\"bad video\",\"startImage\":null,\"endImage\":null},{\"id\":\"shot20\",\"durationSec\":5.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《凌云》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，特写，凌云平静数出——一息。\\n3-5秒：凌云声音冷峻。\\n本镜承接上一镜结尾（坚持要凌云道歉。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：凌云）\\n凌云：（平静地数出）一息。\\n\\n背景音乐:\\n秒针滴答\\n\\n音效:\\n倒计时心跳\",\"negativePrompt\":\"bad video\",\"startImage\":null,\"endImage\":null},{\"id\":\"shot21\",\"durationSec\":6.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，近景，小雪气急败坏抢数。\\n3-6秒：小雪说二息三。\\n本镜承接上一镜结尾（死局步步逼近。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：小雪）\\n小雪：（气急败坏）我来给你数，二息、三……\\n\\n背景音乐:\\n紧张加剧\\n\\n音效:\\n少女急促呼吸\",\"negativePrompt\":\"bad video\",\"startImage\":null,\"endImage\":null},{\"id\":\"shot22\",\"durationSec\":5.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《保镖》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，中景，保镖爆喝冲身护主。\\n3-5秒：一道无形剑气袭至。\\n本镜承接上一镜结尾（话音未落杀气骤至。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：保镖）\\n保镖：（爆喝）小姐小心！\\n\\n背景音乐:\\n惊变爆发\\n\\n音效:\\n爆喝、疾风\",\"negativePrompt\":\"bad video\",\"startImage\":null,\"endImage\":null},{\"id\":\"shot23\",\"durationSec\":8.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《保镖》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，中景，无形剑气洞穿保镖胸口。\\n3-6秒：血花在保镖身上绽放。\\n6-8秒：保镖颓然倒下。\\n本镜承接上一镜结尾（保镖中剑洞穿。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n背景音乐:\\n惊骇凌厉\\n\\n音效:\\n剑气破空、闷响\",\"negativePrompt\":\"bad video\",\"startImage\":null,\"endImage\":null},{\"id\":\"shot24\",\"durationSec\":6.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是角色《凌云》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，近景，小雪惊叫扣动扳机。\\n3-6秒：子弹喷射而出。\\n本镜承接上一镜结尾（保镖惨叫倒下。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：小雪）\\n小雪：（惊叫）啊！\\n\\n背景音乐:\\n激烈惊惧\\n\\n音效:\\n枪响‘碰’、惊叫\",\"negativePrompt\":\"bad video\",\"startImage\":null,\"endImage\":null},{\"id\":\"shot25\",\"durationSec\":6.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《凌云》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，中景，子弹高速射向凌云。\\n3-6秒：众人屏息，认定凌云必死。\\n本镜承接上一镜结尾（子弹杀向凌云。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n背景音乐:\\n生死一瞬\\n\\n音效:\\n子弹破空呼啸\",\"negativePrompt\":\"bad video\",\"startImage\":null,\"endImage\":null},{\"id\":\"shot26\",\"durationSec\":12.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《凌云》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，特写，凌云眼中乍射精光。\\n3-6秒：三尺青锋以不可思议速度出鞘。\\n6-9秒：剑光精准劈中飞行子弹。\\n9-12秒：子弹被一剑劈飞。\\n本镜承接上一镜结尾（在场众人认定凌云必死。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n背景音乐:\\n神技震撼高潮\\n\\n音效:\\n剑鸣破空、金属撞击\",\"negativePrompt\":\"bad video\",\"startImage\":null,\"endImage\":null},{\"id\":\"shot27\",\"durationSec\":7.0,\"prompt\":\"主体定义:\\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 2> 是角色《凌云》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\\n\\n详细描述:\\n东家城堡花园广场，近景，小雪惊愕望着被劈开的弹。\\n3-7秒：小雪信念崩塌。\\n本镜承接上一镜结尾（子弹被一剑劈开，理念崩塌。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\\n\\n台词:\\n（说话人：小雪）\\n小雪：（惊惶，内心）那一剑，彻底击溃了我的理念！\\n\\n背景音乐:\\n震撼余韵\\n\\n音效:\\n剑鸣余音\",\"negativePrompt\":\"bad video\",\"startImage\":null,\"endImage\":null}],\"runSelectEnabled\":true,\"runSelection\":[0,1,2],\"gen\":{\"defaultFrameCount\":124},\"liveTaePreview\":true,\"keyframes\":[],\"durationSec\":192.0}",
+        "高级采样",
+        25,
+        "res_multistep",
+        "simple",
+        12,
+        3,
+        "性能",
+        true,
+        false,
+        ""
+      ]
+    },
+    {
+      "id": 7,
+      "type": "SaveVideo",
+      "pos": [
+        1859.3131529889763,
+        216.73259057747958
+      ],
+      "size": [
+        320,
+        106
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "视频",
+          "name": "video",
+          "type": "VIDEO",
+          "link": 9
+        },
+        {
+          "localized_name": "文件名前缀",
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "格式",
+          "name": "format",
+          "type": "COMBO",
+          "widget": {
+            "name": "format"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "编码器",
+          "name": "codec",
+          "type": "COMFY_DYNAMICCOMBO_V3",
+          "widget": {
+            "name": "codec"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "video",
+          "name": "video",
+          "type": "VIDEO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaveVideo"
+      },
+      "widgets_values": [
+        "video/MiniMaxH3_Director_external_r2v",
+        "auto",
+        "auto"
+      ]
+    },
+    {
+      "id": 46,
+      "type": "MarkdownNote",
+      "pos": [
+        -2171.998733838147,
+        651.3919882494758
+      ],
+      "size": [
+        360,
+        320
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "导演台插件地址：",
+      "properties": {},
+      "widgets_values": [
+        "https://github.com/AIMixer/ComfyUI_MiniMaxH3_Director"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 47,
+      "type": "MiniMaxH3DirectorGroupReferenceToVideo",
+      "pos": [
+        -1400,
+        380
+      ],
+      "size": [
+        420,
+        200
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "duration_sec",
+          "name": "duration_sec",
+          "type": "FLOAT",
+          "widget": {
+            "name": "duration_sec"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "group",
+          "name": "group",
+          "type": "MMX_DIR_GROUP",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3DirectorGroupReferenceToVideo"
+      },
+      "widgets_values": [
+        "主体定义:\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 2> 是角色《云姐》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 3> 是角色《保镖》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 4> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\n\n详细描述:\n东家城堡花园广场，全景，一辆超豪华轿车驶入喷泉环绕的广场，缓缓停下。\n3-6秒：车门打开，云姐笑迎上前。\n6-12秒：云姐与车上少女热情拥抱。\n\n背景音乐:\n轻松优雅的庄园开场弦乐\n\n音效:\n车轮碾过路面、喷泉潺潺水声",
+        12.0
+      ],
+      "title": "镜1 轿车抵园 12s"
+    },
+    {
+      "id": 48,
+      "type": "MiniMaxH3DirectorGroupReferenceToVideo",
+      "pos": [
+        -2040,
+        380
+      ],
+      "size": [
+        420,
+        200
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "duration_sec",
+          "name": "duration_sec",
+          "type": "FLOAT",
+          "widget": {
+            "name": "duration_sec"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "group",
+          "name": "group",
+          "type": "MMX_DIR_GROUP",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3DirectorGroupReferenceToVideo"
+      },
+      "widgets_values": [
+        "主体定义:\n<Picture 1> 是角色《云姐》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 2> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\n\n详细描述:\n东家城堡花园广场，中景，云姐笑靥如花迎上前。\n3-6秒：云姐与少女热情拥抱。\n本镜承接上一镜结尾（车停，云姐迎上前。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\n\n台词:\n（说话人：云姐）\n云姐：（笑靥如花，迎上前）小雪，一路辛苦啦。\n\n背景音乐:\n温馨轻快的迎客主题\n\n音效:\n衣料摩擦、轻柔脚步声",
+        6.0
+      ],
+      "title": "镜2 云姐迎客 6s"
+    },
+    {
+      "id": 49,
+      "type": "MiniMaxH3DirectorGroupReferenceToVideo",
+      "pos": [
+        -2680,
+        380
+      ],
+      "size": [
+        420,
+        200
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "duration_sec",
+          "name": "duration_sec",
+          "type": "FLOAT",
+          "widget": {
+            "name": "duration_sec"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "group",
+          "name": "group",
+          "type": "MMX_DIR_GROUP",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3DirectorGroupReferenceToVideo"
+      },
+      "widgets_values": [
+        "主体定义:\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 2> 是角色《云姐》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\n\n详细描述:\n东家城堡花园广场，近景，小雪热情拥抱撒娇。\n3-5秒：小雪撒娇说想死云姐了。\n本镜承接上一镜结尾（两人亲切问候。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\n\n台词:\n（说话人：小雪）\n小雪：（热情拥抱，撒娇）云姐，我可想死你了！\n\n背景音乐:\n轻快活泼\n\n音效:\n少女清脆笑声",
+        5.0
+      ],
+      "title": "镜3 小雪撒娇 5s"
+    },
+    {
+      "id": 50,
+      "type": "MiniMaxH3DirectorGroupReferenceToVideo",
+      "pos": [
+        -3320,
+        380
+      ],
+      "size": [
+        420,
+        200
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "duration_sec",
+          "name": "duration_sec",
+          "type": "FLOAT",
+          "widget": {
+            "name": "duration_sec"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "group",
+          "name": "group",
+          "type": "MMX_DIR_GROUP",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3DirectorGroupReferenceToVideo"
+      },
+      "widgets_values": [
+        "主体定义:\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 2> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\n\n详细描述:\n东家城堡花园广场，近景，小雪好奇地望向喷泉旁的少年。\n3-6秒：小雪眨着灵动的眼睛发问。\n本镜承接上一镜结尾（姐妹亲密。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\n\n台词:\n（说话人：小雪）\n小雪：（眨着灵动的眼睛，好奇）云姐，他是谁呀？怎么坐在你家门外呢？\n\n背景音乐:\n轻快好奇\n\n音效:\n喷泉声",
+        6.0
+      ],
+      "title": "镜4 小雪好奇 6s"
+    },
+    {
+      "id": 51,
+      "type": "MiniMaxH3DirectorGroupReferenceToVideo",
+      "pos": [
+        -1400,
+        780
+      ],
+      "size": [
+        420,
+        200
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "duration_sec",
+          "name": "duration_sec",
+          "type": "FLOAT",
+          "widget": {
+            "name": "duration_sec"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "group",
+          "name": "group",
+          "type": "MMX_DIR_GROUP",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3DirectorGroupReferenceToVideo"
+      },
+      "widgets_values": [
+        "主体定义:\n<Picture 1> 是角色《云姐》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 2> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\n\n详细描述:\n东家城堡花园广场，中景，云姐神色古怪解释少年的奇怪。\n3-6秒：云姐说少年三日前就到了东家门外。\n本镜承接上一镜结尾（发现古怪少年。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\n\n台词:\n（说话人：云姐）\n云姐：（神色古怪）这个人的确奇怪得很。他三天前就到了我们东家门外。\n\n背景音乐:\n悬疑轻衬\n\n音效:\n喷泉潺潺",
+        8.0
+      ],
+      "title": "镜5 云姐解释 8s"
+    },
+    {
+      "id": 52,
+      "type": "MiniMaxH3DirectorGroupReferenceToVideo",
+      "pos": [
+        -2040,
+        780
+      ],
+      "size": [
+        420,
+        200
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "duration_sec",
+          "name": "duration_sec",
+          "type": "FLOAT",
+          "widget": {
+            "name": "duration_sec"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "group",
+          "name": "group",
+          "type": "MMX_DIR_GROUP",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3DirectorGroupReferenceToVideo"
+      },
+      "widgets_values": [
+        "主体定义:\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 2> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\n\n详细描述:\n东家城堡花园广场，近景，小雪眼珠一转跃跃欲试。\n3-6秒：小雪说试他一试。\n本镜承接上一镜结尾（道出凌云来意不明。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\n\n台词:\n（说话人：小雪）\n小雪：（跃跃欲试）让本小姐试他一试就知道了。\n\n背景音乐:\n轻快俏皮\n\n音效:\n衣料轻响",
+        6.0
+      ],
+      "title": "镜6 小雪想试 6s"
+    },
+    {
+      "id": 53,
+      "type": "MiniMaxH3DirectorGroupReferenceToVideo",
+      "pos": [
+        -2680,
+        780
+      ],
+      "size": [
+        420,
+        200
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "duration_sec",
+          "name": "duration_sec",
+          "type": "FLOAT",
+          "widget": {
+            "name": "duration_sec"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "group",
+          "name": "group",
+          "type": "MMX_DIR_GROUP",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3DirectorGroupReferenceToVideo"
+      },
+      "widgets_values": [
+        "主体定义:\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 2> 是角色《陈姨》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\n\n详细描述:\n东家城堡花园广场，中景，小雪转头唤陈姨。\n3-6秒：小雪说陈姨帮我拿剑来。\n本镜承接上一镜结尾（小雪决定试探。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\n\n台词:\n（说话人：小雪）\n小雪：（对司机中年女子）陈姨，帮我拿剑来。\n\n背景音乐:\n轻快\n\n音效:\n喊声",
+        6.0
+      ],
+      "title": "镜7 唤剑 6s"
+    },
+    {
+      "id": 54,
+      "type": "MiniMaxH3DirectorGroupReferenceToVideo",
+      "pos": [
+        -3320,
+        780
+      ],
+      "size": [
+        420,
+        200
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "duration_sec",
+          "name": "duration_sec",
+          "type": "FLOAT",
+          "widget": {
+            "name": "duration_sec"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "group",
+          "name": "group",
+          "type": "MMX_DIR_GROUP",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3DirectorGroupReferenceToVideo"
+      },
+      "widgets_values": [
+        "主体定义:\n<Picture 1> 是角色《云姐》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 2> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\n\n详细描述:\n东家城堡花园广场，中景，云姐连忙阻止小雪。\n3-7秒：云姐说大长老吩咐别打扰他。\n本镜承接上一镜结尾（陈姨准备递剑。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\n\n台词:\n（说话人：云姐）\n云姐：（连忙阻止）小雪，别！大长老吩咐过，让我们不要打扰他。\n\n背景音乐:\n担忧轻衬\n\n音效:\n急促脚步声",
+        7.0
+      ],
+      "title": "镜8 云姐劝阻 7s"
+    },
+    {
+      "id": 55,
+      "type": "MiniMaxH3DirectorGroupReferenceToVideo",
+      "pos": [
+        -1400,
+        1180
+      ],
+      "size": [
+        420,
+        200
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "duration_sec",
+          "name": "duration_sec",
+          "type": "FLOAT",
+          "widget": {
+            "name": "duration_sec"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "group",
+          "name": "group",
+          "type": "MMX_DIR_GROUP",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3DirectorGroupReferenceToVideo"
+      },
+      "widgets_values": [
+        "主体定义:\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 2> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\n\n详细描述:\n东家城堡花园广场，近景，小雪满不在乎。\n3-6秒：小雪说东爷爷最疼她了。\n本镜承接上一镜结尾（小雪不听劝。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\n\n台词:\n（说话人：小雪）\n小雪：（满不在乎）不怕，东爷爷最疼我了，他肯定不会在意的。\n\n背景音乐:\n轻松\n\n音效:\n衣料轻响、少女轻笑",
+        6.0
+      ],
+      "title": "镜9 小雪执意 6s"
+    },
+    {
+      "id": 56,
+      "type": "MiniMaxH3DirectorGroupReferenceToVideo",
+      "pos": [
+        -2040,
+        1180
+      ],
+      "size": [
+        420,
+        200
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "duration_sec",
+          "name": "duration_sec",
+          "type": "FLOAT",
+          "widget": {
+            "name": "duration_sec"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "group",
+          "name": "group",
+          "type": "MMX_DIR_GROUP",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3DirectorGroupReferenceToVideo"
+      },
+      "widgets_values": [
+        "主体定义:\n<Picture 1> 是角色《云姐》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 2> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\n\n详细描述:\n东家城堡花园广场，中景，云姐苦口婆心。\n3-8秒：云姐质问小雪不是对手。\n本镜承接上一镜结尾（执意试探。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\n\n台词:\n（说话人：云姐）\n云姐：（苦口婆心）凭借你那点微末实力，能是人家的对手吗？\n\n背景音乐:\n忧虑\n\n音效:\n轻声叹息、衣料摩擦",
+        8.0
+      ],
+      "title": "镜10 忧其敌手 8s"
+    },
+    {
+      "id": 57,
+      "type": "MiniMaxH3DirectorGroupReferenceToVideo",
+      "pos": [
+        -2680,
+        1180
+      ],
+      "size": [
+        420,
+        200
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "duration_sec",
+          "name": "duration_sec",
+          "type": "FLOAT",
+          "widget": {
+            "name": "duration_sec"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "group",
+          "name": "group",
+          "type": "MMX_DIR_GROUP",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3DirectorGroupReferenceToVideo"
+      },
+      "widgets_values": [
+        "主体定义:\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 2> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\n\n详细描述:\n东家城堡花园广场，近景，小雪撇嘴冷笑。\n3-6秒：小雪说古武者未必胜过枪械。\n本镜承接上一镜结尾（警示小雪实力不济。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\n\n台词:\n（说话人：小雪）\n小雪：（撇嘴）现在的古武者再厉害，能厉害得过枪械么？\n\n背景音乐:\n轻挑\n\n音效:\n少女轻哼冷笑",
+        6.0
+      ],
+      "title": "镜11 冷笑枪械 6s"
+    },
+    {
+      "id": 58,
+      "type": "LoadImage",
+      "pos": [
+        -3520,
+        860
+      ],
+      "size": [
+        270,
+        314
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "图像",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "选择文件上传",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "图像",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            13
+          ]
+        },
+        {
+          "localized_name": "遮罩",
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "00_角色素材/凌云/c01_三视图_写实CG融合_00001_.png",
+        "image"
+      ],
+      "title": "参考图1 c01_三视图_写实CG融合_00001_.png"
+    },
+    {
+      "id": 59,
+      "type": "MiniMaxH3DirectorGroupReferenceToVideo",
+      "pos": [
+        -3320,
+        1180
+      ],
+      "size": [
+        420,
+        200
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "ref_image_0",
+          "localized_name": "ref_images.ref_image_0",
+          "name": "ref_images.ref_image_0",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 13
+        },
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "duration_sec",
+          "name": "duration_sec",
+          "type": "FLOAT",
+          "widget": {
+            "name": "duration_sec"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "group",
+          "name": "group",
+          "type": "MMX_DIR_GROUP",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3DirectorGroupReferenceToVideo"
+      },
+      "widgets_values": [
+        "主体定义:\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 2> 是角色《凌云》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\n\n详细描述:\n东家城堡花园广场，近景，小雪居高临下命令凌云。\n3-5秒：小雪说喂你起来。\n本镜承接上一镜结尾（认定枪械压倒古武。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\n\n台词:\n（说话人：小雪）\n小雪：（居高临下，命令）喂，你，起来。\n\n背景音乐:\n对峙干搁\n\n音效:\n空旷庭院、喷泉声",
+        5.0
+      ],
+      "title": "镜12 居高命令 5s"
+    },
+    {
+      "id": 60,
+      "type": "LoadImage",
+      "pos": [
+        -1600,
+        1260
+      ],
+      "size": [
+        270,
+        314
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "图像",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "选择文件上传",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "图像",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            14
+          ]
+        },
+        {
+          "localized_name": "遮罩",
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "00_角色素材/凌云/c01_三视图_写实CG融合_00001_.png",
+        "image"
+      ],
+      "title": "参考图1 c01_三视图_写实CG融合_00001_.png"
+    },
+    {
+      "id": 61,
+      "type": "MiniMaxH3DirectorGroupReferenceToVideo",
+      "pos": [
+        -1400,
+        1580
+      ],
+      "size": [
+        420,
+        200
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "ref_image_0",
+          "localized_name": "ref_images.ref_image_0",
+          "name": "ref_images.ref_image_0",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 14
+        },
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "duration_sec",
+          "name": "duration_sec",
+          "type": "FLOAT",
+          "widget": {
+            "name": "duration_sec"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "group",
+          "name": "group",
+          "type": "MMX_DIR_GROUP",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3DirectorGroupReferenceToVideo"
+      },
+      "widgets_values": [
+        "主体定义:\n<Picture 1> 是角色《云姐》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 2> 是角色《凌云》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\n\n详细描述:\n东家城堡花园广场，中景，云姐欠身向凌云道歉。\n3-7秒：云姐替小雪赔罪。\n本镜承接上一镜结尾（凌云不动如山。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\n\n台词:\n（说话人：云姐）\n云姐：（对凌云欠身道歉）对不起凌先生，小雪尚小还不懂事。\n\n背景音乐:\n礼貌铺垫\n\n音效:\n衣料轻拂",
+        7.0
+      ],
+      "title": "镜13 云姐致歉 7s"
+    },
+    {
+      "id": 62,
+      "type": "LoadImage",
+      "pos": [
+        -2240,
+        1260
+      ],
+      "size": [
+        270,
+        314
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "图像",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "选择文件上传",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "图像",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            15
+          ]
+        },
+        {
+          "localized_name": "遮罩",
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "00_角色素材/凌云/c01_三视图_写实CG融合_00001_.png",
+        "image"
+      ],
+      "title": "参考图1 c01_三视图_写实CG融合_00001_.png"
+    },
+    {
+      "id": 63,
+      "type": "MiniMaxH3DirectorGroupReferenceToVideo",
+      "pos": [
+        -2040,
+        1580
+      ],
+      "size": [
+        420,
+        200
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "ref_image_0",
+          "localized_name": "ref_images.ref_image_0",
+          "name": "ref_images.ref_image_0",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 15
+        },
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "duration_sec",
+          "name": "duration_sec",
+          "type": "FLOAT",
+          "widget": {
+            "name": "duration_sec"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "group",
+          "name": "group",
+          "type": "MMX_DIR_GROUP",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3DirectorGroupReferenceToVideo"
+      },
+      "widgets_values": [
+        "主体定义:\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 2> 是角色《凌云》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\n本镜及后续所有镜头中，古剑的剑鞘（古朴暗沉，剑身锈死难以拔出） 必须与参考图完全一致（形状、破损程度、位置均不得改变或漂移）。\n\n详细描述:\n东家城堡花园广场，中景，小雪执剑怒喝。\n3-7秒：小雪使劲拔剑却拔不动。\n本镜承接上一镜结尾（凌云无动于衷。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\n\n台词:\n（说话人：小雪）\n小雪：（恼火，执剑）好你个小子，竟敢不将本小姐放在眼里！\n\n背景音乐:\n紧张上扬\n\n音效:\n剑鞘摩擦声",
+        7.0
+      ],
+      "title": "镜14 拔剑不出 7s"
+    },
+    {
+      "id": 64,
+      "type": "LoadImage",
+      "pos": [
+        -2880,
+        1260
+      ],
+      "size": [
+        270,
+        314
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "图像",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "选择文件上传",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "图像",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            16
+          ]
+        },
+        {
+          "localized_name": "遮罩",
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "00_角色素材/凌云/c01_三视图_写实CG融合_00001_.png",
+        "image"
+      ],
+      "title": "参考图1 c01_三视图_写实CG融合_00001_.png"
+    },
+    {
+      "id": 65,
+      "type": "MiniMaxH3DirectorGroupReferenceToVideo",
+      "pos": [
+        -2680,
+        1580
+      ],
+      "size": [
+        420,
+        200
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "ref_image_0",
+          "localized_name": "ref_images.ref_image_0",
+          "name": "ref_images.ref_image_0",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 16
+        },
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "duration_sec",
+          "name": "duration_sec",
+          "type": "FLOAT",
+          "widget": {
+            "name": "duration_sec"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "group",
+          "name": "group",
+          "type": "MMX_DIR_GROUP",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3DirectorGroupReferenceToVideo"
+      },
+      "widgets_values": [
+        "主体定义:\n<Picture 1> 是角色《凌云》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 2> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\n\n详细描述:\n东家城堡花园广场，近景，凌云淡声开口。\n3-7秒：凌云说你连拔剑资格都没有。\n本镜承接上一镜结尾（拔剑失败，脸涨通红。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\n\n台词:\n（说话人：凌云）\n凌云：（清淡）你连在我面前拔剑的资格都没有。\n\n背景音乐:\n清冷沉静\n\n音效:\n庭院寂静、呼吸声",
+        7.0
+      ],
+      "title": "镜15 凌云轻蔑 7s"
+    },
+    {
+      "id": 66,
+      "type": "LoadImage",
+      "pos": [
+        -3520,
+        1260
+      ],
+      "size": [
+        270,
+        314
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "图像",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "选择文件上传",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "图像",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            17
+          ]
+        },
+        {
+          "localized_name": "遮罩",
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "00_角色素材/凌云/c01_三视图_写实CG融合_00001_.png",
+        "image"
+      ],
+      "title": "参考图1 c01_三视图_写实CG融合_00001_.png"
+    },
+    {
+      "id": 67,
+      "type": "MiniMaxH3DirectorGroupReferenceToVideo",
+      "pos": [
+        -3320,
+        1580
+      ],
+      "size": [
+        420,
+        200
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "ref_image_0",
+          "localized_name": "ref_images.ref_image_0",
+          "name": "ref_images.ref_image_0",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 17
+        },
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "duration_sec",
+          "name": "duration_sec",
+          "type": "FLOAT",
+          "widget": {
+            "name": "duration_sec"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "group",
+          "name": "group",
+          "type": "MMX_DIR_GROUP",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3DirectorGroupReferenceToVideo"
+      },
+      "widgets_values": [
+        "主体定义:\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 2> 是角色《凌云》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\n\n详细描述:\n东家城堡花园广场，近景，小雪丢剑掏出手枪。\n3-8秒：小雪举枪直指凌云额头。\n本镜承接上一镜结尾（小雪恼羞成怒。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\n\n台词:\n（说话人：小雪）\n小雪：（怒声，举枪）我就让你尝尝我的厉害！\n\n背景音乐:\n紧张拉满\n\n音效:\n拔枪‘咔哒’声",
+        8.0
+      ],
+      "title": "镜16 掏枪威胁 8s"
+    },
+    {
+      "id": 68,
+      "type": "MiniMaxH3DirectorGroupReferenceToVideo",
+      "pos": [
+        -1400,
+        1980
+      ],
+      "size": [
+        420,
+        200
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "duration_sec",
+          "name": "duration_sec",
+          "type": "FLOAT",
+          "widget": {
+            "name": "duration_sec"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "group",
+          "name": "group",
+          "type": "MMX_DIR_GROUP",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3DirectorGroupReferenceToVideo"
+      },
+      "widgets_values": [
+        "主体定义:\n<Picture 1> 是角色《云姐》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 2> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\n\n详细描述:\n东家城堡花园广场，中景，云姐大惊失色扑过去。\n3-6秒：云姐喝止小雪。\n本镜承接上一镜结尾（枪口对准凌云。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\n\n台词:\n（说话人：云姐）\n云姐：（大惊，扑过去）小雪，你干什么！你疯了！\n\n背景音乐:\n失措急促\n\n音效:\n急促脚步声",
+        6.0
+      ],
+      "title": "镜17 云姐大惊 6s"
+    },
+    {
+      "id": 69,
+      "type": "MiniMaxH3DirectorGroupReferenceToVideo",
+      "pos": [
+        -2040,
+        1980
+      ],
+      "size": [
+        420,
+        200
+      ],
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "duration_sec",
+          "name": "duration_sec",
+          "type": "FLOAT",
+          "widget": {
+            "name": "duration_sec"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "group",
+          "name": "group",
+          "type": "MMX_DIR_GROUP",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3DirectorGroupReferenceToVideo"
+      },
+      "widgets_values": [
+        "主体定义:\n<Picture 1> 是角色《保镖》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 2> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 3> 是角色《云姐》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 4> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\n\n详细描述:\n东家城堡花园广场，全景，保镖们围拢护住主仆。\n3-6秒：保镖们紧盯着凌云。\n本镜承接上一镜结尾（小雪不以为意。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\n\n背景音乐:\n压抑对峙\n\n音效:\n人群脚步、低语",
+        6.0
+      ],
+      "title": "镜18 保镖警戒 6s"
+    },
+    {
+      "id": 70,
+      "type": "LoadImage",
+      "pos": [
+        -2880,
+        1660
+      ],
+      "size": [
+        270,
+        314
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "图像",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "选择文件上传",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "图像",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            18
+          ]
+        },
+        {
+          "localized_name": "遮罩",
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "00_角色素材/凌云/c01_三视图_写实CG融合_00001_.png",
+        "image"
+      ],
+      "title": "参考图1 c01_三视图_写实CG融合_00001_.png"
+    },
+    {
+      "id": 71,
+      "type": "MiniMaxH3DirectorGroupReferenceToVideo",
+      "pos": [
+        -2680,
+        1980
+      ],
+      "size": [
+        420,
+        200
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "ref_image_0",
+          "localized_name": "ref_images.ref_image_0",
+          "name": "ref_images.ref_image_0",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 18
+        },
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "duration_sec",
+          "name": "duration_sec",
+          "type": "FLOAT",
+          "widget": {
+            "name": "duration_sec"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "group",
+          "name": "group",
+          "type": "MMX_DIR_GROUP",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3DirectorGroupReferenceToVideo"
+      },
+      "widgets_values": [
+        "主体定义:\n<Picture 1> 是角色《凌云》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 2> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\n\n详细描述:\n东家城堡花园广场，特写，凌云睁眼平静。\n3-8秒：凌云说三息之后若不收枪。\n本镜承接上一镜结尾（双方对峙紧绷。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\n\n台词:\n（说话人：凌云）\n凌云：（淡漠，近乎无视生死）三息之后，如果你不收回你的手枪。\n\n背景音乐:\n凝重悬念\n\n音效:\n静默",
+        8.0
+      ],
+      "title": "镜19 凌云睁眼 8s"
+    },
+    {
+      "id": 72,
+      "type": "LoadImage",
+      "pos": [
+        -3520,
+        1660
+      ],
+      "size": [
+        270,
+        314
+      ],
+      "flags": {},
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "图像",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "选择文件上传",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "图像",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            19
+          ]
+        },
+        {
+          "localized_name": "遮罩",
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "00_角色素材/凌云/c01_三视图_写实CG融合_00001_.png",
+        "image"
+      ],
+      "title": "参考图1 c01_三视图_写实CG融合_00001_.png"
+    },
+    {
+      "id": 73,
+      "type": "MiniMaxH3DirectorGroupReferenceToVideo",
+      "pos": [
+        -3320,
+        1980
+      ],
+      "size": [
+        420,
+        200
+      ],
+      "flags": {},
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "ref_image_0",
+          "localized_name": "ref_images.ref_image_0",
+          "name": "ref_images.ref_image_0",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 19
+        },
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "duration_sec",
+          "name": "duration_sec",
+          "type": "FLOAT",
+          "widget": {
+            "name": "duration_sec"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "group",
+          "name": "group",
+          "type": "MMX_DIR_GROUP",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3DirectorGroupReferenceToVideo"
+      },
+      "widgets_values": [
+        "主体定义:\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 2> 是角色《凌云》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\n\n详细描述:\n东家城堡花园广场，近景，小雪有恃无恐。\n3-7秒：小雪喝令凌云道歉。\n本镜承接上一镜结尾（抛出死亡通牒。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\n\n台词:\n（说话人：小雪）\n小雪：（有恃无恐）马上给我道歉！否则武者主宰的时代已经过去！\n\n背景音乐:\n对峙紧绷\n\n音效:\n紧张对峙的寂静",
+        7.0
+      ],
+      "title": "镜20 小雪硬顶 7s"
+    },
+    {
+      "id": 74,
+      "type": "LoadImage",
+      "pos": [
+        -1600,
+        2060
+      ],
+      "size": [
+        270,
+        314
+      ],
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "图像",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "选择文件上传",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "图像",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            20
+          ]
+        },
+        {
+          "localized_name": "遮罩",
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "00_角色素材/凌云/c01_三视图_写实CG融合_00001_.png",
+        "image"
+      ],
+      "title": "参考图1 c01_三视图_写实CG融合_00001_.png"
+    },
+    {
+      "id": 75,
+      "type": "MiniMaxH3DirectorGroupReferenceToVideo",
+      "pos": [
+        -1400,
+        2380
+      ],
+      "size": [
+        420,
+        200
+      ],
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "ref_image_0",
+          "localized_name": "ref_images.ref_image_0",
+          "name": "ref_images.ref_image_0",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 20
+        },
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "duration_sec",
+          "name": "duration_sec",
+          "type": "FLOAT",
+          "widget": {
+            "name": "duration_sec"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "group",
+          "name": "group",
+          "type": "MMX_DIR_GROUP",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3DirectorGroupReferenceToVideo"
+      },
+      "widgets_values": [
+        "主体定义:\n<Picture 1> 是角色《凌云》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 2> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\n\n详细描述:\n东家城堡花园广场，特写，凌云平静数出——一息。\n3-5秒：凌云声音冷峻。\n本镜承接上一镜结尾（坚持要凌云道歉。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\n\n台词:\n（说话人：凌云）\n凌云：（平静地数出）一息。\n\n背景音乐:\n秒针滴答\n\n音效:\n倒计时心跳",
+        5.0
+      ],
+      "title": "镜21 一息 5s"
+    },
+    {
+      "id": 76,
+      "type": "MiniMaxH3DirectorGroupReferenceToVideo",
+      "pos": [
+        -2040,
+        2380
+      ],
+      "size": [
+        420,
+        200
+      ],
+      "flags": {},
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "duration_sec",
+          "name": "duration_sec",
+          "type": "FLOAT",
+          "widget": {
+            "name": "duration_sec"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "group",
+          "name": "group",
+          "type": "MMX_DIR_GROUP",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3DirectorGroupReferenceToVideo"
+      },
+      "widgets_values": [
+        "主体定义:\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 2> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\n\n详细描述:\n东家城堡花园广场，近景，小雪气急败坏抢数。\n3-6秒：小雪说二息三。\n本镜承接上一镜结尾（死局步步逼近。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\n\n台词:\n（说话人：小雪）\n小雪：（气急败坏）我来给你数，二息、三……\n\n背景音乐:\n紧张加剧\n\n音效:\n少女急促呼吸",
+        6.0
+      ],
+      "title": "镜22 小雪抢数 6s"
+    },
+    {
+      "id": 77,
+      "type": "MiniMaxH3DirectorGroupReferenceToVideo",
+      "pos": [
+        -2680,
+        2380
+      ],
+      "size": [
+        420,
+        200
+      ],
+      "flags": {},
+      "order": 32,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "duration_sec",
+          "name": "duration_sec",
+          "type": "FLOAT",
+          "widget": {
+            "name": "duration_sec"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "group",
+          "name": "group",
+          "type": "MMX_DIR_GROUP",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3DirectorGroupReferenceToVideo"
+      },
+      "widgets_values": [
+        "主体定义:\n<Picture 1> 是角色《保镖》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 2> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\n\n详细描述:\n东家城堡花园广场，中景，保镖爆喝冲身护主。\n3-5秒：一道无形剑气袭至。\n本镜承接上一镜结尾（话音未落杀气骤至。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\n\n台词:\n（说话人：保镖）\n保镖：（爆喝）小姐小心！\n\n背景音乐:\n惊变爆发\n\n音效:\n爆喝、疾风",
+        5.0
+      ],
+      "title": "镜23 小姐小心 5s"
+    },
+    {
+      "id": 78,
+      "type": "MiniMaxH3DirectorGroupReferenceToVideo",
+      "pos": [
+        -3320,
+        2380
+      ],
+      "size": [
+        420,
+        200
+      ],
+      "flags": {},
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "duration_sec",
+          "name": "duration_sec",
+          "type": "FLOAT",
+          "widget": {
+            "name": "duration_sec"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "group",
+          "name": "group",
+          "type": "MMX_DIR_GROUP",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3DirectorGroupReferenceToVideo"
+      },
+      "widgets_values": [
+        "主体定义:\n<Picture 1> 是角色《保镖》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 2> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\n\n详细描述:\n东家城堡花园广场，中景，无形剑气洞穿保镖胸口。\n3-6秒：血花在保镖身上绽放。\n6-8秒：保镖颓然倒下。\n本镜承接上一镜结尾（保镖中剑洞穿。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\n\n背景音乐:\n惊骇凌厉\n\n音效:\n剑气破空、闷响",
+        8.0
+      ],
+      "title": "镜24 剑气洞穿 8s"
+    },
+    {
+      "id": 79,
+      "type": "LoadImage",
+      "pos": [
+        -1600,
+        2460
+      ],
+      "size": [
+        270,
+        314
+      ],
+      "flags": {},
+      "order": 34,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "图像",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "选择文件上传",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "图像",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            21
+          ]
+        },
+        {
+          "localized_name": "遮罩",
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "00_角色素材/凌云/c01_三视图_写实CG融合_00001_.png",
+        "image"
+      ],
+      "title": "参考图1 c01_三视图_写实CG融合_00001_.png"
+    },
+    {
+      "id": 80,
+      "type": "MiniMaxH3DirectorGroupReferenceToVideo",
+      "pos": [
+        -1400,
+        2780
+      ],
+      "size": [
+        420,
+        200
+      ],
+      "flags": {},
+      "order": 34,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "ref_image_0",
+          "localized_name": "ref_images.ref_image_0",
+          "name": "ref_images.ref_image_0",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 21
+        },
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "duration_sec",
+          "name": "duration_sec",
+          "type": "FLOAT",
+          "widget": {
+            "name": "duration_sec"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "group",
+          "name": "group",
+          "type": "MMX_DIR_GROUP",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3DirectorGroupReferenceToVideo"
+      },
+      "widgets_values": [
+        "主体定义:\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 2> 是角色《凌云》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\n\n详细描述:\n东家城堡花园广场，近景，小雪惊叫扣动扳机。\n3-6秒：子弹喷射而出。\n本镜承接上一镜结尾（保镖惨叫倒下。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\n\n台词:\n（说话人：小雪）\n小雪：（惊叫）啊！\n\n背景音乐:\n激烈惊惧\n\n音效:\n枪响‘碰’、惊叫",
+        6.0
+      ],
+      "title": "镜25 惊叫走火 6s"
+    },
+    {
+      "id": 81,
+      "type": "LoadImage",
+      "pos": [
+        -2240,
+        2460
+      ],
+      "size": [
+        270,
+        314
+      ],
+      "flags": {},
+      "order": 35,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "图像",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "选择文件上传",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "图像",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            22
+          ]
+        },
+        {
+          "localized_name": "遮罩",
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "00_角色素材/凌云/c01_三视图_写实CG融合_00001_.png",
+        "image"
+      ],
+      "title": "参考图1 c01_三视图_写实CG融合_00001_.png"
+    },
+    {
+      "id": 82,
+      "type": "MiniMaxH3DirectorGroupReferenceToVideo",
+      "pos": [
+        -2040,
+        2780
+      ],
+      "size": [
+        420,
+        200
+      ],
+      "flags": {},
+      "order": 35,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "ref_image_0",
+          "localized_name": "ref_images.ref_image_0",
+          "name": "ref_images.ref_image_0",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 22
+        },
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "duration_sec",
+          "name": "duration_sec",
+          "type": "FLOAT",
+          "widget": {
+            "name": "duration_sec"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "group",
+          "name": "group",
+          "type": "MMX_DIR_GROUP",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3DirectorGroupReferenceToVideo"
+      },
+      "widgets_values": [
+        "主体定义:\n<Picture 1> 是角色《凌云》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 2> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\n\n详细描述:\n东家城堡花园广场，中景，子弹高速射向凌云。\n3-6秒：众人屏息，认定凌云必死。\n本镜承接上一镜结尾（子弹杀向凌云。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\n\n背景音乐:\n生死一瞬\n\n音效:\n子弹破空呼啸",
+        6.0
+      ],
+      "title": "镜26 枪林弹雨 6s"
+    },
+    {
+      "id": 83,
+      "type": "LoadImage",
+      "pos": [
+        -2880,
+        2460
+      ],
+      "size": [
+        270,
+        314
+      ],
+      "flags": {},
+      "order": 36,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "图像",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "选择文件上传",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "图像",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            23
+          ]
+        },
+        {
+          "localized_name": "遮罩",
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "00_角色素材/凌云/c01_三视图_写实CG融合_00001_.png",
+        "image"
+      ],
+      "title": "参考图1 c01_三视图_写实CG融合_00001_.png"
+    },
+    {
+      "id": 84,
+      "type": "MiniMaxH3DirectorGroupReferenceToVideo",
+      "pos": [
+        -2680,
+        2780
+      ],
+      "size": [
+        420,
+        200
+      ],
+      "flags": {},
+      "order": 36,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "ref_image_0",
+          "localized_name": "ref_images.ref_image_0",
+          "name": "ref_images.ref_image_0",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 23
+        },
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "duration_sec",
+          "name": "duration_sec",
+          "type": "FLOAT",
+          "widget": {
+            "name": "duration_sec"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "group",
+          "name": "group",
+          "type": "MMX_DIR_GROUP",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3DirectorGroupReferenceToVideo"
+      },
+      "widgets_values": [
+        "主体定义:\n<Picture 1> 是角色《凌云》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 2> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\n\n详细描述:\n东家城堡花园广场，特写，凌云眼中乍射精光。\n3-6秒：三尺青锋以不可思议速度出鞘。\n6-9秒：剑光精准劈中飞行子弹。\n9-12秒：子弹被一剑劈飞。\n本镜承接上一镜结尾（在场众人认定凌云必死。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\n\n背景音乐:\n神技震撼高潮\n\n音效:\n剑鸣破空、金属撞击",
+        12.0
+      ],
+      "title": "镜27 一剑惊鸿 12s"
+    },
+    {
+      "id": 85,
+      "type": "LoadImage",
+      "pos": [
+        -3520,
+        2460
+      ],
+      "size": [
+        270,
+        314
+      ],
+      "flags": {},
+      "order": 37,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "图像",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "选择文件上传",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "图像",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            24
+          ]
+        },
+        {
+          "localized_name": "遮罩",
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "00_角色素材/凌云/c01_三视图_写实CG融合_00001_.png",
+        "image"
+      ],
+      "title": "参考图1 c01_三视图_写实CG融合_00001_.png"
+    },
+    {
+      "id": 86,
+      "type": "MiniMaxH3DirectorGroupReferenceToVideo",
+      "pos": [
+        -3320,
+        2780
+      ],
+      "size": [
+        420,
+        200
+      ],
+      "flags": {},
+      "order": 37,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "ref_image_0",
+          "localized_name": "ref_images.ref_image_0",
+          "name": "ref_images.ref_image_0",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 24
+        },
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "duration_sec",
+          "name": "duration_sec",
+          "type": "FLOAT",
+          "widget": {
+            "name": "duration_sec"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "group",
+          "name": "group",
+          "type": "MMX_DIR_GROUP",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3DirectorGroupReferenceToVideo"
+      },
+      "widgets_values": [
+        "主体定义:\n<Picture 1> 是角色《小雪》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 2> 是角色《凌云》的三视图参考：锁定该角色的面容、发型、体态、服装与随身道具，本镜及后续所有镜头中该角色形象须与此完全一致。\n<Picture 3> 是场景《东家城堡花园广场》的参考：仅取其环境地貌、建筑与道具、光线色调，作为本镜【背景与前景道具】的陪衬。本镜是人物对话镜头，画面主体必须是人物（该镜 <role> 所指的角色占画面中心，近景/中景，正面或半侧对镜头），城堡、喷泉、庭院、树木、轿车等环境元素只作为人物周围的背景与前景，不得抢占画面中心、不得以空无一人的空场景开场。\n\n详细描述:\n东家城堡花园广场，近景，小雪惊愕望着被劈开的弹。\n3-7秒：小雪信念崩塌。\n本镜承接上一镜结尾（子弹被一剑劈开，理念崩塌。），保持人物位置、光线明暗与氛围连贯，避免突兀跳切。\n\n台词:\n（说话人：小雪）\n小雪：（惊惶，内心）那一剑，彻底击溃了我的理念！\n\n背景音乐:\n震撼余韵\n\n音效:\n剑鸣余音",
+        7.0
+      ],
+      "title": "镜28 理念崩塌 7s"
+    },
+    {
+      "id": 87,
+      "type": "MiniMaxH3DirectorGroupsCombine",
+      "pos": [
+        -760,
+        40
+      ],
+      "size": [
+        290,
+        126
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "group_0",
+          "localized_name": "groups.group_0",
+          "name": "groups.group_0",
+          "shape": 7,
+          "type": "MMX_DIR_GROUP",
+          "link": 25
+        },
+        {
+          "label": "group_1",
+          "localized_name": "groups.group_1",
+          "name": "groups.group_1",
+          "shape": 7,
+          "type": "MMX_DIR_GROUP",
+          "link": 26
+        },
+        {
+          "label": "group_2",
+          "localized_name": "groups.group_2",
+          "name": "groups.group_2",
+          "shape": 7,
+          "type": "MMX_DIR_GROUP",
+          "link": 27
+        },
+        {
+          "label": "group_3",
+          "localized_name": "groups.group_3",
+          "name": "groups.group_3",
+          "shape": 7,
+          "type": "MMX_DIR_GROUP",
+          "link": 28
+        },
+        {
+          "label": "group_4",
+          "localized_name": "groups.group_4",
+          "name": "groups.group_4",
+          "shape": 7,
+          "type": "MMX_DIR_GROUP",
+          "link": 29
+        },
+        {
+          "label": "group_5",
+          "localized_name": "groups.group_5",
+          "name": "groups.group_5",
+          "shape": 7,
+          "type": "MMX_DIR_GROUP",
+          "link": 30
+        },
+        {
+          "label": "group_6",
+          "localized_name": "groups.group_6",
+          "name": "groups.group_6",
+          "shape": 7,
+          "type": "MMX_DIR_GROUP",
+          "link": 31
+        },
+        {
+          "label": "group_7",
+          "localized_name": "groups.group_7",
+          "name": "groups.group_7",
+          "shape": 7,
+          "type": "MMX_DIR_GROUP",
+          "link": 32
+        },
+        {
+          "label": "group_8",
+          "localized_name": "groups.group_8",
+          "name": "groups.group_8",
+          "shape": 7,
+          "type": "MMX_DIR_GROUP",
+          "link": 33
+        },
+        {
+          "label": "group_9",
+          "localized_name": "groups.group_9",
+          "name": "groups.group_9",
+          "shape": 7,
+          "type": "MMX_DIR_GROUP",
+          "link": 34
+        },
+        {
+          "label": "group_10",
+          "localized_name": "groups.group_10",
+          "name": "groups.group_10",
+          "shape": 7,
+          "type": "MMX_DIR_GROUP",
+          "link": 35
+        },
+        {
+          "label": "group_11",
+          "localized_name": "groups.group_11",
+          "name": "groups.group_11",
+          "shape": 7,
+          "type": "MMX_DIR_GROUP",
+          "link": 36
+        },
+        {
+          "label": "group_12",
+          "localized_name": "groups.group_12",
+          "name": "groups.group_12",
+          "shape": 7,
+          "type": "MMX_DIR_GROUP",
+          "link": 37
+        },
+        {
+          "label": "group_13",
+          "localized_name": "groups.group_13",
+          "name": "groups.group_13",
+          "shape": 7,
+          "type": "MMX_DIR_GROUP",
+          "link": 38
+        },
+        {
+          "label": "group_14",
+          "localized_name": "groups.group_14",
+          "name": "groups.group_14",
+          "shape": 7,
+          "type": "MMX_DIR_GROUP",
+          "link": 39
+        },
+        {
+          "label": "group_15",
+          "localized_name": "groups.group_15",
+          "name": "groups.group_15",
+          "shape": 7,
+          "type": "MMX_DIR_GROUP",
+          "link": 40
+        },
+        {
+          "label": "group_16",
+          "localized_name": "groups.group_16",
+          "name": "groups.group_16",
+          "shape": 7,
+          "type": "MMX_DIR_GROUP",
+          "link": 41
+        },
+        {
+          "label": "group_17",
+          "localized_name": "groups.group_17",
+          "name": "groups.group_17",
+          "shape": 7,
+          "type": "MMX_DIR_GROUP",
+          "link": 42
+        },
+        {
+          "label": "group_18",
+          "localized_name": "groups.group_18",
+          "name": "groups.group_18",
+          "shape": 7,
+          "type": "MMX_DIR_GROUP",
+          "link": 43
+        },
+        {
+          "label": "group_19",
+          "localized_name": "groups.group_19",
+          "name": "groups.group_19",
+          "shape": 7,
+          "type": "MMX_DIR_GROUP",
+          "link": 44
+        },
+        {
+          "label": "group_20",
+          "localized_name": "groups.group_20",
+          "name": "groups.group_20",
+          "shape": 7,
+          "type": "MMX_DIR_GROUP",
+          "link": 45
+        },
+        {
+          "label": "group_21",
+          "localized_name": "groups.group_21",
+          "name": "groups.group_21",
+          "shape": 7,
+          "type": "MMX_DIR_GROUP",
+          "link": 46
+        },
+        {
+          "label": "group_22",
+          "localized_name": "groups.group_22",
+          "name": "groups.group_22",
+          "shape": 7,
+          "type": "MMX_DIR_GROUP",
+          "link": 47
+        },
+        {
+          "label": "group_23",
+          "localized_name": "groups.group_23",
+          "name": "groups.group_23",
+          "shape": 7,
+          "type": "MMX_DIR_GROUP",
+          "link": 48
+        },
+        {
+          "label": "group_24",
+          "localized_name": "groups.group_24",
+          "name": "groups.group_24",
+          "shape": 7,
+          "type": "MMX_DIR_GROUP",
+          "link": 49
+        },
+        {
+          "label": "group_25",
+          "localized_name": "groups.group_25",
+          "name": "groups.group_25",
+          "shape": 7,
+          "type": "MMX_DIR_GROUP",
+          "link": 50
+        },
+        {
+          "label": "group_26",
+          "localized_name": "groups.group_26",
+          "name": "groups.group_26",
+          "shape": 7,
+          "type": "MMX_DIR_GROUP",
+          "link": 51
+        },
+        {
+          "label": "group_27",
+          "localized_name": "groups.group_27",
+          "name": "groups.group_27",
+          "shape": 7,
+          "type": "MMX_DIR_GROUP",
+          "link": 52
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "groups",
+          "name": "groups",
+          "type": "MMX_DIR_GROUP",
+          "links": [
+            53
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3DirectorGroupsCombine"
+      },
+      "widgets_values": []
+    }
+  ],
+  "links": [
+    [
+      2,
+      2,
+      0,
+      5,
+      3,
+      "CLIP"
+    ],
+    [
+      3,
+      3,
+      0,
+      5,
+      1,
+      "VAE"
+    ],
+    [
+      4,
+      4,
+      0,
+      5,
+      2,
+      "VAE"
+    ],
+    [
+      5,
+      5,
+      0,
+      6,
+      0,
+      "IMAGE"
+    ],
+    [
+      6,
+      5,
+      1,
+      6,
+      1,
+      "AUDIO"
+    ],
+    [
+      7,
+      5,
+      2,
+      6,
+      2,
+      "FLOAT"
+    ],
+    [
+      8,
+      5,
+      5,
+      8,
+      0,
+      "*"
+    ],
+    [
+      9,
+      6,
+      0,
+      7,
+      0,
+      "VIDEO"
+    ],
+    [
+      10,
+      5,
+      2,
+      9,
+      0,
+      "*"
+    ],
+    [
+      11,
+      5,
+      3,
+      10,
+      0,
+      "*"
+    ],
+    [
+      12,
+      1,
+      0,
+      5,
+      0,
+      "MODEL"
+    ],
+    [
+      13,
+      58,
+      0,
+      59,
+      0,
+      "IMAGE"
+    ],
+    [
+      14,
+      60,
+      0,
+      61,
+      0,
+      "IMAGE"
+    ],
+    [
+      15,
+      62,
+      0,
+      63,
+      0,
+      "IMAGE"
+    ],
+    [
+      16,
+      64,
+      0,
+      65,
+      0,
+      "IMAGE"
+    ],
+    [
+      17,
+      66,
+      0,
+      67,
+      0,
+      "IMAGE"
+    ],
+    [
+      18,
+      70,
+      0,
+      71,
+      0,
+      "IMAGE"
+    ],
+    [
+      19,
+      72,
+      0,
+      73,
+      0,
+      "IMAGE"
+    ],
+    [
+      20,
+      74,
+      0,
+      75,
+      0,
+      "IMAGE"
+    ],
+    [
+      21,
+      79,
+      0,
+      80,
+      0,
+      "IMAGE"
+    ],
+    [
+      22,
+      81,
+      0,
+      82,
+      0,
+      "IMAGE"
+    ],
+    [
+      23,
+      83,
+      0,
+      84,
+      0,
+      "IMAGE"
+    ],
+    [
+      24,
+      85,
+      0,
+      86,
+      0,
+      "IMAGE"
+    ],
+    [
+      25,
+      47,
+      0,
+      87,
+      0,
+      "MMX_DIR_GROUP"
+    ],
+    [
+      26,
+      48,
+      0,
+      87,
+      1,
+      "MMX_DIR_GROUP"
+    ],
+    [
+      27,
+      49,
+      0,
+      87,
+      2,
+      "MMX_DIR_GROUP"
+    ],
+    [
+      28,
+      50,
+      0,
+      87,
+      3,
+      "MMX_DIR_GROUP"
+    ],
+    [
+      29,
+      51,
+      0,
+      87,
+      4,
+      "MMX_DIR_GROUP"
+    ],
+    [
+      30,
+      52,
+      0,
+      87,
+      5,
+      "MMX_DIR_GROUP"
+    ],
+    [
+      31,
+      53,
+      0,
+      87,
+      6,
+      "MMX_DIR_GROUP"
+    ],
+    [
+      32,
+      54,
+      0,
+      87,
+      7,
+      "MMX_DIR_GROUP"
+    ],
+    [
+      33,
+      55,
+      0,
+      87,
+      8,
+      "MMX_DIR_GROUP"
+    ],
+    [
+      34,
+      56,
+      0,
+      87,
+      9,
+      "MMX_DIR_GROUP"
+    ],
+    [
+      35,
+      57,
+      0,
+      87,
+      10,
+      "MMX_DIR_GROUP"
+    ],
+    [
+      36,
+      59,
+      0,
+      87,
+      11,
+      "MMX_DIR_GROUP"
+    ],
+    [
+      37,
+      61,
+      0,
+      87,
+      12,
+      "MMX_DIR_GROUP"
+    ],
+    [
+      38,
+      63,
+      0,
+      87,
+      13,
+      "MMX_DIR_GROUP"
+    ],
+    [
+      39,
+      65,
+      0,
+      87,
+      14,
+      "MMX_DIR_GROUP"
+    ],
+    [
+      40,
+      67,
+      0,
+      87,
+      15,
+      "MMX_DIR_GROUP"
+    ],
+    [
+      41,
+      68,
+      0,
+      87,
+      16,
+      "MMX_DIR_GROUP"
+    ],
+    [
+      42,
+      69,
+      0,
+      87,
+      17,
+      "MMX_DIR_GROUP"
+    ],
+    [
+      43,
+      71,
+      0,
+      87,
+      18,
+      "MMX_DIR_GROUP"
+    ],
+    [
+      44,
+      73,
+      0,
+      87,
+      19,
+      "MMX_DIR_GROUP"
+    ],
+    [
+      45,
+      75,
+      0,
+      87,
+      20,
+      "MMX_DIR_GROUP"
+    ],
+    [
+      46,
+      76,
+      0,
+      87,
+      21,
+      "MMX_DIR_GROUP"
+    ],
+    [
+      47,
+      77,
+      0,
+      87,
+      22,
+      "MMX_DIR_GROUP"
+    ],
+    [
+      48,
+      78,
+      0,
+      87,
+      23,
+      "MMX_DIR_GROUP"
+    ],
+    [
+      49,
+      80,
+      0,
+      87,
+      24,
+      "MMX_DIR_GROUP"
+    ],
+    [
+      50,
+      82,
+      0,
+      87,
+      25,
+      "MMX_DIR_GROUP"
+    ],
+    [
+      51,
+      84,
+      0,
+      87,
+      26,
+      "MMX_DIR_GROUP"
+    ],
+    [
+      52,
+      86,
+      0,
+      87,
+      27,
+      "MMX_DIR_GROUP"
+    ],
+    [
+      53,
+      87,
+      0,
+      5,
+      5,
+      "MMX_DIR_GROUP"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "模型加载",
+      "bounding": [
+        433.3126815332408,
+        -617.8888836605067,
+        440,
+        560
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "MiniMax H3 Director",
+      "bounding": [
+        0,
+        0,
+        1120,
+        980
+      ],
+      "color": "#8A8",
+      "flags": {}
+    },
+    {
+      "id": 4,
+      "title": "输出",
+      "bounding": [
+        1160,
+        40,
+        1059.7917856131396,
+        826.9303623099186
+      ],
+      "color": "#b58",
+      "flags": {}
+    },
+    {
+      "id": 5,
+      "title": "加速模块（用就开启，不用可以关掉）",
+      "bounding": [
+        1118.3533322601147,
+        -576.6455810583501,
+        696.8626780790273,
+        222.74509026022088
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "frontendVersion": "1.23.0",
+    "note": "MiniMax H3 Director · external Image to Video groups",
+    "ds": {
+      "scale": 0.2698803026006778,
+      "offset": [
+        5193.348952790739,
+        961.220883113859
+      ]
+    }
+  },
+  "version": 0.4
+}
