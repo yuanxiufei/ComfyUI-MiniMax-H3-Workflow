@@ -8,7 +8,7 @@
   2) 角色形象不符时代 / 剧本 / 小说（era 写错、古代画成现代装，或反过来）。
 
 轮次（渐进 gating，逐轮递进，全部通过才放行）：
-  R1 基础契约      -> id/name/gender/role_type/age 必填 + speaker_id/ 卡通 id 唯一
+  R1 基础契约      -> id/name/gender/role_type/age + image_prompt 必填（speaker_id 归属/唯一性由 validate_db.py 负责，见宪法 §17.5）
   R2 时代合规      -> era ∈ {ancient,modern}，且 image_prompt 着装词与时代一致（防"不符时代"）
   R3 剧本/小说一致 -> 分镜引用的角色都已提取、实体角色能出图、无手持道具穿帮、无泛模板
   R4 三视图硬约束  -> 每个实体角色都有三视图工作流；工作流正向提示词含全部硬约束段
