@@ -26,6 +26,8 @@ import re
 import shutil
 import sys
 
+import build_seamless_video as bsv
+
 try:
     sys.stdout.reconfigure(encoding="utf-8")
 except Exception:
@@ -36,8 +38,13 @@ ROOT = os.path.abspath(os.path.join(HERE, ".."))
 OUT = os.path.abspath(os.path.join(ROOT, "workflows"))
 EXAMPLES = r"D:\Comfy-Desktop\ComfyUI-Shared\custom_nodes\ComfyUI_MiniMaxH3_Director\example_workflows"
 SB_DB = os.path.join(ROOT, "剧本", "02_分镜", "第1集_分镜.json")
+ROLE_DB = os.path.join(ROOT, "剧本", "03_角色场景", "角色.json")
 
 TEMPLATE = os.path.join(EXAMPLES, "minimax_h3_director_external_groups_i2v.json")
+
+# 角色映射（speaker_id -> {name, gender, voice_en …}），由 main 加载。
+# H3 对白是文字驱动：缺台词段模型会瞎编、人声漂移。compose_video_prompt 会据此注入对白。
+_ROLE_MAP = None
 
 EPISODE = "第1集"
 SNAME = "写实CG融合"          # 与 05_shotfirst 保存前缀一致
@@ -144,11 +151,22 @@ def compose_video_prompt(sb):
     lead = [st, ang, cam]
     if tod:
         lead.append(tod)
-    prefix = ", ".join(lead) + ", " + loc + ", "
+    prefix = ", ".join(lead)
+    # loc 可能为空（分镜 strip 缺 location 字段）：空时不要拼出多余空逗号
+    if loc:
+        prefix += ", " + loc
+    prefix += ", "
     if prop:
         prefix += prop
     tail = (" " + atmos) if atmos else ""
-    return (prefix + body + tail).strip()
+    text = (prefix + body + tail).strip()
+
+    # 注入 H3 官方对白段（缺台词则模型瞎编、人声漂移；有对白才追加）
+    if _ROLE_MAP:
+        dia = bsv.dialogue_segment(sb, _ROLE_MAP)
+        if dia:
+            text = text + "\n台词:\n" + dia
+    return text
 
 
 def first_frame_file(sid):
@@ -160,6 +178,15 @@ def first_frame_file(sid):
 def load_storyboards():
     with open(SB_DB, encoding="utf-8") as f:
         return json.load(f).get("storyboards", [])
+
+
+def load_role_map():
+    """读取角色库，生成 speaker_id -> {name, gender, voice_en …} 映射，供对白注入。"""
+    global _ROLE_MAP
+    if os.path.isfile(ROLE_DB):
+        with open(ROLE_DB, encoding="utf-8") as f:
+            _ROLE_MAP = bsv.build_role_map(json.load(f))
+    return _ROLE_MAP
 
 
 def load_template():
@@ -437,6 +464,7 @@ def main():
         raise SystemExit("找不到 external_groups_i2v 模板：%s" % TEMPLATE)
 
     storyboards = load_storyboards()
+    load_role_map()  # 加载角色映射，保证 compose_video_prompt 能注入对白
     if args.shots:
         # 兼容整数 shot_id(1) 与补零字符串("04")：统一归一化为 %02d，便于匹配与命名
         wanted = set()

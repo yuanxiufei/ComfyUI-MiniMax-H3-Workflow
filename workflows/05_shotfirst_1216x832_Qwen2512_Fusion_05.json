@@ -31,7 +31,7 @@
           "name": "MODEL",
           "type": "MODEL",
           "links": [
-            5
+            1
           ]
         }
       ],
@@ -130,6 +130,53 @@
       "title": "VAE"
     },
     {
+      "id": 4,
+      "type": "LoraLoaderModelOnly",
+      "pos": [
+        0,
+        160
+      ],
+      "size": [
+        360,
+        82
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 1
+        },
+        {
+          "name": "lora_name",
+          "type": "COMBO"
+        },
+        {
+          "name": "strength_model",
+          "type": "FLOAT"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            5
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "widgets_values": [
+        "Qwen-国漫短剧3D CG质感角色V1_Qwen-国漫短剧3D CG质感角色V1.safetensors",
+        0.5
+      ],
+      "title": "角色 LoRA (0.5)"
+    },
+    {
       "id": 5,
       "type": "CLIPTextEncode",
       "pos": [
@@ -167,7 +214,7 @@
         "Node name for S&R": "CLIPTextEncode"
       },
       "widgets_values": [
-        "K-GM, 3D次时代CG风格渲染, PBR材质渲染, 高精度3D模型, 戏剧性体积光, 浅景深, 电影感氛围, 现代都市场景环境, 4K高清纹理, 电影级布光, 体积雾, 大气透视, Octane渲染器质感, Unreal Engine 5, Chinese Guoman 3D style, Chinese digital environment concept art, cinematic matte painting, modern urban setting, a contemporary metropolitan world, a hidden ancient martial and sword-cultivation undercurrent thriving within a modern city, modern city skyscrapers, luxury mansions and villas, modern vehicles and luxury cars, modern city streets, architecture and skylines, ancient xianxia sword forces concealed and coexisting in the modern world, grand classical aristocratic manor estates of hidden xianxia clans integrated within the modern city, not a fully ancient world, not a purely feudal old town, not a medieval fantasy village, not an ancient rural village, not a classical-fantasy sect campus in the countryside, a 3x3 nine-panel grid, nine distinct panels of the exact same empty scene, panel 1: extreme wide establishing shot of the whole landscape, panel 2: wide shot framing the entire environment, panel 3: wide-angle ground-level shot from inside the scene, panel 4: medium shot from the near edge of the foreground, panel 5: eye-level medium shot centered on the main area of the scene, panel 6: dramatic low angle up-shot of the tall elements, panel 7: high-angle aerial top-down layout view of the whole area, panel 8: close-up detail of the key environmental props, panel 9: a moodier contrasting time-of-day take on the same environment, each panel shows the identical scene with the same props, same layout and same lighting, each panel differs only in camera angle, vantage point and composition, 16:9 landscape, 1216x832, 东家城堡花园广场, Subject & Environment: 一座巨大城堡式庄园的宽阔前庭广场，无数座洁白的欧式雕塑喷泉环绕，水花四溅，阳光洒在波光粼粼的水面上；地面铺着平整光洁的大理石，远处矗立着雄伟的浅色石质城堡，楼宇高耸，尖顶与穹顶交错；广场中央是一座宏伟的主喷泉，周围是修剪齐整的绿篱与花坛，背景是湛蓝的天空与轻云；气氛空旷气派，富丽而威严，传承千年的古老世家气派，宁静而庄重, Key props, a fixed set consistent across ALL nine panels: 一辆深黑色加长豪华轿车，金属漆面锃亮，车窗反光，造型流线高档，停在庄园大理石广场上 ; 一座洁白的双层欧式喷泉，水花从雕塑口中涌出，在阳光下晶莹剔透，波光粼粼 ; 平整光洁的大理石地面，倒映着天空与建筑，浅色石纹清晰; every panel shows the exact same props, identical silhouette, shape, material, color, scale and placement, nothing differs from panel to panel; only this scene's own props, no props borrowed from any other scene, a grand luxuriant classical aristocratic estate of a hidden xianxia sword-cultivation clan, opulent timeless old-world splendor harmoniously integrated within and framed by a contemporary modern metropolis, rare fusion of ancient clan grandeur and modern urban elegance, Composition & Space: clear spatial depth, layered foreground-midground-background, natural framing, open negative space, Lighting & Color: soft bright morning light, gentle warm sunlight through windows, clean airy clarity, fresh dawn glow, clean bright cinematic color palette, crisp natural vibrant tones, warm polished ambient light, translucent airy clarity, 明亮清爽，通透大气，莹润质感, Cinematography & Imaging: wide-angle perspective, deep scenic focus, volumetric light, PBR materials, atmospheric haze, Camera: front / side / back consistent vantage points, eye-level, identical layout and props across all views, no character, absolutely no people, empty environment, no human figure, no face, no body, no silhouette of any person anywhere, same layout, same props, same lighting, clean thin grid lines separating the nine panels, Chinese Guoman 3D style, China-style illustration background, no text, no watermark"
+        "stylized 3D Chinese anime character, perfect fusion of realistic rendering and CG animation, premium 3D animated film quality, 3D次时代CG风格渲染, high-precision sculpted model, dramatic volumetric lighting, soft-focus shallow depth of field, atmospheric smoke and mist simulation, China-style aesthetic background, Octane renderer look, Unreal Engine 5, very realistic textured human skin, fine visible skin pores, natural skin grain and subtle realistic skin details, natural skin tones, realistic non-plastic non-waxy skin material with soft natural highlights, subsurface scattering, expressive detailed anime eyes with realistic iris depth, subtle natural facial micro-expressions, 电影感氛围, 电影级布光, 浅景深, 4K高清纹理, 高精度3D模型, PBR材质, Chinese Guoman 3D style, East Asian anime face, modern urban setting, a contemporary metropolitan world, a hidden ancient martial and sword-cultivation undercurrent thriving within a modern city, modern city skyscrapers, luxury mansions and villas, modern vehicles and luxury cars, modern city streets, architecture and skylines, ancient xianxia sword forces concealed and coexisting in the modern world, grand classical aristocratic manor estates of hidden xianxia clans integrated within the modern city, not a fully ancient world, not a purely feudal old town, not a medieval fantasy village, not an ancient rural village, not a classical-fantasy sect campus in the countryside, 16:9 landscape, 1216x832, cinematic single shot, Subject & Environment: A pretty lively teenage girl in a modern rose-colored silk chiffon dress with a cropped cream lightweight jacket, modern high ponytail with a silver tassel hairpin and a playful ribbon, fitted modern trousers and white leather boots, chin raised in a stubborn defiant manner, determined sparkling eyes, castle courtyard with a distant meditating figure by the fountain behind, daylight, close shot, eye-level angle, static camera, bright playful spirited atmosphere, key handheld props present: a small delicate silver revolver pistol with a mirror-polished gleaming body and an ornate carved grip, elegant and dangerous, strictly exactly 1 person in this shot, scene shows only these specific character, no additional people, no extra crowd, no passing strangers, Composition & Space: camera angle 平视, 近景, 固定 camera movement, layered spatial depth, natural framing, Lighting & Color: soft bright morning light, gentle warm sunlight through windows, clean airy clarity, fresh dawn glow, clean bright cinematic color palette, crisp natural vibrant tones, warm polished ambient light, translucent airy clarity, 明亮清爽，通透大气，莹润质感, 晨光明亮，俏皮灵动，透着少女的好胜, cinematic color grading, Cinematography & Imaging: realistic rendering, volumetric light, shallow depth of field, 4K detail, PBR materials, Camera: 平视 近景, 固定, no text, no watermark"
       ],
       "title": "正向提示词"
     },
@@ -209,7 +256,7 @@
         "Node name for S&R": "CLIPTextEncode"
       },
       "widgets_values": [
-        "人物，人脸，人像，人影，全身人，半身人，背影，身体，手臂，手指，手掌，皮肤，五官，嘴，眼睛，头发，格子重叠，格子合并，格子缺失，格子溢出，画面破碎，构图混乱，嘴型错乱，串台词，肢体扭曲，画面抖动，闪烁，模糊，低清晰度，水印，英文文字，文字，签名"
+        "人物分身，复制人，多余人物，角色增殖，多人重叠，嘴型错乱，串台词，人物五官变动，服饰跳变，手部畸形，肢体扭曲，画面抖动，闪烁，模糊，低清晰度，水印，英文文字，丑陋，畸形五官，歪斜五官，不对称脸，歪嘴，暴牙，龅牙，皱纹过多，未老先衰，塑料感，橡胶皮肤，蜡像质感，雕塑质感，玩具感，光洁塑料，陶瓷娃娃皮肤，光滑无毛孔，磨皮过度，滤镜磨皮，无皮肤纹理，纯2D动漫，扁平卡通，二次元平面，日系动漫，厚涂，赛璐璐，漫画线稿，漫画脸，真人实拍，真实人物照片，电影剧照，写实照片，面瘫表情，面无表情，表情呆滞，眼神空洞，人物手持道具，手拿道具，手持物品，道具被手持，拿着道具，人拿道具，塑料衣服，塑料质感衣物，光滑塑料布面，无布料织纹，反光布面，油亮衣物，蜡质衣物，皮革质感衣服，缎面强反光，水光绸缎，没穿裤子，未穿长裤，裸露男性下体，裸露生殖器，性器官暴露，裸体，全裸，半裸，下身裸露，裸露大腿，裸露小腿，光腿，露腿，短裙，超短下摆，裆部裸露，下体外露，赤脚，光脚，未穿鞋，多余的第二个入镜人物，额外人物，多余角色，群演，路人，同一角色变出两个，主角人脸被替换，角色面容中途改变，换脸，画面出现未设定的人"
       ],
       "title": "负面提示词"
     },
@@ -414,12 +461,20 @@
         "Node name for S&R": "SaveImage"
       },
       "widgets_values": [
-        "01_场景素材/东家城堡花园广场/东家城堡花园广场_九宫格"
+        "02_分镜/第1集/第1集_镜05_首帧_写实CG融合"
       ],
       "title": "保存图片"
     }
   ],
   "links": [
+    [
+      1,
+      1,
+      0,
+      4,
+      0,
+      "MODEL"
+    ],
     [
       2,
       2,
@@ -446,7 +501,7 @@
     ],
     [
       5,
-      1,
+      4,
       0,
       8,
       0,

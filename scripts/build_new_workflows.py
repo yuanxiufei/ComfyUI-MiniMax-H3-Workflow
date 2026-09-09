@@ -81,6 +81,14 @@ FABRIC_MATTE = ("realistic matte period fabric clothing, coarse natural cloth wi
                 "faded washed slightly worn aged texture, authentic handwoven hemp and cotton feel, "
                 "no shiny smooth plastic-like garments, no glossy lacquered cloth")
 
+# 现代角色（现代古武结合）的布料定位：现代精纺面料 + 抑制塑料，保持真实哑光，
+# 避免古装那套"coarse handwoven hemp"粗糙麻布把现代套装画成古布衣。
+FABRIC_MODERN = ("realistic matte modern tailored fabric clothing, fine smooth woven textile "
+                 "with subtle natural fabric texture, natural drape and soft folds, "
+                 "premium cotton and silk-blend cloth, matte non-reflective modern garment fabric, "
+                 "subtle tailored seams and crisp modern cut, "
+                 "no shiny plastic-like garments, no glossy synthetic look")
+
 # 角色下装硬约束：所有角色必须穿裤子/完整下装，双腿被衣裤完整遮盖，绝不裸露双腿。
 # 模型常把角色下半身画成"光腿/没裤子/缩成短装/裙下露腿"，故在此统一钉死；
 # 只要是 16:9 全景/三视图角色，都强制 lower body 完整穿着长裤，裙/衫内也须有内衬裤装。
@@ -94,6 +102,30 @@ LOWER_BODY_PANTS = ("wearing proper full-length trousers and complete lower-body
                     "the character fully clothed and modestly covered from neck to ankles, "
                     "crotch and whole legs entirely hidden under fabric, no exposed crotch, "
                     "wearing shoes, decently and completely dressed from head to toe")
+
+# 古装定性强词：角色库全员古风（广袖长袍/长裙/仙侠劲装），但三视图提示词前面约 4000 字符
+# 全是英文布局词（character concept sheet/体格段/表情板/道具板/布料/下装），且原 ROLE_ERA_ANCHOR
+# 自带 "modern metropolis / contemporary urban presence"（当时为避开全剧古装化而设计），
+# 两者叠加把模型往"现代都市装"方向拉，导致古装描述（中文、且位于 4567 字符末尾）被淹没，
+# 凌云画成了现代唐装+短发。此处新增前置英文古装定位，锁定"传统古装/仙侠古装"，并明确非现代装。
+COSTUME_ANCIENT_EN = ("a character dressed in exquisite traditional ancient Chinese costume, "
+                      "flowing ancient Chinese robes and classical Chinese historical fantasy outfit, "
+                      "authentic period Chinese attire of a hidden xianxia sword-cultivation world, "
+                      "elegant traditional Chinese garments with wide flowing sleeves and long draped cloth, "
+                      "an ancient Chinese classical warrior and cultivator garb, "
+                      "not modern clothing, not a modern suit, not modern streetwear, not contemporary dress, "
+                      "not a modern t-shirt, jacket or denim")
+
+# 现代古武结合英文定位词：现代都市世家装束 + 中式古武元素混搭，锁定"现代装而非纯古装"，
+# 避免把现代角色（小雪/云姐/陈姨/保镖）画成仙侠古装，也避免被古装 LoRA / 前置古装锚点拽回古代。
+COSTUME_MODERN_EN = ("a character dressed in contemporary modern Chinese aristocratic attire, "
+                     "a sleek modern outfit of a hidden ancient martial-arts aristocratic family, "
+                     "modern elegant clothing fused with subtle Chinese traditional martial-arts elements, "
+                     "a refined modern suit, dress or driver outfit accented with classical Chinese details, "
+                     "a modern metropolitan person from an ancient martial-aristocratic household, "
+                     "not ancient Chinese robes, not a historical costume, not a xianxia immortal outfit, "
+                     "not a traditional Hanfu, not a flowing ancient gown, not a woven ancient tunic")
+
 
 # 角色"耐看"修饰词：除非小说明确写丑，默认所有角色都要五官端正耐看，避免模型生成歪瓜裂枣脸。
 # 词条为年龄中性（不含 youth/young），对少年、中年角色都适用，年龄感由角色库 image_prompt 自带。
@@ -142,6 +174,8 @@ def _fusion_base(look):
 PROP_ZH2EN = {
     "佩剑": "an academy standard sword with dark blue wrapped hilt",
     "寒冰长剑": "a long icy sword glowing with pale blue light",
+    "银色手枪": "a small delicate silver revolver pistol with a mirror-polished gleaming body "
+                "and an ornate carved grip, elegant and dangerous",
 }
 
 
@@ -249,7 +283,17 @@ PROP_BOARD_ONLY = ("this panel is a pure prop-only showcase zone, limited to the
 # 每个角色传入各自的外貌描述 look + 随身道具 props，保证"每角色对得上剧本设定"；
 # physique 为按角色年龄分档注入的身形/头身比/面容成熟度段（见 AGE_PHYSIQUE），
 # 缺省退回统一成人比例，避免破坏旧用法。
-def char_3view_fusion(look, props=None, physique=None):
+def _era_costume(era):
+    """角色时代 → 前置英文定位词：古修(远古装) 用 COSTUME_ANCIENT_EN，现代古武结合 用 COSTUME_MODERN_EN。"""
+    return COSTUME_MODERN_EN if era == "modern" else COSTUME_ANCIENT_EN
+
+
+def _era_fabric(era):
+    """角色时代 → 布料定位词：古修用粗麻古布(FABRIC_MATTE)，现代用现代精纺(FABRIC_MODERN)。"""
+    return FABRIC_MODERN if era == "modern" else FABRIC_MATTE
+
+
+def char_3view_fusion(look, props=None, physique=None, era=None):
     en = _props_en(props or [])
     # 表情板开头：有道具板 → 右上横排一格一面；无道具板 → 右列两列占满
     expr_head = ("right top area: facial expression board, "
@@ -276,16 +320,19 @@ def char_3view_fusion(look, props=None, physique=None):
     body = physique or "well-proportioned natural human body, realistic head-to-body ratio"
     return (_fusion_base(look) + "character concept sheet, standard turnaround reference sheet, "
             "seamless single illustration, "
+            + _era_costume(era) + ", "
             "left side large area: three full-body views of the character, "
             "front view standing / side view standing straight / back view, "
             "full body head to toe, feet fully visible, no cut off, "
             + body + ", "
+            + look + ", "
             "same height and build in all three views, "
             "limbs in correct proportion, no oversized head, no distorted torso, "
             + expr_head + panels + prop_board +
             "natural seamless layout, no dividing lines, no grid lines, no borders, no panel outlines, no frames, "
             "elements must not overlap, no elements bleeding into adjacent areas, "
-            + FABRIC_MATTE + ", " + LOWER_BODY_PANTS + ", " + look + ", same face, same costume, same character in all areas, "
+            + _era_fabric(era) + ", " + LOWER_BODY_PANTS +
+            ", same face, same costume, same character in all areas, "
             "16:9 landscape, clean light background, no text, no watermark")
 
 
@@ -828,6 +875,7 @@ def load_roles():
             continue  # 跳过无实体形象角色
         roles.append({"id": c["id"], "name": c["name"], "gender": c.get("gender", "男"),
                       "age": c.get("age", ""),
+                      "era": c.get("era", "ancient"),
                       "image_prompt": c["image_prompt"],
                       "props": c.get("随身道具", [])})
     return roles
@@ -850,7 +898,7 @@ def build_char_assets(IMG_W, IMG_H, SNAME, SFX, STRENGTH):
         unet, clip, ctype, vae, lora = Q
         write(os.path.join(OUT, f"01_char3view_{IMG_W}x{IMG_H}_Qwen2512{rid}_{SFX}.json"),
               make_img(unet, clip, ctype, vae, lora, STRENGTH,
-                       char_3view_fusion(look, role.get("props", []), physique),
+                       char_3view_fusion(look, role.get("props", []), physique, role.get("era", "ancient")),
                        NEG_GRID_FUSION, IMG_W, IMG_H, 30, 4.0, 42, pfx + "三视图_" + SNAME,
                        "Qwen-2512 DiT", f"角色 LoRA ({STRENGTH})"))
         if physique:
@@ -888,12 +936,30 @@ UGLY_MARKERS = ("ugly", "ugliness", "hideous", "deformed", "disfigured", "scarre
 
 
 # 时代背景锚点：本剧《剑噬天下》为「现代都市 + 隐世古武」的都市古武/都市修仙世界。
-# 角色提取（三视图 look）据此补全世界观定位，让角色形象对得上时代而不过度古装化。
-# 该段只补"世界观定位 + 从头到脚完整穿着"，不硬塞都市服装，保留角色库 image_prompt 的角色自身设定。
-ROLE_ERA_ANCHOR = ("a character of a hidden ancient sword-cultivation legacy tucked within a "
-                   "modern metropolis, timeless xianxia aesthetics blending with a contemporary "
-                   "urban presence, a fully dressed and well-groomed character from head to toe, "
+# 角色分为两类（角色.json 的 era 字段决定）：古修（凌云/东离/林雪/从夜/玄隐…）与
+# 现代古武结合（小雪/云姐/陈姨/保镖/江流…）。时代锚点据此分级注入。
+# - 古修角色：锁"传统仙侠古装"，明确非现代装（否则曾因"modern metropolis"被拉成现代唐装）。
+# - 现代古武结合角色：锁"现代世家装束 + 中式古武元素"，不落入纯古装，也不跑成纯现代路人。
+# 角色三视图只定"角色造型"，不应再强调现代都市背景，现代都市世界观由场景素材/分镜承担
+# （见 ERA / SCENE_ERA_ANCHOR）；这里只保留角色所在时代风格的穿着 + 完整着装。
+ROLE_ERA_ANCIENT = ("a character of a hidden ancient sword-cultivation and martial-arts legacy, "
+                    "a sword-cultivator wearing authentic ancient Chinese costume, "
+                    "timeless xianxia aesthetics infused with gentle classical Chinese elegance, "
+                    "a fully dressed and well-groomed character from head to toe, "
+                    "complete and proper clothing with footwear, lower body decently clad")
+
+ROLE_ERA_MODERN = ("a character of a prestigious modern aristocrat from a hidden ancient "
+                   "martial-arts and sword-cultivation legacy, "
+                   "contemporary modern Chinese aristocratic attire with refined traditional "
+                   "martial-arts details, a modern elegant outfit infused with classical Chinese "
+                   "cultivator grace, "
+                   "a fully dressed and well-groomed character from head to toe, "
                    "complete and proper clothing with footwear, lower body decently clad")
+
+
+def _role_era_anchor(era):
+    """角色时代 → ROLE_ERA_ANCHOR 分级锚点：古修用古装锚点，现代古武结合用现代锚点。"""
+    return ROLE_ERA_MODERN if era == "modern" else ROLE_ERA_ANCIENT
 
 
 def role_look(role):
@@ -924,11 +990,12 @@ def role_look(role):
                "the robe or dress, fully and modestly dressed from head to toe, footwear included")
         low = img.lower()
     # 默认颜值：除非小说明确写丑，否则统一加耐看修饰；若角色库已前置颜值词则跳过
+    era_anchor = _role_era_anchor(role.get("era", "ancient"))
     if any(m in low for m in FUSION_BEAUTY_MARKS):
-        return img + ", " + ROLE_ERA_ANCHOR
+        return img + ", " + era_anchor
     if not any(m in low for m in UGLY_MARKERS):
         img += (", " + ATTRACTIVE_MALE if role["gender"] == "男" else ", " + ATTRACTIVE_FEMALE)
-    return img + ", " + ROLE_ERA_ANCHOR
+    return img + ", " + era_anchor
 
 
 def main():
@@ -944,11 +1011,14 @@ def main():
     PFX_VIDEO = "02_分镜/第1集/第1集_镜s01_成片"
 
     # 统一风格：写实CG融合的完美动漫人物（3D国漫动画电影质感）
-    # 角色LoRA"国漫短剧3D CG质感角色"正是"动漫造型+CG渲染"，强度 0.8 保持风格
+    # 角色LoRA"国漫短剧3D CG质感角色"正是"动漫造型+CG渲染"，原用 0.8 保持风格。
+    # 但 0.8 强过角色库的古装提示词，导致凌云的仙侠古装（月白广袖长袍/银冠/青锋利剑）
+    # 被 LoRA 锁成现代装（唐装+短发，古装特征只漏进右下道具板），三视图跑偏。
+    # 统一降到 0.5，让「角色库古装设定 + 前置英文古装定位词」能顶过 LoRA。
     # 文件名用 ASCII 后缀（Fusion），避免命令行/API 传中文路径的编码问题
     SNAME = "写实CG融合"
     SFX = "Fusion"
-    STRENGTH = 0.8
+    STRENGTH = 0.5
 
     # 仅加了 --shot=N（单独重出某镜首尾帧）时，不重建角色/场景素材与视频模板，
     # 避免把已调好的素材工作流覆盖；只有全量重建(不带 --shot)才走全部。
@@ -1033,7 +1103,8 @@ if __name__ == "__main__":
     if "--chars-only" in sys.argv:
         # 只重建角色素材（01_char3view_*），不动场景/分镜/视频模板
         # 注：人物只做三视图，不做人物全景图；全景/写实大图由场景三视图工作流承担
-        build_char_assets(1216, 832, "写实CG融合", "Fusion", 0.8)
+        # 强度 0.5：避开角色 LoRA 把古装提示词锁成现代装（见 STRENGTH 注释）
+        build_char_assets(1216, 832, "写实CG融合", "Fusion", 0.5)
         print("Wrote character 3-view workflows to", OUT)
     elif "--scenes-only" in sys.argv:
         # 只重建场景三视图（03_scene3view_*），不动角色/分镜/视频模板
