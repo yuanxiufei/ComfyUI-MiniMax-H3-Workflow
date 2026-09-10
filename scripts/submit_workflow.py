@@ -22,6 +22,14 @@ import sys
 import time
 import urllib.request
 
+# 进度行也带中文：重定向到文件时统一按 UTF-8 写，否则会与 pipeline_video 的 UTF-8
+# 输出混在同一个日志里变成乱码（读日志的脚本/工具多半按 UTF-8 解析）。
+try:
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
+except Exception:
+    pass
+
 # ComfyUI 地址：默认本地 8188，可用环境变量 COMFY_HOST 覆盖（支持多实例/远程）。
 HOST = os.environ.get("COMFY_HOST", "http://127.0.0.1:8188").rstrip("/")
 
@@ -363,6 +371,36 @@ def _collect_to_dir(outs, collect_dir):
     print("已收集 %d 个产物到 %s（清单 %s）" % (len(manifest), collect_dir, mf))
 
 
+def _fmt_sec(sec):
+    """秒 → h:mm:ss / m:ss，长任务（整集可达数小时）读起来更直观。"""
+    sec = int(sec)
+    h, m, s = sec // 3600, (sec % 3600) // 60, sec % 60
+    return ("%d:%02d:%02d" % (h, m, s)) if h else ("%d:%02d" % (m, s))
+
+
+def _queue_state(pid):
+    """盯守中的队列状态：'运行中' / '排队中（前方还有 N 个任务）'；不在队列返回 None。
+
+    运行中的 prompt 不在 /history 里，只查 history 会误报"尚未入队"。
+    """
+    q = _get("/queue")
+    if not isinstance(q, dict):
+        return None
+
+    def _hit(it):
+        if isinstance(it, (list, tuple)) and len(it) > 1:
+            return it[1] == pid
+        return pid in json.dumps(it, ensure_ascii=False)
+
+    for it in q.get("queue_running") or []:
+        if _hit(it):
+            return "运行中"
+    for i, it in enumerate(q.get("queue_pending") or []):
+        if _hit(it):
+            return "排队中（前方还有 %d 个任务）" % i
+    return None
+
+
 def do_watch(pid, poll=10, timeout=3600, collect_dir=None):
     """盯守一个 prompt_id 直到完成/失败/超时，成功返回 0、失败返回 1、超时返回 2。
 
@@ -396,11 +434,11 @@ def do_watch(pid, poll=10, timeout=3600, collect_dir=None):
             # 运行中/排队：打印进度（若有）
             prog = st.get("progress")
             if prog is not None:
-                print("  运行中 ... %s%%（%ss）" % (prog, elapsed))
+                print("  运行中 ... %s%%（%s）" % (prog, _fmt_sec(elapsed)))
             else:
-                print("  运行中/排队 ... %ss" % elapsed)
+                print("  运行中/排队 ... %s" % _fmt_sec(elapsed))
         else:
-            print("  尚未入队 ... %ss" % elapsed)
+            print("  %s ... %s" % (_queue_state(pid) or "尚未入队", _fmt_sec(elapsed)))
         time.sleep(poll)
         elapsed += poll
     print("超时（%ss）任务仍未完成。" % timeout)

@@ -1,0 +1,26 @@
+{
+  "01_char3view_1216x832_Qwen2512_c02_Fusion.json": {
+    "prompt_id": "f725ae05-a208-429e-ae62-1385ac0802a4",
+    "phase": "video",
+    "rc": 0
+  },
+  "01_char3view_1216x832_Qwen2512_c03_Fusion.json": {
+    "prompt_id": "87e896b0-5291-4fe9-8929-89c582271702",
+    "phase": "video",
+    "rc": 0
+  },
+  "01_char3view_1216x832_Qwen2512_c05_Fusion.json": {
+    "prompt_id": "59447a7f-a119-4e61-89f9-c498db6dd345",
+    "phase": "video",
+    "rc": 0
+  },
+  "03_scene3view_1216x832_Qwen2512_sc001.json": {
+    "prompt_id": "99a23978-d4b5-49bc-b724-fa3d205f6784",
+    "phase": "video",
+    "rc": 0
+  },
+  "crop_rc": 0,
+  "crop_tail": "场景 东家城堡花园广场：已裁切 panel1, panel2, panel3, panel4, panel5, panel6, panel7, panel8, panel9\n\n",
+  "r2v_rc": 0,
+  "r2v_tail": "已生成：D:\\code\\voide\\ComfyUI-MiniMax-H3-Workflow\\workflows\\14_video_R2VA_整集_1280x736.json（共 12 镜，参考图驱动 r2v）\n  镜 01  时长=12s  参考=[场景:东家城堡花园广场]\n  镜 02  时长=6s  参考=[角色:云姐、角色:小雪、场景:东家城堡花园广场]\n  镜 03  时长=6s  参考=[角色:小雪、场景:东家城堡花园广场]\n  镜 04  时长=8s  参考=[角色:云姐、场景:东家城堡花园广场]\n  镜 05  时长=6s  参考=[角色:小雪、场景:东家城堡花园广场]\n  镜 06  时长=7s  参考=[角色:小雪、场景:东家城堡花园广场]\n  镜 07  时长=6s  参考=[角色:凌云、角色:小雪、场景:东家城堡花园广场]\n  镜 08  时长=6s  参考=[角色:小雪、场景:东家城堡花园广场]\n  镜 09  时长=6s  参考=[角色:凌云、场景:东家城堡花园广场]\n  镜 10  时长=6s  参考=[角色:小雪、角色:凌云、场景:东家城堡花园广场]\n  镜 11  时长=7s  参考=[角色:凌云、场景:东家城堡花园广场]\n  镜 12  时长=13s  参考=[角色:保镖、角色:凌云、角色:小雪、场景:东家城堡花园广场]\n已复制 9 张参考图到 ComfyUI input\n\n"
+}

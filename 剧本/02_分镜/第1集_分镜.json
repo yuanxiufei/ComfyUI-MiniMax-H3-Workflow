@@ -1,9 +1,7 @@
 {
-  "project": "剑噬天下",
+  "project": "",
   "episode": "第1集",
   "generated_by": "storyboard-breaker",
-  "source": "原著第001回《剑修凌云》",
-  "total_duration": 110,
   "storyboards": [
     {
       "shot_id": "01",
@@ -36,7 +34,7 @@
       "scene_id": "sc001",
       "scene_type": "single",
       "character_ids": [
-        "c01",
+        "c03",
         "c02"
       ],
       "speaker_id": "S2",
@@ -51,7 +49,7 @@
       "atmosphere": "晨光熹微，富丽温馨，透着世家气派",
       "bgm_prompt": "轻快雅致的古风小调",
       "sound_effect": "车门开启声，轻快的脚步，喷泉流水",
-      "image_prompt": "A graceful mature woman in a modern lotus-purple tailored blouse-and-trousers suit with Chinese-style collar buttons and embroidery, a sheer chiffon shawl, neat modern low bun with a white jade hairpin, standing beside a sleek black luxury sedan, A pretty lively teenage girl in a modern rose-colored silk chiffon dress with a cropped cream lightweight jacket, modern high ponytail with a silver tassel hairpin and a playful ribbon, fitted modern trousers and white leather boots jumping out of the car excitedly, castle manor courtyard with fountains in the background, daylight, medium shot, eye-level angle, static camera, warm elegant atmosphere",
+      "image_prompt": "A graceful mature woman in a modern lotus-purple tailored blouse-and-trousers suit with a clean minimalist modern collar and a simple silver brooch, a sheer chiffon shawl, neat modern low bun with a white jade hairpin, standing beside a sleek black luxury sedan, A pretty lively teenage girl in a modern rose-colored silk chiffon dress with a cropped cream lightweight jacket, modern high ponytail with a silver tassel hairpin and a playful ribbon, fitted modern trousers and white leather boots jumping out of the car excitedly, castle manor courtyard with fountains in the background, daylight, medium shot, eye-level angle, static camera, warm elegant atmosphere",
       "video_prompt": "0-3秒：<location>东家城堡前庭广场</location>，中景，<role>云姐</role>迎着刚停稳的豪车。\n<n>3-6秒：<location>东家城堡前庭广场</location>，中景，<role>小雪</role>轻快地跳下车，环顾气派的庄园，<role>云姐</role>恭敬立在旁。"
     },
     {
@@ -101,7 +99,7 @@
       "atmosphere": "晨光微凉，神秘凝重，透着世家隐秘",
       "bgm_prompt": "悬疑舒缓的古筝与低音弦乐",
       "sound_effect": "喷泉流水声渐弱，气氛渐凝",
-      "image_prompt": "A graceful mature woman in a modern lotus-purple tailored blouse-and-trousers suit with Chinese-style collar buttons and embroidery, a sheer chiffon shawl, neat modern low bun with a white jade hairpin, speaking gravely with a calm expression, castle courtyard with fountain in background, daylight, medium shot, eye-level angle, static camera, mysterious slightly tense atmosphere",
+      "image_prompt": "A graceful mature woman in a modern lotus-purple tailored blouse-and-trousers suit with a clean minimalist modern collar and a simple silver brooch, a sheer chiffon shawl, neat modern low bun with a white jade hairpin, speaking gravely with a calm expression, castle courtyard with fountain in background, daylight, medium shot, eye-level angle, static camera, mysterious slightly tense atmosphere",
       "video_prompt": "0-3秒：<location>东家城堡前庭广场</location>，中景，<role>云姐</role>神色凝重地轻声诉说。\n<n>3-6秒：<location>东家城堡前庭广场</location>，中景，<role>云姐</role>语气从容，眼神微凝。\n<n>6-8秒：<location>东家城堡前庭广场</location>，近景，画面落定在<role>云姐</role>凝重的神情上。"
     },
     {
@@ -219,16 +217,16 @@
       "shot_type": "近景",
       "angle": "仰视",
       "movement": "固定",
-      "duration": 6,
-      "action": "凌云缓缓睁眼，冷冷出声，道出那句令人心寒的话，即便不出剑也已威压逼人。",
+      "duration": 8,
+      "action": "凌云缓缓睁开双眼，目光清冷如霜，静静开口，道出那句令人心寒的话——即便未出一剑，无形威压已逼得池边空气凝滞。",
       "dialogue": "凌云：你连在我面前拔剑的资格都没有。",
-      "description": "凌云睁开眼，目光清冷如霜，语气平静却带着不容置疑的威压。",
-      "result": "空气仿佛凝固，小雪被这句话噎住。",
-      "atmosphere": "晨光逆光，清冷孤傲，威压逼人",
-      "bgm_prompt": "清冷空灵的箫声，极简压迫",
-      "sound_effect": "喷泉流水声骤静，一片死寂",
-      "image_prompt": "A handsome young sword cultivator in flowing moon-white robes with wide sleeves and a silver crown with jade hairpin, opening his eyes, cold piercing gaze, calm aloof expression, seated cross-legged by the great fountain, castle courtyard, daylight, low angle looking up, close shot, static camera, cold imposing atmosphere",
-      "video_prompt": "0-3秒：<location>东家城堡前庭广场</location>，近景，<role>凌云</role>缓缓睁眼，目光清冷如霜。\n<n>3-6秒：<location>东家城堡前庭广场</location>，近景，<role>凌云</role>冷冷开口，语气平静却威压逼人。"
+      "description": "凌云依旧是方才盘坐的姿态，眉眼未动，语气平淡，却字字如刀。仰视视角下，月白衣袂被风轻扬，衬得他孤高清冷，如寒潭映月。",
+      "result": "空气仿佛凝固，四周死寂，小雪被这八个字噎在原地。",
+      "atmosphere": "晨光逆光，清冷孤傲，威压逼人，静而含锋",
+      "bgm_prompt": "清冷空灵的箫声渐起，极简压迫，余音不散",
+      "sound_effect": "喷泉流水声骤静，衣袂拂风，一片死寂",
+      "image_prompt": "stylized 3D Chinese anime character, realistic rendering fused with CG animation, premium 3D animated film quality, dramatic volumetric lighting, shallow depth of field, subtle atmospheric mist, very realistic textured human skin, East Asian anime face, 一个二十六岁的英武剑修，面容清冷俊逸，剑眉星眸，肤色冷白，墨发以银冠高高束起，缀一枚青玉簪，眼神清冷深邃如寒潭映月，月白色流云广袖长袍，衣袂飘飏，领口袖口隐绣暗纹云纹镶银色滚边，腰间青玉带、悬青锋利剑，身姿挺拔如孤松，缓缓睁开双眼，目光不带一丝波澜，低角度仰视，近景，晨光自背后逆光勾勒轮廓，四周围绝对静止，清冷孤傲威压逼人",
+      "video_prompt": "0-3秒：<location>东家城堡前庭广场</location>，仰视近景，<role>凌云</role>缓缓睁眼，目光清冷如霜，月白衣袂微扬。\n<n>3-6秒：<location>东家城堡前庭广场</location>，仰视近景，<role>凌云</role>唇角微动，静静开口，字字清冷。\n<n>6-8秒：<location>东家城堡前庭广场</location>，仰视特写，<role>凌云</role>目光平静而深，画面定格于其孤高清冷之色。"
     },
     {
       "shot_id": "10",

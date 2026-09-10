@@ -1,0 +1,62 @@
+[
+  {
+    "cid": "c01",
+    "name": "凌云",
+    "try": 0,
+    "seed": 42,
+    "pid": "9d17a284-feae-4f9e-b0b0-4a3c1392e2ef",
+    "status": "success",
+    "subdir": "00_角色素材\\凌云",
+    "file": "c01_三视图_写实CG融合_00001_.png",
+    "sizeKB": 1214,
+    "ok": true
+  },
+  {
+    "cid": "c02",
+    "name": "小雪",
+    "try": 0,
+    "seed": 42,
+    "pid": "20826f96-1d01-4101-9440-fe17c6239a3b",
+    "status": "success",
+    "subdir": "00_角色素材\\小雪",
+    "file": "c02_三视图_写实CG融合_00002_.png",
+    "sizeKB": 1057,
+    "ok": true
+  },
+  {
+    "cid": "c03",
+    "name": "云姐",
+    "try": 0,
+    "seed": 42,
+    "pid": "3fd17514-7562-400b-96e9-c4570c8611d4",
+    "status": "success",
+    "subdir": "00_角色素材\\云姐",
+    "file": "c03_三视图_写实CG融合_00001_.png",
+    "sizeKB": 1038,
+    "ok": true
+  },
+  {
+    "cid": "c04",
+    "name": "陈姨",
+    "try": 0,
+    "seed": 42,
+    "pid": "9f281c6b-7c4c-423e-8809-3279393940da",
+    "status": "success",
+    "subdir": "00_角色素材\\陈姨",
+    "file": "c04_三视图_写实CG融合_00001_.png",
+    "sizeKB": 1019,
+    "ok": true
+  },
+  {
+    "cid": "c05",
+    "name": "保镖",
+    "try": 0,
+    "seed": 42,
+    "pid": "53da3509-d854-490a-b7a9-883c08d43b47",
+    "status": "success",
+    "subdir": "00_角色素材\\保镖",
+    "file": "c05_三视图_写实CG融合_00001_.png",
+    "sizeKB": 985,
+    "ok": true
+  }
+]

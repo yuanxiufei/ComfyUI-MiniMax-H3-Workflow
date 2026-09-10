@@ -1,0 +1,6 @@
+﻿time=10:21:02
+port 8188 pid=30708 name=python.exe cmd=main.py" --port 8188 --use-sage-attention --input-directory "D:\Comfy-Desktop\ComfyUI-Shared\input" --output-directory "D:\Comfy-Desktop\ComfyUI-Shared\output" --extra-model-paths-config "C:\Users\24969\AppData\Roaming\Comfy Desktop\instance-model-paths\inst-1788311613966.yaml" 
+port 8189 = free
+port 8190 = free
+main pid=35244 ppid=38244 start=10:18:09 sage=True
+main pid=30708 ppid=35244 start=10:18:09 sage=True

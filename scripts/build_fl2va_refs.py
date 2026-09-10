@@ -54,6 +54,7 @@ FRAME_RATE = 24
 
 # 与 build_video_refs.py / 09 视频工作流一致：8 步 turbo 加速。
 TURBO_LORA = "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors"
+TURBO_STRENGTH = 0.75   # 社区实测：拉满 1.0 可能不跟提示词
 TURBO_STEPS = 8
 
 FL2V_TYPE = "fl2v — 首尾帧生视频(First-Last Frame)"
@@ -269,7 +270,7 @@ def build_fl2va(storyboards, template, use_turbo=True, save_pfx=None):
                          "widget": {"name": "strength_model"}, "link": None},
                     ],
                     [{"localized_name": "模型", "name": "MODEL", "type": "MODEL", "links": []}],
-                    [TURBO_LORA, 1.0],
+                    [TURBO_LORA, TURBO_STRENGTH],
                     {"Node name for S&R": "LoraLoaderModelOnly"},
                     "H3 Turbo LoRA (8-step)",
                 )

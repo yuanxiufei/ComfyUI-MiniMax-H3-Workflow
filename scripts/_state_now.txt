@@ -1,0 +1,7 @@
+﻿time=10:24:00
+main pid=35244 start=10:18:09 sage=True
+main pid=30708 start=10:18:09 sage=True
+main pid=38096 start=10:23:57 sage=False
+main pid=39224 start=10:23:57 sage=False
+port8188 pid=30708
+queue running=1 pending=0

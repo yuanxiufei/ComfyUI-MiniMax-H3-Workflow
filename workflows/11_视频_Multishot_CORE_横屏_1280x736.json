@@ -1,8 +1,8 @@
 {
   "id": "h3-seamless-chain-core",
   "revision": 0,
-  "last_node_id": 13,
-  "last_link_id": 13,
+  "last_node_id": 14,
+  "last_link_id": 15,
   "nodes": [
     {
       "id": 1,
@@ -93,7 +93,7 @@
         1280,
         736,
         192,
-        14,
+        8,
         "euler",
         "beta"
       ],
@@ -181,7 +181,7 @@
           "name": "model",
           "type": "MODEL",
           "links": [
-            2
+            14
           ],
           "slot_index": 0
         }
@@ -191,8 +191,8 @@
         "Node name for S&R": "H3LoraStack"
       },
       "widgets_values": [
-        "None",
-        1.0,
+        "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+        0.75,
         "None",
         1.0,
         "None",
@@ -273,7 +273,7 @@
         {
           "name": "model",
           "type": "MODEL",
-          "link": 2
+          "link": 15
         },
         {
           "name": "clip",
@@ -413,7 +413,7 @@
         192,
         0,
         "randomize",
-        14,
+        8,
         true,
         "euler",
         "beta",
@@ -576,6 +576,49 @@
       "color": "#432",
       "bgcolor": "#653",
       "title": "MiniMax-H3 Multishot v2.6.1 - links"
+    },
+    {
+      "id": 14,
+      "type": "MiniMaxH3TeaCache",
+      "pos": [
+        -420,
+        460
+      ],
+      "size": [
+        330,
+        150
+      ],
+      "flags": {},
+      "order": 8.5,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "模型",
+          "name": "model",
+          "type": "MODEL",
+          "link": 14
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "模型",
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            15
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3TeaCache"
+      },
+      "widgets_values": [
+        0.15,
+        2,
+        -2,
+        8
+      ],
+      "title": "TeaCache (8步)"
     }
   ],
   "links": [
@@ -588,10 +631,10 @@
       "MODEL"
     ],
     [
-      2,
+      14,
       5,
+      14,
       0,
-      8,
       0,
       "MODEL"
     ],
@@ -682,6 +725,14 @@
       11,
       0,
       "VIDEO"
+    ],
+    [
+      15,
+      14,
+      0,
+      8,
+      0,
+      "MODEL"
     ]
   ],
   "groups": [

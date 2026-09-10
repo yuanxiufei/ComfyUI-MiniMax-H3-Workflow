@@ -1,8 +1,8 @@
 {
   "id": "minimax-h3-director-external-groups-i2v",
   "revision": 0,
-  "last_node_id": 122,
-  "last_link_id": 98,
+  "last_node_id": 74,
+  "last_link_id": 50,
   "nodes": [
     {
       "id": 2,
@@ -515,7 +515,7 @@
           "name": "i2v_groups",
           "shape": 7,
           "type": "MMX_DIR_GROUP",
-          "link": 98
+          "link": 50
         },
         {
           "localized_name": "r2v_groups",
@@ -780,8 +780,8 @@
         1280,
         736,
         1280,
-        4608,
-        "{\"version\":5,\"editMode\":\"segment\",\"timelineMode\":\"fl2v\",\"totalFrames\":4608,\"frameRate\":24,\"width\":1280,\"height\":736,\"refMaxSize\":1280,\"output\":{\"mode\":\"fixed\",\"aspectRatio\":\"3:4 (竖版标准)\",\"megapixels\":0.4,\"multiple\":32,\"longEdge\":1280,\"width\":1280,\"height\":736,\"maxExportFrames\":0,\"exportMode\":\"all\",\"audioMode\":\"generate\",\"continuityEnabled\":false,\"continuityOverlapFrames\":9},\"videoClips\":[],\"video\":{\"fileName\":\"\",\"videoFile\":\"\",\"subfolder\":\"\",\"type\":\"input\",\"frames\":[],\"frameMap\":[],\"sourceFrameCount\":124,\"deletedSourceRanges\":[]},\"global\":{\"taskType\":\"fl2v — 首尾帧生视频(First-Last Frame)\",\"prompt\":\"\",\"refs\":[],\"referenceVideo\":{\"videoFile\":\"\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"},\"continuousReference\":false,\"genImage\":{\"imageFile\":\"\"},\"refAudios\":[]},\"segments\":[{\"id\":\"shot0\",\"start\":0,\"length\":288,\"frameCount\":288,\"durationSec\":12.0,\"prompt\":\"full shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，全景，一辆超豪华轿车驶入喷泉环绕的广场，缓缓停下。\\n车门打开，云姐笑迎上前。\\n云姐与车上少女热情拥抱。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜1_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜1_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]},{\"id\":\"shot1\",\"start\":288,\"length\":144,\"frameCount\":144,\"durationSec\":6.0,\"prompt\":\"medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，中景，云姐笑靥如花迎上前。\\n云姐与少女热情拥抱。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜2_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜2_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]},{\"id\":\"shot2\",\"start\":432,\"length\":120,\"frameCount\":120,\"durationSec\":5.0,\"prompt\":\"close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，近景，小雪热情拥抱撒娇。\\n小雪撒娇说想死云姐了。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜3_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜3_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]},{\"id\":\"shot3\",\"start\":552,\"length\":144,\"frameCount\":144,\"durationSec\":6.0,\"prompt\":\"close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，近景，小雪好奇地望向喷泉旁的少年。\\n小雪眨着灵动的眼睛发问。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜4_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜4_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]},{\"id\":\"shot4\",\"start\":696,\"length\":192,\"frameCount\":192,\"durationSec\":8.0,\"prompt\":\"medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，中景，云姐神色古怪解释少年的奇怪。\\n云姐说少年三日前就到了东家门外。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜5_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜5_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]},{\"id\":\"shot5\",\"start\":888,\"length\":144,\"frameCount\":144,\"durationSec\":6.0,\"prompt\":\"close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，近景，小雪眼珠一转跃跃欲试。\\n小雪说试他一试。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜6_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜6_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]},{\"id\":\"shot6\",\"start\":1032,\"length\":144,\"frameCount\":144,\"durationSec\":6.0,\"prompt\":\"medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，中景，小雪转头唤陈姨。\\n小雪说陈姨帮我拿剑来。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜7_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜7_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]},{\"id\":\"shot7\",\"start\":1176,\"length\":168,\"frameCount\":168,\"durationSec\":7.0,\"prompt\":\"medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，中景，云姐连忙阻止小雪。\\n云姐说大长老吩咐别打扰他。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜8_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜8_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]},{\"id\":\"shot8\",\"start\":1344,\"length\":144,\"frameCount\":144,\"durationSec\":6.0,\"prompt\":\"close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，近景，小雪满不在乎。\\n小雪说东爷爷最疼她了。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜9_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜9_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]},{\"id\":\"shot9\",\"start\":1488,\"length\":192,\"frameCount\":192,\"durationSec\":8.0,\"prompt\":\"medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，中景，云姐苦口婆心。\\n云姐质问小雪不是对手。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜10_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜10_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]},{\"id\":\"shot10\",\"start\":1680,\"length\":144,\"frameCount\":144,\"durationSec\":6.0,\"prompt\":\"close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，近景，小雪撇嘴冷笑。\\n小雪说古武者未必胜过枪械。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜11_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜11_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]},{\"id\":\"shot11\",\"start\":1824,\"length\":120,\"frameCount\":120,\"durationSec\":5.0,\"prompt\":\"close shot, high angle looking down, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，近景，小雪居高临下命令凌云。\\n小雪说喂你起来。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜12_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜12_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]},{\"id\":\"shot12\",\"start\":1944,\"length\":168,\"frameCount\":168,\"durationSec\":7.0,\"prompt\":\"medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，中景，云姐欠身向凌云道歉。\\n云姐替小雪赔罪。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜13_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜13_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]},{\"id\":\"shot13\",\"start\":2112,\"length\":168,\"frameCount\":168,\"durationSec\":7.0,\"prompt\":\"medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，中景，小雪执剑怒喝。\\n小雪使劲拔剑却拔不动。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜14_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜14_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]},{\"id\":\"shot14\",\"start\":2280,\"length\":168,\"frameCount\":168,\"durationSec\":7.0,\"prompt\":\"close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，近景，凌云淡声开口。\\n凌云说你连拔剑资格都没有。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜15_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜15_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]},{\"id\":\"shot15\",\"start\":2448,\"length\":192,\"frameCount\":192,\"durationSec\":8.0,\"prompt\":\"close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，近景，小雪丢剑掏出手枪。\\n小雪举枪直指凌云额头。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜16_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜16_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]},{\"id\":\"shot16\",\"start\":2640,\"length\":144,\"frameCount\":144,\"durationSec\":6.0,\"prompt\":\"medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，中景，云姐大惊失色扑过去。\\n云姐喝止小雪。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜17_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜17_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]},{\"id\":\"shot17\",\"start\":2784,\"length\":144,\"frameCount\":144,\"durationSec\":6.0,\"prompt\":\"full shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，全景，保镖们围拢护住主仆。\\n保镖们紧盯着凌云。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜18_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜18_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]},{\"id\":\"shot18\",\"start\":2928,\"length\":192,\"frameCount\":192,\"durationSec\":8.0,\"prompt\":\"extreme close-up, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，特写，凌云睁眼平静。\\n凌云说三息之后若不收枪。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜19_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜19_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]},{\"id\":\"shot19\",\"start\":3120,\"length\":168,\"frameCount\":168,\"durationSec\":7.0,\"prompt\":\"close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，近景，小雪有恃无恐。\\n小雪喝令凌云道歉。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜20_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜20_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]},{\"id\":\"shot20\",\"start\":3288,\"length\":120,\"frameCount\":120,\"durationSec\":5.0,\"prompt\":\"extreme close-up, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，特写，凌云平静数出——一息。\\n凌云声音冷峻。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜21_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜21_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]},{\"id\":\"shot21\",\"start\":3408,\"length\":144,\"frameCount\":144,\"durationSec\":6.0,\"prompt\":\"close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，近景，小雪气急败坏抢数。\\n小雪说二息三。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜22_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜22_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]},{\"id\":\"shot22\",\"start\":3552,\"length\":120,\"frameCount\":120,\"durationSec\":5.0,\"prompt\":\"medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，中景，保镖爆喝冲身护主。\\n一道无形剑气袭至。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜23_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜23_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]},{\"id\":\"shot23\",\"start\":3672,\"length\":192,\"frameCount\":192,\"durationSec\":8.0,\"prompt\":\"medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，中景，无形剑气洞穿保镖胸口。\\n血花在保镖身上绽放。\\n保镖颓然倒下。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜24_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜24_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]},{\"id\":\"shot24\",\"start\":3864,\"length\":144,\"frameCount\":144,\"durationSec\":6.0,\"prompt\":\"close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，近景，小雪惊叫扣动扳机。\\n子弹喷射而出。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜25_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜25_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]},{\"id\":\"shot25\",\"start\":4008,\"length\":144,\"frameCount\":144,\"durationSec\":6.0,\"prompt\":\"medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，中景，子弹高速射向凌云。\\n众人屏息，认定凌云必死。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜26_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜26_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]},{\"id\":\"shot26\",\"start\":4152,\"length\":288,\"frameCount\":288,\"durationSec\":12.0,\"prompt\":\"extreme close-up, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，特写，凌云眼中乍射精光。\\n三尺青锋以不可思议速度出鞘。\\n剑光精准劈中飞行子弹。\\n子弹被一剑劈飞。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜27_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜27_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]},{\"id\":\"shot27\",\"start\":4440,\"length\":168,\"frameCount\":168,\"durationSec\":7.0,\"prompt\":\"close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，近景，小雪惊愕望着被劈开的弹。\\n小雪信念崩塌。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜28_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜28_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]}],\"shots\":[{\"id\":\"shot0\",\"durationSec\":12.0,\"prompt\":\"full shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，全景，一辆超豪华轿车驶入喷泉环绕的广场，缓缓停下。\\n车门打开，云姐笑迎上前。\\n云姐与车上少女热情拥抱。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜1_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜1_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}},{\"id\":\"shot1\",\"durationSec\":6.0,\"prompt\":\"medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，中景，云姐笑靥如花迎上前。\\n云姐与少女热情拥抱。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜2_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜2_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}},{\"id\":\"shot2\",\"durationSec\":5.0,\"prompt\":\"close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，近景，小雪热情拥抱撒娇。\\n小雪撒娇说想死云姐了。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜3_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜3_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}},{\"id\":\"shot3\",\"durationSec\":6.0,\"prompt\":\"close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，近景，小雪好奇地望向喷泉旁的少年。\\n小雪眨着灵动的眼睛发问。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜4_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜4_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}},{\"id\":\"shot4\",\"durationSec\":8.0,\"prompt\":\"medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，中景，云姐神色古怪解释少年的奇怪。\\n云姐说少年三日前就到了东家门外。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜5_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜5_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}},{\"id\":\"shot5\",\"durationSec\":6.0,\"prompt\":\"close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，近景，小雪眼珠一转跃跃欲试。\\n小雪说试他一试。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜6_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜6_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}},{\"id\":\"shot6\",\"durationSec\":6.0,\"prompt\":\"medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，中景，小雪转头唤陈姨。\\n小雪说陈姨帮我拿剑来。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜7_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜7_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}},{\"id\":\"shot7\",\"durationSec\":7.0,\"prompt\":\"medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，中景，云姐连忙阻止小雪。\\n云姐说大长老吩咐别打扰他。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜8_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜8_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}},{\"id\":\"shot8\",\"durationSec\":6.0,\"prompt\":\"close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，近景，小雪满不在乎。\\n小雪说东爷爷最疼她了。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜9_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜9_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}},{\"id\":\"shot9\",\"durationSec\":8.0,\"prompt\":\"medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，中景，云姐苦口婆心。\\n云姐质问小雪不是对手。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜10_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜10_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}},{\"id\":\"shot10\",\"durationSec\":6.0,\"prompt\":\"close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，近景，小雪撇嘴冷笑。\\n小雪说古武者未必胜过枪械。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜11_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜11_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}},{\"id\":\"shot11\",\"durationSec\":5.0,\"prompt\":\"close shot, high angle looking down, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，近景，小雪居高临下命令凌云。\\n小雪说喂你起来。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜12_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜12_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}},{\"id\":\"shot12\",\"durationSec\":7.0,\"prompt\":\"medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，中景，云姐欠身向凌云道歉。\\n云姐替小雪赔罪。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜13_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜13_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}},{\"id\":\"shot13\",\"durationSec\":7.0,\"prompt\":\"medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，中景，小雪执剑怒喝。\\n小雪使劲拔剑却拔不动。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜14_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜14_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}},{\"id\":\"shot14\",\"durationSec\":7.0,\"prompt\":\"close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，近景，凌云淡声开口。\\n凌云说你连拔剑资格都没有。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜15_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜15_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}},{\"id\":\"shot15\",\"durationSec\":8.0,\"prompt\":\"close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，近景，小雪丢剑掏出手枪。\\n小雪举枪直指凌云额头。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜16_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜16_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}},{\"id\":\"shot16\",\"durationSec\":6.0,\"prompt\":\"medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，中景，云姐大惊失色扑过去。\\n云姐喝止小雪。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜17_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜17_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}},{\"id\":\"shot17\",\"durationSec\":6.0,\"prompt\":\"full shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，全景，保镖们围拢护住主仆。\\n保镖们紧盯着凌云。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜18_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜18_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}},{\"id\":\"shot18\",\"durationSec\":8.0,\"prompt\":\"extreme close-up, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，特写，凌云睁眼平静。\\n凌云说三息之后若不收枪。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜19_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜19_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}},{\"id\":\"shot19\",\"durationSec\":7.0,\"prompt\":\"close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，近景，小雪有恃无恐。\\n小雪喝令凌云道歉。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜20_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜20_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}},{\"id\":\"shot20\",\"durationSec\":5.0,\"prompt\":\"extreme close-up, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，特写，凌云平静数出——一息。\\n凌云声音冷峻。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜21_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜21_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}},{\"id\":\"shot21\",\"durationSec\":6.0,\"prompt\":\"close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，近景，小雪气急败坏抢数。\\n小雪说二息三。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜22_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜22_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}},{\"id\":\"shot22\",\"durationSec\":5.0,\"prompt\":\"medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，中景，保镖爆喝冲身护主。\\n一道无形剑气袭至。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜23_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜23_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}},{\"id\":\"shot23\",\"durationSec\":8.0,\"prompt\":\"medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，中景，无形剑气洞穿保镖胸口。\\n血花在保镖身上绽放。\\n保镖颓然倒下。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜24_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜24_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}},{\"id\":\"shot24\",\"durationSec\":6.0,\"prompt\":\"close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，近景，小雪惊叫扣动扳机。\\n子弹喷射而出。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜25_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜25_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}},{\"id\":\"shot25\",\"durationSec\":6.0,\"prompt\":\"medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，中景，子弹高速射向凌云。\\n众人屏息，认定凌云必死。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜26_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜26_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}},{\"id\":\"shot26\",\"durationSec\":12.0,\"prompt\":\"extreme close-up, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，特写，凌云眼中乍射精光。\\n三尺青锋以不可思议速度出鞘。\\n剑光精准劈中飞行子弹。\\n子弹被一剑劈飞。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜27_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜27_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}},{\"id\":\"shot27\",\"durationSec\":7.0,\"prompt\":\"close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，近景，小雪惊愕望着被劈开的弹。\\n小雪信念崩塌。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜28_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜28_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}}],\"runSelectEnabled\":false,\"runSelection\":[],\"gen\":{\"defaultFrameCount\":124},\"liveTaePreview\":true,\"keyframes\":[],\"durationSec\":192.0}",
+        2136,
+        "{\"version\":5,\"editMode\":\"segment\",\"timelineMode\":\"fl2v\",\"totalFrames\":2136,\"frameRate\":24,\"width\":1280,\"height\":736,\"refMaxSize\":1280,\"output\":{\"mode\":\"fixed\",\"aspectRatio\":\"3:4 (竖版标准)\",\"megapixels\":0.4,\"multiple\":32,\"longEdge\":1280,\"width\":1280,\"height\":736,\"maxExportFrames\":0,\"exportMode\":\"all\",\"audioMode\":\"generate\",\"continuityEnabled\":false,\"continuityOverlapFrames\":9},\"videoClips\":[],\"video\":{\"fileName\":\"\",\"videoFile\":\"\",\"subfolder\":\"\",\"type\":\"input\",\"frames\":[],\"frameMap\":[],\"sourceFrameCount\":124,\"deletedSourceRanges\":[]},\"global\":{\"taskType\":\"fl2v — 首尾帧生视频(First-Last Frame)\",\"prompt\":\"\",\"refs\":[],\"referenceVideo\":{\"videoFile\":\"\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"},\"continuousReference\":false,\"genImage\":{\"imageFile\":\"\"},\"refAudios\":[]},\"segments\":[{\"id\":\"shot0\",\"start\":0,\"length\":288,\"frameCount\":288,\"durationSec\":12.0,\"prompt\":\"wide establishing shot, eye-level angle, slow dolly-in, daytime, bright clear natural light, 东家城堡前庭广场，无数洁白喷泉环绕，阳光洒在波光粼粼的水面上，远处雄伟城堡, 东家城堡前庭广场，远景，清晨阳光洒满大理石广场，无数洁白喷泉喷水，豪车缓缓驶入。\\n东家城堡前庭广场，全景，镜头缓推。\\n东家城堡前庭广场，中景，豪车停在巨大喷泉旁，水花飞溅。\\n东家城堡前庭广场，远景，镜头落定在宏伟城堡与主喷泉上，空旷威严。 清晨曦光，空旷气派，金贵庄严，宁静而富有压迫感\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜01_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜01_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]},{\"id\":\"shot1\",\"start\":288,\"length\":144,\"frameCount\":144,\"durationSec\":6.0,\"prompt\":\"medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, 东家城堡前庭广场，喷泉旁豪车边, 东家城堡前庭广场，中景，云姐迎着刚停稳的豪车。\\n东家城堡前庭广场，中景，小雪轻快地跳下车，环顾气派的庄园，云姐恭敬立在旁。 晨光熹微，富丽温馨，透着世家气派\\n台词:\\n云姐 speaks in a bright, youthful female voice with confident swagger (S2): <d>[Chinese] 云姐：小姐，到了。 </d>\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜02_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜02_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]},{\"id\":\"shot2\",\"start\":432,\"length\":144,\"frameCount\":144,\"durationSec\":6.0,\"prompt\":\"close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, 东家城堡前庭广场，喷泉水池边, 东家城堡前庭广场，近景，小雪好奇地伸手指向喷泉水池边。\\n东家城堡前庭广场，中景，水池边一个年轻身影静静盘坐。 晨光柔和，轻松好奇\\n台词:\\n小雪 speaks in a bright, agile young female voice, quick tempo, clever and lively (S5): <d>[Chinese] 小雪：云姐，水池边那个哥哥是谁呀？ </d>\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜03_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜03_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]},{\"id\":\"shot3\",\"start\":576,\"length\":192,\"frameCount\":192,\"durationSec\":8.0,\"prompt\":\"medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, 东家城堡前庭广场，喷泉水池边, 东家城堡前庭广场，中景，云姐神色凝重地轻声诉说。\\n东家城堡前庭广场，中景，云姐语气从容，眼神微凝。\\n东家城堡前庭广场，近景，画面落定在云姐凝重的神情上。 晨光微凉，神秘凝重，透着世家隐秘\\n台词:\\n云姐 speaks in a bright, youthful female voice with confident swagger (S2): <d>[Chinese] 云姐：他三天前就到了，只传了一句话给大长老——在下凌云，前来拜会！大长老便闭关了。 </d>\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜04_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜04_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]},{\"id\":\"shot4\",\"start\":768,\"length\":144,\"frameCount\":144,\"durationSec\":6.0,\"prompt\":\"close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, 东家城堡前庭广场，喷泉水池边, 东家城堡前庭广场，近景，小雪倔强地扬眉，好胜写在脸上。\\n东家城堡前庭广场，近景，小雪望向远处池边的少年，目光坚定。 晨光明亮，俏皮灵动，透着少女的好胜\\n台词:\\n小雪 speaks in a bright, agile young female voice, quick tempo, clever and lively (S5): <d>[Chinese] 小雪：哼，本小姐偏要去试试他！ </d>\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜05_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜05_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]},{\"id\":\"shot5\",\"start\":912,\"length\":168,\"frameCount\":168,\"durationSec\":7.0,\"prompt\":\"full shot, eye-level angle, follow shot, daytime, bright clear natural light, 东家城堡前庭广场，喷泉水池边, 东家城堡前庭广场，全景，小雪大步走向喷泉边的凌云。\\n东家城堡前庭广场，中景，小雪仗剑而行，意气风发。\\n东家城堡前庭广场，全景，小雪逼近盘坐的少年。 晨光明亮，意气风发，透着初生牛犊的锐气\\n台词:\\n小雪 speaks in a bright, agile young female voice, quick tempo, clever and lively (S5): <d>[Chinese] 小雪：陈姨，把我的剑拿来！ </d>\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜06_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜06_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]},{\"id\":\"shot6\",\"start\":1080,\"length\":144,\"frameCount\":144,\"durationSec\":6.0,\"prompt\":\"medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, 东家城堡前庭广场，喷泉水池边, 东家城堡前庭广场，中景，小雪叉腰呵斥盘坐的凌云。\\n东家城堡前庭广场，中景，凌云闭目盘坐，纹丝不动，衣袂轻拂。 晨光明亮，暗流涌动，强弱对比初现\\n台词:\\n小雪 speaks in a bright, agile young female voice, quick tempo, clever and lively (S5): <d>[Chinese] 小雪：喂，你！起来！ </d>\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜07_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜07_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]},{\"id\":\"shot7\",\"start\":1224,\"length\":144,\"frameCount\":144,\"durationSec\":6.0,\"prompt\":\"extreme close-up, eye-level angle, static locked-off shot, daytime, bright clear natural light, 东家城堡前庭广场，喷泉水池边, 东家城堡前庭广场，特写，小雪双手奋力拔剑，剑却纹丝不动。\\n东家城堡前庭广场，近景，小雪涨红了脸，又羞又恼。 晨光斜照，窘迫尴尬，透着无形威慑\\n台词:\\n小雪 speaks in a bright, agile young female voice, quick tempo, clever and lively (S5): <d>[Chinese] 小雪：怎么回事，怎么拔不出来！ </d>\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜08_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜08_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]},{\"id\":\"shot8\",\"start\":1368,\"length\":144,\"frameCount\":144,\"durationSec\":6.0,\"prompt\":\"close shot, low angle looking up, static locked-off shot, daytime, bright clear natural light, 东家城堡前庭广场，喷泉水池边, 东家城堡前庭广场，近景，凌云缓缓睁眼，目光清冷如霜。\\n东家城堡前庭广场，近景，凌云冷冷开口，语气平静却威压逼人。 晨光逆光，清冷孤傲，威压逼人\\n台词:\\n凌云 speaks in a clear, steady young male voice, calm and reserved, highly distinctive as the lead (S1): <d>[Chinese] 凌云：你连在我面前拔剑的资格都没有。 </d>\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜09_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜09_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]},{\"id\":\"shot9\",\"start\":1512,\"length\":144,\"frameCount\":144,\"durationSec\":6.0,\"prompt\":\"close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, 东家城堡前庭广场，喷泉水池边, 东家城堡前庭广场，近景，小雪掏出一把银色手枪对准凌云。\\n东家城堡前庭广场，中景，云姐与保镖们惊骇冲上前，气氛一触即发。 晨光炽烈，剑拔弩张，紧张到了极点\\n台词:\\n小雪 speaks in a bright, agile young female voice, quick tempo, clever and lively (S5): <d>[Chinese] 小雪：你、你再敢乱说！ </d>\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜10_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜10_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]},{\"id\":\"shot10\",\"start\":1656,\"length\":168,\"frameCount\":168,\"durationSec\":7.0,\"prompt\":\"close shot, low angle looking up, static locked-off shot, daytime, bright clear natural light, 东家城堡前庭广场，喷泉水池边, 东家城堡前庭广场，近景，凌云神色不动，缓缓开口。\\n东家城堡前庭广场，近景，凌云语气平淡却透着杀意，身旁佩剑隐隐嗡鸣。\\n东家城堡前庭广场，特写，凌云的剑鞘轻鸣，寒气四溢。 晨光逆光，肃杀凛冽，压迫感达顶点\\n台词:\\n凌云 speaks in a clear, steady young male voice, calm and reserved, highly distinctive as the lead (S1): <d>[Chinese] 凌云：三息之内，若你不收回这把枪，我保证你日后再见不到这阳光。 </d>\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜11_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜11_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]},{\"id\":\"shot11\",\"start\":1824,\"length\":312,\"frameCount\":312,\"durationSec\":13.0,\"prompt\":\"full shot, eye-level angle, follow shot, daytime, bright clear natural light, 东家城堡前庭广场，喷泉水池边, 东家城堡前庭广场，全景，保镖飞身扑向小雪。\\n东家城堡前庭广场，全景，一道无形剑气破空而出，击飞保镖。\\n东家城堡前庭广场，中景，小雪惊恐扣动扳机，子弹呼啸而出。\\n东家城堡前庭广场，特写，凌云一剑出鞘快过子弹，凌空将子弹劈成两半，缓缓收剑，全场死寂。 晨光骤亮，凌厉肃杀，一击定乾坤的震撼\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜12_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜12_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]}],\"shots\":[{\"id\":\"shot0\",\"durationSec\":12.0,\"prompt\":\"wide establishing shot, eye-level angle, slow dolly-in, daytime, bright clear natural light, 东家城堡前庭广场，无数洁白喷泉环绕，阳光洒在波光粼粼的水面上，远处雄伟城堡, 东家城堡前庭广场，远景，清晨阳光洒满大理石广场，无数洁白喷泉喷水，豪车缓缓驶入。\\n东家城堡前庭广场，全景，镜头缓推。\\n东家城堡前庭广场，中景，豪车停在巨大喷泉旁，水花飞溅。\\n东家城堡前庭广场，远景，镜头落定在宏伟城堡与主喷泉上，空旷威严。 清晨曦光，空旷气派，金贵庄严，宁静而富有压迫感\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜01_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜01_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}},{\"id\":\"shot1\",\"durationSec\":6.0,\"prompt\":\"medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, 东家城堡前庭广场，喷泉旁豪车边, 东家城堡前庭广场，中景，云姐迎着刚停稳的豪车。\\n东家城堡前庭广场，中景，小雪轻快地跳下车，环顾气派的庄园，云姐恭敬立在旁。 晨光熹微，富丽温馨，透着世家气派\\n台词:\\n云姐 speaks in a bright, youthful female voice with confident swagger (S2): <d>[Chinese] 云姐：小姐，到了。 </d>\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜02_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜02_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}},{\"id\":\"shot2\",\"durationSec\":6.0,\"prompt\":\"close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, 东家城堡前庭广场，喷泉水池边, 东家城堡前庭广场，近景，小雪好奇地伸手指向喷泉水池边。\\n东家城堡前庭广场，中景，水池边一个年轻身影静静盘坐。 晨光柔和，轻松好奇\\n台词:\\n小雪 speaks in a bright, agile young female voice, quick tempo, clever and lively (S5): <d>[Chinese] 小雪：云姐，水池边那个哥哥是谁呀？ </d>\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜03_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜03_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}},{\"id\":\"shot3\",\"durationSec\":8.0,\"prompt\":\"medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, 东家城堡前庭广场，喷泉水池边, 东家城堡前庭广场，中景，云姐神色凝重地轻声诉说。\\n东家城堡前庭广场，中景，云姐语气从容，眼神微凝。\\n东家城堡前庭广场，近景，画面落定在云姐凝重的神情上。 晨光微凉，神秘凝重，透着世家隐秘\\n台词:\\n云姐 speaks in a bright, youthful female voice with confident swagger (S2): <d>[Chinese] 云姐：他三天前就到了，只传了一句话给大长老——在下凌云，前来拜会！大长老便闭关了。 </d>\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜04_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜04_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}},{\"id\":\"shot4\",\"durationSec\":6.0,\"prompt\":\"close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, 东家城堡前庭广场，喷泉水池边, 东家城堡前庭广场，近景，小雪倔强地扬眉，好胜写在脸上。\\n东家城堡前庭广场，近景，小雪望向远处池边的少年，目光坚定。 晨光明亮，俏皮灵动，透着少女的好胜\\n台词:\\n小雪 speaks in a bright, agile young female voice, quick tempo, clever and lively (S5): <d>[Chinese] 小雪：哼，本小姐偏要去试试他！ </d>\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜05_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜05_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}},{\"id\":\"shot5\",\"durationSec\":7.0,\"prompt\":\"full shot, eye-level angle, follow shot, daytime, bright clear natural light, 东家城堡前庭广场，喷泉水池边, 东家城堡前庭广场，全景，小雪大步走向喷泉边的凌云。\\n东家城堡前庭广场，中景，小雪仗剑而行，意气风发。\\n东家城堡前庭广场，全景，小雪逼近盘坐的少年。 晨光明亮，意气风发，透着初生牛犊的锐气\\n台词:\\n小雪 speaks in a bright, agile young female voice, quick tempo, clever and lively (S5): <d>[Chinese] 小雪：陈姨，把我的剑拿来！ </d>\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜06_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜06_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}},{\"id\":\"shot6\",\"durationSec\":6.0,\"prompt\":\"medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, 东家城堡前庭广场，喷泉水池边, 东家城堡前庭广场，中景，小雪叉腰呵斥盘坐的凌云。\\n东家城堡前庭广场，中景，凌云闭目盘坐，纹丝不动，衣袂轻拂。 晨光明亮，暗流涌动，强弱对比初现\\n台词:\\n小雪 speaks in a bright, agile young female voice, quick tempo, clever and lively (S5): <d>[Chinese] 小雪：喂，你！起来！ </d>\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜07_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜07_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}},{\"id\":\"shot7\",\"durationSec\":6.0,\"prompt\":\"extreme close-up, eye-level angle, static locked-off shot, daytime, bright clear natural light, 东家城堡前庭广场，喷泉水池边, 东家城堡前庭广场，特写，小雪双手奋力拔剑，剑却纹丝不动。\\n东家城堡前庭广场，近景，小雪涨红了脸，又羞又恼。 晨光斜照，窘迫尴尬，透着无形威慑\\n台词:\\n小雪 speaks in a bright, agile young female voice, quick tempo, clever and lively (S5): <d>[Chinese] 小雪：怎么回事，怎么拔不出来！ </d>\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜08_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜08_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}},{\"id\":\"shot8\",\"durationSec\":6.0,\"prompt\":\"close shot, low angle looking up, static locked-off shot, daytime, bright clear natural light, 东家城堡前庭广场，喷泉水池边, 东家城堡前庭广场，近景，凌云缓缓睁眼，目光清冷如霜。\\n东家城堡前庭广场，近景，凌云冷冷开口，语气平静却威压逼人。 晨光逆光，清冷孤傲，威压逼人\\n台词:\\n凌云 speaks in a clear, steady young male voice, calm and reserved, highly distinctive as the lead (S1): <d>[Chinese] 凌云：你连在我面前拔剑的资格都没有。 </d>\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜09_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜09_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}},{\"id\":\"shot9\",\"durationSec\":6.0,\"prompt\":\"close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, 东家城堡前庭广场，喷泉水池边, 东家城堡前庭广场，近景，小雪掏出一把银色手枪对准凌云。\\n东家城堡前庭广场，中景，云姐与保镖们惊骇冲上前，气氛一触即发。 晨光炽烈，剑拔弩张，紧张到了极点\\n台词:\\n小雪 speaks in a bright, agile young female voice, quick tempo, clever and lively (S5): <d>[Chinese] 小雪：你、你再敢乱说！ </d>\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜10_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜10_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}},{\"id\":\"shot10\",\"durationSec\":7.0,\"prompt\":\"close shot, low angle looking up, static locked-off shot, daytime, bright clear natural light, 东家城堡前庭广场，喷泉水池边, 东家城堡前庭广场，近景，凌云神色不动，缓缓开口。\\n东家城堡前庭广场，近景，凌云语气平淡却透着杀意，身旁佩剑隐隐嗡鸣。\\n东家城堡前庭广场，特写，凌云的剑鞘轻鸣，寒气四溢。 晨光逆光，肃杀凛冽，压迫感达顶点\\n台词:\\n凌云 speaks in a clear, steady young male voice, calm and reserved, highly distinctive as the lead (S1): <d>[Chinese] 凌云：三息之内，若你不收回这把枪，我保证你日后再见不到这阳光。 </d>\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜11_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜11_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}},{\"id\":\"shot11\",\"durationSec\":13.0,\"prompt\":\"full shot, eye-level angle, follow shot, daytime, bright clear natural light, 东家城堡前庭广场，喷泉水池边, 东家城堡前庭广场，全景，保镖飞身扑向小雪。\\n东家城堡前庭广场，全景，一道无形剑气破空而出，击飞保镖。\\n东家城堡前庭广场，中景，小雪惊恐扣动扳机，子弹呼啸而出。\\n东家城堡前庭广场，特写，凌云一剑出鞘快过子弹，凌空将子弹劈成两半，缓缓收剑，全场死寂。 晨光骤亮，凌厉肃杀，一击定乾坤的震撼\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜12_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜12_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}}],\"runSelectEnabled\":false,\"runSelection\":[],\"gen\":{\"defaultFrameCount\":124},\"liveTaePreview\":true,\"keyframes\":[],\"durationSec\":89.0}",
         "高级采样",
         8,
         "res_multistep",
@@ -873,7 +873,7 @@
       },
       "widgets_values": [
         "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
-        1.0
+        0.75
       ],
       "title": "H3 Turbo LoRA (8-step)"
     },
@@ -931,10 +931,10 @@
         "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        "02_分镜/第1集/第1集_镜1_首帧_写实CG融合_00001_.png",
+        "02_分镜/第1集/第1集_镜01_首帧_写实CG融合_00001_.png",
         "image"
       ],
-      "title": "镜1 首帧"
+      "title": "镜01 首帧"
     },
     {
       "id": 39,
@@ -990,10 +990,10 @@
         "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        "02_分镜/第1集/第1集_镜1_尾帧_写实CG融合_00001_.png",
+        "02_分镜/第1集/第1集_镜01_尾帧_写实CG融合_00001_.png",
         "image"
       ],
-      "title": "镜1 尾帧"
+      "title": "镜01 尾帧"
     },
     {
       "id": 40,
@@ -1055,10 +1055,10 @@
         "Node name for S&R": "MiniMaxH3DirectorGroupImageToVideo"
       },
       "widgets_values": [
-        "full shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，全景，一辆超豪华轿车驶入喷泉环绕的广场，缓缓停下。\n车门打开，云姐笑迎上前。\n云姐与车上少女热情拥抱。 奢华古典·白天明亮",
+        "wide establishing shot, eye-level angle, slow dolly-in, daytime, bright clear natural light, 东家城堡前庭广场，无数洁白喷泉环绕，阳光洒在波光粼粼的水面上，远处雄伟城堡, 东家城堡前庭广场，远景，清晨阳光洒满大理石广场，无数洁白喷泉喷水，豪车缓缓驶入。\n东家城堡前庭广场，全景，镜头缓推。\n东家城堡前庭广场，中景，豪车停在巨大喷泉旁，水花飞溅。\n东家城堡前庭广场，远景，镜头落定在宏伟城堡与主喷泉上，空旷威严。 清晨曦光，空旷气派，金贵庄严，宁静而富有压迫感",
         12.0
       ],
-      "title": "镜1 轿车抵园 12s"
+      "title": "镜01 城堡广场 12s"
     },
     {
       "id": 41,
@@ -1114,10 +1114,10 @@
         "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        "02_分镜/第1集/第1集_镜2_首帧_写实CG融合_00001_.png",
+        "02_分镜/第1集/第1集_镜02_首帧_写实CG融合_00001_.png",
         "image"
       ],
-      "title": "镜2 首帧"
+      "title": "镜02 首帧"
     },
     {
       "id": 42,
@@ -1173,10 +1173,10 @@
         "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        "02_分镜/第1集/第1集_镜2_尾帧_写实CG融合_00001_.png",
+        "02_分镜/第1集/第1集_镜02_尾帧_写实CG融合_00001_.png",
         "image"
       ],
-      "title": "镜2 尾帧"
+      "title": "镜02 尾帧"
     },
     {
       "id": 43,
@@ -1238,10 +1238,10 @@
         "Node name for S&R": "MiniMaxH3DirectorGroupImageToVideo"
       },
       "widgets_values": [
-        "medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，中景，云姐笑靥如花迎上前。\n云姐与少女热情拥抱。 奢华古典·白天明亮",
+        "medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, 东家城堡前庭广场，喷泉旁豪车边, 东家城堡前庭广场，中景，云姐迎着刚停稳的豪车。\n东家城堡前庭广场，中景，小雪轻快地跳下车，环顾气派的庄园，云姐恭敬立在旁。 晨光熹微，富丽温馨，透着世家气派\n台词:\n云姐 speaks in a bright, youthful female voice with confident swagger (S2): <d>[Chinese] 云姐：小姐，到了。 </d>",
         6.0
       ],
-      "title": "镜2 云姐迎客 6s"
+      "title": "镜02 车停人迎 6s"
     },
     {
       "id": 44,
@@ -1297,10 +1297,10 @@
         "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        "02_分镜/第1集/第1集_镜3_首帧_写实CG融合_00001_.png",
+        "02_分镜/第1集/第1集_镜03_首帧_写实CG融合_00001_.png",
         "image"
       ],
-      "title": "镜3 首帧"
+      "title": "镜03 首帧"
     },
     {
       "id": 45,
@@ -1356,10 +1356,10 @@
         "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        "02_分镜/第1集/第1集_镜3_尾帧_写实CG融合_00001_.png",
+        "02_分镜/第1集/第1集_镜03_尾帧_写实CG融合_00001_.png",
         "image"
       ],
-      "title": "镜3 尾帧"
+      "title": "镜03 尾帧"
     },
     {
       "id": 46,
@@ -1421,10 +1421,10 @@
         "Node name for S&R": "MiniMaxH3DirectorGroupImageToVideo"
       },
       "widgets_values": [
-        "close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，近景，小雪热情拥抱撒娇。\n小雪撒娇说想死云姐了。 奢华古典·白天明亮",
-        5.0
+        "close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, 东家城堡前庭广场，喷泉水池边, 东家城堡前庭广场，近景，小雪好奇地伸手指向喷泉水池边。\n东家城堡前庭广场，中景，水池边一个年轻身影静静盘坐。 晨光柔和，轻松好奇\n台词:\n小雪 speaks in a bright, agile young female voice, quick tempo, clever and lively (S5): <d>[Chinese] 小雪：云姐，水池边那个哥哥是谁呀？ </d>",
+        6.0
       ],
-      "title": "镜3 小雪撒娇 5s"
+      "title": "镜03 好奇发问 6s"
     },
     {
       "id": 47,
@@ -1480,10 +1480,10 @@
         "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        "02_分镜/第1集/第1集_镜4_首帧_写实CG融合_00001_.png",
+        "02_分镜/第1集/第1集_镜04_首帧_写实CG融合_00001_.png",
         "image"
       ],
-      "title": "镜4 首帧"
+      "title": "镜04 首帧"
     },
     {
       "id": 48,
@@ -1539,10 +1539,10 @@
         "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        "02_分镜/第1集/第1集_镜4_尾帧_写实CG融合_00001_.png",
+        "02_分镜/第1集/第1集_镜04_尾帧_写实CG融合_00001_.png",
         "image"
       ],
-      "title": "镜4 尾帧"
+      "title": "镜04 尾帧"
     },
     {
       "id": 49,
@@ -1604,10 +1604,10 @@
         "Node name for S&R": "MiniMaxH3DirectorGroupImageToVideo"
       },
       "widgets_values": [
-        "close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，近景，小雪好奇地望向喷泉旁的少年。\n小雪眨着灵动的眼睛发问。 奢华古典·白天明亮",
-        6.0
+        "medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, 东家城堡前庭广场，喷泉水池边, 东家城堡前庭广场，中景，云姐神色凝重地轻声诉说。\n东家城堡前庭广场，中景，云姐语气从容，眼神微凝。\n东家城堡前庭广场，近景，画面落定在云姐凝重的神情上。 晨光微凉，神秘凝重，透着世家隐秘\n台词:\n云姐 speaks in a bright, youthful female voice with confident swagger (S2): <d>[Chinese] 云姐：他三天前就到了，只传了一句话给大长老——在下凌云，前来拜会！大长老便闭关了。 </d>",
+        8.0
       ],
-      "title": "镜4 小雪好奇 6s"
+      "title": "镜04 道出由来 8s"
     },
     {
       "id": 50,
@@ -1663,10 +1663,10 @@
         "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        "02_分镜/第1集/第1集_镜5_首帧_写实CG融合_00001_.png",
+        "02_分镜/第1集/第1集_镜05_首帧_写实CG融合_00001_.png",
         "image"
       ],
-      "title": "镜5 首帧"
+      "title": "镜05 首帧"
     },
     {
       "id": 51,
@@ -1722,10 +1722,10 @@
         "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        "02_分镜/第1集/第1集_镜5_尾帧_写实CG融合_00001_.png",
+        "02_分镜/第1集/第1集_镜05_尾帧_写实CG融合_00001_.png",
         "image"
       ],
-      "title": "镜5 尾帧"
+      "title": "镜05 尾帧"
     },
     {
       "id": 52,
@@ -1787,10 +1787,10 @@
         "Node name for S&R": "MiniMaxH3DirectorGroupImageToVideo"
       },
       "widgets_values": [
-        "medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，中景，云姐神色古怪解释少年的奇怪。\n云姐说少年三日前就到了东家门外。 奢华古典·白天明亮",
-        8.0
+        "close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, 东家城堡前庭广场，喷泉水池边, 东家城堡前庭广场，近景，小雪倔强地扬眉，好胜写在脸上。\n东家城堡前庭广场，近景，小雪望向远处池边的少年，目光坚定。 晨光明亮，俏皮灵动，透着少女的好胜\n台词:\n小雪 speaks in a bright, agile young female voice, quick tempo, clever and lively (S5): <d>[Chinese] 小雪：哼，本小姐偏要去试试他！ </d>",
+        6.0
       ],
-      "title": "镜5 云姐解释 8s"
+      "title": "镜05 娇蛮好胜 6s"
     },
     {
       "id": 53,
@@ -1846,10 +1846,10 @@
         "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        "02_分镜/第1集/第1集_镜6_首帧_写实CG融合_00001_.png",
+        "02_分镜/第1集/第1集_镜06_首帧_写实CG融合_00001_.png",
         "image"
       ],
-      "title": "镜6 首帧"
+      "title": "镜06 首帧"
     },
     {
       "id": 54,
@@ -1905,10 +1905,10 @@
         "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        "02_分镜/第1集/第1集_镜6_尾帧_写实CG融合_00001_.png",
+        "02_分镜/第1集/第1集_镜06_尾帧_写实CG融合_00001_.png",
         "image"
       ],
-      "title": "镜6 尾帧"
+      "title": "镜06 尾帧"
     },
     {
       "id": 55,
@@ -1970,10 +1970,10 @@
         "Node name for S&R": "MiniMaxH3DirectorGroupImageToVideo"
       },
       "widgets_values": [
-        "close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，近景，小雪眼珠一转跃跃欲试。\n小雪说试他一试。 奢华古典·白天明亮",
-        6.0
+        "full shot, eye-level angle, follow shot, daytime, bright clear natural light, 东家城堡前庭广场，喷泉水池边, 东家城堡前庭广场，全景，小雪大步走向喷泉边的凌云。\n东家城堡前庭广场，中景，小雪仗剑而行，意气风发。\n东家城堡前庭广场，全景，小雪逼近盘坐的少年。 晨光明亮，意气风发，透着初生牛犊的锐气\n台词:\n小雪 speaks in a bright, agile young female voice, quick tempo, clever and lively (S5): <d>[Chinese] 小雪：陈姨，把我的剑拿来！ </d>",
+        7.0
       ],
-      "title": "镜6 小雪想试 6s"
+      "title": "镜06 仗剑而去 7s"
     },
     {
       "id": 56,
@@ -2029,10 +2029,10 @@
         "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        "02_分镜/第1集/第1集_镜7_首帧_写实CG融合_00001_.png",
+        "02_分镜/第1集/第1集_镜07_首帧_写实CG融合_00001_.png",
         "image"
       ],
-      "title": "镜7 首帧"
+      "title": "镜07 首帧"
     },
     {
       "id": 57,
@@ -2088,10 +2088,10 @@
         "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        "02_分镜/第1集/第1集_镜7_尾帧_写实CG融合_00001_.png",
+        "02_分镜/第1集/第1集_镜07_尾帧_写实CG融合_00001_.png",
         "image"
       ],
-      "title": "镜7 尾帧"
+      "title": "镜07 尾帧"
     },
     {
       "id": 58,
@@ -2153,10 +2153,10 @@
         "Node name for S&R": "MiniMaxH3DirectorGroupImageToVideo"
       },
       "widgets_values": [
-        "medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，中景，小雪转头唤陈姨。\n小雪说陈姨帮我拿剑来。 奢华古典·白天明亮",
+        "medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, 东家城堡前庭广场，喷泉水池边, 东家城堡前庭广场，中景，小雪叉腰呵斥盘坐的凌云。\n东家城堡前庭广场，中景，凌云闭目盘坐，纹丝不动，衣袂轻拂。 晨光明亮，暗流涌动，强弱对比初现\n台词:\n小雪 speaks in a bright, agile young female voice, quick tempo, clever and lively (S5): <d>[Chinese] 小雪：喂，你！起来！ </d>",
         6.0
       ],
-      "title": "镜7 唤剑 6s"
+      "title": "镜07 喝令起身 6s"
     },
     {
       "id": 59,
@@ -2212,10 +2212,10 @@
         "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        "02_分镜/第1集/第1集_镜8_首帧_写实CG融合_00001_.png",
+        "02_分镜/第1集/第1集_镜08_首帧_写实CG融合_00001_.png",
         "image"
       ],
-      "title": "镜8 首帧"
+      "title": "镜08 首帧"
     },
     {
       "id": 60,
@@ -2271,10 +2271,10 @@
         "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        "02_分镜/第1集/第1集_镜8_尾帧_写实CG融合_00001_.png",
+        "02_分镜/第1集/第1集_镜08_尾帧_写实CG融合_00001_.png",
         "image"
       ],
-      "title": "镜8 尾帧"
+      "title": "镜08 尾帧"
     },
     {
       "id": 61,
@@ -2336,10 +2336,10 @@
         "Node name for S&R": "MiniMaxH3DirectorGroupImageToVideo"
       },
       "widgets_values": [
-        "medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，中景，云姐连忙阻止小雪。\n云姐说大长老吩咐别打扰他。 奢华古典·白天明亮",
-        7.0
+        "extreme close-up, eye-level angle, static locked-off shot, daytime, bright clear natural light, 东家城堡前庭广场，喷泉水池边, 东家城堡前庭广场，特写，小雪双手奋力拔剑，剑却纹丝不动。\n东家城堡前庭广场，近景，小雪涨红了脸，又羞又恼。 晨光斜照，窘迫尴尬，透着无形威慑\n台词:\n小雪 speaks in a bright, agile young female voice, quick tempo, clever and lively (S5): <d>[Chinese] 小雪：怎么回事，怎么拔不出来！ </d>",
+        6.0
       ],
-      "title": "镜8 云姐劝阻 7s"
+      "title": "镜08 拔剑不出 6s"
     },
     {
       "id": 62,
@@ -2395,10 +2395,10 @@
         "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        "02_分镜/第1集/第1集_镜9_首帧_写实CG融合_00001_.png",
+        "02_分镜/第1集/第1集_镜09_首帧_写实CG融合_00001_.png",
         "image"
       ],
-      "title": "镜9 首帧"
+      "title": "镜09 首帧"
     },
     {
       "id": 63,
@@ -2454,10 +2454,10 @@
         "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        "02_分镜/第1集/第1集_镜9_尾帧_写实CG融合_00001_.png",
+        "02_分镜/第1集/第1集_镜09_尾帧_写实CG融合_00001_.png",
         "image"
       ],
-      "title": "镜9 尾帧"
+      "title": "镜09 尾帧"
     },
     {
       "id": 64,
@@ -2519,10 +2519,10 @@
         "Node name for S&R": "MiniMaxH3DirectorGroupImageToVideo"
       },
       "widgets_values": [
-        "close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，近景，小雪满不在乎。\n小雪说东爷爷最疼她了。 奢华古典·白天明亮",
+        "close shot, low angle looking up, static locked-off shot, daytime, bright clear natural light, 东家城堡前庭广场，喷泉水池边, 东家城堡前庭广场，近景，凌云缓缓睁眼，目光清冷如霜。\n东家城堡前庭广场，近景，凌云冷冷开口，语气平静却威压逼人。 晨光逆光，清冷孤傲，威压逼人\n台词:\n凌云 speaks in a clear, steady young male voice, calm and reserved, highly distinctive as the lead (S1): <d>[Chinese] 凌云：你连在我面前拔剑的资格都没有。 </d>",
         6.0
       ],
-      "title": "镜9 小雪执意 6s"
+      "title": "镜09 资格皆无 6s"
     },
     {
       "id": 65,
@@ -2702,10 +2702,10 @@
         "Node name for S&R": "MiniMaxH3DirectorGroupImageToVideo"
       },
       "widgets_values": [
-        "medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，中景，云姐苦口婆心。\n云姐质问小雪不是对手。 奢华古典·白天明亮",
-        8.0
+        "close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, 东家城堡前庭广场，喷泉水池边, 东家城堡前庭广场，近景，小雪掏出一把银色手枪对准凌云。\n东家城堡前庭广场，中景，云姐与保镖们惊骇冲上前，气氛一触即发。 晨光炽烈，剑拔弩张，紧张到了极点\n台词:\n小雪 speaks in a bright, agile young female voice, quick tempo, clever and lively (S5): <d>[Chinese] 小雪：你、你再敢乱说！ </d>",
+        6.0
       ],
-      "title": "镜10 忧其敌手 8s"
+      "title": "镜10 举枪相向 6s"
     },
     {
       "id": 68,
@@ -2885,10 +2885,10 @@
         "Node name for S&R": "MiniMaxH3DirectorGroupImageToVideo"
       },
       "widgets_values": [
-        "close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，近景，小雪撇嘴冷笑。\n小雪说古武者未必胜过枪械。 奢华古典·白天明亮",
-        6.0
+        "close shot, low angle looking up, static locked-off shot, daytime, bright clear natural light, 东家城堡前庭广场，喷泉水池边, 东家城堡前庭广场，近景，凌云神色不动，缓缓开口。\n东家城堡前庭广场，近景，凌云语气平淡却透着杀意，身旁佩剑隐隐嗡鸣。\n东家城堡前庭广场，特写，凌云的剑鞘轻鸣，寒气四溢。 晨光逆光，肃杀凛冽，压迫感达顶点\n台词:\n凌云 speaks in a clear, steady young male voice, calm and reserved, highly distinctive as the lead (S1): <d>[Chinese] 凌云：三息之内，若你不收回这把枪，我保证你日后再见不到这阳光。 </d>",
+        7.0
       ],
-      "title": "镜11 冷笑枪械 6s"
+      "title": "镜11 三息之约 7s"
     },
     {
       "id": 71,
@@ -3068,2941 +3068,13 @@
         "Node name for S&R": "MiniMaxH3DirectorGroupImageToVideo"
       },
       "widgets_values": [
-        "close shot, high angle looking down, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，近景，小雪居高临下命令凌云。\n小雪说喂你起来。 奢华古典·白天明亮",
-        5.0
+        "full shot, eye-level angle, follow shot, daytime, bright clear natural light, 东家城堡前庭广场，喷泉水池边, 东家城堡前庭广场，全景，保镖飞身扑向小雪。\n东家城堡前庭广场，全景，一道无形剑气破空而出，击飞保镖。\n东家城堡前庭广场，中景，小雪惊恐扣动扳机，子弹呼啸而出。\n东家城堡前庭广场，特写，凌云一剑出鞘快过子弹，凌空将子弹劈成两半，缓缓收剑，全场死寂。 晨光骤亮，凌厉肃杀，一击定乾坤的震撼",
+        13.0
       ],
-      "title": "镜12 居高命令 5s"
+      "title": "镜12 一剑寒光 13s"
     },
     {
       "id": 74,
-      "type": "LoadImage",
-      "pos": [
-        -2740,
-        940
-      ],
-      "size": [
-        270,
-        314
-      ],
-      "flags": {},
-      "order": 22,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "图像",
-          "name": "image",
-          "type": "COMBO",
-          "widget": {
-            "name": "image"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "选择文件上传",
-          "name": "upload",
-          "type": "IMAGEUPLOAD",
-          "widget": {
-            "name": "upload"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "图像",
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            38
-          ]
-        },
-        {
-          "localized_name": "遮罩",
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "02_分镜/第1集/第1集_镜13_首帧_写实CG融合_00001_.png",
-        "image"
-      ],
-      "title": "镜13 首帧"
-    },
-    {
-      "id": 75,
-      "type": "LoadImage",
-      "pos": [
-        -2440,
-        940
-      ],
-      "size": [
-        270,
-        314
-      ],
-      "flags": {},
-      "order": 22,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "图像",
-          "name": "image",
-          "type": "COMBO",
-          "widget": {
-            "name": "image"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "选择文件上传",
-          "name": "upload",
-          "type": "IMAGEUPLOAD",
-          "widget": {
-            "name": "upload"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "图像",
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            39
-          ]
-        },
-        {
-          "localized_name": "遮罩",
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "02_分镜/第1集/第1集_镜13_尾帧_写实CG融合_00001_.png",
-        "image"
-      ],
-      "title": "镜13 尾帧"
-    },
-    {
-      "id": 76,
-      "type": "MiniMaxH3DirectorGroupImageToVideo",
-      "pos": [
-        -2120,
-        940
-      ],
-      "size": [
-        400,
-        200
-      ],
-      "flags": {},
-      "order": 22,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "first_frame",
-          "name": "first_frame",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": 38
-        },
-        {
-          "localized_name": "last_frame",
-          "name": "last_frame",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": 39
-        },
-        {
-          "localized_name": "prompt",
-          "name": "prompt",
-          "type": "STRING",
-          "widget": {
-            "name": "prompt"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "duration_sec",
-          "name": "duration_sec",
-          "type": "FLOAT",
-          "widget": {
-            "name": "duration_sec"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "group",
-          "name": "group",
-          "type": "MMX_DIR_GROUP",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "MiniMaxH3DirectorGroupImageToVideo"
-      },
-      "widgets_values": [
-        "medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，中景，云姐欠身向凌云道歉。\n云姐替小雪赔罪。 奢华古典·白天明亮",
-        7.0
-      ],
-      "title": "镜13 云姐致歉 7s"
-    },
-    {
-      "id": 77,
-      "type": "LoadImage",
-      "pos": [
-        -3360,
-        940
-      ],
-      "size": [
-        270,
-        314
-      ],
-      "flags": {},
-      "order": 23,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "图像",
-          "name": "image",
-          "type": "COMBO",
-          "widget": {
-            "name": "image"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "选择文件上传",
-          "name": "upload",
-          "type": "IMAGEUPLOAD",
-          "widget": {
-            "name": "upload"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "图像",
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            40
-          ]
-        },
-        {
-          "localized_name": "遮罩",
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "02_分镜/第1集/第1集_镜14_首帧_写实CG融合_00001_.png",
-        "image"
-      ],
-      "title": "镜14 首帧"
-    },
-    {
-      "id": 78,
-      "type": "LoadImage",
-      "pos": [
-        -3060,
-        940
-      ],
-      "size": [
-        270,
-        314
-      ],
-      "flags": {},
-      "order": 23,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "图像",
-          "name": "image",
-          "type": "COMBO",
-          "widget": {
-            "name": "image"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "选择文件上传",
-          "name": "upload",
-          "type": "IMAGEUPLOAD",
-          "widget": {
-            "name": "upload"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "图像",
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            41
-          ]
-        },
-        {
-          "localized_name": "遮罩",
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "02_分镜/第1集/第1集_镜14_尾帧_写实CG融合_00001_.png",
-        "image"
-      ],
-      "title": "镜14 尾帧"
-    },
-    {
-      "id": 79,
-      "type": "MiniMaxH3DirectorGroupImageToVideo",
-      "pos": [
-        -2740,
-        940
-      ],
-      "size": [
-        400,
-        200
-      ],
-      "flags": {},
-      "order": 23,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "first_frame",
-          "name": "first_frame",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": 40
-        },
-        {
-          "localized_name": "last_frame",
-          "name": "last_frame",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": 41
-        },
-        {
-          "localized_name": "prompt",
-          "name": "prompt",
-          "type": "STRING",
-          "widget": {
-            "name": "prompt"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "duration_sec",
-          "name": "duration_sec",
-          "type": "FLOAT",
-          "widget": {
-            "name": "duration_sec"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "group",
-          "name": "group",
-          "type": "MMX_DIR_GROUP",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "MiniMaxH3DirectorGroupImageToVideo"
-      },
-      "widgets_values": [
-        "medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，中景，小雪执剑怒喝。\n小雪使劲拔剑却拔不动。 奢华古典·白天明亮",
-        7.0
-      ],
-      "title": "镜14 拔剑不出 7s"
-    },
-    {
-      "id": 80,
-      "type": "LoadImage",
-      "pos": [
-        -3980,
-        940
-      ],
-      "size": [
-        270,
-        314
-      ],
-      "flags": {},
-      "order": 24,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "图像",
-          "name": "image",
-          "type": "COMBO",
-          "widget": {
-            "name": "image"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "选择文件上传",
-          "name": "upload",
-          "type": "IMAGEUPLOAD",
-          "widget": {
-            "name": "upload"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "图像",
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            42
-          ]
-        },
-        {
-          "localized_name": "遮罩",
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "02_分镜/第1集/第1集_镜15_首帧_写实CG融合_00001_.png",
-        "image"
-      ],
-      "title": "镜15 首帧"
-    },
-    {
-      "id": 81,
-      "type": "LoadImage",
-      "pos": [
-        -3680,
-        940
-      ],
-      "size": [
-        270,
-        314
-      ],
-      "flags": {},
-      "order": 24,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "图像",
-          "name": "image",
-          "type": "COMBO",
-          "widget": {
-            "name": "image"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "选择文件上传",
-          "name": "upload",
-          "type": "IMAGEUPLOAD",
-          "widget": {
-            "name": "upload"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "图像",
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            43
-          ]
-        },
-        {
-          "localized_name": "遮罩",
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "02_分镜/第1集/第1集_镜15_尾帧_写实CG融合_00001_.png",
-        "image"
-      ],
-      "title": "镜15 尾帧"
-    },
-    {
-      "id": 82,
-      "type": "MiniMaxH3DirectorGroupImageToVideo",
-      "pos": [
-        -3360,
-        940
-      ],
-      "size": [
-        400,
-        200
-      ],
-      "flags": {},
-      "order": 24,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "first_frame",
-          "name": "first_frame",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": 42
-        },
-        {
-          "localized_name": "last_frame",
-          "name": "last_frame",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": 43
-        },
-        {
-          "localized_name": "prompt",
-          "name": "prompt",
-          "type": "STRING",
-          "widget": {
-            "name": "prompt"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "duration_sec",
-          "name": "duration_sec",
-          "type": "FLOAT",
-          "widget": {
-            "name": "duration_sec"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "group",
-          "name": "group",
-          "type": "MMX_DIR_GROUP",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "MiniMaxH3DirectorGroupImageToVideo"
-      },
-      "widgets_values": [
-        "close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，近景，凌云淡声开口。\n凌云说你连拔剑资格都没有。 奢华古典·白天明亮",
-        7.0
-      ],
-      "title": "镜15 凌云轻蔑 7s"
-    },
-    {
-      "id": 83,
-      "type": "LoadImage",
-      "pos": [
-        -1500,
-        1360
-      ],
-      "size": [
-        270,
-        314
-      ],
-      "flags": {},
-      "order": 25,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "图像",
-          "name": "image",
-          "type": "COMBO",
-          "widget": {
-            "name": "image"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "选择文件上传",
-          "name": "upload",
-          "type": "IMAGEUPLOAD",
-          "widget": {
-            "name": "upload"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "图像",
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            44
-          ]
-        },
-        {
-          "localized_name": "遮罩",
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "02_分镜/第1集/第1集_镜16_首帧_写实CG融合_00001_.png",
-        "image"
-      ],
-      "title": "镜16 首帧"
-    },
-    {
-      "id": 84,
-      "type": "LoadImage",
-      "pos": [
-        -1200,
-        1360
-      ],
-      "size": [
-        270,
-        314
-      ],
-      "flags": {},
-      "order": 25,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "图像",
-          "name": "image",
-          "type": "COMBO",
-          "widget": {
-            "name": "image"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "选择文件上传",
-          "name": "upload",
-          "type": "IMAGEUPLOAD",
-          "widget": {
-            "name": "upload"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "图像",
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            45
-          ]
-        },
-        {
-          "localized_name": "遮罩",
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "02_分镜/第1集/第1集_镜16_尾帧_写实CG融合_00001_.png",
-        "image"
-      ],
-      "title": "镜16 尾帧"
-    },
-    {
-      "id": 85,
-      "type": "MiniMaxH3DirectorGroupImageToVideo",
-      "pos": [
-        -880,
-        1360
-      ],
-      "size": [
-        400,
-        200
-      ],
-      "flags": {},
-      "order": 25,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "first_frame",
-          "name": "first_frame",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": 44
-        },
-        {
-          "localized_name": "last_frame",
-          "name": "last_frame",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": 45
-        },
-        {
-          "localized_name": "prompt",
-          "name": "prompt",
-          "type": "STRING",
-          "widget": {
-            "name": "prompt"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "duration_sec",
-          "name": "duration_sec",
-          "type": "FLOAT",
-          "widget": {
-            "name": "duration_sec"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "group",
-          "name": "group",
-          "type": "MMX_DIR_GROUP",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "MiniMaxH3DirectorGroupImageToVideo"
-      },
-      "widgets_values": [
-        "close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，近景，小雪丢剑掏出手枪。\n小雪举枪直指凌云额头。 奢华古典·白天明亮",
-        8.0
-      ],
-      "title": "镜16 掏枪威胁 8s"
-    },
-    {
-      "id": 86,
-      "type": "LoadImage",
-      "pos": [
-        -2120,
-        1360
-      ],
-      "size": [
-        270,
-        314
-      ],
-      "flags": {},
-      "order": 26,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "图像",
-          "name": "image",
-          "type": "COMBO",
-          "widget": {
-            "name": "image"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "选择文件上传",
-          "name": "upload",
-          "type": "IMAGEUPLOAD",
-          "widget": {
-            "name": "upload"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "图像",
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            46
-          ]
-        },
-        {
-          "localized_name": "遮罩",
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "02_分镜/第1集/第1集_镜17_首帧_写实CG融合_00001_.png",
-        "image"
-      ],
-      "title": "镜17 首帧"
-    },
-    {
-      "id": 87,
-      "type": "LoadImage",
-      "pos": [
-        -1820,
-        1360
-      ],
-      "size": [
-        270,
-        314
-      ],
-      "flags": {},
-      "order": 26,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "图像",
-          "name": "image",
-          "type": "COMBO",
-          "widget": {
-            "name": "image"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "选择文件上传",
-          "name": "upload",
-          "type": "IMAGEUPLOAD",
-          "widget": {
-            "name": "upload"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "图像",
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            47
-          ]
-        },
-        {
-          "localized_name": "遮罩",
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "02_分镜/第1集/第1集_镜17_尾帧_写实CG融合_00001_.png",
-        "image"
-      ],
-      "title": "镜17 尾帧"
-    },
-    {
-      "id": 88,
-      "type": "MiniMaxH3DirectorGroupImageToVideo",
-      "pos": [
-        -1500,
-        1360
-      ],
-      "size": [
-        400,
-        200
-      ],
-      "flags": {},
-      "order": 26,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "first_frame",
-          "name": "first_frame",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": 46
-        },
-        {
-          "localized_name": "last_frame",
-          "name": "last_frame",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": 47
-        },
-        {
-          "localized_name": "prompt",
-          "name": "prompt",
-          "type": "STRING",
-          "widget": {
-            "name": "prompt"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "duration_sec",
-          "name": "duration_sec",
-          "type": "FLOAT",
-          "widget": {
-            "name": "duration_sec"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "group",
-          "name": "group",
-          "type": "MMX_DIR_GROUP",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "MiniMaxH3DirectorGroupImageToVideo"
-      },
-      "widgets_values": [
-        "medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，中景，云姐大惊失色扑过去。\n云姐喝止小雪。 奢华古典·白天明亮",
-        6.0
-      ],
-      "title": "镜17 云姐大惊 6s"
-    },
-    {
-      "id": 89,
-      "type": "LoadImage",
-      "pos": [
-        -2740,
-        1360
-      ],
-      "size": [
-        270,
-        314
-      ],
-      "flags": {},
-      "order": 27,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "图像",
-          "name": "image",
-          "type": "COMBO",
-          "widget": {
-            "name": "image"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "选择文件上传",
-          "name": "upload",
-          "type": "IMAGEUPLOAD",
-          "widget": {
-            "name": "upload"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "图像",
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            48
-          ]
-        },
-        {
-          "localized_name": "遮罩",
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "02_分镜/第1集/第1集_镜18_首帧_写实CG融合_00001_.png",
-        "image"
-      ],
-      "title": "镜18 首帧"
-    },
-    {
-      "id": 90,
-      "type": "LoadImage",
-      "pos": [
-        -2440,
-        1360
-      ],
-      "size": [
-        270,
-        314
-      ],
-      "flags": {},
-      "order": 27,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "图像",
-          "name": "image",
-          "type": "COMBO",
-          "widget": {
-            "name": "image"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "选择文件上传",
-          "name": "upload",
-          "type": "IMAGEUPLOAD",
-          "widget": {
-            "name": "upload"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "图像",
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            49
-          ]
-        },
-        {
-          "localized_name": "遮罩",
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "02_分镜/第1集/第1集_镜18_尾帧_写实CG融合_00001_.png",
-        "image"
-      ],
-      "title": "镜18 尾帧"
-    },
-    {
-      "id": 91,
-      "type": "MiniMaxH3DirectorGroupImageToVideo",
-      "pos": [
-        -2120,
-        1360
-      ],
-      "size": [
-        400,
-        200
-      ],
-      "flags": {},
-      "order": 27,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "first_frame",
-          "name": "first_frame",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": 48
-        },
-        {
-          "localized_name": "last_frame",
-          "name": "last_frame",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": 49
-        },
-        {
-          "localized_name": "prompt",
-          "name": "prompt",
-          "type": "STRING",
-          "widget": {
-            "name": "prompt"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "duration_sec",
-          "name": "duration_sec",
-          "type": "FLOAT",
-          "widget": {
-            "name": "duration_sec"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "group",
-          "name": "group",
-          "type": "MMX_DIR_GROUP",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "MiniMaxH3DirectorGroupImageToVideo"
-      },
-      "widgets_values": [
-        "full shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，全景，保镖们围拢护住主仆。\n保镖们紧盯着凌云。 奢华古典·白天明亮",
-        6.0
-      ],
-      "title": "镜18 保镖警戒 6s"
-    },
-    {
-      "id": 92,
-      "type": "LoadImage",
-      "pos": [
-        -3360,
-        1360
-      ],
-      "size": [
-        270,
-        314
-      ],
-      "flags": {},
-      "order": 28,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "图像",
-          "name": "image",
-          "type": "COMBO",
-          "widget": {
-            "name": "image"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "选择文件上传",
-          "name": "upload",
-          "type": "IMAGEUPLOAD",
-          "widget": {
-            "name": "upload"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "图像",
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            50
-          ]
-        },
-        {
-          "localized_name": "遮罩",
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "02_分镜/第1集/第1集_镜19_首帧_写实CG融合_00001_.png",
-        "image"
-      ],
-      "title": "镜19 首帧"
-    },
-    {
-      "id": 93,
-      "type": "LoadImage",
-      "pos": [
-        -3060,
-        1360
-      ],
-      "size": [
-        270,
-        314
-      ],
-      "flags": {},
-      "order": 28,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "图像",
-          "name": "image",
-          "type": "COMBO",
-          "widget": {
-            "name": "image"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "选择文件上传",
-          "name": "upload",
-          "type": "IMAGEUPLOAD",
-          "widget": {
-            "name": "upload"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "图像",
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            51
-          ]
-        },
-        {
-          "localized_name": "遮罩",
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "02_分镜/第1集/第1集_镜19_尾帧_写实CG融合_00001_.png",
-        "image"
-      ],
-      "title": "镜19 尾帧"
-    },
-    {
-      "id": 94,
-      "type": "MiniMaxH3DirectorGroupImageToVideo",
-      "pos": [
-        -2740,
-        1360
-      ],
-      "size": [
-        400,
-        200
-      ],
-      "flags": {},
-      "order": 28,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "first_frame",
-          "name": "first_frame",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": 50
-        },
-        {
-          "localized_name": "last_frame",
-          "name": "last_frame",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": 51
-        },
-        {
-          "localized_name": "prompt",
-          "name": "prompt",
-          "type": "STRING",
-          "widget": {
-            "name": "prompt"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "duration_sec",
-          "name": "duration_sec",
-          "type": "FLOAT",
-          "widget": {
-            "name": "duration_sec"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "group",
-          "name": "group",
-          "type": "MMX_DIR_GROUP",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "MiniMaxH3DirectorGroupImageToVideo"
-      },
-      "widgets_values": [
-        "extreme close-up, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，特写，凌云睁眼平静。\n凌云说三息之后若不收枪。 奢华古典·白天明亮",
-        8.0
-      ],
-      "title": "镜19 凌云睁眼 8s"
-    },
-    {
-      "id": 95,
-      "type": "LoadImage",
-      "pos": [
-        -3980,
-        1360
-      ],
-      "size": [
-        270,
-        314
-      ],
-      "flags": {},
-      "order": 29,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "图像",
-          "name": "image",
-          "type": "COMBO",
-          "widget": {
-            "name": "image"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "选择文件上传",
-          "name": "upload",
-          "type": "IMAGEUPLOAD",
-          "widget": {
-            "name": "upload"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "图像",
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            52
-          ]
-        },
-        {
-          "localized_name": "遮罩",
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "02_分镜/第1集/第1集_镜20_首帧_写实CG融合_00001_.png",
-        "image"
-      ],
-      "title": "镜20 首帧"
-    },
-    {
-      "id": 96,
-      "type": "LoadImage",
-      "pos": [
-        -3680,
-        1360
-      ],
-      "size": [
-        270,
-        314
-      ],
-      "flags": {},
-      "order": 29,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "图像",
-          "name": "image",
-          "type": "COMBO",
-          "widget": {
-            "name": "image"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "选择文件上传",
-          "name": "upload",
-          "type": "IMAGEUPLOAD",
-          "widget": {
-            "name": "upload"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "图像",
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            53
-          ]
-        },
-        {
-          "localized_name": "遮罩",
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "02_分镜/第1集/第1集_镜20_尾帧_写实CG融合_00001_.png",
-        "image"
-      ],
-      "title": "镜20 尾帧"
-    },
-    {
-      "id": 97,
-      "type": "MiniMaxH3DirectorGroupImageToVideo",
-      "pos": [
-        -3360,
-        1360
-      ],
-      "size": [
-        400,
-        200
-      ],
-      "flags": {},
-      "order": 29,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "first_frame",
-          "name": "first_frame",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": 52
-        },
-        {
-          "localized_name": "last_frame",
-          "name": "last_frame",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": 53
-        },
-        {
-          "localized_name": "prompt",
-          "name": "prompt",
-          "type": "STRING",
-          "widget": {
-            "name": "prompt"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "duration_sec",
-          "name": "duration_sec",
-          "type": "FLOAT",
-          "widget": {
-            "name": "duration_sec"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "group",
-          "name": "group",
-          "type": "MMX_DIR_GROUP",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "MiniMaxH3DirectorGroupImageToVideo"
-      },
-      "widgets_values": [
-        "close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，近景，小雪有恃无恐。\n小雪喝令凌云道歉。 奢华古典·白天明亮",
-        7.0
-      ],
-      "title": "镜20 小雪硬顶 7s"
-    },
-    {
-      "id": 98,
-      "type": "LoadImage",
-      "pos": [
-        -1500,
-        1780
-      ],
-      "size": [
-        270,
-        314
-      ],
-      "flags": {},
-      "order": 30,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "图像",
-          "name": "image",
-          "type": "COMBO",
-          "widget": {
-            "name": "image"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "选择文件上传",
-          "name": "upload",
-          "type": "IMAGEUPLOAD",
-          "widget": {
-            "name": "upload"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "图像",
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            54
-          ]
-        },
-        {
-          "localized_name": "遮罩",
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "02_分镜/第1集/第1集_镜21_首帧_写实CG融合_00001_.png",
-        "image"
-      ],
-      "title": "镜21 首帧"
-    },
-    {
-      "id": 99,
-      "type": "LoadImage",
-      "pos": [
-        -1200,
-        1780
-      ],
-      "size": [
-        270,
-        314
-      ],
-      "flags": {},
-      "order": 30,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "图像",
-          "name": "image",
-          "type": "COMBO",
-          "widget": {
-            "name": "image"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "选择文件上传",
-          "name": "upload",
-          "type": "IMAGEUPLOAD",
-          "widget": {
-            "name": "upload"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "图像",
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            55
-          ]
-        },
-        {
-          "localized_name": "遮罩",
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "02_分镜/第1集/第1集_镜21_尾帧_写实CG融合_00001_.png",
-        "image"
-      ],
-      "title": "镜21 尾帧"
-    },
-    {
-      "id": 100,
-      "type": "MiniMaxH3DirectorGroupImageToVideo",
-      "pos": [
-        -880,
-        1780
-      ],
-      "size": [
-        400,
-        200
-      ],
-      "flags": {},
-      "order": 30,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "first_frame",
-          "name": "first_frame",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": 54
-        },
-        {
-          "localized_name": "last_frame",
-          "name": "last_frame",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": 55
-        },
-        {
-          "localized_name": "prompt",
-          "name": "prompt",
-          "type": "STRING",
-          "widget": {
-            "name": "prompt"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "duration_sec",
-          "name": "duration_sec",
-          "type": "FLOAT",
-          "widget": {
-            "name": "duration_sec"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "group",
-          "name": "group",
-          "type": "MMX_DIR_GROUP",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "MiniMaxH3DirectorGroupImageToVideo"
-      },
-      "widgets_values": [
-        "extreme close-up, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，特写，凌云平静数出——一息。\n凌云声音冷峻。 奢华古典·白天明亮",
-        5.0
-      ],
-      "title": "镜21 一息 5s"
-    },
-    {
-      "id": 101,
-      "type": "LoadImage",
-      "pos": [
-        -2120,
-        1780
-      ],
-      "size": [
-        270,
-        314
-      ],
-      "flags": {},
-      "order": 31,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "图像",
-          "name": "image",
-          "type": "COMBO",
-          "widget": {
-            "name": "image"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "选择文件上传",
-          "name": "upload",
-          "type": "IMAGEUPLOAD",
-          "widget": {
-            "name": "upload"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "图像",
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            56
-          ]
-        },
-        {
-          "localized_name": "遮罩",
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "02_分镜/第1集/第1集_镜22_首帧_写实CG融合_00001_.png",
-        "image"
-      ],
-      "title": "镜22 首帧"
-    },
-    {
-      "id": 102,
-      "type": "LoadImage",
-      "pos": [
-        -1820,
-        1780
-      ],
-      "size": [
-        270,
-        314
-      ],
-      "flags": {},
-      "order": 31,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "图像",
-          "name": "image",
-          "type": "COMBO",
-          "widget": {
-            "name": "image"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "选择文件上传",
-          "name": "upload",
-          "type": "IMAGEUPLOAD",
-          "widget": {
-            "name": "upload"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "图像",
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            57
-          ]
-        },
-        {
-          "localized_name": "遮罩",
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "02_分镜/第1集/第1集_镜22_尾帧_写实CG融合_00001_.png",
-        "image"
-      ],
-      "title": "镜22 尾帧"
-    },
-    {
-      "id": 103,
-      "type": "MiniMaxH3DirectorGroupImageToVideo",
-      "pos": [
-        -1500,
-        1780
-      ],
-      "size": [
-        400,
-        200
-      ],
-      "flags": {},
-      "order": 31,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "first_frame",
-          "name": "first_frame",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": 56
-        },
-        {
-          "localized_name": "last_frame",
-          "name": "last_frame",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": 57
-        },
-        {
-          "localized_name": "prompt",
-          "name": "prompt",
-          "type": "STRING",
-          "widget": {
-            "name": "prompt"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "duration_sec",
-          "name": "duration_sec",
-          "type": "FLOAT",
-          "widget": {
-            "name": "duration_sec"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "group",
-          "name": "group",
-          "type": "MMX_DIR_GROUP",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "MiniMaxH3DirectorGroupImageToVideo"
-      },
-      "widgets_values": [
-        "close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，近景，小雪气急败坏抢数。\n小雪说二息三。 奢华古典·白天明亮",
-        6.0
-      ],
-      "title": "镜22 小雪抢数 6s"
-    },
-    {
-      "id": 104,
-      "type": "LoadImage",
-      "pos": [
-        -2740,
-        1780
-      ],
-      "size": [
-        270,
-        314
-      ],
-      "flags": {},
-      "order": 32,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "图像",
-          "name": "image",
-          "type": "COMBO",
-          "widget": {
-            "name": "image"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "选择文件上传",
-          "name": "upload",
-          "type": "IMAGEUPLOAD",
-          "widget": {
-            "name": "upload"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "图像",
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            58
-          ]
-        },
-        {
-          "localized_name": "遮罩",
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "02_分镜/第1集/第1集_镜23_首帧_写实CG融合_00001_.png",
-        "image"
-      ],
-      "title": "镜23 首帧"
-    },
-    {
-      "id": 105,
-      "type": "LoadImage",
-      "pos": [
-        -2440,
-        1780
-      ],
-      "size": [
-        270,
-        314
-      ],
-      "flags": {},
-      "order": 32,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "图像",
-          "name": "image",
-          "type": "COMBO",
-          "widget": {
-            "name": "image"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "选择文件上传",
-          "name": "upload",
-          "type": "IMAGEUPLOAD",
-          "widget": {
-            "name": "upload"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "图像",
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            59
-          ]
-        },
-        {
-          "localized_name": "遮罩",
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "02_分镜/第1集/第1集_镜23_尾帧_写实CG融合_00001_.png",
-        "image"
-      ],
-      "title": "镜23 尾帧"
-    },
-    {
-      "id": 106,
-      "type": "MiniMaxH3DirectorGroupImageToVideo",
-      "pos": [
-        -2120,
-        1780
-      ],
-      "size": [
-        400,
-        200
-      ],
-      "flags": {},
-      "order": 32,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "first_frame",
-          "name": "first_frame",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": 58
-        },
-        {
-          "localized_name": "last_frame",
-          "name": "last_frame",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": 59
-        },
-        {
-          "localized_name": "prompt",
-          "name": "prompt",
-          "type": "STRING",
-          "widget": {
-            "name": "prompt"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "duration_sec",
-          "name": "duration_sec",
-          "type": "FLOAT",
-          "widget": {
-            "name": "duration_sec"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "group",
-          "name": "group",
-          "type": "MMX_DIR_GROUP",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "MiniMaxH3DirectorGroupImageToVideo"
-      },
-      "widgets_values": [
-        "medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，中景，保镖爆喝冲身护主。\n一道无形剑气袭至。 奢华古典·白天明亮",
-        5.0
-      ],
-      "title": "镜23 小姐小心 5s"
-    },
-    {
-      "id": 107,
-      "type": "LoadImage",
-      "pos": [
-        -3360,
-        1780
-      ],
-      "size": [
-        270,
-        314
-      ],
-      "flags": {},
-      "order": 33,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "图像",
-          "name": "image",
-          "type": "COMBO",
-          "widget": {
-            "name": "image"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "选择文件上传",
-          "name": "upload",
-          "type": "IMAGEUPLOAD",
-          "widget": {
-            "name": "upload"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "图像",
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            60
-          ]
-        },
-        {
-          "localized_name": "遮罩",
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "02_分镜/第1集/第1集_镜24_首帧_写实CG融合_00001_.png",
-        "image"
-      ],
-      "title": "镜24 首帧"
-    },
-    {
-      "id": 108,
-      "type": "LoadImage",
-      "pos": [
-        -3060,
-        1780
-      ],
-      "size": [
-        270,
-        314
-      ],
-      "flags": {},
-      "order": 33,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "图像",
-          "name": "image",
-          "type": "COMBO",
-          "widget": {
-            "name": "image"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "选择文件上传",
-          "name": "upload",
-          "type": "IMAGEUPLOAD",
-          "widget": {
-            "name": "upload"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "图像",
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            61
-          ]
-        },
-        {
-          "localized_name": "遮罩",
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "02_分镜/第1集/第1集_镜24_尾帧_写实CG融合_00001_.png",
-        "image"
-      ],
-      "title": "镜24 尾帧"
-    },
-    {
-      "id": 109,
-      "type": "MiniMaxH3DirectorGroupImageToVideo",
-      "pos": [
-        -2740,
-        1780
-      ],
-      "size": [
-        400,
-        200
-      ],
-      "flags": {},
-      "order": 33,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "first_frame",
-          "name": "first_frame",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": 60
-        },
-        {
-          "localized_name": "last_frame",
-          "name": "last_frame",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": 61
-        },
-        {
-          "localized_name": "prompt",
-          "name": "prompt",
-          "type": "STRING",
-          "widget": {
-            "name": "prompt"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "duration_sec",
-          "name": "duration_sec",
-          "type": "FLOAT",
-          "widget": {
-            "name": "duration_sec"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "group",
-          "name": "group",
-          "type": "MMX_DIR_GROUP",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "MiniMaxH3DirectorGroupImageToVideo"
-      },
-      "widgets_values": [
-        "medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，中景，无形剑气洞穿保镖胸口。\n血花在保镖身上绽放。\n保镖颓然倒下。 奢华古典·白天明亮",
-        8.0
-      ],
-      "title": "镜24 剑气洞穿 8s"
-    },
-    {
-      "id": 110,
-      "type": "LoadImage",
-      "pos": [
-        -3980,
-        1780
-      ],
-      "size": [
-        270,
-        314
-      ],
-      "flags": {},
-      "order": 34,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "图像",
-          "name": "image",
-          "type": "COMBO",
-          "widget": {
-            "name": "image"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "选择文件上传",
-          "name": "upload",
-          "type": "IMAGEUPLOAD",
-          "widget": {
-            "name": "upload"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "图像",
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            62
-          ]
-        },
-        {
-          "localized_name": "遮罩",
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "02_分镜/第1集/第1集_镜25_首帧_写实CG融合_00001_.png",
-        "image"
-      ],
-      "title": "镜25 首帧"
-    },
-    {
-      "id": 111,
-      "type": "LoadImage",
-      "pos": [
-        -3680,
-        1780
-      ],
-      "size": [
-        270,
-        314
-      ],
-      "flags": {},
-      "order": 34,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "图像",
-          "name": "image",
-          "type": "COMBO",
-          "widget": {
-            "name": "image"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "选择文件上传",
-          "name": "upload",
-          "type": "IMAGEUPLOAD",
-          "widget": {
-            "name": "upload"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "图像",
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            63
-          ]
-        },
-        {
-          "localized_name": "遮罩",
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "02_分镜/第1集/第1集_镜25_尾帧_写实CG融合_00001_.png",
-        "image"
-      ],
-      "title": "镜25 尾帧"
-    },
-    {
-      "id": 112,
-      "type": "MiniMaxH3DirectorGroupImageToVideo",
-      "pos": [
-        -3360,
-        1780
-      ],
-      "size": [
-        400,
-        200
-      ],
-      "flags": {},
-      "order": 34,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "first_frame",
-          "name": "first_frame",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": 62
-        },
-        {
-          "localized_name": "last_frame",
-          "name": "last_frame",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": 63
-        },
-        {
-          "localized_name": "prompt",
-          "name": "prompt",
-          "type": "STRING",
-          "widget": {
-            "name": "prompt"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "duration_sec",
-          "name": "duration_sec",
-          "type": "FLOAT",
-          "widget": {
-            "name": "duration_sec"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "group",
-          "name": "group",
-          "type": "MMX_DIR_GROUP",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "MiniMaxH3DirectorGroupImageToVideo"
-      },
-      "widgets_values": [
-        "close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，近景，小雪惊叫扣动扳机。\n子弹喷射而出。 奢华古典·白天明亮",
-        6.0
-      ],
-      "title": "镜25 惊叫走火 6s"
-    },
-    {
-      "id": 113,
-      "type": "LoadImage",
-      "pos": [
-        -1500,
-        2200
-      ],
-      "size": [
-        270,
-        314
-      ],
-      "flags": {},
-      "order": 35,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "图像",
-          "name": "image",
-          "type": "COMBO",
-          "widget": {
-            "name": "image"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "选择文件上传",
-          "name": "upload",
-          "type": "IMAGEUPLOAD",
-          "widget": {
-            "name": "upload"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "图像",
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            64
-          ]
-        },
-        {
-          "localized_name": "遮罩",
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "02_分镜/第1集/第1集_镜26_首帧_写实CG融合_00001_.png",
-        "image"
-      ],
-      "title": "镜26 首帧"
-    },
-    {
-      "id": 114,
-      "type": "LoadImage",
-      "pos": [
-        -1200,
-        2200
-      ],
-      "size": [
-        270,
-        314
-      ],
-      "flags": {},
-      "order": 35,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "图像",
-          "name": "image",
-          "type": "COMBO",
-          "widget": {
-            "name": "image"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "选择文件上传",
-          "name": "upload",
-          "type": "IMAGEUPLOAD",
-          "widget": {
-            "name": "upload"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "图像",
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            65
-          ]
-        },
-        {
-          "localized_name": "遮罩",
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "02_分镜/第1集/第1集_镜26_尾帧_写实CG融合_00001_.png",
-        "image"
-      ],
-      "title": "镜26 尾帧"
-    },
-    {
-      "id": 115,
-      "type": "MiniMaxH3DirectorGroupImageToVideo",
-      "pos": [
-        -880,
-        2200
-      ],
-      "size": [
-        400,
-        200
-      ],
-      "flags": {},
-      "order": 35,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "first_frame",
-          "name": "first_frame",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": 64
-        },
-        {
-          "localized_name": "last_frame",
-          "name": "last_frame",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": 65
-        },
-        {
-          "localized_name": "prompt",
-          "name": "prompt",
-          "type": "STRING",
-          "widget": {
-            "name": "prompt"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "duration_sec",
-          "name": "duration_sec",
-          "type": "FLOAT",
-          "widget": {
-            "name": "duration_sec"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "group",
-          "name": "group",
-          "type": "MMX_DIR_GROUP",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "MiniMaxH3DirectorGroupImageToVideo"
-      },
-      "widgets_values": [
-        "medium shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，中景，子弹高速射向凌云。\n众人屏息，认定凌云必死。 奢华古典·白天明亮",
-        6.0
-      ],
-      "title": "镜26 枪林弹雨 6s"
-    },
-    {
-      "id": 116,
-      "type": "LoadImage",
-      "pos": [
-        -2120,
-        2200
-      ],
-      "size": [
-        270,
-        314
-      ],
-      "flags": {},
-      "order": 36,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "图像",
-          "name": "image",
-          "type": "COMBO",
-          "widget": {
-            "name": "image"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "选择文件上传",
-          "name": "upload",
-          "type": "IMAGEUPLOAD",
-          "widget": {
-            "name": "upload"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "图像",
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            66
-          ]
-        },
-        {
-          "localized_name": "遮罩",
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "02_分镜/第1集/第1集_镜27_首帧_写实CG融合_00001_.png",
-        "image"
-      ],
-      "title": "镜27 首帧"
-    },
-    {
-      "id": 117,
-      "type": "LoadImage",
-      "pos": [
-        -1820,
-        2200
-      ],
-      "size": [
-        270,
-        314
-      ],
-      "flags": {},
-      "order": 36,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "图像",
-          "name": "image",
-          "type": "COMBO",
-          "widget": {
-            "name": "image"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "选择文件上传",
-          "name": "upload",
-          "type": "IMAGEUPLOAD",
-          "widget": {
-            "name": "upload"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "图像",
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            67
-          ]
-        },
-        {
-          "localized_name": "遮罩",
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "02_分镜/第1集/第1集_镜27_尾帧_写实CG融合_00001_.png",
-        "image"
-      ],
-      "title": "镜27 尾帧"
-    },
-    {
-      "id": 118,
-      "type": "MiniMaxH3DirectorGroupImageToVideo",
-      "pos": [
-        -1500,
-        2200
-      ],
-      "size": [
-        400,
-        200
-      ],
-      "flags": {},
-      "order": 36,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "first_frame",
-          "name": "first_frame",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": 66
-        },
-        {
-          "localized_name": "last_frame",
-          "name": "last_frame",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": 67
-        },
-        {
-          "localized_name": "prompt",
-          "name": "prompt",
-          "type": "STRING",
-          "widget": {
-            "name": "prompt"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "duration_sec",
-          "name": "duration_sec",
-          "type": "FLOAT",
-          "widget": {
-            "name": "duration_sec"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "group",
-          "name": "group",
-          "type": "MMX_DIR_GROUP",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "MiniMaxH3DirectorGroupImageToVideo"
-      },
-      "widgets_values": [
-        "extreme close-up, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，特写，凌云眼中乍射精光。\n三尺青锋以不可思议速度出鞘。\n剑光精准劈中飞行子弹。\n子弹被一剑劈飞。 奢华古典·白天明亮",
-        12.0
-      ],
-      "title": "镜27 一剑惊鸿 12s"
-    },
-    {
-      "id": 119,
-      "type": "LoadImage",
-      "pos": [
-        -2740,
-        2200
-      ],
-      "size": [
-        270,
-        314
-      ],
-      "flags": {},
-      "order": 37,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "图像",
-          "name": "image",
-          "type": "COMBO",
-          "widget": {
-            "name": "image"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "选择文件上传",
-          "name": "upload",
-          "type": "IMAGEUPLOAD",
-          "widget": {
-            "name": "upload"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "图像",
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            68
-          ]
-        },
-        {
-          "localized_name": "遮罩",
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "02_分镜/第1集/第1集_镜28_首帧_写实CG融合_00001_.png",
-        "image"
-      ],
-      "title": "镜28 首帧"
-    },
-    {
-      "id": 120,
-      "type": "LoadImage",
-      "pos": [
-        -2440,
-        2200
-      ],
-      "size": [
-        270,
-        314
-      ],
-      "flags": {},
-      "order": 37,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "图像",
-          "name": "image",
-          "type": "COMBO",
-          "widget": {
-            "name": "image"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "选择文件上传",
-          "name": "upload",
-          "type": "IMAGEUPLOAD",
-          "widget": {
-            "name": "upload"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "图像",
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            69
-          ]
-        },
-        {
-          "localized_name": "遮罩",
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "02_分镜/第1集/第1集_镜28_尾帧_写实CG融合_00001_.png",
-        "image"
-      ],
-      "title": "镜28 尾帧"
-    },
-    {
-      "id": 121,
-      "type": "MiniMaxH3DirectorGroupImageToVideo",
-      "pos": [
-        -2120,
-        2200
-      ],
-      "size": [
-        400,
-        200
-      ],
-      "flags": {},
-      "order": 37,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "first_frame",
-          "name": "first_frame",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": 68
-        },
-        {
-          "localized_name": "last_frame",
-          "name": "last_frame",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": 69
-        },
-        {
-          "localized_name": "prompt",
-          "name": "prompt",
-          "type": "STRING",
-          "widget": {
-            "name": "prompt"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "duration_sec",
-          "name": "duration_sec",
-          "type": "FLOAT",
-          "widget": {
-            "name": "duration_sec"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "group",
-          "name": "group",
-          "type": "MMX_DIR_GROUP",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "MiniMaxH3DirectorGroupImageToVideo"
-      },
-      "widgets_values": [
-        "close shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, , 东家城堡花园广场，近景，小雪惊愕望着被劈开的弹。\n小雪信念崩塌。 奢华古典·白天明亮",
-        7.0
-      ],
-      "title": "镜28 理念崩塌 7s"
-    },
-    {
-      "id": 122,
       "type": "MiniMaxH3DirectorGroupsCombine",
       "pos": [
         -700,
@@ -6022,7 +3094,7 @@
           "name": "groups.group_0",
           "shape": 7,
           "type": "MMX_DIR_GROUP",
-          "link": 70
+          "link": 38
         },
         {
           "label": "group_1",
@@ -6030,7 +3102,7 @@
           "name": "groups.group_1",
           "shape": 7,
           "type": "MMX_DIR_GROUP",
-          "link": 71
+          "link": 39
         },
         {
           "label": "group_2",
@@ -6038,7 +3110,7 @@
           "name": "groups.group_2",
           "shape": 7,
           "type": "MMX_DIR_GROUP",
-          "link": 72
+          "link": 40
         },
         {
           "label": "group_3",
@@ -6046,7 +3118,7 @@
           "name": "groups.group_3",
           "shape": 7,
           "type": "MMX_DIR_GROUP",
-          "link": 73
+          "link": 41
         },
         {
           "label": "group_4",
@@ -6054,7 +3126,7 @@
           "name": "groups.group_4",
           "shape": 7,
           "type": "MMX_DIR_GROUP",
-          "link": 74
+          "link": 42
         },
         {
           "label": "group_5",
@@ -6062,7 +3134,7 @@
           "name": "groups.group_5",
           "shape": 7,
           "type": "MMX_DIR_GROUP",
-          "link": 75
+          "link": 43
         },
         {
           "label": "group_6",
@@ -6070,7 +3142,7 @@
           "name": "groups.group_6",
           "shape": 7,
           "type": "MMX_DIR_GROUP",
-          "link": 76
+          "link": 44
         },
         {
           "label": "group_7",
@@ -6078,7 +3150,7 @@
           "name": "groups.group_7",
           "shape": 7,
           "type": "MMX_DIR_GROUP",
-          "link": 77
+          "link": 45
         },
         {
           "label": "group_8",
@@ -6086,7 +3158,7 @@
           "name": "groups.group_8",
           "shape": 7,
           "type": "MMX_DIR_GROUP",
-          "link": 78
+          "link": 46
         },
         {
           "label": "group_9",
@@ -6094,7 +3166,7 @@
           "name": "groups.group_9",
           "shape": 7,
           "type": "MMX_DIR_GROUP",
-          "link": 79
+          "link": 47
         },
         {
           "label": "group_10",
@@ -6102,7 +3174,7 @@
           "name": "groups.group_10",
           "shape": 7,
           "type": "MMX_DIR_GROUP",
-          "link": 80
+          "link": 48
         },
         {
           "label": "group_11",
@@ -6110,135 +3182,7 @@
           "name": "groups.group_11",
           "shape": 7,
           "type": "MMX_DIR_GROUP",
-          "link": 81
-        },
-        {
-          "label": "group_12",
-          "localized_name": "groups.group_12",
-          "name": "groups.group_12",
-          "shape": 7,
-          "type": "MMX_DIR_GROUP",
-          "link": 82
-        },
-        {
-          "label": "group_13",
-          "localized_name": "groups.group_13",
-          "name": "groups.group_13",
-          "shape": 7,
-          "type": "MMX_DIR_GROUP",
-          "link": 83
-        },
-        {
-          "label": "group_14",
-          "localized_name": "groups.group_14",
-          "name": "groups.group_14",
-          "shape": 7,
-          "type": "MMX_DIR_GROUP",
-          "link": 84
-        },
-        {
-          "label": "group_15",
-          "localized_name": "groups.group_15",
-          "name": "groups.group_15",
-          "shape": 7,
-          "type": "MMX_DIR_GROUP",
-          "link": 85
-        },
-        {
-          "label": "group_16",
-          "localized_name": "groups.group_16",
-          "name": "groups.group_16",
-          "shape": 7,
-          "type": "MMX_DIR_GROUP",
-          "link": 86
-        },
-        {
-          "label": "group_17",
-          "localized_name": "groups.group_17",
-          "name": "groups.group_17",
-          "shape": 7,
-          "type": "MMX_DIR_GROUP",
-          "link": 87
-        },
-        {
-          "label": "group_18",
-          "localized_name": "groups.group_18",
-          "name": "groups.group_18",
-          "shape": 7,
-          "type": "MMX_DIR_GROUP",
-          "link": 88
-        },
-        {
-          "label": "group_19",
-          "localized_name": "groups.group_19",
-          "name": "groups.group_19",
-          "shape": 7,
-          "type": "MMX_DIR_GROUP",
-          "link": 89
-        },
-        {
-          "label": "group_20",
-          "localized_name": "groups.group_20",
-          "name": "groups.group_20",
-          "shape": 7,
-          "type": "MMX_DIR_GROUP",
-          "link": 90
-        },
-        {
-          "label": "group_21",
-          "localized_name": "groups.group_21",
-          "name": "groups.group_21",
-          "shape": 7,
-          "type": "MMX_DIR_GROUP",
-          "link": 91
-        },
-        {
-          "label": "group_22",
-          "localized_name": "groups.group_22",
-          "name": "groups.group_22",
-          "shape": 7,
-          "type": "MMX_DIR_GROUP",
-          "link": 92
-        },
-        {
-          "label": "group_23",
-          "localized_name": "groups.group_23",
-          "name": "groups.group_23",
-          "shape": 7,
-          "type": "MMX_DIR_GROUP",
-          "link": 93
-        },
-        {
-          "label": "group_24",
-          "localized_name": "groups.group_24",
-          "name": "groups.group_24",
-          "shape": 7,
-          "type": "MMX_DIR_GROUP",
-          "link": 94
-        },
-        {
-          "label": "group_25",
-          "localized_name": "groups.group_25",
-          "name": "groups.group_25",
-          "shape": 7,
-          "type": "MMX_DIR_GROUP",
-          "link": 95
-        },
-        {
-          "label": "group_26",
-          "localized_name": "groups.group_26",
-          "name": "groups.group_26",
-          "shape": 7,
-          "type": "MMX_DIR_GROUP",
-          "link": 96
-        },
-        {
-          "label": "group_27",
-          "localized_name": "groups.group_27",
-          "name": "groups.group_27",
-          "shape": 7,
-          "type": "MMX_DIR_GROUP",
-          "link": 97
+          "link": 49
         }
       ],
       "outputs": [
@@ -6247,7 +3191,7 @@
           "name": "groups",
           "type": "MMX_DIR_GROUP",
           "links": [
-            98
+            50
           ]
         }
       ],
@@ -6548,487 +3492,103 @@
     ],
     [
       38,
+      40,
+      0,
       74,
       0,
-      76,
-      0,
-      "IMAGE"
+      "MMX_DIR_GROUP"
     ],
     [
       39,
-      75,
-      0,
-      76,
-      1,
-      "IMAGE"
-    ],
-    [
-      40,
-      77,
-      0,
-      79,
-      0,
-      "IMAGE"
-    ],
-    [
-      41,
-      78,
-      0,
-      79,
-      1,
-      "IMAGE"
-    ],
-    [
-      42,
-      80,
-      0,
-      82,
-      0,
-      "IMAGE"
-    ],
-    [
-      43,
-      81,
-      0,
-      82,
-      1,
-      "IMAGE"
-    ],
-    [
-      44,
-      83,
-      0,
-      85,
-      0,
-      "IMAGE"
-    ],
-    [
-      45,
-      84,
-      0,
-      85,
-      1,
-      "IMAGE"
-    ],
-    [
-      46,
-      86,
-      0,
-      88,
-      0,
-      "IMAGE"
-    ],
-    [
-      47,
-      87,
-      0,
-      88,
-      1,
-      "IMAGE"
-    ],
-    [
-      48,
-      89,
-      0,
-      91,
-      0,
-      "IMAGE"
-    ],
-    [
-      49,
-      90,
-      0,
-      91,
-      1,
-      "IMAGE"
-    ],
-    [
-      50,
-      92,
-      0,
-      94,
-      0,
-      "IMAGE"
-    ],
-    [
-      51,
-      93,
-      0,
-      94,
-      1,
-      "IMAGE"
-    ],
-    [
-      52,
-      95,
-      0,
-      97,
-      0,
-      "IMAGE"
-    ],
-    [
-      53,
-      96,
-      0,
-      97,
-      1,
-      "IMAGE"
-    ],
-    [
-      54,
-      98,
-      0,
-      100,
-      0,
-      "IMAGE"
-    ],
-    [
-      55,
-      99,
-      0,
-      100,
-      1,
-      "IMAGE"
-    ],
-    [
-      56,
-      101,
-      0,
-      103,
-      0,
-      "IMAGE"
-    ],
-    [
-      57,
-      102,
-      0,
-      103,
-      1,
-      "IMAGE"
-    ],
-    [
-      58,
-      104,
-      0,
-      106,
-      0,
-      "IMAGE"
-    ],
-    [
-      59,
-      105,
-      0,
-      106,
-      1,
-      "IMAGE"
-    ],
-    [
-      60,
-      107,
-      0,
-      109,
-      0,
-      "IMAGE"
-    ],
-    [
-      61,
-      108,
-      0,
-      109,
-      1,
-      "IMAGE"
-    ],
-    [
-      62,
-      110,
-      0,
-      112,
-      0,
-      "IMAGE"
-    ],
-    [
-      63,
-      111,
-      0,
-      112,
-      1,
-      "IMAGE"
-    ],
-    [
-      64,
-      113,
-      0,
-      115,
-      0,
-      "IMAGE"
-    ],
-    [
-      65,
-      114,
-      0,
-      115,
-      1,
-      "IMAGE"
-    ],
-    [
-      66,
-      116,
-      0,
-      118,
-      0,
-      "IMAGE"
-    ],
-    [
-      67,
-      117,
-      0,
-      118,
-      1,
-      "IMAGE"
-    ],
-    [
-      68,
-      119,
-      0,
-      121,
-      0,
-      "IMAGE"
-    ],
-    [
-      69,
-      120,
-      0,
-      121,
-      1,
-      "IMAGE"
-    ],
-    [
-      70,
-      40,
-      0,
-      122,
-      0,
-      "MMX_DIR_GROUP"
-    ],
-    [
-      71,
       43,
       0,
-      122,
+      74,
       1,
       "MMX_DIR_GROUP"
     ],
     [
-      72,
+      40,
       46,
       0,
-      122,
+      74,
       2,
       "MMX_DIR_GROUP"
     ],
     [
-      73,
+      41,
       49,
       0,
-      122,
+      74,
       3,
       "MMX_DIR_GROUP"
     ],
     [
-      74,
+      42,
       52,
       0,
-      122,
+      74,
       4,
       "MMX_DIR_GROUP"
     ],
     [
-      75,
+      43,
       55,
       0,
-      122,
+      74,
       5,
       "MMX_DIR_GROUP"
     ],
     [
-      76,
+      44,
       58,
       0,
-      122,
+      74,
       6,
       "MMX_DIR_GROUP"
     ],
     [
-      77,
+      45,
       61,
       0,
-      122,
+      74,
       7,
       "MMX_DIR_GROUP"
     ],
     [
-      78,
+      46,
       64,
       0,
-      122,
+      74,
       8,
       "MMX_DIR_GROUP"
     ],
     [
-      79,
+      47,
       67,
       0,
-      122,
+      74,
       9,
       "MMX_DIR_GROUP"
     ],
     [
-      80,
+      48,
       70,
       0,
-      122,
+      74,
       10,
       "MMX_DIR_GROUP"
     ],
     [
-      81,
+      49,
       73,
       0,
-      122,
+      74,
       11,
       "MMX_DIR_GROUP"
     ],
     [
-      82,
-      76,
-      0,
-      122,
-      12,
-      "MMX_DIR_GROUP"
-    ],
-    [
-      83,
-      79,
-      0,
-      122,
-      13,
-      "MMX_DIR_GROUP"
-    ],
-    [
-      84,
-      82,
-      0,
-      122,
-      14,
-      "MMX_DIR_GROUP"
-    ],
-    [
-      85,
-      85,
-      0,
-      122,
-      15,
-      "MMX_DIR_GROUP"
-    ],
-    [
-      86,
-      88,
-      0,
-      122,
-      16,
-      "MMX_DIR_GROUP"
-    ],
-    [
-      87,
-      91,
-      0,
-      122,
-      17,
-      "MMX_DIR_GROUP"
-    ],
-    [
-      88,
-      94,
-      0,
-      122,
-      18,
-      "MMX_DIR_GROUP"
-    ],
-    [
-      89,
-      97,
-      0,
-      122,
-      19,
-      "MMX_DIR_GROUP"
-    ],
-    [
-      90,
-      100,
-      0,
-      122,
-      20,
-      "MMX_DIR_GROUP"
-    ],
-    [
-      91,
-      103,
-      0,
-      122,
-      21,
-      "MMX_DIR_GROUP"
-    ],
-    [
-      92,
-      106,
-      0,
-      122,
-      22,
-      "MMX_DIR_GROUP"
-    ],
-    [
-      93,
-      109,
-      0,
-      122,
-      23,
-      "MMX_DIR_GROUP"
-    ],
-    [
-      94,
-      112,
-      0,
-      122,
-      24,
-      "MMX_DIR_GROUP"
-    ],
-    [
-      95,
-      115,
-      0,
-      122,
-      25,
-      "MMX_DIR_GROUP"
-    ],
-    [
-      96,
-      118,
-      0,
-      122,
-      26,
-      "MMX_DIR_GROUP"
-    ],
-    [
-      97,
-      121,
-      0,
-      122,
-      27,
-      "MMX_DIR_GROUP"
-    ],
-    [
-      98,
-      122,
+      50,
+      74,
       0,
       5,
       4,

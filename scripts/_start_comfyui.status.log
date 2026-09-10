@@ -1,0 +1,13 @@
+﻿
+10:33:51 == 鍚姩 ComfyUI锛坰age on锛?=
+10:33:52 kill old main.py pid=35244
+10:33:52 kill old main.py pid=30708
+10:33:52 kill old main.py pid=38096
+10:33:52 kill old main.py pid=39224
+10:33:57 start: "D:\Comfy-Desktop\ComfyUI-Installs\ComfyUI-MiniMax-H3-Workflow\ComfyUI\main.py" --port 8188 --use-sage-attention --input-directory "D:\Comfy-Desktop\ComfyUI-Shared\input" --output-directory "D:\Comfy-Desktop\ComfyUI-Shared\output" --extra-model-paths-config "C:\Users\24969\AppData\Roaming\Comfy Desktop\instance-model-paths\inst-1788311613966.yaml"
+10:34:02 port8188_up=True
+10:34:02 live pid=14056 sage=True
+10:34:02 live pid=39780 sage=True
+10:34:02 log_sage=True
+10:34:02 log_error=False
+10:34:02 == 瀹屾垚 ==

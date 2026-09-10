@@ -1,0 +1,18 @@
+{
+  "01_char3view_1216x832_Qwen2512_c02_Fusion.json": {
+    "prompt_id": "f725ae05-a208-429e-ae62-1385ac0802a4",
+    "status": "submitted"
+  },
+  "01_char3view_1216x832_Qwen2512_c03_Fusion.json": {
+    "prompt_id": "87e896b0-5291-4fe9-8929-89c582271702",
+    "status": "submitted"
+  },
+  "01_char3view_1216x832_Qwen2512_c05_Fusion.json": {
+    "prompt_id": "59447a7f-a119-4e61-89f9-c498db6dd345",
+    "status": "submitted"
+  },
+  "03_scene3view_1216x832_Qwen2512_sc001.json": {
+    "prompt_id": "99a23978-d4b5-49bc-b724-fa3d205f6784",
+    "status": "submitted"
+  }
+}

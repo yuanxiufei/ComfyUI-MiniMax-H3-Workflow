@@ -1,0 +1,32 @@
+[
+  {
+    "rid": "c01",
+    "name": "凌云",
+    "pid": "d5de6d39-9de6-4cd6-8a37-43c5e3d615ef",
+    "wf": "01_char3view_1216x832_Qwen2512_Fusion.json"
+  },
+  {
+    "rid": "c02",
+    "name": "小雪",
+    "pid": "972d8bc0-8a27-4ec4-91bf-713d2156a61c",
+    "wf": "01_char3view_1216x832_Qwen2512_c02_Fusion.json"
+  },
+  {
+    "rid": "c03",
+    "name": "云姐",
+    "pid": "9537a0bf-bd43-4353-bd8b-1e644a4d7dd6",
+    "wf": "01_char3view_1216x832_Qwen2512_c03_Fusion.json"
+  },
+  {
+    "rid": "c04",
+    "name": "陈姨",
+    "pid": "f76289b0-d882-435f-8552-0a6892b9cd01",
+    "wf": "01_char3view_1216x832_Qwen2512_c04_Fusion.json"
+  },
+  {
+    "rid": "c05",
+    "name": "保镖",
+    "pid": "90e130ee-34a9-413a-b41a-e0acf436d620",
+    "wf": "01_char3view_1216x832_Qwen2512_c05_Fusion.json"
+  }
+]

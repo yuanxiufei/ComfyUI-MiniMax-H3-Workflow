@@ -58,6 +58,7 @@ STYLE_SCENE = ("K-GM, 3D次时代CG风格渲染, PBR材质渲染, 高精度3D模
 NEG_SCENE_GRID = ("人物，人脸，人像，人影，全身人，半身人，背影，身体，手臂，手指，手掌，"
                   "皮肤，五官，嘴，眼睛，头发，"
                   "格子重叠，格子合并，格子缺失，格子溢出，画面破碎，构图混乱，"
+                  "每格内左右分屏，上下分屏，一分二，双联画，画中画，拼贴，"
                   "嘴型错乱，串台词，肢体扭曲，画面抖动，闪烁，模糊，低清晰度，"
                   "水印，英文文字，文字，签名")
 
@@ -88,7 +89,7 @@ FABRIC_MATTE = ("realistic matte period fabric clothing, coarse natural cloth wi
                 "faded washed slightly worn aged texture, authentic handwoven hemp and cotton feel, "
                 "no shiny smooth plastic-like garments, no glossy lacquered cloth")
 
-# 现代角色（现代古武结合）的布料定位：现代精纺面料 + 抑制塑料，保持真实哑光，
+# 现代角色（纯现代西式装）的布料定位：现代精纺面料 + 抑制塑料，保持真实哑光，
 # 避免古装那套"coarse handwoven hemp"粗糙麻布把现代套装画成古布衣。
 FABRIC_MODERN = ("realistic matte modern tailored fabric clothing, fine smooth woven textile "
                  "with subtle natural fabric texture, natural drape and soft folds, "
@@ -123,15 +124,17 @@ COSTUME_ANCIENT_EN = ("a character dressed in exquisite traditional ancient Chin
                       "not modern clothing, not a modern suit, not modern streetwear, not contemporary dress, "
                       "not a modern t-shirt, jacket or denim")
 
-# 现代古武结合英文定位词：现代都市世家装束 + 中式古武元素混搭，锁定"现代装而非纯古装"，
-# 避免把现代角色（小雪/云姐/陈姨/保镖）画成仙侠古装，也避免被古装 LoRA / 前置古装锚点拽回古代。
-COSTUME_MODERN_EN = ("a character dressed in contemporary modern Chinese aristocratic attire, "
-                     "a sleek modern outfit of a hidden ancient martial-arts aristocratic family, "
-                     "modern elegant clothing fused with subtle Chinese traditional martial-arts elements, "
-                     "a refined modern suit, dress or driver outfit accented with classical Chinese details, "
-                     "a modern metropolitan person from an ancient martial-aristocratic household, "
+# 现代装英文定位词（纯现代西式）：现代都市世家正装/职业装/现代裙装/制服，不含任何中式古武元素；
+# 锁定"现代西式而非纯古装"，避免把现代角色（小雪/云姐/陈姨/保镖）画成仙侠古装，
+# 也避免中西合璧（中式盘扣/广袖/古风配饰）混搭在同一人身上。
+COSTUME_MODERN_EN = ("a character dressed in contemporary modern elegant Western-style attire, "
+                     "a sleek refined contemporary outfit of a modern metropolitan aristocratic family, "
+                     "modern elegant clothing, a refined modern suit, driving uniform, office attire or "
+                     "an elegant contemporary dress, "
+                     "a modern city dweller of a wealthy aristocratic family, "
                      "not ancient Chinese robes, not a historical costume, not a xianxia immortal outfit, "
-                     "not a traditional Hanfu, not a flowing ancient gown, not a woven ancient tunic")
+                     "not a traditional Hanfu, not a flowing ancient gown, not a woven ancient tunic, "
+                     "no Chinese traditional embroidery, no Chinese-style buttons, no classical details")
 
 
 # 角色"耐看"修饰词：除非小说明确写丑，默认所有角色都要五官端正耐看，避免模型生成歪瓜裂枣脸。
@@ -290,8 +293,42 @@ PROP_BOARD_ONLY = ("this panel is a pure prop-only showcase zone, limited to the
 # 每个角色传入各自的外貌描述 look + 随身道具 props，保证"每角色对得上剧本设定"；
 # physique 为按角色年龄分档注入的身形/头身比/面容成熟度段（见 AGE_PHYSIQUE），
 # 缺省退回统一成人比例，避免破坏旧用法。
-def _era_costume(era):
-    """角色时代 → 前置英文定位词：古修(远古装) 用 COSTUME_ANCIENT_EN，现代古武结合 用 COSTUME_MODERN_EN。"""
+# 每个角色的英文"服装签名"：从角色库 image_prompt 提炼出的唯一服装描述（主色+主款式+下装）。
+# 三视图的"主体三视图(正/侧/背)"与"右侧表情板 8 格"都以它为唯一真解，模型照着画同一套，
+# 解决"表情板被同 prompt 的 modern suit / office attire / 世家千金 带成西装/旗袍"导致的衣服不统一。
+# 实现：char_3view_fusion(..., outfit_sig=OUTFIT_SIGNATURE.get(role_id))。
+OUTFIT_SIGNATURE = {
+    # c01 凌云：月白流云广袖长袍 + 银滚边 + 青玉带 + 雪白交领中衣 + 缥缈长裤 + 云纹锦靴
+    "c01": ("a flowing moon-white ancient robe with wide sweeping sleeves and silver embroidered trim, "
+            "a white inner cross-collar undergarment, a jade-green waist belt, "
+            "dark loose trousers beneath, cloud-pattern brocade boots"),
+    # c02 小雪：湘妃色雪纺连衣裙 + 短款米白小外套 + 细银腰带 + 修身长裤 + 白小皮靴
+    "c02": ("a coral-pink chiffon dress, a short cream-white cropped jacket worn over it, "
+            "a slim silver belt, slim modern trousers beneath, white ankle boots"),
+    # c03 云姐：藕荷色修身职业套裙 + 薄款轻纱披肩 + 细腰带+银色胸针 + 米白长裤 + 黑中跟皮鞋
+    "c03": ("a lotus-purple tailored modern dress suit, a thin sheer chiffon shawl draped over the shoulders, "
+            "a slim belt with a small silver brooch, cream-white modern trousers beneath, "
+            "black mid-heel shoes"),
+    # c04 陈姨：深黛青司机制服衬衫 + 深色西装马甲 + 素色领带 + 深色修身西装外套 + 深灰长裤 + 黑平底皮鞋
+    "c04": ("a dark teal driver-uniform shirt, a dark waistcoat, a plain dark tie, "
+            "a fitted dark suit jacket, dark grey modern trousers, black flat shoes"),
+    # c05 保镖：黑色现代西装 + 黑衬衫 + 深色领带 + 黑修身西装外套 + 黑修身长裤 + 黑皮鞋 + 无线耳麦
+    "c05": ("a black modern suit, a black shirt, a dark tie, a fitted black suit jacket, "
+            "black slim professional trousers, polished black shoes, a wireless earpiece"),
+}
+
+
+def _era_costume(era, outfit_sig=None):
+    """角色时代 → 前置英文定位词：古修(纯古装) 用 COSTUME_ANCIENT_EN，现代(纯西式装) 用 COSTUME_MODERN_EN。
+
+    角色库已提供具体服装签名(outfit_sig)时，时代词只保留整体风格方向，不再注入
+    "modern suit / office attire / driving uniform"（否则会把"裙装"角色（小雪/云姐）的
+    表情板带成西装领带），服装细节完全交给 outfit_sig 精确钉死。
+    """
+    if outfit_sig:
+        return (COSTUME_ANCIENT_EN if era == "ancient" else
+                "a character of a prestigious modern aristocrat in refined contemporary "
+                "elegant attire, modern clothing, a modern fashionable well-dressed look")
     return COSTUME_MODERN_EN if era == "modern" else COSTUME_ANCIENT_EN
 
 
@@ -300,14 +337,31 @@ def _era_fabric(era):
     return FABRIC_MODERN if era == "modern" else FABRIC_MATTE
 
 
-def char_3view_fusion(look, props=None, physique=None, era=None):
+def char_3view_fusion(look, props=None, physique=None, era=None, outfit_sig=None):
     en = _props_en(props or [])
+    # 表情板 8 格统一服装：有服装签名(OUTFIT_SIGNATURE)时用它作为唯一造型（具体到颜色/款式），
+    # 否则退回抽象 "same costume as the left figure" 引用（兼容未配置签名的角色）。
+    outfit_clause = (
+        ("all eight panels wear the exact same single outfit: " + outfit_sig + ", "
+         "the exact same costume as the three-view figure on the left, "
+         "identical collar style, identical collar color and identical garment color, "
+         "matching fabric, matching color, no color variation, "
+         "no different style, no different garment, no different color between any panels, ")
+        if outfit_sig else
+        ("all eight panels wear the exact same costume as the three-view figure on the left, "
+         "identical collar style, identical collar color and identical garment color, "
+         "matching fabric, matching color, no color variation, "
+         "no different style, no different garment, no different color between any panels, ")
+    )
     # 表情板开头：有道具板 → 右上横排一格一面；无道具板 → 右列两列占满
+    # bust-up 半身特写（头+肩，能看到领口/上装），每格穿与左侧三视图完全相同的服装（同款/同领口/同色），
+    # 抑制旧"face-only 纯脸"被模型画成不同衣服/不同颜色的问题。
     expr_head = ("right top area: facial expression board, "
-                 "eight close-up face-only portraits in a row, one face per panel, "
+                 "eight close-up bust-up portraits in a row, head and shoulders, one face per panel, "
                  if en else
                  "right side area: facial expression board, "
-                 "eight close-up face-only portraits arranged in two columns of four, one face per panel, ")
+                 "eight close-up bust-up portraits arranged in two columns of four, "
+                 "head and shoulders, one face per panel, ")
     panels = ("panel 1: calm and composed with steady determined eyes, "
               "panel 2: gentle warm smile, "
               "panel 3: joyful laugh with open mouth, "
@@ -316,7 +370,10 @@ def char_3view_fusion(look, props=None, physique=None, era=None):
               "panel 6: sad with drooping mouth, "
               "panel 7: focused and serious, "
               "panel 8: worried and uneasy, "
-              "each portrait shows only the face with a distinct clear emotion, "
+              "each portrait shows the head, neck and shoulders, "
+              "the collar and upper garment of the same outfit visible, "
+              + outfit_clause +
+              "a distinct clear emotion, "
               "all eight emotions clearly visible and exaggerated, "
               "all eight faces are the same person with the exact same face, "
               "identical features, same hairstyle and same realistic textured skin, "
@@ -327,12 +384,13 @@ def char_3view_fusion(look, props=None, physique=None, era=None):
     body = physique or "well-proportioned natural human body, realistic head-to-body ratio"
     return (_fusion_base(look) + "character concept sheet, standard turnaround reference sheet, "
             "seamless single illustration, "
-            + _era_costume(era) + ", "
+            + _era_costume(era, outfit_sig) + ", "
             "left side large area: three full-body views of the character, "
             "front view standing / side view standing straight / back view, "
             "full body head to toe, feet fully visible, no cut off, "
             + body + ", "
-            + look + ", "
+            + look + (", the exact same single outfit worn throughout and identical in every panel: "
+                      + outfit_sig if outfit_sig else "") + ", "
             "same height and build in all three views, "
             "limbs in correct proportion, no oversized head, no distorted torso, "
             + expr_head + panels + prop_board +
@@ -428,6 +486,9 @@ SCENE_GRID_PANELS = (
     "panel 9: a moodier contrasting time-of-day take on the same environment, "
     "each panel shows the identical scene with the same props, same layout and same lighting, "
     "each panel differs only in camera angle, vantage point and composition, "
+    "every panel is ONE single uninterrupted full-frame camera view, "
+    "no panel split into two or more sub-images, no left-right split, no top-bottom split, "
+    "no diptych, no before-after pair, no inset picture-in-picture"
 )
 
 
@@ -523,7 +584,13 @@ def _attach_props(subject, sb, props_by_id=None):
     en = _props_en(zh) if zh else None
     if not en:
         return subject
-    return subject.rstrip(", ") + ", key handheld props present: " + en
+    # 道具措辞与负向保持一致：负向在「禁手持道具」(见 NEG_CHAR_FUSION)，故正向不再强推
+    # "handheld"，而按角色定妆描述"道具以既定形象出现（佩剑悬于腰间/手枪自然携带）"，
+    # 避免正向要手持、负向却禁手持构成的二律背反（这正是用户反馈"道具拿不对"的根因之一）。
+    return (subject.rstrip(", ") +
+            ", the character's signature props shown exactly as in their design "
+            "(the correct single item, worn or carried naturally per their look, "
+            "sheathed/holstered at waist or held loosely, never misattributed or doubled): " + en)
 
 
 def shot_negative(sb, is_empty):
@@ -861,8 +928,8 @@ def load_storyboards():
 
 def load_roles():
     """从角色库读取全部角色（含 image_prompt 的实体角色，排除旁白）。"""
-    _default_c01 = {"id": "c01", "name": "凌云", "gender": "男", "age": "18岁",
-                    "image_prompt": "A lean dark-haired 18-year-old young man, short neat black hair, "
+    _default_c01 = {"id": "c01", "name": "凌云", "gender": "男", "age": "26岁",
+                    "image_prompt": "A lean dark-haired 26-year-old young man, short neat black hair, "
                                     "sharp calm determined eyes, strong will in his gaze, slender but "
                                     "athletic build, dark blue academy uniform with gold trim and white collar"}
     if not os.path.exists(ROLE_DB):
@@ -904,7 +971,9 @@ def build_char_assets(IMG_W, IMG_H, SNAME, SFX, STRENGTH):
         pfx = f"00_角色素材/{role['name']}/{role['id']}_"
         rid = "" if role["id"] == "c01" else f"_{role['id']}"
         unet, clip, ctype, vae, lora = Q
-        p_prompt = char_3view_fusion(look, role.get("props", []), physique, role.get("era", "ancient"))
+        outfit_sig = OUTFIT_SIGNATURE.get(role["id"])
+        p_prompt = char_3view_fusion(look, role.get("props", []), physique,
+                                     role.get("era", "ancient"), outfit_sig)
         write(os.path.join(OUT, f"01_char3view_{IMG_W}x{IMG_H}_Qwen2512{rid}_{SFX}.json"),
               make_img(unet, clip, ctype, vae, lora, STRENGTH,
                        p_prompt, NEG_GRID_FUSION, IMG_W, IMG_H, 30, 4.0, 42, pfx + "三视图_" + SNAME,
@@ -948,6 +1017,10 @@ def build_scene_assets(IMG_W, IMG_H):
               make_img(unet, clip, ctype, vae, None, 0.0, scene_concept(sc, "3view"), NEG_SCENE_GRID,
                        IMG_W, IMG_H, 30, 4.0, 42, psc + "九宫格", "Qwen-2512 DiT", "背景 LoRA"))
         print(f"  [场景 {sid}]{sname} -> 九宫格(无人物)")
+        write(os.path.join(OUT, f"03b_scenefull_{IMG_W}x{IMG_H}_Qwen2512_{sid}.json"),
+              make_img(unet, clip, ctype, vae, None, 0.0, scene_concept(sc, "full"), NEG_SCENE_GRID,
+                       IMG_W, IMG_H, 30, 4.0, 42, psc + "单场景", "Qwen-2512 DiT", "背景 LoRA"))
+        print(f"  [场景 {sid}]{sname} -> 单场景全景图(无人物，无网格)")
 
 
 # 剧本**明确写丑**（丑/畸形/毁容/脸部疤痕/黄牙/龅牙/烂牙/麻子）才豁免颜值修饰；
@@ -959,11 +1032,12 @@ UGLY_MARKERS = ("ugly", "ugliness", "hideous", "deformed", "disfigured", "scarre
                 "warty", "pockmarked", "harelip")
 
 
-# 时代背景锚点：本剧《剑噬天下》为「现代都市 + 隐世古武」的都市古武/都市修仙世界。
-# 角色分为两类（角色.json 的 era 字段决定）：古修（凌云/东离/林雪/从夜/玄隐…）与
-# 现代古武结合（小雪/云姐/陈姨/保镖/江流…）。时代锚点据此分级注入。
+# 时代背景锚点：本剧《剑噬天下》为「现代都市 + 隐世古武」的都市古武/都市修仙世界，但着装按"一人一制"分两组：
+# 角色分为两类（角色.json 的 era 字段决定）：古修（凌云/东离/林雪/从夜/玄隐… 纯古装）与
+# 现代（小雪/云姐/陈姨/保镖/江流… 纯现代西式装）。**同一角色绝不中式+西式混搭**。
+# 时代锚点据此分级注入。
 # - 古修角色：锁"传统仙侠古装"，明确非现代装（否则曾因"modern metropolis"被拉成现代唐装）。
-# - 现代古武结合角色：锁"现代世家装束 + 中式古武元素"，不落入纯古装，也不跑成纯现代路人。
+# - 现代角色：锁"纯现代西式装"，不含中式盘扣/广袖/古风配饰，不落入纯古装，也不跑成纯古装。
 # 角色三视图只定"角色造型"，不应再强调现代都市背景，现代都市世界观由场景素材/分镜承担
 # （见 ERA / SCENE_ERA_ANCHOR）；这里只保留角色所在时代风格的穿着 + 完整着装。
 ROLE_ERA_ANCIENT = ("a character of a hidden ancient sword-cultivation and martial-arts legacy, "
@@ -972,17 +1046,16 @@ ROLE_ERA_ANCIENT = ("a character of a hidden ancient sword-cultivation and marti
                     "a fully dressed and well-groomed character from head to toe, "
                     "complete and proper clothing with footwear, lower body decently clad")
 
-ROLE_ERA_MODERN = ("a character of a prestigious modern aristocrat from a hidden ancient "
-                   "martial-arts and sword-cultivation legacy, "
-                   "contemporary modern Chinese aristocratic attire with refined traditional "
-                   "martial-arts details, a modern elegant outfit infused with classical Chinese "
-                   "cultivator grace, "
+ROLE_ERA_MODERN = ("a character of a prestigious modern aristocrat, "
+                   "contemporary modern elegant Western-style attire, a sleek modern outfit of a "
+                   "modern metropolitan aristocratic family, "
+                   "modern clothing without any traditional Chinese martial-arts or classical elements, "
                    "a fully dressed and well-groomed character from head to toe, "
                    "complete and proper clothing with footwear, lower body decently clad")
 
 
 def _role_era_anchor(era):
-    """角色时代 → ROLE_ERA_ANCHOR 分级锚点：古修用古装锚点，现代古武结合用现代锚点。"""
+    """角色时代 → ROLE_ERA_ANCHOR 分级锚点：古修用古装锚点，现代(纯西式装)用现代锚点。"""
     return ROLE_ERA_MODERN if era == "modern" else ROLE_ERA_ANCIENT
 
 

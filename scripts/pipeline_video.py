@@ -19,6 +19,7 @@ import argparse
 import glob
 import json
 import os
+import re
 import subprocess
 import sys
 import time
@@ -52,6 +53,9 @@ BUILDERS = {
     "r2v": "build_r2v_refs.py",
 }
 MODE_KEY = {"i2v": "I2V", "fl2va": "FL2VA", "r2v": "R2VA"}
+UPSCALER = os.path.join(HERE, "upscale_video.py")   # 出片后本地 4x-UltraSharp 超分
+FAST_RES = "864x480"    # 快档出片分辨率：像素约为 1280x736 的 44%，采样时间近半
+FAST_UPSCALE = "1920x1080"
 TEMPLATE_REL = {
     "i2v": os.path.join("custom_nodes", "ComfyUI_MiniMaxH3_Director",
                         "example_workflows", "minimax_h3_director_external_groups_i2v.json"),
@@ -78,7 +82,46 @@ def char_ref_file(cid, name):
 
 
 def scene_ref_file(sid, name):
+    """旧口径（整张九宫格）命名，仅作 build_r2v_refs 不可用时的回退。"""
     return "%s/%s/%s_九宫格_00001_.png" % (SCENE_PREFIX, name, name)
+
+
+# 场景参考口径与 build_r2v_refs 同源：builder 是唯一事实来源，这里只复用其规则，
+# 避免"builder 已改用 _单场景_/panelN、校验器仍找 _九宫格_"造成一键提交被误拦。
+try:
+    import build_r2v_refs as _r2v
+except Exception:  # noqa: BLE001
+    _r2v = None
+
+# 整集产物「按镜归位」：Director 批量一次提交是平铺落盘，需整理成 镜NN/ 子目录约定，
+# 下游清单（episode_status）/ 拼接（assemble_episode）/ 链式续跑才找得到成片。
+try:
+    import shot_layout as _sl
+except Exception:  # noqa: BLE001
+    _sl = None
+
+
+def scene_ref_resolved(sb, scene_map, comfy_root):
+    """返回该镜最终使用的场景参考图（规则与 build_r2v_refs.collect_refs 完全一致）。
+
+    场景.json ref_mode='single' → 单张场景图；否则按景别/角度取九宫格单格 panelN，
+    单格不存在时回退单场景图。场景名未知返回 None（builder 会跳过场景参考，不算缺料）。
+    """
+    sid = sb.get("scene_id", "")
+    name = scene_map.get(sid)
+    if not name:
+        return None
+    if _r2v is None:
+        rel = scene_ref_file(sid, name)
+        if _exists(comfy_root, rel):
+            return rel
+        return "%s/%s/%s_单场景_00001_.png" % (SCENE_PREFIX, name, name)
+    rel = _r2v.scene_ref_file(sid, name, _r2v.panel_for_shot(sb))
+    if _r2v.scene_ref_mode(sid) == "single":
+        rel = _r2v.single_scene_file(name)
+    elif not _exists(comfy_root, rel):
+        rel = _r2v.single_scene_file(name)
+    return rel
 
 
 def _exists(root, rel):
@@ -91,7 +134,7 @@ def validate_storyboard(mode, storyboards, comfy_root):
     """校验本集每个镜所需素材是否已生成。返回缺失列表（空 = 通过）。
 
     i2v/fl2va: 对应镜的首帧（fl2va 另需尾帧）
-    r2v:      对应镜的角色三视图 + 场景九宫格
+    r2v:      对应镜的角色三视图 + 场景参考图（单场景图/九宫格单格，口径同 build_r2v_refs）
     """
     missing = []
     if mode in ("i2v", "fl2va"):
@@ -109,10 +152,9 @@ def validate_storyboard(mode, storyboards, comfy_root):
                 name = char_map.get(cid)
                 if name and not _exists(comfy_root, char_ref_file(cid, name)):
                     missing.append(char_ref_file(cid, name))
-            sid = sb.get("scene_id", "")
-            sname = scene_map.get(sid)
-            if sname and not _exists(comfy_root, scene_ref_file(sid, sname)):
-                missing.append(scene_ref_file(sid, sname))
+            rel = scene_ref_resolved(sb, scene_map, comfy_root)
+            if rel and not _exists(comfy_root, rel):
+                missing.append(rel)
     return missing
 
 
@@ -166,16 +208,19 @@ def _retry_run(cmd, retry=1, task=""):
     return last
 
 
-def run_build(mode, comfy_root, shots, no_turbo, prev_tail_arg=None, retry=1):
+def run_build(mode, comfy_root, shots, no_turbo, prev_tail_arg=None, retry=1, res=None):
     """调对应 build 脚本生成工作流，返回生成的工作流绝对路径（失败返回 None）。
 
     prev_tail_arg：形如 "03:<上一镜成片绝对路径>" 的 --prev-tail 值；用于 r2v 链式衔接。
     retry：build 失败自动重试次数。
+    res：r2v 出片分辨率 WxH（如 864x480 快档：像素降 57%，出片后可本地超分）；None 用 builder 默认。
     """
     builder = os.path.join(HERE, BUILDERS[mode])
     cmd = [sys.executable, builder, "--comfy-input", comfy_root]
     if shots:
         cmd += ["--shots", shots]
+    if res and mode == "r2v":
+        cmd += ["--res", res]
     if prev_tail_arg and mode == "r2v":
         cmd += ["--prev-tail", prev_tail_arg]
     if no_turbo and mode in ("i2v", "fl2va"):
@@ -245,7 +290,7 @@ def locate_shot_video(collect_dir, sid, mode):
 
 
 def run_chain(mode, comfy_root, shots, no_turbo, watch, poll, timeout, base_collect_dir,
-              storyboards=None, retry=1):
+              storyboards=None, retry=1, res=None):
     """链式逐镜生成：按镜号顺序，每镜「生成携带上一镜尾帧的工作流 → 提交 → 盯守落盘」，
     下一镜自动复用上一镜成片尾帧作为起始参考，实现整集镜头首尾衔接不脱节。
 
@@ -288,7 +333,7 @@ def run_chain(mode, comfy_root, shots, no_turbo, watch, poll, timeout, base_coll
                 prev_tail_arg = "%s:%s" % (cur, prev_video)
                 print("  [链接] 镜%s 复用上一镜(%s)成片尾帧：%s" % (cur, prev_sid, os.path.basename(prev_video)))
         # 生成当前镜工作流
-        wf = run_build(mode, comfy_root, cur, no_turbo, prev_tail_arg, retry)
+        wf = run_build(mode, comfy_root, cur, no_turbo, prev_tail_arg, retry, res)
         if not wf:
             print("  [!] 镜%s 工作流生成失败" % cur)
             break
@@ -307,7 +352,7 @@ def run_chain(mode, comfy_root, shots, no_turbo, watch, poll, timeout, base_coll
 
 
 def run_chain_batch(mode, comfy_root, shots, no_turbo, watch, poll, timeout, base_collect_dir,
-                    storyboards=None, retry=1):
+                    storyboards=None, retry=1, res=None):
     """整组一次生成（官方「段间引导」continuity）。
 
     旧的逐镜独立提交：每镜是单段 timeline，批内没有「上一段」，段间引导 continuity
@@ -324,7 +369,7 @@ def run_chain_batch(mode, comfy_root, shots, no_turbo, watch, poll, timeout, bas
     shots_arg = ",".join(wanted)
     print("\n== r2v 整组生成（官方段间引导 continuity）：镜 %s 共 %d 镜 ==" % (shots_arg, len(wanted)))
     # 一次 build 整组；不传 --prev-tail（衔接由段间引导承担，上一段尾帧已被自动 pin 进本段）
-    wf = run_build(mode, comfy_root, shots_arg, no_turbo, None, retry)
+    wf = run_build(mode, comfy_root, shots_arg, no_turbo, None, retry, res)
     if not wf:
         print("  [!] 整组工作流生成失败")
         return 0
@@ -353,8 +398,113 @@ def locate_comfy_shot_video(comfy_root, sid):
     return max(files, key=os.path.getmtime)
 
 
+def _upscaled_name(path, height):
+    """超分产物命名：<主名>_<高>p.mp4，与原片同目录（便于跳过已超分成片）。"""
+    return "%s_%sp.mp4" % (os.path.splitext(path)[0], height)
+
+
+def is_upscaled(path):
+    """是否已是超分产物（形如 xxx_1080p.mp4），避免对产物再超分一遍。"""
+    return re.search(r"_\d{3,4}p$", os.path.splitext(os.path.basename(path))[0]) is not None
+
+
+def collect_videos(collect_dir):
+    """collect_dir 及其子目录下的成片 mp4（已超分产物不算待处理）。"""
+    if not os.path.isdir(collect_dir):
+        return []
+    cands = glob.glob(os.path.join(collect_dir, "**", "*.mp4"), recursive=True)
+    return sorted(p for p in cands if not is_upscaled(p))
+
+
+def run_upscale(collect_dir, size=FAST_UPSCALE, batch=24, host=None, retry=1):
+    """出片后本地超分：逐帧 4x-UltraSharp → size，产物落同目录，音轨原样保留。
+
+    低分辨率快档（--fast 出 864x480）靠这一步补回清晰度：像素降 56% → 采样近乎减半，
+    再由本地超分补到 1080P，不依赖任何 API。返回成功超分的成片数。
+    """
+    height = size.split("x")[-1]
+    vids = collect_videos(collect_dir)
+    if not vids:
+        print("  [超分] 未找到待超分成片：%s" % collect_dir)
+        return 0
+    print("\n== 出片后本地超分 → %s（共 %d 个成片）==" % (size, len(vids)))
+    ok = 0
+    for v in vids:
+        out = _upscaled_name(v, height)
+        if os.path.isfile(out):
+            print("  [超分] 已存在，跳过：%s" % os.path.basename(out))
+            ok += 1
+            continue
+        cmd = [sys.executable, UPSCALER, "--input", v, "--out", out,
+               "--size", size, "--batch", str(batch)]
+        if host:
+            cmd += ["--host", host]
+        print("  $", " ".join(cmd))
+        if _retry_run(cmd, retry, "超分(%s)" % os.path.basename(v)) != 0:
+            print("  [!] 超分失败（原片保留）：%s" % os.path.basename(v))
+            continue
+        if _sl is not None:
+            # 登记 1080P 为首选产物：整集拼接/收口清单会取超分后的成片，而非低清原片
+            _sl.mark_upscaled(v, out)
+        ok += 1
+    print("超分完成：成功 %d/%d。" % (ok, len(vids)))
+    return ok
+
+
+def shot_primary_videos(collect_dir):
+    """各镜首选成片（归位后每镜目录清单里的第一条现存 video 条目）。"""
+    out = {}
+    if _sl is None or not os.path.isdir(collect_dir):
+        return out
+    for name in sorted(os.listdir(collect_dir)):
+        d = os.path.join(collect_dir, name)
+        if not os.path.isdir(d):
+            continue
+        entries = _sl.video_entries(_sl.read_manifest(d))
+        if entries:
+            out[name] = entries[0]["saved"]
+    return out
+
+
+def ready_for_assemble(collect_dir, total, need_upscaled):
+    """整集拼接前置门槛：全镜有成片；跑过超分时还要求全镜都已是 1080P。
+
+    分辨率混杂的片段直接 concat 会拼出坏片，故宁可跳过并提示，也不自动拼半成品。
+    """
+    prim = shot_primary_videos(collect_dir)
+    if len(prim) < max(2, total or 2):
+        return False, "成片 %d/%s 镜" % (len(prim), total or "?")
+    if need_upscaled:
+        low = sorted(k for k, v in prim.items() if not is_upscaled(v))
+        if low:
+            return False, "%d 镜未超分（如 %s）" % (len(low), low[0])
+    return True, "ok"
+
+
+def distribute_shots(collect_dir, storyboards):
+    """整集一次性产物按段序归位到 镜NN/（幂等；缺模块/对不上只提示不中断主链）。"""
+    if _sl is None:
+        print("  [!] 归位跳过：缺少 shot_layout 模块")
+        return 0
+    return _sl.distribute(collect_dir, _sl.shot_ids(storyboards))
+
+
+def run_assemble(episode, mode, retry=1):
+    """拼接整集成片：对白字幕（SRT + 烧录）+ loudnorm 电平规范。
+
+    失败不算主链失败——单镜/超分成片都已落盘，可稍后单独重跑 assemble_episode.py。
+    """
+    cmd = [sys.executable, os.path.join(HERE, "assemble_episode.py"),
+           "--episode", episode, "--mode", mode]
+    print("  $", " ".join(cmd))
+    if _retry_run(cmd, retry, "整集拼接") != 0:
+        print("  [!] 整集拼接失败（成片保留，可稍后单独重跑 assemble_episode.py）")
+        return 1
+    return 0
+
+
 def main():
-    p = argparse.ArgumentParser(description="一键视频链：build -> 校验素材 -> 提交 -> 盯守")
+    p = argparse.ArgumentParser(description="一键视频链：build -> 校验素材 -> 提交 -> 盯守 -> 超分")
     p.add_argument("--mode", choices=["i2v", "fl2va", "r2v"], default="fl2va",
                    help="视频模式（默认 fl2va 首尾帧）")
     p.add_argument("--shots", default=None,
@@ -363,6 +513,21 @@ def main():
     p.add_argument("--comfy-root", default=os.environ.get("COMFY_ROOT", DEFAULT_COMFY_ROOT),
                    help="ComfyUI 根目录（默认环境变量 COMFY_ROOT 或内置路径）")
     p.add_argument("--no-turbo", action="store_true", help="不插 turbo LoRA、保持 25 步（i2v/fl2va）")
+    p.add_argument("--res", default=None,
+                   help="r2v 出片分辨率 WxH（如 864x480 快档）；默认 1280x736")
+    p.add_argument("--fast", action="store_true",
+                   help="加速档一键：r2v 出片降到 %s 并自动超分到 %s（像素约为高分的 4 成，采样近乎减半）"
+                        % (FAST_RES, FAST_UPSCALE))
+    p.add_argument("--upscale", action="store_true",
+                   help="出片后用本地 4x-UltraSharp 逐帧超分（不依赖任何 API）")
+    p.add_argument("--upscale-size", default=FAST_UPSCALE,
+                   help="超分目标分辨率 WxH（默认 %s）" % FAST_UPSCALE)
+    p.add_argument("--upscale-batch", type=int, default=24, help="超分每批提交帧数（默认 24）")
+    p.add_argument("--assemble", action="store_true",
+                   help="出片+超分后拼接整集成片（对白字幕+loudnorm 电平，需 ≥2 镜成片）")
+    p.add_argument("--distribute", action="store_true",
+                   help="只做「整集平铺产物 → 镜NN/ 归位」后退出（给已跑完的整集补齐目录约定）")
+    p.add_argument("--host", default=None, help="ComfyUI 地址（超分用，默认 127.0.0.1:8188）")
     p.add_argument("--submit-real", action="store_true",
                    help="真正提交到 ComfyUI（默认仅 build + 校验 + 打印，安全）")
     p.add_argument("--chain", action="store_true",
@@ -376,6 +541,13 @@ def main():
     p.add_argument("--retry", type=int, default=1,
                    help="build/提交/盯守 每步失败自动重试次数（默认 1，抗显存/网络瞬态失败）")
     args = p.parse_args()
+
+    # --fast 是"加速档"的单一开关：低分出片（省采样时间）+ 出片后自动超分补清晰度。
+    # 未显式给 --res 时才套快档分辨率，便于单独覆盖（如 --fast --res 1024x576）。
+    if args.fast:
+        if not args.res:
+            args.res = FAST_RES
+        args.upscale = True
 
     _EP["value"] = args.episode
     comfy_root = args.comfy_root
@@ -418,6 +590,12 @@ def main():
 
     collect_dir = args.collect_dir or os.path.join(ROOT, "output", "视频", ep, args.mode)
 
+    # 0b. 只做归位：给「已跑完但产物平铺」的整集补齐 镜NN/ 目录约定（不动算力、幂等）。
+    if args.distribute:
+        n = distribute_shots(collect_dir, storyboards)
+        print("归位完成：%d 镜 → %s" % (n, collect_dir))
+        return 0 if n else 2
+
     # 3b. 链式逐镜（仅 r2v）：整集全自动链式，每镜复用上一镜尾帧。
     # 注意：先判断 chain，避免做一次无用的"整集 build"（链式会逐镜重建）。
     #
@@ -443,11 +621,23 @@ def main():
             return 2
         n = run_chain(args.mode, comfy_root, args.shots, args.no_turbo,
                       not args.no_watch, args.poll, args.timeout, collect_dir, storyboards,
-                      retry=args.retry)
+                      retry=args.retry, res=args.res)
+        if n > 0 and args.upscale:
+            # 逐镜产物落在 collect_dir/镜XX/，递归找齐后统一超分补清晰度
+            run_upscale(collect_dir, args.upscale_size, args.upscale_batch, args.host,
+                        retry=args.retry)
+        if n > 0 and args.assemble:
+            # 链式产物本就在 镜NN/，归位是幂等空操作（保证与整集路径行为一致）
+            distribute_shots(collect_dir, storyboards)
+            ok, why = ready_for_assemble(collect_dir, len(storyboards), bool(args.upscale))
+            if ok:
+                run_assemble(_EP["value"], args.mode, retry=args.retry)
+            else:
+                print("  [拼接] 跳过整集拼接：%s（补齐后单独跑 assemble_episode.py）" % why)
         return 0 if n > 0 else 2
 
     # 3. build 工作流（非链式：单镜/多镜一体）
-    wf = run_build(args.mode, comfy_root, args.shots, args.no_turbo, retry=args.retry)
+    wf = run_build(args.mode, comfy_root, args.shots, args.no_turbo, retry=args.retry, res=args.res)
     if not wf:
         return 2
     print("  生成工作流：%s" % os.path.basename(wf))
@@ -464,6 +654,17 @@ def main():
                              args.poll, args.timeout, collect_dir, retry=args.retry)
     if rc == 0:
         print("\n视频链完成。产物落盘：%s" % collect_dir)
+        # 整集一次提交是平铺落盘：先归位成 镜NN/ 再超分，收口清单/拼接/续跑都用这一份
+        distribute_shots(collect_dir, storyboards)
+        if args.upscale:
+            run_upscale(collect_dir, args.upscale_size, args.upscale_batch, args.host,
+                        retry=args.retry)
+        if args.assemble:
+            ok, why = ready_for_assemble(collect_dir, len(storyboards), bool(args.upscale))
+            if ok:
+                run_assemble(_EP["value"], args.mode, retry=args.retry)
+            else:
+                print("  [拼接] 跳过整集拼接：%s（补齐后单独跑 assemble_episode.py）" % why)
     return rc
 
 

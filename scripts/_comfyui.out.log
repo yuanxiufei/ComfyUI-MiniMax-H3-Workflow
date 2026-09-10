@@ -1,0 +1,3 @@
+[H3RemoteEncode] serving POST /h3multishot/encode (clips load on first request)
+DWPose: Onnxruntime with acceleration providers detected
+[H3 Multishot] JoyEcho_LLMEnhance: added 'unload_model_after' switch (frees the writer's VRAM before the video model loads).

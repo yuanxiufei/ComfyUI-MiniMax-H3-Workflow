@@ -3,19 +3,19 @@
 
 核心思路（H3 官方 Reference-to-Video，参考锁一致性）：
 - 每个镜段用 MiniMaxH3DirectorGroupReferenceToVideo，
-  把「该镜角色三视图 + 场景九宫格」通过 ref_images.ref_image_N 连进去，
+  把「该镜角色三视图 + 场景单机位」通过 ref_images.ref_image_N 连进去，
   提示词用 <Picture N> 引用参考图 → 角色身份 + 场景环境被参考图硬锁。
-- 跨集时同一角色用同一张三视图、同一场景(scene_id)用同一张九宫格 →
+- 跨集时同一角色用同一张三视图、同一场景(scene_id)用同一机位单格 →
   角色与场景跨集保持一致（不再靠分镜文字复现，杜绝漂移）。
 
 参考图产物命名（与 build_new_workflows.py 的保存前缀一致，取 _00001_ 首张）：
   角色三视图: 00_角色素材/{角色名}/{角色id}_三视图_{风格}_00001_.png
-  场景九宫格: 01_场景素材/{场景名}/{场景名}_九宫格_00001_.png
+  场景单机位: 01_场景素材/{场景名}/{场景名}_panel{1-9}_00001_.png     （crop_scene_panels 裁切）
 
 差异（相对 build_fl2va_refs.py 首尾帧版）：
 - 模板用 external_groups_r2v（Director 走 r2v_groups，而非 i2v_groups）
 - 节点类型 GroupImageToVideo → GroupReferenceToVideo（接 ref_image_N）
-- 权重用 ref2va（minimax_h3_ref2va_pruned_int8_convrot），不接 fl2v turbo LoRA
+- 权重用 ref2va（minimax_h3_ref2va_pruned_int8_convrot）+ r2v turbo LoRA(8步/0.75)
 - 参考图来自角色/场景素材（output），而非分镜首尾帧
 
 用法:
@@ -55,6 +55,12 @@ FRAME_RATE = 24
 
 # r2v 专用权重（不同于 fl2va / fl2v turbo）
 REF2VA_UNET = "minimax_h3_ref2va_pruned_int8_convrot.safetensors"
+
+# r2v turbo LoRA：8 步 768p 版 v1.0（社区实测 v1/v4 为质量主力，lightx2v/v0.1 画质差）。
+# 强度按社区实测取 0.75：拉满 1.0 画面可能不跟提示词。
+TURBO_LORA_R2V = "minimax_h3_ref2v_turbo_8step_v1.0_768p_comfyui_bf16.safetensors"
+TURBO_STEPS = 8
+TURBO_STRENGTH = 0.75
 
 R2V_TYPE = "r2v — 参考主体生视频(Reference to Video)"
 
@@ -187,6 +193,22 @@ def scene_ref_file(sid, name, panel=1):
     return "%s/%s/%s_panel%d_00001_.png" % (SCENE_PREFIX, name, name, panel)
 
 
+def single_scene_file(name):
+    return "%s/%s/%s_单场景_00001_.png" % (SCENE_PREFIX, name, name)
+
+
+_SCENE_MODES = None
+
+
+def scene_ref_mode(sid):
+    """场景.json 里 ref_mode='single' → 该场景所有镜头只用单张场景图。"""
+    global _SCENE_MODES
+    if _SCENE_MODES is None:
+        _SCENE_MODES = {it.get("id", ""): (it.get("ref_mode") or "")
+                        for it in (_load_json(SCENE_DB, "scenes", []) or [])}
+    return _SCENE_MODES.get(sid, "")
+
+
 def panel_for_shot(sb):
     """按镜头的 景别/角度/运镜 从场景九宫格中选对应机位单格。
 
@@ -258,12 +280,15 @@ def collect_refs(sb, char_map, scene_map, comfy_root):
     else:
         print("  [!] 未知场景 id %s，跳过场景参考" % sid)
 
-    # 角色 ref_items 保持 (kind,cid,name)；场景多一个 panel 字段
-    ref_items = char_items + [("scene", sid, sname, spanel)]
+    # 角色 ref_items 保持 (kind,cid,name)；场景多一个 panel 字段。
+    # 只保留【真实存在】的参考图进入 ref_items，使 <Picture N> 顺序与 ref_image_files 严格对应，
+    # 避免"H3 提示词里写了 <Picture N> 但 refs 数组缺这张图"造成的悬空引用。
+    candidates = char_items + ([("scene", sid, sname, spanel)] if sname else [])
+    ref_items = []
     ref_image_files = []
     refs_slots = []
     missing = False
-    for item in ref_items:
+    for item in candidates:
         kind = item[0]
         cid = item[1]
         name = item[2]
@@ -271,7 +296,12 @@ def collect_refs(sb, char_map, scene_map, comfy_root):
             rel = char_ref_file(cid, name)
         else:
             rel = scene_ref_file(sid, name, item[3])
+            if scene_ref_mode(sid) == "single":
+                rel = single_scene_file(name)
+            elif not ref_exists(comfy_root, rel):
+                rel = single_scene_file(name)
         if ref_exists(comfy_root, rel):
+            ref_items.append(item)
             ref_image_files.append(rel)
             # timeline 里 refs 的 imageFile 用相对 input 的路径（LoadImage 同名读取）
             refs_slots.append({"index": len(refs_slots), "imageFile": rel,
@@ -406,7 +436,7 @@ def extract_prev_tail_ref(prev_sid, prev_video, comfy_root, rel):
 
 
 def build_r2v(storyboards, template, char_map, scene_map, comfy_root, voice_map=None,
-              prev_tail_map=None):
+              prev_tail_map=None, use_turbo=True):
     wf = copy.deepcopy(template)
     nodes = wf["nodes"]
     links = wf["links"]
@@ -427,16 +457,51 @@ def build_r2v(storyboards, template, char_map, scene_map, comfy_root, voice_map=
         unet.setdefault("properties", {})["models"] = [
             {"name": REF2VA_UNET, "directory": "diffusion_models"}]
 
-    # Director 的 model 输入：环境缺失 patch/sage 节点，改为让 unet 直接驱动 Director。
+    # Director 的 model 输入：unet → turbo LoRA(0.75) → Director；
+    # 模板自带的 patch/sage 节点（PathchSageAttentionKJ 等）由 DROP_TYPES 移除，
+    # SageAttention 走 ComfyUI 全局 --use-sage-attention（0.34.2 内置，无需节点）。
     d_model_slot = next((i for i, inp in enumerate(director["inputs"])
                          if inp["name"] == "model"), None)
     if unet is not None and d_model_slot is not None:
-        mlk = next_lid
-        next_lid += 1
-        if unet["outputs"] and unet["outputs"][0].get("links") is not None:
-            unet["outputs"][0]["links"] = [mlk]
-        links.append([mlk, unet["id"], 0, director["id"], d_model_slot, "MODEL"])
-        director["inputs"][d_model_slot]["link"] = mlk
+        if use_turbo:
+            lora_id = next_nid
+            next_nid += 1
+            lora_node = _node(
+                lora_id, "LoraLoaderModelOnly", [-500, 300], [360, 82],
+                unet.get("order", 0) + 0.5,
+                [
+                    {"localized_name": "模型", "name": "model", "type": "MODEL", "link": None},
+                    {"localized_name": "LoRA名称", "name": "lora_name", "type": "COMBO",
+                     "widget": {"name": "lora_name"}, "link": None},
+                    {"localized_name": "模型强度", "name": "strength_model", "type": "FLOAT",
+                     "widget": {"name": "strength_model"}, "link": None},
+                ],
+                [{"localized_name": "模型", "name": "MODEL", "type": "MODEL", "links": []}],
+                [TURBO_LORA_R2V, TURBO_STRENGTH],
+                {"Node name for S&R": "LoraLoaderModelOnly"},
+                "H3 Turbo LoRA (r2v 8-step, 0.75)",
+            )
+            nodes.append(lora_node)
+            lk_unet = next_lid
+            next_lid += 1
+            links.append([lk_unet, unet["id"], 0, lora_id, 0, "MODEL"])
+            lora_node["inputs"][0]["link"] = lk_unet
+            for out in unet["outputs"]:
+                if out["name"] == "MODEL":
+                    out["links"] = [lk_unet]
+            lk_dir = next_lid
+            next_lid += 1
+            links.append([lk_dir, lora_id, 0, director["id"], d_model_slot, "MODEL"])
+            director["inputs"][d_model_slot]["link"] = lk_dir
+            lora_node["outputs"][0]["links"] = [lk_dir]
+        else:
+            mlk = next_lid
+            next_lid += 1
+            links.append([mlk, unet["id"], 0, director["id"], d_model_slot, "MODEL"])
+            director["inputs"][d_model_slot]["link"] = mlk
+            for out in unet["outputs"]:
+                if out["name"] == "MODEL":
+                    out["links"] = [mlk]
 
     # Director 的 r2v_groups 输入槽
     r2v_slot = next((i for i, inp in enumerate(director["inputs"])
@@ -551,7 +616,7 @@ def build_r2v(storyboards, template, char_map, scene_map, comfy_root, voice_map=
     links.append([dirlink, cid, 0, director["id"], r2v_slot, "MMX_DIR_GROUP"])
     director["inputs"][r2v_slot]["link"] = dirlink
 
-    rebuild_r2v_timeline(director, group_ids)
+    rebuild_r2v_timeline(director, group_ids, TURBO_STEPS if use_turbo else None)
 
     wf["nodes"] = nodes
     wf["links"] = links
@@ -560,7 +625,7 @@ def build_r2v(storyboards, template, char_map, scene_map, comfy_root, voice_map=
     return wf
 
 
-def rebuild_r2v_timeline(director, group_ids):
+def rebuild_r2v_timeline(director, group_ids, steps=None):
     wv = director["widgets_values"]
     tl = json.loads(wv[11])
     segments, shots = [], []
@@ -611,6 +676,8 @@ def rebuild_r2v_timeline(director, group_ids):
     wv[9] = max(VID_W, VID_H)
     wv[10] = start          # Director 的 total_frames，与 timeline_data.totalFrames 对齐
     wv[11] = json.dumps(tl, ensure_ascii=False, separators=(",", ":"))
+    if steps is not None:
+        wv[13] = steps       # 8 步 turbo（模板默认 25 步）
 
 
 def copy_refs_to_input(comfy_root, ref_files):
@@ -635,7 +702,17 @@ def main():
     parser.add_argument("--prev-tail", default=None,
                         help="为某镜注入上一镜尾帧，格式：<当前镜>:<上一镜成片.mp4绝对路径>，可多个用逗号分隔。"
                              "如：--prev-tail 03:D:\\...\\MiniMaxH3_Director_external_r2v_00002_.mp4")
+    parser.add_argument("--res", default="1280x736",
+                        help="输出分辨率 WxH，如 864x480。降分辨率可显著提速（docs 建议 864x480 出片再本地超分）。")
     args = parser.parse_args()
+
+    # 输出分辨率参数化：--res 864x480 → 像素降 57%，每步约减半（提速主因）
+    global VID_W, VID_H
+    m = re.match(r"^(\d+)x(\d+)$", (args.res or "").strip())
+    if not m:
+        raise SystemExit("--res 需为 WxH 格式，如 864x480")
+    VID_W, VID_H = int(m.group(1)), int(m.group(2))
+    print("输出分辨率：%dx%d" % (VID_W, VID_H))
 
     if not os.path.isfile(TEMPLATE):
         raise SystemExit("找不到 external_groups_r2v 模板：%s" % TEMPLATE)
@@ -679,7 +756,7 @@ def main():
             print("  [ok] 镜%s 复用上一镜(%s)尾帧：%s" % (cur, prev_sid, os.path.basename(imported)))
 
     wf = build_r2v(storyboards, load_template(), char_map, scene_map, comfy_root,
-                   voice_map, prev_tail_map)
+                   voice_map, prev_tail_map, use_turbo=True)
 
     if wanted:
         tag = "镜" + "-".join(sorted(wanted))

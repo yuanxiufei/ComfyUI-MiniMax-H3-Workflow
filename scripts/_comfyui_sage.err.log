@@ -1,0 +1,145 @@
+[32m[INFO][0m setup plugin alembic.autogenerate.schemas
+[32m[INFO][0m setup plugin alembic.autogenerate.tables
+[32m[INFO][0m setup plugin alembic.autogenerate.types
+[32m[INFO][0m setup plugin alembic.autogenerate.constraints
+[32m[INFO][0m setup plugin alembic.autogenerate.defaults
+[32m[INFO][0m setup plugin alembic.autogenerate.comments
+[32m[INFO][0m Adding extra search path checkpoints D:\Comfy-Desktop\ComfyUI-Shared\models\checkpoints
+[32m[INFO][0m Adding extra search path classifiers D:\Comfy-Desktop\ComfyUI-Shared\models\classifiers
+[32m[INFO][0m Adding extra search path clip_vision D:\Comfy-Desktop\ComfyUI-Shared\models\clip_vision
+[32m[INFO][0m Adding extra search path configs D:\Comfy-Desktop\ComfyUI-Shared\models\configs
+[32m[INFO][0m Adding extra search path controlnet D:\Comfy-Desktop\ComfyUI-Shared\models\controlnet
+[32m[INFO][0m Adding extra search path t2i_adapter D:\Comfy-Desktop\ComfyUI-Shared\models\t2i_adapter
+[32m[INFO][0m Adding extra search path diffusers D:\Comfy-Desktop\ComfyUI-Shared\models\diffusers
+[32m[INFO][0m Adding extra search path diffusion_models D:\Comfy-Desktop\ComfyUI-Shared\models\diffusion_models
+[32m[INFO][0m Adding extra search path embeddings D:\Comfy-Desktop\ComfyUI-Shared\models\embeddings
+[32m[INFO][0m Adding extra search path gligen D:\Comfy-Desktop\ComfyUI-Shared\models\gligen
+[32m[INFO][0m Adding extra search path hypernetworks D:\Comfy-Desktop\ComfyUI-Shared\models\hypernetworks
+[32m[INFO][0m Adding extra search path latent_upscale_models D:\Comfy-Desktop\ComfyUI-Shared\models\latent_upscale_models
+[32m[INFO][0m Adding extra search path loras D:\Comfy-Desktop\ComfyUI-Shared\models\loras
+[32m[INFO][0m Adding extra search path model_patches D:\Comfy-Desktop\ComfyUI-Shared\models\model_patches
+[32m[INFO][0m Adding extra search path audio_encoders D:\Comfy-Desktop\ComfyUI-Shared\models\audio_encoders
+[32m[INFO][0m Adding extra search path photomaker D:\Comfy-Desktop\ComfyUI-Shared\models\photomaker
+[32m[INFO][0m Adding extra search path style_models D:\Comfy-Desktop\ComfyUI-Shared\models\style_models
+[32m[INFO][0m Adding extra search path text_encoders D:\Comfy-Desktop\ComfyUI-Shared\models\text_encoders
+[32m[INFO][0m Adding extra search path upscale_models D:\Comfy-Desktop\ComfyUI-Shared\models\upscale_models
+[32m[INFO][0m Adding extra search path background_removal D:\Comfy-Desktop\ComfyUI-Shared\models\background_removal
+[32m[INFO][0m Adding extra search path frame_interpolation D:\Comfy-Desktop\ComfyUI-Shared\models\frame_interpolation
+[32m[INFO][0m Adding extra search path geometry_estimation D:\Comfy-Desktop\ComfyUI-Shared\models\geometry_estimation
+[32m[INFO][0m Adding extra search path optical_flow D:\Comfy-Desktop\ComfyUI-Shared\models\optical_flow
+[32m[INFO][0m Adding extra search path detection D:\Comfy-Desktop\ComfyUI-Shared\models\detection
+[32m[INFO][0m Adding extra search path vae D:\Comfy-Desktop\ComfyUI-Shared\models\vae
+[32m[INFO][0m Adding extra search path vae_approx D:\Comfy-Desktop\ComfyUI-Shared\models\vae_approx
+[32m[INFO][0m Adding extra search path animatediff_models D:\Comfy-Desktop\ComfyUI-Shared\models\animatediff_models
+[32m[INFO][0m Adding extra search path animatediff_motion_lora D:\Comfy-Desktop\ComfyUI-Shared\models\animatediff_motion_lora
+[32m[INFO][0m Adding extra search path audiodit D:\Comfy-Desktop\ComfyUI-Shared\models\audiodit
+[32m[INFO][0m Adding extra search path f5tts D:\Comfy-Desktop\ComfyUI-Shared\models\f5tts
+[32m[INFO][0m Adding extra search path ipadapter D:\Comfy-Desktop\ComfyUI-Shared\models\ipadapter
+[32m[INFO][0m Adding extra search path llm D:\Comfy-Desktop\ComfyUI-Shared\models\llm
+[32m[INFO][0m Adding extra search path video_models D:\Comfy-Desktop\ComfyUI-Shared\models\video_models
+[32m[INFO][0m Adding extra search path clip D:\Comfy-Desktop\ComfyUI-Shared\models\clip
+[32m[INFO][0m Adding extra search path unet D:\Comfy-Desktop\ComfyUI-Shared\models\unet
+[32m[INFO][0m Adding extra search path custom_nodes D:\Comfy-Desktop\ComfyUI-Shared\custom_nodes
+[32m[INFO][0m Adding extra search path checkpoints D:\Comfy-Desktop\ComfyUI-Shared\models\checkpoints
+[32m[INFO][0m Adding extra search path classifiers D:\Comfy-Desktop\ComfyUI-Shared\models\classifiers
+[32m[INFO][0m Adding extra search path clip_vision D:\Comfy-Desktop\ComfyUI-Shared\models\clip_vision
+[32m[INFO][0m Adding extra search path configs D:\Comfy-Desktop\ComfyUI-Shared\models\configs
+[32m[INFO][0m Adding extra search path controlnet D:\Comfy-Desktop\ComfyUI-Shared\models\controlnet
+[32m[INFO][0m Adding extra search path controlnet D:\Comfy-Desktop\ComfyUI-Shared\models\t2i_adapter
+[32m[INFO][0m Adding extra search path diffusers D:\Comfy-Desktop\ComfyUI-Shared\models\diffusers
+[32m[INFO][0m Adding extra search path diffusion_models D:\Comfy-Desktop\ComfyUI-Shared\models\diffusion_models
+[32m[INFO][0m Adding extra search path embeddings D:\Comfy-Desktop\ComfyUI-Shared\models\embeddings
+[32m[INFO][0m Adding extra search path gligen D:\Comfy-Desktop\ComfyUI-Shared\models\gligen
+[32m[INFO][0m Adding extra search path hypernetworks D:\Comfy-Desktop\ComfyUI-Shared\models\hypernetworks
+[32m[INFO][0m Adding extra search path latent_upscale_models D:\Comfy-Desktop\ComfyUI-Shared\models\latent_upscale_models
+[32m[INFO][0m Adding extra search path loras D:\Comfy-Desktop\ComfyUI-Shared\models\loras
+[32m[INFO][0m Adding extra search path model_patches D:\Comfy-Desktop\ComfyUI-Shared\models\model_patches
+[32m[INFO][0m Adding extra search path audio_encoders D:\Comfy-Desktop\ComfyUI-Shared\models\audio_encoders
+[32m[INFO][0m Adding extra search path photomaker D:\Comfy-Desktop\ComfyUI-Shared\models\photomaker
+[32m[INFO][0m Adding extra search path style_models D:\Comfy-Desktop\ComfyUI-Shared\models\style_models
+[32m[INFO][0m Adding extra search path text_encoders D:\Comfy-Desktop\ComfyUI-Shared\models\text_encoders
+[32m[INFO][0m Adding extra search path upscale_models D:\Comfy-Desktop\ComfyUI-Shared\models\upscale_models
+[32m[INFO][0m Adding extra search path background_removal D:\Comfy-Desktop\ComfyUI-Shared\models\background_removal
+[32m[INFO][0m Adding extra search path frame_interpolation D:\Comfy-Desktop\ComfyUI-Shared\models\frame_interpolation
+[32m[INFO][0m Adding extra search path geometry_estimation D:\Comfy-Desktop\ComfyUI-Shared\models\geometry_estimation
+[32m[INFO][0m Adding extra search path optical_flow D:\Comfy-Desktop\ComfyUI-Shared\models\optical_flow
+[32m[INFO][0m Adding extra search path detection D:\Comfy-Desktop\ComfyUI-Shared\models\detection
+[32m[INFO][0m Adding extra search path vae D:\Comfy-Desktop\ComfyUI-Shared\models\vae
+[32m[INFO][0m Adding extra search path vae_approx D:\Comfy-Desktop\ComfyUI-Shared\models\vae_approx
+[32m[INFO][0m Adding extra search path _tmp_dl D:\Comfy-Desktop\ComfyUI-Shared\models\_tmp_dl
+[32m[INFO][0m Adding extra search path animatediff_models D:\Comfy-Desktop\ComfyUI-Shared\models\animatediff_models
+[32m[INFO][0m Adding extra search path animatediff_motion_lora D:\Comfy-Desktop\ComfyUI-Shared\models\animatediff_motion_lora
+[32m[INFO][0m Adding extra search path audiodit D:\Comfy-Desktop\ComfyUI-Shared\models\audiodit
+[32m[INFO][0m Adding extra search path f5tts D:\Comfy-Desktop\ComfyUI-Shared\models\f5tts
+[32m[INFO][0m Adding extra search path ipadapter D:\Comfy-Desktop\ComfyUI-Shared\models\ipadapter
+[32m[INFO][0m Adding extra search path llm D:\Comfy-Desktop\ComfyUI-Shared\models\llm
+[32m[INFO][0m Adding extra search path video_models D:\Comfy-Desktop\ComfyUI-Shared\models\video_models
+[32m[INFO][0m Adding extra search path clip D:\Comfy-Desktop\ComfyUI-Shared\models\clip
+[32m[INFO][0m Adding extra search path unet D:\Comfy-Desktop\ComfyUI-Shared\models\unet
+[32m[INFO][0m Setting output directory to: D:\Comfy-Desktop\ComfyUI-Shared\output
+[32m[INFO][0m Setting input directory to: D:\Comfy-Desktop\ComfyUI-Shared\input
+[32m[INFO][0m [PRE] ComfyUI-Manager
+[32m[INFO][0m Found comfy_kitchen backend eager: {'available': True, 'disabled': False, 'unavailable_reason': None, 'capabilities': ['adaln', 'apply_rope', 'apply_rope1', 'apply_rope1_', 'apply_rope_', 'apply_rope_split_half', 'apply_rope_split_half1', 'apply_rope_split_half1_', 'apply_rope_split_half_', 'convrot_w4a4_linear', 'dequantize_convrot_w4a4_weight', 'dequantize_int8_convrot_weight', 'dequantize_int8_convrot_weight_dtype', 'dequantize_int8_embedding', 'dequantize_int8_simple', 'dequantize_int8_simple_dtype', 'dequantize_mxfp8', 'dequantize_nvfp4', 'dequantize_per_tensor_fp8', 'dequantize_w4a8_int8_weight', 'gemv_awq_w4a16', 'int8_linear', 'na3d', 'prepare_int4_weight_for_int8_linear', 'quantize_and_rotate_rowwise', 'quantize_convrot_w4a4_weight', 'quantize_int8_convrot_weight', 'quantize_int8_rowwise', 'quantize_int8_tensorwise', 'quantize_mxfp8', 'quantize_nvfp4', 'quantize_per_tensor_fp8', 'quantize_svdquant_w4a4', 'quantize_w4a8_int8_weight', 'rms_adaln', 'rms_rope', 'rms_rope1', 'rms_rope1_', 'rms_rope_', 'rms_rope_split_half', 'rms_rope_split_half1', 'rms_rope_split_half1_', 'rms_rope_split_half_', 'rotate_int8_convrot_weight', 'scaled_mm_mxfp8', 'scaled_mm_nvfp4', 'scaled_mm_svdquant_w4a4', 'stochastic_rounding_fp8', 'w4a8_int8_linear']}
+[32m[INFO][0m Found comfy_kitchen backend hip: {'available': False, 'disabled': False, 'unavailable_reason': 'PyTorch ROCm/HIP runtime not available', 'capabilities': []}
+[32m[INFO][0m Found comfy_kitchen backend triton: {'available': True, 'disabled': True, 'unavailable_reason': None, 'capabilities': ['adaln', 'apply_rope', 'apply_rope1', 'apply_rope1_', 'apply_rope_', 'apply_rope_split_half', 'apply_rope_split_half1', 'apply_rope_split_half1_', 'apply_rope_split_half_', 'dequantize_nvfp4', 'dequantize_per_tensor_fp8', 'int8_linear', 'na3d', 'quantize_and_rotate_rowwise', 'quantize_int8_rowwise', 'quantize_mxfp8', 'quantize_nvfp4', 'quantize_per_tensor_fp8', 'rms_adaln', 'rms_rope', 'rms_rope1', 'rms_rope1_', 'rms_rope_', 'rms_rope_split_half', 'rms_rope_split_half1', 'rms_rope_split_half1_', 'rms_rope_split_half_', 'w4a8_int8_linear']}
+[32m[INFO][0m Found comfy_kitchen backend cuda: {'available': True, 'disabled': False, 'unavailable_reason': None, 'capabilities': ['adaln', 'apply_rope', 'apply_rope1', 'apply_rope1_', 'apply_rope_', 'apply_rope_split_half', 'apply_rope_split_half1', 'apply_rope_split_half1_', 'apply_rope_split_half_', 'convrot_w4a4_linear', 'dequantize_convrot_w4a4_weight', 'dequantize_int8_convrot_weight', 'dequantize_int8_convrot_weight_dtype', 'dequantize_int8_simple', 'dequantize_int8_simple_dtype', 'dequantize_nvfp4', 'dequantize_per_tensor_fp8', 'dequantize_w4a8_int8_weight', 'gemv_awq_w4a16', 'int8_linear', 'na3d', 'prepare_int4_weight_for_int8_linear', 'quantize_and_rotate_rowwise', 'quantize_convrot_w4a4_weight', 'quantize_int8_convrot_weight', 'quantize_int8_rowwise', 'quantize_int8_tensorwise', 'quantize_mxfp8', 'quantize_nvfp4', 'quantize_per_tensor_fp8', 'quantize_svdquant_w4a4', 'quantize_w4a8_int8_weight', 'rms_adaln', 'rms_rope', 'rms_rope1', 'rms_rope1_', 'rms_rope_', 'rms_rope_split_half', 'rms_rope_split_half1', 'rms_rope_split_half1_', 'rms_rope_split_half_', 'rotate_int8_convrot_weight', 'scaled_mm_nvfp4', 'scaled_mm_svdquant_w4a4', 'stochastic_rounding_fp8', 'w4a8_int8_linear']}
+[32m[INFO][0m Checkpoint files will always be loaded safely.
+[32m[INFO][0m Total VRAM 23028 MB, total RAM 95848 MB
+[32m[INFO][0m pytorch version: 2.12.1+cu130
+[32m[INFO][0m Set vram state to: NORMAL_VRAM
+[32m[INFO][0m Device: cuda:0 NVIDIA RTX A5000 : cudaMallocAsync
+[32m[INFO][0m Using async weight offloading with 2 streams
+[32m[INFO][0m Enabled pinned memory 38339.0
+[32m[INFO][0m Using sage attention
+[32m[INFO][0m aimdo: src-win/cuda-detour.c:38:INFO:aimdo_setup_hooks: installing 6 hooks
+[32m[INFO][0m aimdo: src/control.c:262:INFO:comfy-aimdo NVML pressure enabled
+[32m[INFO][0m aimdo: src-win/shmem-detect.c:80:INFO:comfy-aimdo WDDM adapter match: NVIDIA RTX A5000 runtime_luid=00000000:0001318c dxgi_luid=00000000:0001318c
+[32m[INFO][0m aimdo: src/control.c:277:INFO:comfy-aimdo inited for GPU: NVIDIA RTX A5000 (VRAM: 23027 MB)
+[32m[INFO][0m DynamicVRAM support detected and enabled
+[32m[INFO][0m Python version: 3.13.12 (main, Feb 12 2026, 00:38:53) [MSC v.1944 64 bit (AMD64)]
+[32m[INFO][0m ComfyUI version: 0.34.6
+[32m[INFO][0m comfy-aimdo version: 0.4.15
+[32m[INFO][0m comfy-kitchen version: 0.2.31
+[32m[INFO][0m comfyui-frontend-package version: 1.49.6
+[32m[INFO][0m comfyui-workflow-templates version: 0.11.55
+[32m[INFO][0m comfyui-embedded-docs version: 0.5.10
+[32m[INFO][0m comfy-kitchen version: 0.2.31
+[32m[INFO][0m comfy-aimdo version: 0.4.15
+[32m[INFO][0m [Prompt Server] web root: D:\Comfy-Desktop\ComfyUI-Installs\ComfyUI-MiniMax-H3-Workflow\ComfyUI\.venv\Lib\site-packages\comfyui_frontend_package\static
+[32m[INFO][0m Asset seeder disabled
+[32m[INFO][0m [START] ComfyUI-Manager
+[32m[INFO][0m [ComfyUI-Manager] network_mode: public
+[1m[33m[WARNING][0m [ComfyUI-Manager] The matrix sharing feature has been disabled because the `matrix-nio` dependency is not installed.
+	To use this feature, please run the following command:
+	D:\Comfy-Desktop\ComfyUI-Installs\ComfyUI-MiniMax-H3-Workflow\ComfyUI\.venv\Scripts\python.exe -m pip install matrix-nio
+
+[32m[INFO][0m No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+[32m[INFO][0m ComfyUI-GGUF: Allowing full torch compile
+[32m[INFO][0m h3_motion_context: nodes registered. ComfyUI patches install on the first run of a Motion Context node.
+[32m[INFO][0m [H3-Multishot] LTX rational upsampler: blur kernel follows the input device (partial-load safe)
+[32m[INFO][0m [H3] taught ComfyUI-GGUF the 'minimax_h3' architecture (in memory; no files modified)
+[36;20m[D:\Comfy-Desktop\ComfyUI-Shared\custom_nodes\comfyui_controlnet_aux] | INFO -> Using ckpts path: D:\Comfy-Desktop\ComfyUI-Shared\custom_nodes\comfyui_controlnet_aux\ckpts[0m
+[36;20m[D:\Comfy-Desktop\ComfyUI-Shared\custom_nodes\comfyui_controlnet_aux] | INFO -> Using symlinks: False[0m
+[36;20m[D:\Comfy-Desktop\ComfyUI-Shared\custom_nodes\comfyui_controlnet_aux] | INFO -> Using ort providers: ['CUDAExecutionProvider', 'DirectMLExecutionProvider', 'OpenVINOExecutionProvider', 'ROCMExecutionProvider', 'MIGraphXExecutionProvider', 'CPUExecutionProvider'][0m
+[32m[INFO][0m MiniMax H3 Director HTTP routes registered
+[32m[INFO][0m 
+Import times for custom nodes:
+[32m[INFO][0m    0.0 seconds: D:\Comfy-Desktop\ComfyUI-Shared\custom_nodes\websocket_image_save.py
+[32m[INFO][0m    0.0 seconds: D:\Comfy-Desktop\ComfyUI-Installs\ComfyUI-MiniMax-H3-Workflow\ComfyUI\custom_nodes\websocket_image_save.py
+[32m[INFO][0m    0.0 seconds: D:\Comfy-Desktop\ComfyUI-Shared\custom_nodes\ComfyUI_JoyAI_Echo
+[32m[INFO][0m    0.0 seconds: D:\Comfy-Desktop\ComfyUI-Shared\custom_nodes\ComfyUI-MiniMaxH3-TeaCache
+[32m[INFO][0m    0.0 seconds: D:\Comfy-Desktop\ComfyUI-Shared\custom_nodes\ComfyUI-H3-Motion-Context
+[32m[INFO][0m    0.0 seconds: D:\Comfy-Desktop\ComfyUI-Shared\custom_nodes\ComfyUI-Custom-Scripts
+[32m[INFO][0m    0.0 seconds: D:\Comfy-Desktop\ComfyUI-Shared\custom_nodes\ComfyUI_IPAdapter_plus
+[32m[INFO][0m    0.0 seconds: D:\Comfy-Desktop\ComfyUI-Shared\custom_nodes\ComfyUI-H3-Multishot
+[32m[INFO][0m    0.0 seconds: D:\Comfy-Desktop\ComfyUI-Shared\custom_nodes\ComfyUI-MiniMaxH3
+[32m[INFO][0m    0.0 seconds: D:\Comfy-Desktop\ComfyUI-Shared\custom_nodes\ComfyUI_MiniMaxH3_Director
+[32m[INFO][0m    0.0 seconds: D:\Comfy-Desktop\ComfyUI-Shared\custom_nodes\ComfyUI-GGUF
+[32m[INFO][0m    0.2 seconds: D:\Comfy-Desktop\ComfyUI-Shared\custom_nodes\comfyui_controlnet_aux
+[32m[INFO][0m 
+[32m[INFO][0m Context impl SQLiteImpl.
+[32m[INFO][0m Will assume non-transactional DDL.
+[32m[INFO][0m Using RAM pressure cache.
+[32m[INFO][0m Starting server
+
+[32m[INFO][0m To see the GUI go to: http://127.0.0.1:8188

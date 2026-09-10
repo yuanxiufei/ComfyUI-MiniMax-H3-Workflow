@@ -781,7 +781,7 @@
         736,
         1280,
         288,
-        "{\"version\":5,\"editMode\":\"segment\",\"timelineMode\":\"fl2v\",\"totalFrames\":288,\"frameRate\":24,\"width\":1280,\"height\":736,\"refMaxSize\":1280,\"output\":{\"mode\":\"fixed\",\"aspectRatio\":\"3:4 (竖版标准)\",\"megapixels\":0.4,\"multiple\":32,\"longEdge\":1280,\"width\":1280,\"height\":736,\"maxExportFrames\":0,\"exportMode\":\"all\",\"audioMode\":\"generate\",\"continuityEnabled\":false,\"continuityOverlapFrames\":9},\"videoClips\":[],\"video\":{\"fileName\":\"\",\"videoFile\":\"\",\"subfolder\":\"\",\"type\":\"input\",\"frames\":[],\"frameMap\":[],\"sourceFrameCount\":124,\"deletedSourceRanges\":[]},\"global\":{\"taskType\":\"fl2v — 首尾帧生视频(First-Last Frame)\",\"prompt\":\"\",\"refs\":[],\"referenceVideo\":{\"videoFile\":\"\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"},\"continuousReference\":false,\"genImage\":{\"imageFile\":\"\"},\"refAudios\":[]},\"segments\":[{\"id\":\"shot0\",\"start\":0,\"length\":288,\"frameCount\":288,\"durationSec\":12.0,\"prompt\":\"full shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, 东家城堡花园广场，全景，一辆超豪华轿车驶入喷泉环绕的广场，缓缓停下。\\n车门打开，云姐笑迎上前。\\n云姐与车上少女热情拥抱。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜1_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜1_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]}],\"shots\":[{\"id\":\"shot0\",\"durationSec\":12.0,\"prompt\":\"full shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, 东家城堡花园广场，全景，一辆超豪华轿车驶入喷泉环绕的广场，缓缓停下。\\n车门打开，云姐笑迎上前。\\n云姐与车上少女热情拥抱。 奢华古典·白天明亮\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜1_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜1_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}}],\"runSelectEnabled\":false,\"runSelection\":[],\"gen\":{\"defaultFrameCount\":124},\"liveTaePreview\":true,\"keyframes\":[],\"durationSec\":12.0}",
+        "{\"version\":5,\"editMode\":\"segment\",\"timelineMode\":\"fl2v\",\"totalFrames\":288,\"frameRate\":24,\"width\":1280,\"height\":736,\"refMaxSize\":1280,\"output\":{\"mode\":\"fixed\",\"aspectRatio\":\"3:4 (竖版标准)\",\"megapixels\":0.4,\"multiple\":32,\"longEdge\":1280,\"width\":1280,\"height\":736,\"maxExportFrames\":0,\"exportMode\":\"all\",\"audioMode\":\"generate\",\"continuityEnabled\":false,\"continuityOverlapFrames\":9},\"videoClips\":[],\"video\":{\"fileName\":\"\",\"videoFile\":\"\",\"subfolder\":\"\",\"type\":\"input\",\"frames\":[],\"frameMap\":[],\"sourceFrameCount\":124,\"deletedSourceRanges\":[]},\"global\":{\"taskType\":\"fl2v — 首尾帧生视频(First-Last Frame)\",\"prompt\":\"\",\"refs\":[],\"referenceVideo\":{\"videoFile\":\"\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"},\"continuousReference\":false,\"genImage\":{\"imageFile\":\"\"},\"refAudios\":[]},\"segments\":[{\"id\":\"shot0\",\"start\":0,\"length\":288,\"frameCount\":288,\"durationSec\":12.0,\"prompt\":\"wide establishing shot, eye-level angle, slow dolly-in, daytime, bright clear natural light, 东家城堡前庭广场，无数洁白喷泉环绕，阳光洒在波光粼粼的水面上，远处雄伟城堡, 东家城堡前庭广场，远景，清晨阳光洒满大理石广场，无数洁白喷泉喷水，豪车缓缓驶入。\\n东家城堡前庭广场，全景，镜头缓推。\\n东家城堡前庭广场，中景，豪车停在巨大喷泉旁，水花飞溅。\\n东家城堡前庭广场，远景，镜头落定在宏伟城堡与主喷泉上，空旷威严。 清晨曦光，空旷气派，金贵庄严，宁静而富有压迫感\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":true,\"genImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜01_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜01_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"taskType\":\"\",\"refs\":[]}],\"shots\":[{\"id\":\"shot0\",\"durationSec\":12.0,\"prompt\":\"wide establishing shot, eye-level angle, slow dolly-in, daytime, bright clear natural light, 东家城堡前庭广场，无数洁白喷泉环绕，阳光洒在波光粼粼的水面上，远处雄伟城堡, 东家城堡前庭广场，远景，清晨阳光洒满大理石广场，无数洁白喷泉喷水，豪车缓缓驶入。\\n东家城堡前庭广场，全景，镜头缓推。\\n东家城堡前庭广场，中景，豪车停在巨大喷泉旁，水花飞溅。\\n东家城堡前庭广场，远景，镜头落定在宏伟城堡与主喷泉上，空旷威严。 清晨曦光，空旷气派，金贵庄严，宁静而富有压迫感\",\"negativePrompt\":\"bad video\",\"startImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜01_首帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0},\"endImage\":{\"imageFile\":\"02_分镜/第1集/第1集_镜01_尾帧_写实CG融合_00001_.png\",\"width\":0,\"height\":0}}],\"runSelectEnabled\":false,\"runSelection\":[],\"gen\":{\"defaultFrameCount\":124},\"liveTaePreview\":true,\"keyframes\":[],\"durationSec\":12.0}",
         "高级采样",
         8,
         "res_multistep",
@@ -873,7 +873,7 @@
       },
       "widgets_values": [
         "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
-        1.0
+        0.75
       ],
       "title": "H3 Turbo LoRA (8-step)"
     },
@@ -931,10 +931,10 @@
         "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        "02_分镜/第1集/第1集_镜1_首帧_写实CG融合_00001_.png",
+        "02_分镜/第1集/第1集_镜01_首帧_写实CG融合_00001_.png",
         "image"
       ],
-      "title": "镜1 首帧"
+      "title": "镜01 首帧"
     },
     {
       "id": 39,
@@ -990,10 +990,10 @@
         "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        "02_分镜/第1集/第1集_镜1_尾帧_写实CG融合_00001_.png",
+        "02_分镜/第1集/第1集_镜01_尾帧_写实CG融合_00001_.png",
         "image"
       ],
-      "title": "镜1 尾帧"
+      "title": "镜01 尾帧"
     },
     {
       "id": 40,
@@ -1055,10 +1055,10 @@
         "Node name for S&R": "MiniMaxH3DirectorGroupImageToVideo"
       },
       "widgets_values": [
-        "full shot, eye-level angle, static locked-off shot, daytime, bright clear natural light, 东家城堡花园广场，全景，一辆超豪华轿车驶入喷泉环绕的广场，缓缓停下。\n车门打开，云姐笑迎上前。\n云姐与车上少女热情拥抱。 奢华古典·白天明亮",
+        "wide establishing shot, eye-level angle, slow dolly-in, daytime, bright clear natural light, 东家城堡前庭广场，无数洁白喷泉环绕，阳光洒在波光粼粼的水面上，远处雄伟城堡, 东家城堡前庭广场，远景，清晨阳光洒满大理石广场，无数洁白喷泉喷水，豪车缓缓驶入。\n东家城堡前庭广场，全景，镜头缓推。\n东家城堡前庭广场，中景，豪车停在巨大喷泉旁，水花飞溅。\n东家城堡前庭广场，远景，镜头落定在宏伟城堡与主喷泉上，空旷威严。 清晨曦光，空旷气派，金贵庄严，宁静而富有压迫感",
         12.0
       ],
-      "title": "镜1 轿车抵园 12s"
+      "title": "镜01 城堡广场 12s"
     },
     {
       "id": 41,

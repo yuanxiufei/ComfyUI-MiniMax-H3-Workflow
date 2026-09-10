@@ -75,7 +75,28 @@ def scan_episode_collects(episode: str, mode: str) -> dict:
             primary = max(videos, key=os.path.getmtime)
         out[sid] = {"video": primary, "manifest": manifest_ok, "videos": sorted(videos),
                     "shots_dir": shot_dir}
+    if not out:
+        out = _flat_manifest_fallback(episode, base)
     return out
+
+
+def _flat_manifest_fallback(episode: str, base: str) -> dict:
+    """平铺产物兜底：整集一次提交尚未归位成 镜NN/ 时，也能在清单里看到「已成片」。
+
+    段序 = 清单里 kind=='video' 的出现顺序 = 镜号升序（与 shot_layout 同一口径）。
+    只读不写（不移动文件）；要真正落成目录约定请跑 `pipeline_video.py --distribute`。
+    """
+    try:
+        import shot_layout as sl
+    except Exception:  # noqa: BLE001
+        return {}
+    sids = sl.shot_ids(dt.load_storyboards(episode))
+    assign, _reason = sl.plan(base, sids)
+    if not assign:
+        return {}
+    return {sid: {"video": e.get("saved"), "manifest": True,
+                  "videos": [e.get("saved")], "shots_dir": base}
+            for sid, e, _dest, _seg in assign}
 
 
 def build_status_rows(episode: str, mode: str) -> list[dict]:

@@ -1,13 +1,13 @@
 {
   "project": "剑噬天下",
   "generated_by": "character-scene-extractor + voice-assigner + grid-image-generator",
-  "note": "第1集《剑修凌云》角色库。统一风格约束段(写实CG融合+真实皮肤纹理)与颜值修饰词前置内嵌在 image_prompt 开头，避免与生成器重复拼接。",
+  "note": "第1集《剑修凌云》角色库。统一风格约束段(写实CG融合+真实皮肤纹理)与颜值修饰词前置内嵌在 image_prompt 开头，避免与生成器重复拼接。年龄口径：主角凌云=穿越者，现代篇(第1集)26岁；剑之文明以'林城'身份自16→18→20→24→27→30岁成长（权威结论见《03_角色场景/全书角色年龄确认表.md》，勿用单一数字）。",
   "characters": [
     {
       "id": "c01",
       "name": "凌云",
       "gender": "男",
-      "age": "18岁",
+      "age": "26岁",
       "role_type": "主角",
       "role_tag": "主角",
       "era": "ancient",
@@ -19,7 +19,7 @@
         "voice_desc": "一个清冷沉稳、干净有力的青年男声，平静冷淡，自带高手气场",
         "role_tag": "主角"
       },
-      "image_prompt": "stylized 3D Chinese anime character, perfect fusion of realistic rendering and CG animation, premium 3D animated film quality, 3D次时代CG风格渲染, high-precision sculpted model, dramatic volumetric lighting, soft-focus shallow depth of field, atmospheric smoke and mist simulation, China-style aesthetic background, Octane renderer look, Unreal Engine 5, very realistic textured human skin, fine visible skin pores, natural skin grain and subtle realistic skin details, natural skin tones, realistic non-plastic non-waxy skin material with soft natural highlights, subsurface scattering, expressive detailed anime eyes with realistic iris depth, subtle natural facial micro-expressions, 电影感氛围, 电影级布光, 浅景深, 4K高清纹理, 高精度3D模型, PBR材质, Chinese Guoman 3D style, East Asian anime face, handsome and clean-cut facial features, a well-proportioned attractive face, 一个十八岁的古国少年天才剑修，面容清冷俊逸，剑眉星眸，鼻梁秀挺，肤色冷白，墨发以银冠高高束起，缀一枚青玉簪，眼神清冷深邃，如寒潭映月；身着一袭月白色流云广袖长袍，衣袂飘飏，领口与袖口隐绣暗纹云纹，镶银色滚边，内衬雪白交领中衣，腰间系青玉带，悬一柄青锋利剑、佩青玉剑穗，内着缥缈长裤，足踏云纹锦靴；身姿挺拔如孤松，清冷孤傲，卓尔不群，剑气凛然，仙气与剑修锋芒并存",
+      "image_prompt": "stylized 3D Chinese anime character, perfect fusion of realistic rendering and CG animation, premium 3D animated film quality, 3D次时代CG风格渲染, high-precision sculpted model, dramatic volumetric lighting, soft-focus shallow depth of field, atmospheric smoke and mist simulation, China-style aesthetic background, Octane renderer look, Unreal Engine 5, very realistic textured human skin, fine visible skin pores, natural skin grain and subtle realistic skin details, natural skin tones, realistic non-plastic non-waxy skin material with soft natural highlights, subsurface scattering, expressive detailed anime eyes with realistic iris depth, subtle natural facial micro-expressions, 电影感氛围, 电影级布光, 浅景深, 4K高清纹理, 高精度3D模型, PBR材质, Chinese Guoman 3D style, East Asian anime face, handsome and clean-cut facial features, a well-proportioned attractive face, 一个二十六岁的英武剑修，面容清冷俊逸，剑眉星眸，鼻梁秀挺，肤色冷白，墨发以银冠高高束起，缀一枚青玉簪，眼神清冷深邃，如寒潭映月；身着一袭月白色流云广袖长袍，衣袂飘飏，领口与袖口隐绣暗纹云纹，镶银色滚边，内衬雪白交领中衣，腰间系青玉带，悬一柄青锋利剑、佩青玉剑穗，内着缥缈长裤，足踏云纹锦靴；身姿挺拔如孤松，清冷孤傲，卓尔不群，剑气凛然，仙气与剑修锋芒并存",
       "随身道具": [
         "佩剑"
       ],
@@ -41,7 +41,7 @@
         "voice_desc": "一个明亮清脆、灵动好胜的少女音，语速轻快，娇蛮活泼",
         "role_tag": "配角"
       },
-      "image_prompt": "stylized 3D Chinese anime character, perfect fusion of realistic rendering and CG animation, premium 3D animated film quality, 3D次时代CG风格渲染, high-precision sculpted model, dramatic volumetric lighting, soft-focus shallow depth of field, atmospheric smoke and mist simulation, China-style aesthetic background, Octane renderer look, Unreal Engine 5, very realistic textured human skin, fine visible skin pores, natural skin grain and subtle realistic skin details, natural skin tones, realistic non-plastic non-waxy skin material with soft natural highlights, subsurface scattering, expressive detailed anime eyes with realistic iris depth, subtle natural facial micro-expressions, 电影感氛围, 电影级布光, 浅景深, 4K高清纹理, 高精度3D模型, PBR材质, Chinese Guoman 3D style, East Asian anime face, pretty and lovely facial features, a well-proportioned attractive face, 一个十七岁钟灵秀气的世家千金，面容娇俏明丽，杏眼灵动，琼鼻樱唇，肌肤白皙似瓷，一头乌黑长发梳成精致的现代高马尾，发间缀一串流苏银钗、一缕俏皮的垂坠丝带；上身着一件湘妃色轻奢现代雪纺连衣裙，腰际束一条中式刺绣束带、佩一枚精致的银色古风灵玉吊坠，外披一件短款米白轻奢小外套，下身配一条修身现代长裤，足踏白色小皮靴；纤腰别一支小巧古风名剑的配饰，气质现代时髦又不失古武世家的清贵，娇蛮得宜，灵动俏皮，华贵而明艳",
+      "image_prompt": "stylized 3D Chinese anime character, perfect fusion of realistic rendering and CG animation, premium 3D animated film quality, 3D次时代CG风格渲染, high-precision sculpted model, dramatic volumetric lighting, soft-focus shallow depth of field, atmospheric smoke and mist simulation, China-style aesthetic background, Octane renderer look, Unreal Engine 5, very realistic textured human skin, fine visible skin pores, natural skin grain and subtle realistic skin details, natural skin tones, realistic non-plastic non-waxy skin material with soft natural highlights, subsurface scattering, expressive detailed anime eyes with realistic iris depth, subtle natural facial micro-expressions, 电影感氛围, 电影级布光, 浅景深, 4K高清纹理, 高精度3D模型, PBR材质, Chinese Guoman 3D style, East Asian anime face, pretty and lovely facial features, a well-proportioned attractive face, 一个十七岁钟灵秀气的世家千金，面容娇俏明丽，杏眼灵动，琼鼻樱唇，肌肤白皙似瓷，一头乌黑长发梳成精致的现代高马尾，发间别一枚银色小发夹、一缕俏皮的垂坠丝带；上身着一件湘妃色轻奢现代雪纺连衣裙，外披一件短款米白轻奢小外套，腰束一条细窄银色腰带，下身配一条修身现代长裤，足踏白色小皮靴；气质现代时髦又不失世家的清贵，娇蛮得宜，灵动俏皮，华贵而明艳",
       "随身道具": [
         "银色手枪"
       ],
@@ -63,7 +63,7 @@
         "voice_desc": "一个柔美成熟、温婉端庄的成熟女声，语气体贴，略带劝慰",
         "role_tag": "配角"
       },
-      "image_prompt": "stylized 3D Chinese anime character, perfect fusion of realistic rendering and CG animation, premium 3D animated film quality, 3D次时代CG风格渲染, high-precision sculpted model, dramatic volumetric lighting, soft-focus shallow depth of field, atmospheric smoke and mist simulation, China-style aesthetic background, Octane renderer look, Unreal Engine 5, very realistic textured human skin, fine visible skin pores, natural skin grain and subtle realistic skin details, natural skin tones, realistic non-plastic non-waxy skin material with soft natural highlights, subsurface scattering, expressive detailed anime eyes with realistic iris depth, subtle natural facial micro-expressions, 电影感氛围, 电影级布光, 浅景深, 4K高清纹理, 高精度3D模型, PBR材质, Chinese Guoman 3D style, East Asian anime face, pretty and lovely facial features, a well-proportioned attractive face, 一个三十岁的成熟美妇，面容柔美白净，柳眉杏目，眼波流转，唇点绛红，一头乌黑长发优雅挽成一个干练的现代低盘发，簪一支白玉步摇；上身着一件藕荷色现代修身职业套裙，领口小立领缀中式盘扣与精致刺绣，外搭一件薄款轻纱披肩，腰束一条细腰带、佩一枚碧玉古风环佩，下身配一条修身米白现代长裤，足踏黑色中跟皮鞋；既是现代优雅的职业女性，又透着隐世古武世家的温婉古韵，气质端庄大气，成熟温婉，温柔体贴又干练",
+      "image_prompt": "stylized 3D Chinese anime character, perfect fusion of realistic rendering and CG animation, premium 3D animated film quality, 3D次时代CG风格渲染, high-precision sculpted model, dramatic volumetric lighting, soft-focus shallow depth of field, atmospheric smoke and mist simulation, China-style aesthetic background, Octane renderer look, Unreal Engine 5, very realistic textured human skin, fine visible skin pores, natural skin grain and subtle realistic skin details, natural skin tones, realistic non-plastic non-waxy skin material with soft natural highlights, subsurface scattering, expressive detailed anime eyes with realistic iris depth, subtle natural facial micro-expressions, 电影感氛围, 电影级布光, 浅景深, 4K高清纹理, 高精度3D模型, PBR材质, Chinese Guoman 3D style, East Asian anime face, pretty and lovely facial features, a well-proportioned attractive face, 一个三十岁的成熟美妇，面容柔美白净，柳眉杏目，眼波流转，唇点绛红，一头乌黑长发优雅挽成一个干练的现代低盘发，发间别一枚简约银色发夹；上身着一件藕荷色现代修身职业套裙，领口简洁利落，外搭一件薄款轻纱披肩，腰束一条细腰带、佩一枚简约银色胸针，下身配一条修身米白现代长裤，足踏黑色中跟皮鞋；既是现代优雅的职业女性，又透着世家的温婉大方，气质端庄大气，成熟温婉，温柔体贴又干练",
       "随身道具": [],
       "性格特点": "成熟稳重，温柔体贴，护着小辈，说话分寸得体"
     },
@@ -83,7 +83,7 @@
         "voice_desc": "一个中年稳重、低声恭顺的妇女音，语速平缓",
         "role_tag": "龙套"
       },
-      "image_prompt": "stylized 3D Chinese anime character, perfect fusion of realistic rendering and CG animation, premium 3D animated film quality, 3D次时代CG风格渲染, high-precision sculpted model, dramatic volumetric lighting, soft-focus shallow depth of field, atmospheric smoke and mist simulation, China-style aesthetic background, Octane renderer look, Unreal Engine 5, very realistic textured human skin, fine visible skin pores, natural skin grain and subtle realistic skin details, natural skin tones, realistic non-plastic non-waxy skin material with soft natural highlights, subsurface scattering, expressive detailed anime eyes with realistic iris depth, subtle natural facial micro-expressions, 电影感氛围, 电影级布光, 浅景深, 4K高清纹理, 高精度3D模型, PBR材质, Chinese Guoman 3D style, East Asian anime face, pretty and lovely facial features, a well-proportioned attractive face, 一个四十岁的中年女司机，面容和蔼温润，眉眼柔和，头发整齐地扎成一个利落的马尾，鬓边微白；身穿一件深黛青色的现代司机制服衬衫，配深色西装马甲、系一条素色领带，衬衫小立领、缀中式盘扣，外搭一件深色修身西装外套，下穿深灰现代长裤，足踏干练的黑色平底皮鞋；身姿微丰干练，气质沉稳恭顺，老实本分，透着现代世家司机的专业与妥帖",
+      "image_prompt": "stylized 3D Chinese anime character, perfect fusion of realistic rendering and CG animation, premium 3D animated film quality, 3D次时代CG风格渲染, high-precision sculpted model, dramatic volumetric lighting, soft-focus shallow depth of field, atmospheric smoke and mist simulation, China-style aesthetic background, Octane renderer look, Unreal Engine 5, very realistic textured human skin, fine visible skin pores, natural skin grain and subtle realistic skin details, natural skin tones, realistic non-plastic non-waxy skin material with soft natural highlights, subsurface scattering, expressive detailed anime eyes with realistic iris depth, subtle natural facial micro-expressions, 电影感氛围, 电影级布光, 浅景深, 4K高清纹理, 高精度3D模型, PBR材质, Chinese Guoman 3D style, East Asian anime face, pretty and lovely facial features, a well-proportioned attractive face, 一个四十岁的中年女司机，面容和蔼温润，眉眼柔和，头发整齐地扎成一个利落的马尾，鬓边微白；身穿一件深黛青色的现代司机制服衬衫，配深色西装马甲、系一条素色领带，衬衫为挺括的标准西装领，外搭一件深色修身西装外套，下穿深灰现代长裤，足踏干练的黑色平底皮鞋；身姿微丰干练，气质沉稳恭顺，老实本分，透着现代世家司机的专业与妥帖",
       "随身道具": [],
       "性格特点": "沉稳恭顺，老实本分，听命行事"
     },
@@ -103,7 +103,7 @@
         "voice_desc": "一个低沉雄浑、忠勇急促的青年男声，嗓音偏粗",
         "role_tag": "龙套"
       },
-      "image_prompt": "stylized 3D Chinese anime character, perfect fusion of realistic rendering and CG animation, premium 3D animated film quality, 3D次时代CG风格渲染, high-precision sculpted model, dramatic volumetric lighting, soft-focus shallow depth of field, atmospheric smoke and mist simulation, China-style aesthetic background, Octane renderer look, Unreal Engine 5, very realistic textured human skin, fine visible skin pores, natural skin grain and subtle realistic skin details, natural skin tones, realistic non-plastic non-waxy skin material with soft natural highlights, subsurface scattering, expressive detailed anime eyes with realistic iris depth, subtle natural facial micro-expressions, 电影感氛围, 电影级布光, 浅景深, 4K高清纹理, 高精度3D模型, PBR材质, Chinese Guoman 3D style, East Asian anime face, handsome and clean-cut facial features, a well-proportioned attractive face, 一个三十岁的精干安保，面容刚毅，浓眉方脸，肤色微深，一寸利落的短发；身穿一套黑色现代立领西装，小立领缀中式盘扣与暗纹，内衬黑色衬衫、打一条深色领带，外搭一件黑色修身西装外套，西服下摆隐约露出一截中式窄袖束袖，下穿黑色修身职业长裤，足踏锃亮黑皮鞋；耳畔夹一枚无线耳麦，身板高大结实、挺拔有力，气质忠勇干练，眼神警惕警觉，凛然如铁壁，既是现代干练的专业安保，又透着古武世家的练家子气场，随时戒备",
+      "image_prompt": "stylized 3D Chinese anime character, perfect fusion of realistic rendering and CG animation, premium 3D animated film quality, 3D次时代CG风格渲染, high-precision sculpted model, dramatic volumetric lighting, soft-focus shallow depth of field, atmospheric smoke and mist simulation, China-style aesthetic background, Octane renderer look, Unreal Engine 5, very realistic textured human skin, fine visible skin pores, natural skin grain and subtle realistic skin details, natural skin tones, realistic non-plastic non-waxy skin material with soft natural highlights, subsurface scattering, expressive detailed anime eyes with realistic iris depth, subtle natural facial micro-expressions, 电影感氛围, 电影级布光, 浅景深, 4K高清纹理, 高精度3D模型, PBR材质, Chinese Guoman 3D style, East Asian anime face, handsome and clean-cut facial features, a well-proportioned attractive face, 一个三十岁的精干安保，面容刚毅，浓眉方脸，肤色微深，一寸利落的短发；身穿一套黑色现代西装，西装配挺括的标准西装驳领，内衬黑色衬衫、打一条深色领带，外搭一件黑色修身西装外套，下穿黑色修身职业长裤，足踏锃亮黑皮鞋；耳畔夹一枚无线耳麦，身板高大结实、挺拔有力，气质忠勇干练，眼神警惕警觉，凛然如铁壁，既是现代干练的专业安保，又透着世家的练家子气场，随时戒备",
       "随身道具": [],
       "性格特点": "忠勇机警，忠心护主，反应迅捷"
     }

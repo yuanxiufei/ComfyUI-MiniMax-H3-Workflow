@@ -1,8 +1,8 @@
 {
   "id": "h3-extend-take-v2",
   "revision": 0,
-  "last_node_id": 69,
-  "last_link_id": 100,
+  "last_node_id": 70,
+  "last_link_id": 102,
   "nodes": [
     {
       "id": 28,
@@ -297,8 +297,7 @@
           "type": "MODEL",
           "slot_index": 0,
           "links": [
-            3,
-            4
+            101
           ]
         }
       ],
@@ -307,8 +306,8 @@
         "Node name for S&R": "H3LoraStack"
       },
       "widgets_values": [
-        "None",
-        0,
+        "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+        0.75,
         "None",
         1,
         "None",
@@ -2124,7 +2123,7 @@
         1280,
         736,
         192,
-        14,
+        8,
         "euler",
         "beta57",
         4,
@@ -2449,7 +2448,7 @@
           "localized_name": "model",
           "name": "model",
           "type": "MODEL",
-          "link": 91
+          "link": 102
         },
         {
           "localized_name": "clip",
@@ -3022,7 +3021,7 @@
         192,
         721031366213963,
         "randomize",
-        14,
+        8,
         true,
         0,
         1,
@@ -4294,6 +4293,49 @@
         24,
         8
       ]
+    },
+    {
+      "id": 70,
+      "type": "MiniMaxH3TeaCache",
+      "pos": [
+        -420,
+        460
+      ],
+      "size": [
+        330,
+        150
+      ],
+      "flags": {},
+      "order": 8.5,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "模型",
+          "name": "model",
+          "type": "MODEL",
+          "link": 101
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "模型",
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            102
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3TeaCache"
+      },
+      "widgets_values": [
+        0.15,
+        2,
+        -2,
+        8
+      ],
+      "title": "TeaCache (8步)"
     }
   ],
   "links": [
@@ -4754,10 +4796,10 @@
       "MODEL"
     ],
     [
-      91,
+      101,
       66,
+      70,
       0,
-      30,
       0,
       "MODEL"
     ],
@@ -4824,6 +4866,14 @@
       56,
       1,
       "BOOLEAN"
+    ],
+    [
+      102,
+      70,
+      0,
+      30,
+      "model",
+      "MODEL"
     ]
   ],
   "groups": [

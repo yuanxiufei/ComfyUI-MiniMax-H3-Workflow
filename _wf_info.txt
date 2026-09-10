@@ -1,0 +1,9 @@
+==== 06_shotlast_1216x832_Qwen2512_Fusion_01.json
+7|LoadImage|['02_分镜/第1集/第1集_镜01_首帧_写实CG融合_00001_.png', 'image']
+8|KSampler|[42, 'fixed', 30, 4.0, 'euler', 'normal']
+10|SaveImage|['02_分镜/第1集/第1集_镜01_尾帧_写实CG融合']
+==== 09_video_FL2VA_镜01_1280x736.json
+6|CreateVideo|[24, 8]
+7|SaveVideo|['02_分镜/第1集/第1集_镜01_成片_fl2v', 'auto', 'auto']
+38|LoadImage|['02_分镜/第1集/第1集_镜1_首帧_写实CG融合_00001_.png', 'image']
+39|LoadImage|['02_分镜/第1集/第1集_镜1_尾帧_写实CG融合_00001_.png', 'image']

@@ -1,0 +1,22 @@
+{
+  "good": {
+    "try": 0,
+    "seed": 42,
+    "pid": "891a14d6-a334-44ce-8050-c548b3ee63a9",
+    "status": "success",
+    "file": "c02_三视图_写实CG融合_00001_.png",
+    "sizeKB": 1052,
+    "ok": true
+  },
+  "results": [
+    {
+      "try": 0,
+      "seed": 42,
+      "pid": "891a14d6-a334-44ce-8050-c548b3ee63a9",
+      "status": "success",
+      "file": "c02_三视图_写实CG融合_00001_.png",
+      "sizeKB": 1052,
+      "ok": true
+    }
+  ]
+}
