@@ -275,10 +275,7 @@ def check_pid(pid, expect_steps):
 
 
 def main():
-    try:
-        sys.stdout.reconfigure(encoding="utf-8")
-    except Exception:
-        pass
+    import comfy_config  # noqa: F401  —— import 即把 stdout/stderr 统一为 UTF-8
     ap = argparse.ArgumentParser(description="校验 H3 r2v 加速配置是否真的生效（只读）")
     ap.add_argument("--workflow", default=DEF_WF, help="UI-format 工作流 JSON")
     ap.add_argument("--pid", default=None, help="额外核对这个 prompt_id 的实际参数")

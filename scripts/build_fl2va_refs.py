@@ -28,10 +28,7 @@ import sys
 
 import build_seamless_video as bsv
 
-try:
-    sys.stdout.reconfigure(encoding="utf-8")
-except Exception:
-    pass
+import comfy_config  # noqa: F401  —— import 即把 stdout/stderr 统一为 UTF-8
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, ".."))
@@ -461,20 +458,38 @@ def copy_to_input(comfy_root):
         return
     dst = os.path.join(comfy_root, "input", IMG_SUBDIR, EPISODE)
     os.makedirs(dst, exist_ok=True)
-    copied = 0
+    copied = skipped = 0
     for fn in os.listdir(src):
-        if fn.endswith(".png"):
-            shutil.copy2(os.path.join(src, fn), os.path.join(dst, fn))
-            copied += 1
-    print("已复制 %d 张首尾帧到 ComfyUI input：%s" % (copied, dst))
+        if not fn.endswith(".png"):
+            continue
+        s = os.path.join(src, fn)
+        d = os.path.join(dst, fn)
+        # 不拿 output 里的小文件覆盖 input 的大文件：Qwen 单镜偶发纯黑坏图（~7-13KB，
+        # 正常帧 ~1.2MB），黑图一旦回灌 input 就会让成片首尾黑屏（镜01 就是这么中招的）。
+        # 体积是这里唯一可用的廉价判据，且合法首尾帧尺寸恒定，降级覆盖没有正当场景。
+        if os.path.isfile(d) and os.path.getsize(d) >= os.path.getsize(s):
+            skipped += 1
+            continue
+        shutil.copy2(s, d)
+        copied += 1
+    print("已复制 %d 张首尾帧到 ComfyUI input：%s（跳过 %d 张不优于已有素材）" % (copied, dst, skipped))
 
 
 def main():
+    global VID_W, VID_H
     parser = argparse.ArgumentParser(description="按章节动态引入首尾帧，生成整集/单镜 FL2VA 工作流")
     parser.add_argument("--comfy-input", default=None)
     parser.add_argument("--shots", default=None)
+    parser.add_argument("--res", default=None,
+                        help="出片分辨率 WxH（默认 %dx%d）；快档用 864x480 出片后再本地超分" % (VID_W, VID_H))
     parser.add_argument("--no-turbo", action="store_true")
     args = parser.parse_args()
+
+    if args.res:
+        try:
+            VID_W, VID_H = (int(x) for x in args.res.lower().replace("*", "x").split("x"))
+        except ValueError:
+            raise SystemExit("--res 需要形如 864x480 的分辨率，收到：%s" % args.res)
 
     if not os.path.isfile(TEMPLATE):
         raise SystemExit("找不到 external_groups_i2v 模板：%s" % TEMPLATE)

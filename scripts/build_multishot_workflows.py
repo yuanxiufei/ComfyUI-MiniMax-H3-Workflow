@@ -6,8 +6,13 @@
 """
 import json
 import os
+import sys
 
-MS = r"D:\Comfy-Desktop\ComfyUI-Installs\ComfyUI\ComfyUI\custom_nodes\ComfyUI-H3-Multishot\workflows"
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import comfy_config as cc  # noqa: E402
+
+# 模板源：与实例共用同一共享池（原来指向另一套安装 ComfyUI-Installs\ComfyUI\ComfyUI）
+MS = os.path.join(cc.CUSTOM_NODES_DIR, "ComfyUI-H3-Multishot", "workflows")
 OUT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "workflows"))
 
 FL2VA_INT8 = "minimax_h3_fl2va_pruned_int8_convrot.safetensors"

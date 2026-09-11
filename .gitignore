@@ -19,3 +19,6 @@ tmp_img/
 # 可再生成的产物（由 pipeline / build 重建，不入库，防止大量 json 堆积仓库）
 output/
 workflows/singles/
+
+# 运行日志（每次跑都变，不入库；统一 UTF-8 写，见 scripts/comfy_config.py）
+scripts/*.log

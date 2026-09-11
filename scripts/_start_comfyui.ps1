@@ -4,15 +4,25 @@
 # 用法：powershell -NoProfile -ExecutionPolicy Bypass -File scripts\_start_comfyui.ps1
 $ErrorActionPreference = 'Stop'
 
-$PY     = 'D:\Comfy-Desktop\ComfyUI-Installs\ComfyUI-MiniMax-H3-Workflow\ComfyUI\.venv\Scripts\python.exe'
-$APP    = 'D:\Comfy-Desktop\ComfyUI-Installs\ComfyUI-MiniMax-H3-Workflow\ComfyUI\main.py'
-$CWD    = 'D:\Comfy-Desktop\ComfyUI-Installs\ComfyUI-MiniMax-H3-Workflow\ComfyUI'
-$MODELS = 'C:\Users\24969\AppData\Roaming\Comfy Desktop\instance-model-paths\inst-1788311613966.yaml'
-$IN     = 'D:\Comfy-Desktop\ComfyUI-Shared\input'
-$OUT    = 'D:\Comfy-Desktop\ComfyUI-Shared\output'
+# 路径默认值与 scripts\comfy_config.py 保持一致（桌面端那份安装 + 共享池）；
+# 可用环境变量 COMFY_INSTANCE_ROOT / COMFY_ROOT / COMFY_MODEL_PATHS_YAML 覆盖。
+$INST   = if ($env:COMFY_INSTANCE_ROOT) { $env:COMFY_INSTANCE_ROOT } else { 'D:\Comfy-Desktop\ComfyUI-Installs\ComfyUI-MiniMax-H3-Workflow\ComfyUI' }
+$SHARED = if ($env:COMFY_ROOT)          { $env:COMFY_ROOT }          else { 'D:\Comfy-Desktop\ComfyUI-Shared' }
+$PY     = Join-Path $INST '.venv\Scripts\python.exe'
+$APP    = Join-Path $INST 'main.py'
+$CWD    = $INST
+$MODELS = if ($env:COMFY_MODEL_PATHS_YAML) { $env:COMFY_MODEL_PATHS_YAML } else { 'C:\Users\24969\AppData\Roaming\Comfy Desktop\instance-model-paths\inst-1788311613966.yaml' }
+$IN     = Join-Path $SHARED 'input'
+$OUT    = Join-Path $SHARED 'output'
 $LOG_OUT = 'd:\code\voide\ComfyUI-MiniMax-H3-Workflow\scripts\_comfyui.out.log'
 $LOG_ERR = 'd:\code\voide\ComfyUI-MiniMax-H3-Workflow\scripts\_comfyui.err.log'
 $STATUS  = 'd:\code\voide\ComfyUI-MiniMax-H3-Workflow\scripts\_start_comfyui.status.log'
+
+# 实例日志统一 UTF-8：Python 默认按系统区域(cp936)编码 stdio，被重定向到文件后
+# 中文会变乱码。PYTHONUTF8 让实例直接按 UTF-8 写，与 scripts\comfy_config.py 同码。
+$env:PYTHONUTF8 = '1'
+$env:PYTHONIOENCODING = 'utf-8'
+[Console]::OutputEncoding = New-Object System.Text.UTF8Encoding($false)
 
 # 统一写 UTF8：Tee-Object 默认写 UTF-16，读起来是"二进制文件"，不利于排查
 function Log($msg) {

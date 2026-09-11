@@ -23,10 +23,7 @@ import shutil
 import sys
 from PIL import Image
 
-try:
-    sys.stdout.reconfigure(encoding="utf-8")
-except Exception:
-    pass
+import comfy_config  # noqa: F401  —— import 即把 stdout/stderr 统一为 UTF-8
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, ".."))

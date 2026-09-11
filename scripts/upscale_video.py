@@ -21,17 +21,16 @@ import time
 import urllib.parse
 import urllib.request
 
-# 超分进度也是中文：与 pipeline_video/submit_workflow 统一按 UTF-8 写，避免日志混合编码。
-try:
-    sys.stdout.reconfigure(encoding="utf-8")
-except Exception:
-    pass
+# 超分进度带中文：编码统一交给 import 时的 comfy_config.setup_stdio()
 
-HOST = os.environ.get("COMFY_HOST", "http://127.0.0.1:8188").rstrip("/")
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import comfy_config as cc  # noqa: E402   # 唯一配置源：host / 共享池根
+
+HOST = cc.HOST          # --host 仍可覆盖
 # ComfyUI 可见的 input/output 根目录（共享目录），用于放待超分帧 / 读结果。
 # 可用 --input-root --output-root 覆盖。
-DEFAULT_INPUT_ROOT = r"D:\Comfy-Desktop\ComfyUI-Shared\input"
-DEFAULT_OUTPUT_ROOT = r"D:\Comfy-Desktop\ComfyUI-Shared\output"
+DEFAULT_INPUT_ROOT = cc.INPUT_DIR
+DEFAULT_OUTPUT_ROOT = cc.OUTPUT_DIR
 MODEL_NAME = "4x-UltraSharp.pth"
 
 TIMEOUT = 30
@@ -60,7 +59,8 @@ def ffmpeg_exe():
 def probe_fps(inp):
     """用 ffmpeg -i 解析帧率(近似)。返回 float 或 None。"""
     ff = ffmpeg_exe()
-    p = subprocess.run([ff, "-hide_banner", "-i", inp], capture_output=True, text=True)
+    p = subprocess.run([ff, "-hide_banner", "-i", inp], capture_output=True,
+                       text=True, encoding="utf-8", errors="replace")
     txt = (p.stderr or "") + (p.stdout or "")
     import re
     hits = re.findall(r"([\d.]+)\s*fps", txt)
@@ -72,7 +72,8 @@ def probe_fps(inp):
 def probe_dims(inp):
     """解析分辨率 (w,h)。"""
     ff = ffmpeg_exe()
-    p = subprocess.run([ff, "-hide_banner", "-i", inp], capture_output=True, text=True)
+    p = subprocess.run([ff, "-hide_banner", "-i", inp], capture_output=True,
+                       text=True, encoding="utf-8", errors="replace")
     txt = (p.stderr or "") + (p.stdout or "")
     import re
     m = re.search(r"(\d{2,5})x(\d{2,5})", txt)
@@ -92,7 +93,8 @@ def extract_frames(inp, outdir, fps, frames=None):
         cmd = [ffmpeg_exe(), "-hide_banner", "-y", "-i", inp, "-vf", vf,
                "-frames:v", str(frames), "-start_number", "1",
                os.path.join(outdir, "f%05d.png")]
-    p = subprocess.run(cmd, capture_output=True, text=True)
+    p = subprocess.run(cmd, capture_output=True, text=True,
+                       encoding="utf-8", errors="replace")
     if p.returncode != 0:
         raise RuntimeError("抽帧失败: %s" % (p.stderr or p.stdout))
     return sorted(glob.glob(os.path.join(outdir, "f*.png")))
@@ -259,7 +261,7 @@ def upscale_video(inp, out, fps_override, frames, input_root, batch, prefix, kee
          "-i", inp, "-map", "0:v:0", "-map", "1:a?",
          "-c:v", "libx264", "-crf", "19", "-pix_fmt", "yuv420p",
          "-c:a", "copy", "-shortest", out],
-        capture_output=True, text=True)
+        capture_output=True, text=True, encoding="utf-8", errors="replace")
     if p.returncode != 0:
         raise RuntimeError("合成失败: %s" % (p.stderr or p.stdout))
     print("已输出: %s" % out)

@@ -18,20 +18,19 @@ Conversion strategy (robust vs. H3 template workflows):
 """
 import json
 import os
+import shutil
 import sys
 import time
 import urllib.request
+from urllib.parse import quote
 
-# 进度行也带中文：重定向到文件时统一按 UTF-8 写，否则会与 pipeline_video 的 UTF-8
-# 输出混在同一个日志里变成乱码（读日志的脚本/工具多半按 UTF-8 解析）。
-try:
-    sys.stdout.reconfigure(encoding="utf-8")
-    sys.stderr.reconfigure(encoding="utf-8")
-except Exception:
-    pass
+# 进度行带中文：编码统一交给 import 时的 comfy_config.setup_stdio()，
+# 这里不再各写一份（避免同一份日志里 GBK/UTF-8 混杂）。
+# ComfyUI 地址：统一取自 comfy_config（唯一配置源），仍可用环境变量 COMFY_HOST 覆盖。
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import comfy_config as _cc  # noqa: E402
 
-# ComfyUI 地址：默认本地 8188，可用环境变量 COMFY_HOST 覆盖（支持多实例/远程）。
-HOST = os.environ.get("COMFY_HOST", "http://127.0.0.1:8188").rstrip("/")
+HOST = _cc.HOST
 
 # ComfyUI "connection" input types (spec[0] is a bare uppercase string).
 CONNECTION_TYPES = {
@@ -62,6 +61,7 @@ def _post(path, data):
     except urllib.error.URLError as e:
         print("无法连接 ComfyUI (%s): %s" % (HOST, e.reason))
         print("请确认服务已启动、端口可用，且未被防火墙拦截。")
+        print("  拉起桌面端实例：python scripts/comfy_config.py --ensure（或 scripts\\_start_comfyui.bat）")
         raise SystemExit(1)
 
 
@@ -282,11 +282,7 @@ def do_dryrun(path):
     obj_info = get_object_info()
     api = ui_to_api(wf, obj_info)
     out = json.dumps(api, ensure_ascii=False, indent=2)
-    try:
-        sys.stdout.reconfigure(encoding="utf-8")
-    except Exception:
-        pass
-    print(out)
+    print(out)   # 编码已由 comfy_config.setup_stdio() 统一，无需再次 reconfigure
 
 
 _EXT_KIND = {
@@ -307,6 +303,17 @@ def _kind_of(key, filename):
     return _EXT_KIND.get(ext, key.rstrip("s"))
 
 
+def _view_url(filename, subfolder="", ftype="output"):
+    """构造 /view 下载地址：查询串按 UTF-8 百分号编码。
+
+    产物名/子目录带中文时（如 02_分镜/第1集/第1集_镜01_成片_fl2v_00001_.mp4），
+    原样拼进 URL 会让 http.client 按 ascii 编码请求行而抛
+    "'ascii' codec can't encode character ..."，产物就永远下载不回来。
+    """
+    return "%s/view?filename=%s&subfolder=%s&type=%s" % (
+        HOST, quote(filename, safe=""), quote(subfolder or "", safe=""), quote(ftype or "output", safe=""))
+
+
 def _collect_outputs(item):
     """从 history 条目收集产物（images/videos/gifs/audio 等），返回列表。"""
     outs = []
@@ -316,10 +323,11 @@ def _collect_outputs(item):
                 continue
             for it in lst:
                 if isinstance(it, dict) and it.get("filename"):
-                    url = ("%s/view?filename=%s&subfolder=%s&type=%s"
-                           % (HOST, it["filename"], it.get("subfolder", ""), it.get("type", "output")))
+                    sub = it.get("subfolder", "") or ""
+                    ftype = it.get("type", "output") or "output"
                     outs.append({"kind": _kind_of(key, it["filename"]), "node": nid,
-                                 "filename": it["filename"], "url": url})
+                                 "filename": it["filename"], "subfolder": sub, "type": ftype,
+                                 "url": _view_url(it["filename"], sub, ftype)})
     return outs
 
 
@@ -345,30 +353,61 @@ def do_check(pid):
         print("状态: %s" % sts)
 
 
-def _download(url, dest):
-    """下载产物到本地文件（供盯守成功后自动落盘使用）。"""
+def _download(url, dest, fallback_rel=None):
+    """下载产物到本地文件（供盯守成功后自动落盘使用）。返回是否落盘成功。
+
+    失败时若给了 fallback_rel（= <subfolder>/<filename>），回退到共享池
+    COMFY_ROOT/output 下直接拷贝：服务与共享池同机（comfy_config 的约定），
+    HTTP 这条路走不通时仍然能把成片拿回来。必须返回真实结果——曾出现下载异常
+    被吞掉、清单照写、还打印"已收集 1 个产物"的假成功，下游以为成片已就位。
+    """
     try:
         req = urllib.request.Request(url, headers={"User-Agent": "codebuddy"})
         with urllib.request.urlopen(req, timeout=120) as r, open(dest, "wb") as f:
             f.write(r.read())
+        return True
     except Exception as e:  # noqa: BLE001 网络/IO 失败只提示不中断
         print("  下载失败 %s -> %s" % (url, e))
+    if not fallback_rel:
+        return False
+    src = os.path.join(_cc.OUTPUT_DIR, fallback_rel)
+    if not os.path.isfile(src):
+        print("  本地回退源不存在：%s" % src)
+        return False
+    try:
+        shutil.copy2(src, dest)
+        print("  已回退本地拷贝：%s" % src)
+        return True
+    except OSError as e:
+        print("  本地拷贝失败 %s -> %s" % (src, e))
+        return False
 
 
 def _collect_to_dir(outs, collect_dir):
-    """把盯守得到的产物列表下载落盘到 collect_dir，并写 collect_manifest.json。"""
+    """把盯守得到的产物落盘到 collect_dir，并写 collect_manifest.json。
+
+    返回 (成功数, 失败文件名列表)；manifest 每条带 downloaded 标记。
+    """
     os.makedirs(collect_dir, exist_ok=True)
-    manifest = []
+    manifest, failed = [], []
     for o in outs:
         fn = o["filename"]
+        sub = o.get("subfolder", "") or ""
         dest = os.path.join(collect_dir, fn)
-        _download(o["url"], dest)
-        manifest.append({"filename": fn, "subfolder": o.get("subfolder", ""),
-                         "kind": o["kind"], "url": o["url"], "saved": dest})
+        ok = _download(o["url"], dest, fallback_rel=os.path.join(sub, fn) if sub else fn)
+        if not ok:
+            failed.append(fn)
+        manifest.append({"filename": fn, "subfolder": sub, "kind": o["kind"],
+                         "url": o["url"], "saved": dest, "downloaded": ok})
     mf = os.path.join(collect_dir, "collect_manifest.json")
     with open(mf, "w", encoding="utf-8") as f:
         json.dump(manifest, f, ensure_ascii=False, indent=2)
-    print("已收集 %d 个产物到 %s（清单 %s）" % (len(manifest), collect_dir, mf))
+    if failed:
+        print("已收集 %d/%d 个产物到 %s；失败：%s（清单 %s）"
+              % (len(manifest) - len(failed), len(manifest), collect_dir, "、".join(failed), mf))
+    else:
+        print("已收集 %d 个产物到 %s（清单 %s）" % (len(manifest), collect_dir, mf))
+    return len(manifest) - len(failed), failed
 
 
 def _fmt_sec(sec):
@@ -424,7 +463,10 @@ def do_watch(pid, poll=10, timeout=3600, collect_dir=None):
                 if not outs:
                     print("  （无产物条目，请检查输出节点）")
                 if collect_dir:
-                    _collect_to_dir(outs, collect_dir)
+                    _, failed = _collect_to_dir(outs, collect_dir)
+                    if failed:
+                        print("  [!] %d 个产物未落盘（生成本身是成功的，文件仍在 ComfyUI output；"
+                              "清单里对应 downloaded=false）" % len(failed))
                 return 0
             if sts == "error":
                 errmsg = st.get("messages") or st

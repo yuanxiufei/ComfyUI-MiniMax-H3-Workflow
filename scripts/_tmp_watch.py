@@ -65,8 +65,5 @@ def main():
 
 
 if __name__ == "__main__":
-    try:
-        sys.stdout.reconfigure(encoding="utf-8")
-    except Exception:
-        pass
+    import comfy_config  # noqa: F401  —— 统一 stdout/stderr 为 UTF-8
     main()

@@ -24,15 +24,14 @@ import subprocess
 import sys
 import time
 
-try:
-    sys.stdout.reconfigure(encoding="utf-8")
-except Exception:
-    pass
+# 编码不在这里管：import comfy_config 时已统一把 stdout/stderr 设为 UTF-8
+# （唯一策略入口见 comfy_config.setup_stdio）。
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, ".."))
 sys.path.insert(0, HERE)
 import drama_tools as dt  # noqa: E402
+import comfy_config as cc  # noqa: E402   # 唯一配置源：host / 共享池根 / 实例根
 
 WORKFLOWS = os.path.join(ROOT, "workflows")
 
@@ -44,7 +43,7 @@ CHAR_PREFIX = "00_角色素材"
 SCENE_PREFIX = "01_场景素材"
 VID_W, VID_H = 1280, 736
 
-DEFAULT_COMFY_ROOT = r"D:\Comfy-Desktop\ComfyUI-Shared"
+DEFAULT_COMFY_ROOT = cc.SHARED_ROOT        # 唯一配置源（scripts/comfy_config.py）
 
 # mode -> builder 脚本 / 产物关键字 / 模板相对路径
 BUILDERS = {
@@ -125,8 +124,15 @@ def scene_ref_resolved(sb, scene_map, comfy_root):
 
 
 def _exists(root, rel):
-    """素材是否已生成在 ComfyUI 的 output/<rel>（相对路径，subfolder）。"""
-    return os.path.isfile(os.path.join(root, "output", rel))
+    """素材是否已就绪（相对路径，subfolder）。
+
+    LoadImage 消费端只读 ComfyUI **input**，而 gen_shots_images 正是把首尾帧落到
+    input/02_分镜/<集>/ 的（output 只是生成中转，可能被清理）。若只认 output，
+    就会出现「input 里明明有好素材、却被判缺失」而硬阻断真正提交（镜02 尾帧即此情形）。
+    故 input 优先、output 兜底：r2v 的角色/场景参考图通常只在 output，仍能命中。
+    """
+    return (os.path.isfile(os.path.join(root, "input", rel))
+            or os.path.isfile(os.path.join(root, "output", rel)))
 
 
 # ---------- 硬阻断式校验 ----------
@@ -194,18 +200,11 @@ def build_prev_tail_arg(shots, storyboards=None):
 def _retry_run(cmd, retry=1, task=""):
     """执行子进程命令，失败可自动重试（抗显存/网络瞬态失败）。返回 returncode。
 
-    retry：允许执行的总次数（≥1）。build 这种易受 GPU/资源瞬时影响的步骤，
-    重试能显著降低「一次失败就全断」的概率。
+    retry：允许执行的总次数（≥1）。统一走 comfy_config.run —— 子进程注入
+    UTF-8 环境、输出与父进程同码，日志不再出现混杂乱码；命令行由调用方打印
+    （各调用点已打印 `$ ...`），故 echo=False 保持输出不重复。
     """
-    last = 1
-    for i in range(max(1, retry)):
-        r = subprocess.run(cmd, cwd=ROOT, encoding="utf-8")
-        if r.returncode == 0:
-            return 0
-        last = r.returncode
-        if i < retry - 1:
-            print("  [!] %s 失败(rc=%d)，第 %d/%d 次重试..." % (task or "步骤", r.returncode, i + 2, retry))
-    return last
+    return cc.run(cmd, cwd=ROOT, retry=retry, task=task, echo=False)
 
 
 def run_build(mode, comfy_root, shots, no_turbo, prev_tail_arg=None, retry=1, res=None):
@@ -213,13 +212,14 @@ def run_build(mode, comfy_root, shots, no_turbo, prev_tail_arg=None, retry=1, re
 
     prev_tail_arg：形如 "03:<上一镜成片绝对路径>" 的 --prev-tail 值；用于 r2v 链式衔接。
     retry：build 失败自动重试次数。
-    res：r2v 出片分辨率 WxH（如 864x480 快档：像素降 57%，出片后可本地超分）；None 用 builder 默认。
+    res：出片分辨率 WxH（如 864x480 快档：像素降 57%，出片后可本地超分）；None 用 builder 默认。
+         r2v / fl2va 都支持（fl2va 由 Director 时间线的 width/height 决定出片尺寸）。
     """
     builder = os.path.join(HERE, BUILDERS[mode])
     cmd = [sys.executable, builder, "--comfy-input", comfy_root]
     if shots:
         cmd += ["--shots", shots]
-    if res and mode == "r2v":
+    if res and mode in ("r2v", "fl2va"):
         cmd += ["--res", res]
     if prev_tail_arg and mode == "r2v":
         cmd += ["--prev-tail", prev_tail_arg]
@@ -257,7 +257,7 @@ def do_submit_and_watch(wf, submit_real, watch, poll, timeout, collect_dir=None,
     print("  $", " ".join(cmd))
     last = 1
     for i in range(max(1, retry)):
-        rc = subprocess.run(cmd, cwd=ROOT, encoding="utf-8").returncode
+        rc = cc.run(cmd, cwd=ROOT, echo=False)
         if rc == 0:
             return 0
         last = rc
@@ -514,9 +514,9 @@ def main():
                    help="ComfyUI 根目录（默认环境变量 COMFY_ROOT 或内置路径）")
     p.add_argument("--no-turbo", action="store_true", help="不插 turbo LoRA、保持 25 步（i2v/fl2va）")
     p.add_argument("--res", default=None,
-                   help="r2v 出片分辨率 WxH（如 864x480 快档）；默认 1280x736")
+                   help="出片分辨率 WxH（r2v/fl2va 均支持，如 864x480 快档）；默认 1280x736")
     p.add_argument("--fast", action="store_true",
-                   help="加速档一键：r2v 出片降到 %s 并自动超分到 %s（像素约为高分的 4 成，采样近乎减半）"
+                   help="加速档一键：出片降到 %s（r2v/fl2va）并自动超分到 %s（像素约为高分的 4 成，采样近乎减半）"
                         % (FAST_RES, FAST_UPSCALE))
     p.add_argument("--upscale", action="store_true",
                    help="出片后用本地 4x-UltraSharp 逐帧超分（不依赖任何 API）")
@@ -580,9 +580,9 @@ def main():
     # 2. 校验素材（真正提交时硬阻断；dryrun 仅提示，便于全链预览）
     missing = validate_storyboard(args.mode, storyboards, comfy_root)
     if missing:
-        print("\n[素材风险] 以下素材未在 ComfyUI output 生成：")
+        print("\n[素材风险] 以下素材未在 ComfyUI input/output 找到：")
         for m in missing:
-            print("   - output/%s" % m)
+            print("   - %s" % m)
         if args.submit_real:
             print("[中断] 真正提交需备齐素材，请先跑图片层生成这些图。")
             return 2

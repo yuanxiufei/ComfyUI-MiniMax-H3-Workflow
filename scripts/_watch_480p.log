@@ -1,5 +1,0 @@
-盯守 prompt_id: 3305fd7d-8071-4c6b-9c37-c2f3975b9032（每 20s 查一次，超时 1800s）
-完成（耗时约 0s）。产物:
-  [video] MiniMaxH3_Director_external_r2v_00013_.mp4
-  http://127.0.0.1:8188/view?filename=MiniMaxH3_Director_external_r2v_00013_.mp4&subfolder=video&type=output
-已收集 1 个产物到 artifacts\shot02_r2v_480p（清单 artifacts\shot02_r2v_480p\collect_manifest.json）

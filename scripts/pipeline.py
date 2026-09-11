@@ -20,21 +20,22 @@
 用法:
     python scripts/pipeline.py --dryrun --all                 # 全链，结尾只离线转换（安全）
     python scripts/pipeline.py --step voice --dryrun          # 只跑音色绑定
-    python scripts/pipeline.py --all --submit-real            # 结尾真正提交到 ComfyUI（消耗算力）
+    python scripts/pipeline.py --all --submit-real            # 真正提交到 ComfyUI（会自动确保桌面端实例在跑）
     python scripts/pipeline.py --all --validate --retry 2 --log output/pipeline.log
+    python scripts/comfy_config.py --ensure                   # 只确认/拉起桌面端实例（幂等，可单独用）
 """
 
 import argparse
 import glob
 import json
 import os
-import subprocess
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 import drama_tools as dt  # noqa: E402
+import comfy_config as cc  # noqa: E402   # 唯一配置源：host / 共享池根 / 实例根
 
 WORKFLOWS = os.path.join(ROOT, "workflows")
 BUILD = os.path.join(HERE, "build_new_workflows.py")
@@ -46,21 +47,12 @@ EPISODE = "第1集"
 
 
 def _run(cmd, retry=1, task=""):
-    """在项目根执行命令，打印输出，失败可自动重试，返回 returncode。
+    """在项目根执行命令，失败可自动重试，返回 returncode。
 
-    retry：单条命令允许执行的总次数（≥1）。build/submit/video 这类易受
-    显存/网络瞬时影响的步骤，重试能显著降低「一次失败就全断」的概率。
+    统一走 comfy_config.run：子进程注入 UTF-8 环境（PYTHONUTF8），日志不会再
+    出现「父按 UTF-8 读、子按 GBK 写」的混杂乱码。retry 是允许执行的总次数。
     """
-    print("  $", " ".join(cmd))
-    last = 1
-    for i in range(max(1, retry)):
-        r = subprocess.run(cmd, cwd=ROOT, encoding="utf-8")
-        if r.returncode == 0:
-            return 0
-        last = r.returncode
-        if i < retry - 1:
-            print(f"  [!] {task or '步骤'} 失败(rc={r.returncode})，第 {i + 2}/{retry} 次重试...")
-    return last
+    return cc.run(cmd, cwd=ROOT, retry=retry, task=task or "步骤")
 
 
 class _Tee:
@@ -331,6 +323,9 @@ def main():
     p.add_argument("--submit-real", action="store_true",
                    help="submit 环节真正提交到 ComfyUI（默认仅 dryrun 离线转换）")
     p.add_argument("--dryrun", action="store_true", help="等价于不传 --submit-real（默认安全）")
+    p.add_argument("--ensure-service", action="store_true",
+                   help="先确认桌面端 ComfyUI 实例在跑，离线则自动拉起并等就绪"
+                        "（--submit-real 时默认开启）")
     # video 阶段透传项
     p.add_argument("--video-mode", choices=["i2v", "fl2va", "r2v"], default="fl2va",
                    help="视频模式（默认 fl2va 首尾帧）")
@@ -348,6 +343,13 @@ def main():
         logf = open(args.log, "a", encoding="utf-8")
         sys.stdout = _Tee(logf)
         print(f"\n[log] 本次 pipeline 输出写入 {args.log}")
+
+    # 生成任务都跑在本地 ComfyUI 上：真实提交前先确认实例在跑，
+    # 免得跑到 submit 环节才发现连不上、白等一轮长队列。
+    if args.ensure_service or args.submit_real:
+        print("\n== 检查 ComfyUI 桌面端实例 ==")
+        cc.describe()
+        cc.require_service(auto_start=True)
 
     try:
         if args.step:
